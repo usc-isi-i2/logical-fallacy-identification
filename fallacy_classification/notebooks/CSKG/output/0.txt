@@ -1,0 +1,18 @@
+digraph "AMR-Graph" {
+	rankdir=TB
+	n [label=name]
+	395 [label="\"SpaCy\""]
+	n -> 395 [label=":op1"]
+	p [label=product]
+	n [label=name]
+	p -> n [label=":name"]
+	e [label="extend-01"]
+	p [label=product]
+	e -> p [label=":ARG1"]
+	t [label="test-01"]
+	e [label="extend-01"]
+	t -> e [label=":ARG1"]
+	t [label="test-01"]
+	t2 [label=this]
+	t -> t2 [label=":domain"]
+}
