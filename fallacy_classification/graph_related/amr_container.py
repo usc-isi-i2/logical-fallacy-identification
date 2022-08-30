@@ -14,13 +14,12 @@ class AMR_Container:
     """
 
     def __init__(self, sentence: str = None, graph_str: str = None) -> None:
-        if sentence is not None:
-            self.sentence = sentence
+        self.sentence = sentence
+        if graph_str is None:
             self.graph_str = self.generate_amr()
-        elif graph_str is not None:
-            self.graph_str = graph_str
         else:
-            raise NotImplementedError()
+            self.graph_str = graph_str
+
         self.graph_viz = self.generate_graphviz()
         self.graph_nx = self.generate_networkx()
 
@@ -61,7 +60,7 @@ class AMR_Container:
 
 if __name__ == "__main__":
     sentence = "she is the best because everybody loves her."
-    amr = AMR(
+    amr = AMR_Container(
         sentence=sentence
     )
 
