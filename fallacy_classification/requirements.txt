@@ -1,3 +1,5 @@
+pathlib
+pydotplus
 absl-py==1.0.0
 aiohttp==3.8.1
 aiosignal==1.2.0
