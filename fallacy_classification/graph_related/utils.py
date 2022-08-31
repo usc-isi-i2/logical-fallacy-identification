@@ -1,6 +1,7 @@
 from typing import Any, List
 import networkx as nx
 import joblib
+import json
 import pandas as pd
 import os
 import re
@@ -19,7 +20,7 @@ PATH_TO_SENTENCES_AMR_OBJECTS = ((Path(__file__).parent) /
                                  "tmp/sentences_with_AMR_container_objects.joblib").absolute()
 
 
-PATH_TO_MASKED_SENTENCES_AMR_AMRS = ((Path(__file__).parent) /
+PATH_TO_MASKED_SENTENCES_AMRS = ((Path(__file__).parent) /
                                      "tmp/masked_sentences_with_AMR_container_objects.joblib").absolute()
 
 
@@ -122,23 +123,16 @@ def read_amr_graph(path: Path) -> List[AMR_Container]:
     print(n, len(raw_sentences), len(amr_sentences))
     return graphs
 
+def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
+    if os.path.exists(PATH_TO_MASKED_SENTENCES_AMRS):
+        results = joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
+        return results
 
-if __name__ == "__main__":
-    # if os.path.exists(PATH_TO_SENTENCES_AMR_OBJECTS):
-    #     graphs = joblib.load(PATH_TO_SENTENCES_AMR_OBJECTS)
-    # else:
-    #     graphs = read_amr_graph(path=PATH_TO_TRAIN_DATA)
-    #     joblib.dump(
-    #         graphs,
-    #         PATH_TO_SENTENCES_AMR_OBJECTS
-    #     )
-    # embed()
-
-    df = pd.read_csv('data/edu_train.csv')
+    df = pd.read_csv(csv_path)
 
     results = []
 
-    for index, (row, data) in tqdm(enumerate(df.iterrows()), leave=False):
+    for _, (_, data) in tqdm(enumerate(df.iterrows()), leave=False):
 
         label = data["updated_label"]
         masked_article = data["masked_articles"]
@@ -159,5 +153,36 @@ if __name__ == "__main__":
         ])
     joblib.dump(
         results,
-        PATH_TO_MASKED_SENTENCES_AMR_AMRS
+        PATH_TO_MASKED_SENTENCES_AMRS
     )
+
+
+def generate_all_edge_lists():
+    results = get_amr_labels_from_csv_file(csv_path='data/edu_train.csv')
+    for index, result in tqdm(enumerate(results), leave = False):
+        digraph = result[1].graph_nx
+        edge_list = get_edgelist(digraph)
+        with open(os.path.join("tmp", "edge_lists", f"{index}.json"), 'w') as f:
+            json.dump({
+                "edges": edge_list
+                }, f)
+
+
+    
+
+
+
+if __name__ == "__main__":
+    # if os.path.exists(PATH_TO_SENTENCES_AMR_OBJECTS):
+    #     graphs = joblib.load(PATH_TO_SENTENCES_AMR_OBJECTS)
+    # else:
+    #     graphs = read_amr_graph(path=PATH_TO_TRAIN_DATA)
+    #     joblib.dump(
+    #         graphs,
+    #         PATH_TO_SENTENCES_AMR_OBJECTS
+    #     )
+    # embed()
+
+    
+    generate_all_edge_lists()
+

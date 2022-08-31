@@ -5,13 +5,19 @@ import networkx as nx
 import amrlib
 from amrlib.graph_processing.amr_plot import *
 import graphviz    # sudo apt install graphviz; pip3 install graphviz
-
+import torch
 
 class AMR_Container:
     """
     its instances will contain the AMR representation of the sentences. 
     https://github.com/bjascob/amrlib
     """
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    try:
+        stog_model = amrlib.load_stog_model(device = device)
+    else:
+        device = "cpu"
+        stog_model = amrlib.load_stog_model(device = device)
 
     def __init__(self, sentence: str = None, graph_str: str = None) -> None:
         self.sentence = sentence
@@ -30,8 +36,7 @@ class AMR_Container:
         Returns:
             str: AMR representation of the sentence
         """
-        stog = amrlib.load_stog_model()
-        graph = stog.parse_sents([self.sentence])[0]
+        graph = self.stog_model.parse_sents([self.sentence])[0]
         return graph
 
     def generate_graphviz(self) -> graphviz.Digraph:
@@ -60,9 +65,15 @@ class AMR_Container:
 
 if __name__ == "__main__":
     sentence = "she is the best because everybody loves her."
-    amr = AMR_Container(
+    amr1 = AMR_Container(
         sentence=sentence
     )
 
+    sentence = "she is the best because everybody loves her."
+    amr2 = AMR_Container(
+        sentence=sentence
+    )
     embed()
     exit()
+
+
