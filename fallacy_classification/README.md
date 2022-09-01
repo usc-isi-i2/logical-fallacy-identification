@@ -1,4 +1,4 @@
-# fallacy detection 
+
 # Fallacy Classification
 
 This folder contains the scripts and the associated notebooks with the experiments performed on the classification of fallacy on a coarse-grained and fine-grained level. 
