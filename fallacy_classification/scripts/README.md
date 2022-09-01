@@ -36,6 +36,9 @@ python eval_roBERTa.py
 ### Attributes description 
 
 `-ts`:path to the test file 
+    * subroutinization turned on  
+    * strict error-reporting  
+    * GlyphOrderAndAliasDB is applied 
 
 `-mn`: name of the model
      * Usually its roberta-base 
