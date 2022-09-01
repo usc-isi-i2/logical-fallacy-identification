@@ -64,4 +64,9 @@ python eval_roBERTa.py
  
  `-op`: The number of prediction classes that are being dealt with in classification. 
       * Its is 2 for fine-grained classification and 3 for the coarse-grained classification 
+      
+  `-r`: release mode  
+    * subroutinization turned on  
+    * strict error-reporting  
+    * GlyphOrderAndAliasDB is applied   
 
