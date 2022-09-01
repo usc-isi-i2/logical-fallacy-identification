@@ -10,7 +10,7 @@ This folder contains the scripts and the associated notebooks with the experimen
     ├── Fallacy Classification        # Codebase for experiments on fallacy Classification 
     └── Propaganda Detection.         # Codebase for experiments regarding propaganda detection 
 
-### Directory Layout Format 
+### Directory Layout Format to be followed
 
     ├── Data       # Data associated with the folder 
     ├── Notebooks  # Folder for associated Jupyter Notebooks
