@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ### OR 
 
 ```bash
-conda env --name fallacy_identification --file -r requirements.txt 
+conda create --name fallacy_identification --file -r requirements.txt 
 conda activate fallacy_identification 
 ``` 
 
