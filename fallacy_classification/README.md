@@ -18,15 +18,17 @@ This folder contains the scripts and the associated notebooks with the experimen
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the required packages for running the scripts for the training and evaluation of RoBERTa for classification.
 
 ```bash
-pip install -r requirements.txt 
+conda create --name fallacy_identification --file -r requirements.txt 
+conda activate fallacy_identification 
 ``` 
 
 ### OR 
 
 ```bash
-conda create --name fallacy_identification --file -r requirements.txt 
-conda activate fallacy_identification 
+pip install -r requirements.txt 
 ``` 
+
+
 
 
 
