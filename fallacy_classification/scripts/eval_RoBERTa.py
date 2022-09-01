@@ -1,15 +1,17 @@
+# Importing the libraries needed
 import pandas as pd
 import torch
 import transformers
 from torch.utils.data import Dataset, DataLoader
 from transformers import RobertaModel, RobertaTokenizer
 import numpy as np
-from tqdm import tqdm
-from torch import cuda 
-import argparse
+from tqdm import tqdm 
 from sklearn.metrics import classification_report,  confusion_matrix
+from torch import cuda
+import argparse 
 
 device = 'cuda' if cuda.is_available() else 'cpu'
+
 
 class LogicalFallacy(Dataset):
     """
@@ -34,6 +36,7 @@ class LogicalFallacy(Dataset):
         self.targets = dataset[target_attr]
         self.max_len = max_len
        
+
     def __len__(self):
         return len(self.text)
 
@@ -52,8 +55,11 @@ class LogicalFallacy(Dataset):
         ids = inputs['input_ids']
         mask = inputs['attention_mask']
         token_type_ids = inputs["token_type_ids"]
+        
+
         return {
             'sentence': text,
+            
             'ids': torch.tensor(ids, dtype=torch.long),
             'mask': torch.tensor(mask, dtype=torch.long),
             'token_type_ids': torch.tensor(token_type_ids, dtype=torch.long),
@@ -69,7 +75,7 @@ class RobertaClass(torch.nn.Module):
     """
     def __init__(self, output_params, model_name):
         super(RobertaClass, self).__init__()
-        self.l1 = RobertaModel.from_pretrained(model_name)
+        self.l1 = RobertaModel.from_pretrained("roberta-base")
         self.pre_classifier = torch.nn.Linear(768, 768)
         self.dropout = torch.nn.Dropout(0.3)
         self.classifier = torch.nn.Linear(768, output_params)
@@ -82,30 +88,32 @@ class RobertaClass(torch.nn.Module):
         pooler = torch.nn.ReLU()(pooler)
         pooler = self.dropout(pooler)
         output = self.classifier(pooler)
+   
         return output
+
 
 def calcuate_accu(big_idx, targets):
     """
     Function to calculate Accuracy
     """
+   
     n_correct = (big_idx==targets).sum().item()
     return n_correct
 
-def generate_classification_report(preds, targets): 
+def generate_classification_report(preds, targets, unique_labels): 
     """
     Function to generate the classification report
     """
 
-    target_names = ['fallacy of relevance', 'component fallacy', 'fallacy of ambiguity'] 
-
-    print(classification_report(targets, preds, target_names=target_names, digits=4))
+    print(classification_report(targets, preds, target_names=unique_labels, digits=4))
     cm = confusion_matrix(targets, preds) 
     print("Confusion Matrix: ")
     print(cm)
   
     print("Per class Accuracy: ", cm.diagonal()/cm.sum(axis=1) ) 
 
-def predict(loader, model_path, epochs=1):
+
+def predict(loader, model_path, output_params, model_name,device_no, epochs=1):
     """
     Attributes:
     1. loader - LogicalFallacy 
@@ -115,6 +123,9 @@ def predict(loader, model_path, epochs=1):
     """
     val, og_val = [], [] 
     model = torch.load(model_path)
+    torch.cuda.set_device(device_no)
+    torch.cuda.empty_cache() 
+    model.to(device)
     model.eval()
     loss_function = torch.nn.CrossEntropyLoss()
     test_answers = [[[],[]], [[],[]]]
@@ -150,44 +161,59 @@ def predict(loader, model_path, epochs=1):
         
     return accuracy, val, og_val
                                                                 
+def get_unique_labels(dataset, class_label):
+  unique_labels = dataset[class_label].unique().tolist() 
+  return unique_labels
 
-def driver_code(test_file, model_path, model_name, tokenizer, input_attr, target_attr, device=0,  max_len=256, test_batch_size=4):
-   
+       
+def driver_code(test_file, model_path, model_name, input_attr,  target_attr, tokenizer_name, class_label, output_params, device_no, max_len=256, valid_batch_size=4):
+    tokenizer = RobertaTokenizer.from_pretrained(tokenizer_name, truncation=True, do_lower_case=True)
+
+    print("------Reading Test File------")
     test_df = pd.read_csv(test_file)
-    
+    unique_labels = get_unique_labels(test_df, class_label)
+    print("------Tokenizing Test Data------")
     test_set = LogicalFallacy(test_df, tokenizer, max_len, input_attr, target_attr)
 
-    test_params = {'batch_size': test_batch_size,
+    test_params = {'batch_size': valid_batch_size,
                 'shuffle': True,
                 'num_workers': 0
                 }
     
     test_loader = DataLoader(test_set, **test_params)
 
-    value, preds, targets = predict(test_loader, model_path)
+   
+    print("------Running Evaluation------")
+   
+    value, preds, targets = predict(test_loader, model_path, output_params, tokenizer_name, device_no)
+    print("\n\n\n")
     print("Model Name: ", model_name)
     print("Accuracy of the model: ", value) 
     print("Classification Report: ")
-    generate_classification_report(preds, targets)
-
-if __name__ =="__main__": 
+    generate_classification_report(preds, targets, unique_labels)
+    
+if __name__ == '__main__': 
   parser = argparse.ArgumentParser()
-  parser.add_argument('--ts', '--test_file', help = "Path to the test file") 
-  parser.add_argument('--mn', '--model_name', help="Name of the model") 
-  parser.add_argument('--mp', '--model_path', help="Path to the saved model") 
-  parser.add_argument('--tk', '--tokenizer', help="Name of the tokenizer") 
+  parser.add_argument('-ts', '--test_file', help = "Path to the test file") 
+  parser.add_argument('-mn', '--model_name', help="Name of the model") 
+  parser.add_argument('-mp', '--model_path', help="Path to the saved model") 
+  parser.add_argument('-tk', '--tokenizer', help="Name of the tokenizer") 
   parser.add_argument('-ia', '--input_attr', help="Input text field name") 
-  parser.add_argument('-ta', '--target_attr', help="Target Attribute field")
+  parser.add_argument('-ta', '--target_attr', help="Target label field") 
+  parser.add_argument('-cl', '--class_label', help="Target class label")
   parser.add_argument('-d', '--device', help="device number", default=0)
   parser.add_argument('-op', '--output_params_num', help="Number of prediction class labels")
-    
   args = parser.parse_args()
 
   driver_code(
-      args.test_file,  
-      args.model_path, 
-      args.model_name, 
-      args.tokenizer, 
-      args.input_attr, 
-      args.target_attr, 
-      args.device)
+    args.test_file, 
+    args.model_path, 
+    args.model_name, 
+    args.input_attr, 
+    args.target_attr,
+    args.tokenizer,
+    args.class_label,
+    int(args.output_params_num), 
+    int(args.device)
+  )
+
