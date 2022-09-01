@@ -41,32 +41,27 @@ python eval_roBERTa.py
     * GlyphOrderAndAliasDB is applied 
 
 `-mn`: name of the model
-     * Usually its roberta-base 
+    * Usually its roberta-base 
        
 `-mp`:path to the trained model 
 
 `-tk`: name of the tokenizer 
-     * Usually its roberta-base
+    * Usually its roberta-base
        
 `-ia`: input attribute name
-     * Input text attribute field. 
-     * Could be either among 'source_article' (sentence), 'clean_prompt' (sentence + prompt), 'cleaner_prompt' (prompt) depending on which input the model has been trained over. 
+    * Input text attribute field. 
+    * Could be either among 'source_article' (sentence), 'clean_prompt' (sentence + prompt), 'cleaner_prompt' (prompt) depending on which input the model has been trained over. 
        
 `-ta`: target attribute name
-     * Usually, this is the numerical label value assigned to the classes that are being classified. 
-     * Its the 'label' field in the dataset ( for binary classification for the fine-grained classifier) or the 'mapped_label' (as in the coarse-grained classifier) 
+    * Usually, this is the numerical label value assigned to the classes that are being classified. 
+    * Its the 'label' field in the dataset ( for binary classification for the fine-grained classifier) or the 'mapped_label' (as in the coarse-grained classifier) 
 
 `-cl`: the class attribute name 
-     * This is the name of the attribute that constitutes to the string value of the classes of fallacy 
-     * Its the 'updated_label' ( for binary classification) or the 'broad_class' for the (coarse-grained classifier)
+    * This is the name of the attribute that constitutes to the string value of the classes of fallacy 
+    * Its the 'updated_label' ( for binary classification) or the 'broad_class' for the (coarse-grained classifier)
        
  `-d`: the CUDA device number to mount the loaded model onto. 
  
  `-op`: The number of prediction classes that are being dealt with in classification. 
-      * Its is 2 for fine-grained classification and 3 for the coarse-grained classification 
+     * Its is 2 for fine-grained classification and 3 for the coarse-grained classification 
       
-  `-r`: release mode  
-    * subroutinization turned on  
-    * strict error-reporting  
-    * GlyphOrderAndAliasDB is applied   
-
