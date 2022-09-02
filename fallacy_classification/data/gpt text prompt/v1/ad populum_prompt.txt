@@ -1,0 +1,76 @@
+sentence 1:Fortnite is the best game ever. Everyone is playing it!
+Population: Everyone 
+Belief: playing Fornite
+Claim: best game ever 
+### 
+sentence 2: In the court trial deliberations, Juror Seven says, \"There are still eleven of us who think he's guilty. You're alone.\" His attempt to use numbers to persuade Eight is:
+Population: eleven of us 
+Belief: he is guilty
+Claim: He’s guilty
+### 
+sentence 3: Marcus wants to go to a small community college close to home, but most of the kids in his class are applying to larger colleges out of state. Marcus decides that he should also apply to those colleges.
+Population: most of the kids in his class
+Belief: applying to larger colleges
+Claim: decides to apply to larger colleges. 
+### 
+sentence 4: The majority of people believe advertisers should spend more money on billboards, so billboards are objectively the best form of advertisement.
+Population:majority of people 
+Belief: advertisers should spend more money on billboards
+Claim: billboards are the best form of advertisement
+### 
+sentence 5: \"How could you not believe in ghosts? Roughly two billon people believe in them, so don't you think you should reconsider your opinion?\"
+Population: two billion people
+Belief: believe in ghosts
+Claim: should reconsider your opinion
+### 
+sentence 6: This technique uses the logic: Everyone else is doing it, you should too!
+Population: everyone else
+Belief: is doing it
+Claim: you should too
+### 
+sentence 7: I guess I should buy my 12-year-old daughter an iPhone.  Everyone at her new school has one and I want her to fit in with the other kids.
+Population: Everyone at her new school 
+Belief: has an iPhone
+Claim: should buy my 12-year-old daughter an iPhone 
+### 
+sentence 8: Verizon advertising the newest Samsung Galaxy phone that they claim everyone else who has bought it loves the new product.
+Population: everyone else who has bought the newest samsung galaxy phone 
+Belief: loves it.
+Claim: Verizon advertising the newest Samsung Galaxy phone 
+### 
+sentence 9: All my friends are doing a low carb diet. That must be the only way to lose weight so I will do it too.
+Population: All my friends
+Belief: are doing a low carb diet.
+Claim: That must be the only way to lose weight 
+### 
+sentence 10: I am voting for Smith for President because the rest of my family is voting for him.
+Population: rest of my family
+Belief:voting for Smith for president 
+Claim: I am voting for Smith
+### 
+sentence 11: If you were a true Catholic, you would never eat meat on Friday even if it was the only food available.
+Population: true Catholic 
+Belief: would never eat meat on Friday
+Claim: you would never eat meat on Friday
+### 
+sentence 12: According to the university brochure, the majors with the most students are Economics and Computer Science. Therefore, you should declare one of these majors if you want to have a successful career.
+Population: majors with the most students
+Belief:Economics and Computer Science
+Claim: you should declare one of these majors 
+### 
+sentence 13:\"The majority of people are voting for John Doe, so he must be the best candidate.\" 
+Population: majority of people 
+Belief: voting for John Doe 
+Claim: he must be the best candidate 
+### 
+sentence 14:Everyone was driving over the speed limit, so I shouldn't have gotten a ticket for it!
+Population: Everyone was driving 
+Belief: over the speed limit
+Claim: I shouldn't have gotten a ticket for it. 
+### 
+sentence 15: If you had school pride like the rest of us do, you would wear a mountain lion costume every day.
+Population: the rest of us
+Belief: school pride
+Claim: you would wear a mountain lion costume every day 
+### 
+sentence 16: 

@@ -1,0 +1,62 @@
+sentence 1: Cell phones stop students from concentrating in class because they are distracting.
+Logic x: from concentrating 
+Logic y: are distracting 
+### 
+sentence 2: Richardson is the most successful mayor the town has ever had because he's the best mayor of our history.
+Logic x: most successful mayor 
+Logic y: best mayor 
+### 
+sentence 3: You must obey the law, because it’s illegal to break the law.
+Logic x: obey the law 
+Logic y: illegal to break the law 
+### 
+sentence 4: Companies that make huge profits must be exploiting their customers because the only way a company could make large profits is by taking advantage of their customers.
+Logic x: exploit their customers 
+Logic y: make large profits by taking advantage of customers 
+### 
+sentence 5: \"He\'s the best teacher I\'ve ever had because he\'s the best teacher I\'ve known.\"
+Logic x: I\'ve ever had 
+Logic y: I\'ve ever known 
+### 
+sentence 6: That restaurant is popular because everyone in town goes there.
+Logic x: popular 
+Logic y: everyone in town goes there 
+### 
+sentence 7: A is true because B is true, and B is true because A is true.
+Logic x: A is true
+Logic y: B is true
+### 
+sentence 8:I am athletic because I run, and I run because I\'m athletic.
+Logic x: I am athletic
+Logic y: I run
+### 
+sentence 9: \“Harold\’s new book is well-written because Harold is a wonderful writer.”
+Logic x: book is well-written
+Logic y: wonderful writer 
+### 
+sentence 10: Thanks to her enduring popularity with employees, Ella Watson is the best-liked CEO in our company's history.
+Logic x: best liked CEO 
+Logic y: enduring popularity with employees 
+### 
+sentence 11: You can\'t give me a C! I\'m an A student, a C is just wrong!
+Logic x: can't give me a C 
+Logic y: I\'m an A student 
+### 
+sentence 12: Everything I say is true. This is true because I said it, and everything I say is true.
+Logic x: Everything I say is true 
+Logic y: because I said it 
+### 
+sentence 13: My way of responding to difficult patients is by far the most ethical because no other way is so ethical and it is the only way that is completely ethical.
+Logic x: the most ethical
+Logic y:  no other way is so ethical
+### 
+sentence 14: canada is the best country to live in because it\'s better than the other countries!
+Logic x: best country
+Logic y: better than other countries 
+### 
+sentence 15: the reason why more people are leaving this country is because of economic problems, therefore because there is an economic problem is that people are leaving this country.
+Logic x: the reason why more people are leaving this country is 
+Logic y: there is an economic problem
+### 
+sentence 16: 
+

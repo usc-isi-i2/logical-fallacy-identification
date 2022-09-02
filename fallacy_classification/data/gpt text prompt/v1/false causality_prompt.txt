@@ -1,0 +1,76 @@
+sentence 1: The flu vaccine comes out every year just before the holidays, then people go and spend a lot of money. Therefore, businesses are secretly using the flu vaccine as a mind-control device to increase holiday spending. 
+Event A: flu vaccine before the holidays. 
+Event B: people go and spend a lot of money. 
+Cause: using flu vaccine to increase holiday spending. 
+### 
+sentence 2: Every time I go to sleep, the sun goes down. Therefore, my sleeping causes the sun to set. 
+Event A: I got to sleep. 
+Event B: the sun goes down.  
+Cause: my sleeping causes sun to set. 
+### 
+sentence 3: I have flipped heads five times in a row.  As a result, the next flip will probably be tails. 
+Event A: flipped head five times. 
+Event B: next flip will probably be tails 
+Cause: in a row 
+### 
+sentence 4:The research I found on cell phone use in the classroom suggests that students can be distracted when they have access to texting. This leads me to believe that all high school students should not be allowed to have their phones on them at school anytime.
+Event A: high school students should not be allowed to have their phones 
+Event B: cell phone use
+Cause: students can be distracted
+### 
+sentence 5: Every sunrise, the rooster makes a sound. So it is the rooster which makes the sun rise.
+Event A: Sunrise 
+Event B: rooster makes the sun rise
+Cause: rooster makes a sound every sunrise 
+### 
+sentence 6:The temperature has dropped this morning, and I also have a headache. The cold weather must be causing my headache.
+Event A: temperature has dropped this morning
+Event B: have a headache 
+Cause: cold weather causing my headache. 
+### 
+sentence 7: The economy continues to grow as the number of "likes" on my Instagram account continue to increase. Clearly, the two are linked.
+Event A: economy continutes to grow 
+Event B: number of likes on my Instagram account 
+Cause: the two are linked 
+### 
+sentence 8: Every person who has ever drunk water has died. Therefore, drinking water causes death. 
+Event A: person who has drunk water 
+Event B: person has died. 
+Cause: drinking water causes death. 
+### 
+sentence 9: I sneezed at the same time the power went off. My sneeze did something to make the power go off.
+Event A: I sneezed 
+Event B: the power went off 
+Cause: my sneeze did something to make the power go off. 
+### 
+sentence 10: Every time we sacrifice virgins, it rains. Therefore, sacrificing virgins causes it to rain.
+Event A: we sacrifice virgins 
+Event B: it rains 
+Cause: sacrificing virgins causes it to rain 
+### 
+sentence 11: I believe in supernatural beings because every time I drive past the cemetery where  my grandmother is buried, a light on my dashboard flashes.  Her spirit causes this because it never happens otherwise.
+Event A: drive past the cemetery where my grandmother is buried. 
+Event B: light on dashboard flashes. 
+Cause: grandmother's spirit causes it. 
+### 
+sentence 12: \“Eating five candy bars and drinking two sodas before a test helps me get better grades. I did that and got an A on my last test in history\”. What fallacy is this an example of?
+Event A: eating five candy bars and two sodas before a test
+Event B: get better grades
+Cause: I did that and got an A on my last test in history. 
+### 
+sentence 13: Joey's refrigerator broke after Rachel moved in; therefore, Rachel caused Joey's refrigerator to break.
+Event A: Joey's refrigerator broke 
+Event B: after Rachel moved in. 
+Cause: Rachel caused Jeoy's refrigerator to break down. 
+### 
+sentence 14: You got a cold two nights ago but last night you stayed up really late and now you are no longer sick, so it must be because you stayed up really late last night. What fallacy is being committed?
+Event A: you got a cold two nights ago 
+Event B: last night you stayed up really late and now you are no longer sick 
+Cause: you stayed up really late last night 
+### 
+sentence 15: I saw John texting yesterday, and then he got in his car and drove away; he must have crashed because he was texting. Therefore, cell phones should be banned.
+Event A: I saw John texting yesterday 
+Event B: he crashed 
+Cause: he crashed because he was texting 
+### 
+sentence 16:

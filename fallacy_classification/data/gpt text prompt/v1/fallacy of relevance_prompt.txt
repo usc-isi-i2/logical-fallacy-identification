@@ -1,0 +1,61 @@
+sentence 1: Why shouldn't I gossip about Laura Jane? You know she talks about us every chance she gets.
+Claim X: gossip about Laura Jane 
+Claim Y: talks about us every chance she gets 
+### 
+sentence 2: That parking attendant who gave me a ticket is as bad as Hitler.
+Claim X: parking attendant who game me a ticket 
+Claim Y: as bad as Hitler 
+### 
+sentence 3: We admit that this measure is popular, but we also urge you to recognize that there are so many other bond issues on this ballot it is getting ridiculous.
+Claim X: measure is popular 
+Claim Y: other bond issues on this ballot 
+### 
+sentence 4: Check out the pretty lights.  Don\’t look behind the curtain.
+Claim X: pretty lights
+Claim Y: don\'t look behind the curtain
+### 
+sentence 5: \"Finish your dinner. There are starving children in Africa.\" is an example of
+Claim X: your dinner
+Claim Y: starving children in Africa
+### 
+sentence 6: When your parent asks you why you have a bad grade in math class, and you answer, \"All teachers are the enemy!\"
+Claim X: bad grade in math class
+Claim Y: teachers are the enemy
+### 
+sentence 7: I know you want to imprison me for having murdered my parents, but judge, have mercy on me, I\’m an orphan!
+Claim X: imprison for having murdered my parents
+Claim Y: have mercy on me, I\'m an orphan
+### 
+sentence 8: We admit that the measure is popular. But we also urge you to note that there are so many bond issues on the ballot that the whole thing is getting ridiculous.
+Claim X: measure is popular
+Claim Y: bond issues on the ballot
+### 
+sentence 9: I want to sell my house for $400,000. A buyer wants it for $100,000, so I must sell it for $250,000.
+Claim X: sell my house for $400,000
+Claim Y: buyer wants it for $100,000 so sell it for $250,000
+### 
+sentence 10: A student gets into trouble for not meeting the dress code at her school. When her teacher confronts her, she begins talking about how the dress code is a punishment for girls and boys are able to wear whatever they want.
+Claim X: not meeting her dress code at her school.
+Claim Y: boys are able to wear whatever they want
+### 
+sentence 11: \"You asked me why the unemployment rate has increased once more, but I\'m going to tell you what has an even worse effect on morale in this country.\"
+Claim X: unemployment rate has increased once more
+Claim Y: even worse effect on morale in this country
+### 
+sentence 12: You say that we have exaggerated the problem with global warming, but have you even considered how much more the homeless suffer when temperatures soar?
+Claim X: exaggerated the problem with global warming
+Claim Y: the homeless suffer when temperatures soar
+### 
+sentence 13: The is zero doubt that she has the condition. She scored high on two separate diagnostic tests for it and both tests have shown extremely high validity. That proves she has it.
+Claim X: zero doubt that she has the condition
+Claim Y: scored high on two separate diagnostic tests for it and both tests have shown extremely high validity. That proves she has it
+### 
+sentence 14: Your mom thinks you spend too much time playing video games. You bring up that she spends too much time shopping. 
+Claim X: you spend too much time playing video games 
+Claim Y: she spends too much time shopping
+### 
+sentence 15: Compares minor problems with much more serious crimes
+Claim X: minor problems
+Claim Y: much more serious crimes
+### 
+sentence 16: 

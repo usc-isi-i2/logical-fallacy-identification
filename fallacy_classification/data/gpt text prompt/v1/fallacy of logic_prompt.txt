@@ -1,0 +1,61 @@
+sentence 1: I hear the rain falling outside my window; therefore, the sun is not shining.
+Arg 1: rain falling outside my window
+Arg 2:  the sun is not shining
+### 
+sentence 2: If it barks, it is a dog. It doesn’t bark. Therefore, it’s not a dog.
+Arg 1: it barks, its a dog 
+Arg 2: it doesn’t bark, its not a dog 
+### 
+sentence 3: If I eat fast food for dinner, then I have a stomach ache in the evening. I had a stomach ache this evening. Therefore I ate fast food for dinner.
+Arg 1: eat fast food for dinner
+Arg 2: had a stomach ache this evening
+### 
+sentence 4:If the ozone layer is destroyed, many people will get cancer and suffer from other illnesses.  The ozone layer is being protected, not destroyed.  So, many people will be spared the pain of cancer and other illnesses.
+Arg 1: Ozone later is destroyed 
+Arg 2: people will get cancer and other illnesses. 
+### 
+sentence 5: Hybrid cars are like solar power, full of promise but too expensive. We’ll never be able to build affordable hybrid cars.
+Arg 1: Hybrid cars are like solar power 
+Arg 2: can never build affordable hybrid cars 
+### 
+sentence 6: People who buy stocks are no different from people who bet on horse racing. They both risk their money with little chance of making a big profit.
+Arg 1: people who buy stocks are no different from people who bet on horse racing 
+Arg 2:  both risk their money with little change of making profit 
+### 
+sentence 7:  Sandra is an angel from heaven. She gave me a free lunch today.
+Arg 1: Sandra is an angel from heaven 
+Arg 2: She gave me free lunch today
+### 
+sentence 8: The solar system reminds me of an atom, with planets orbiting the sun like electrons orbiting the nucleus. We know that electrons can jump from orbit to orbit; so we must look to ancient records for sightings of planets jumping from orbit to orbit also.
+Arg 1: electrons jump from orbit to orbit 
+Arg 2:  ancient records for sightings of planets jumping from orbit to orbit
+### 
+sentence 9: Bill lives in a large building, so his apartment must be large.
+Arg 1: Bill lives in a large building 
+Arg 2: his apartment must be large 
+### 
+sentence 10: Nuclear disarmament is a risk, but everything in life involves a risk. Every time you drive in a car you are taking a risk. If you're willing to drive in a car, you should be willing to have disarmament.
+Arg 1: Nuclear disarmament is a risk, every time you drive a car you\'re taking a risk
+Arg 2: you\'re willing to drive a car, you should be willing to have disarmament
+### 
+sentence 11: \"The mind is like a knife, cutting through difficult problems. But just as too much cutting dulls a knife, so too much education dulls the mind.\"
+Arg 1: mind is like a knife. 
+Arg 2: too much cutting dulls the knife, too much education dulls the mind 
+### 
+sentence 12: \"Cars cause more deaths than firearms do, so if we ban firearms we should also ban cars.\"
+Arg 1: Cars cause more death than firearms 
+Arg 2: ban firearms, ban cars 
+### 
+sentence 13: Allowing people to possess guns is like giving a bomb to a bunch of kids.
+Arg 1: Allowing people to possess guns 
+Arg 2: giving a bomb to a bunch of kids 
+### 
+sentence 14: If Hunter was human, he would be mortal. Hunter is mortal. Therefore, Hunter is a human.
+Arg 1: hunter was human, he would be mortal. 
+Arg 2: hunter is mortal, so hunter is human. 
+### 
+sentence 15: I am going to bed or watching TV.  I am exhausted, so I will go to bed; therefore, I cannot watch TV.
+Arg 1: I am going to bed or watching TV
+Arg 2: I am exhausted so I will go to bed 
+### 
+sentence 16: 
