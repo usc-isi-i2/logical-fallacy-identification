@@ -29,6 +29,11 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the req
 pip install -r requirements.txt 
 ``` 
 
+## Where to start 
+
+A good starting point would be to look at the scripts contained in the <b>Scripts</b> folder, which has the codes for the training and testing of the RoBERTa baseline. 
+To look at experiments that have been performed, the directory <b>Notebook</b> would be your go-to. 
+
 
 
 
