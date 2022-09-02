@@ -18,6 +18,7 @@ python train_roBERTa.py
        -ep number_of_epochs_for_training  
 
 ``` 
+### Attributes description 
 
 `-tr`: path to the train file  
 
