@@ -9,6 +9,7 @@ The following directory has the notebooks containing the experiments performed o
 
 ## Coarse Grained Classifiers 
 * Contains the notebook for training and testing RoBERTa over the coarse-grained multi-class classification of fallacies. 
+* Also has a notebook that consists of experimental results that were obtained by running the classifiers over the IBM 30K ranking dataset. 
 
 ## Experiments with DeBERTa 
 * Contains the notebooks for training and testing DeBERTa over the fine-grained binary classification of fallacies. 
