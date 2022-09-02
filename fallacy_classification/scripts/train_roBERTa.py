@@ -218,9 +218,9 @@ if __name__ == "__main__":
   parser.add_argument('-mp', '--model_path', help="Path to Save the model") 
   parser.add_argument('-ia', '--input_attr', help="Input text field name") 
   parser.add_argument('-ta', '--target_attr', help="Target Attribute field")
-  parser.add_argument('-d', '--device', help="device number", default=0)
-  parser.add_argument('-op', '--output_params_num', help="Number of prediction class labels")
-  parser.add_argument('-ep', '--epoch', help='Number of epochs', default=5) 
+  parser.add_argument('-d', '--device', help="device number", default=0, type = int)
+  parser.add_argument('-op', '--output_params_num', help="Number of prediction class labels", type = int)
+  parser.add_argument('-ep', '--epoch', help='Number of epochs', default=5, type = int) 
   args = parser.parse_args()
 
 
