@@ -7,7 +7,15 @@ This folder contains the scripts and the associated notebooks with the experimen
     .
     ├── data                    # Contains the dataset along with sentences and prompts 
     ├── notebooks               # Notebooks for the experiments performed for fallacy identification
+    |    ├── Experiments with GPT-J
+    |    ├── Experiments with RoBERTa
+    |    ├── Coarse Grained Classifiers 
+    |    ├── Experiments with DeBERTa 
+    |    ├── Data Transformations 
+    |    └── CSKG
     ├── scripts                 # Contains the scripts for training and evaluation of RoBERTa baseline
+    |    ├── train_roBERTa.py 
+    |    └── eval_roBERTa.py 
     └── SETUP.md
 
 
