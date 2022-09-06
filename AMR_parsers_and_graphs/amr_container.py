@@ -5,19 +5,20 @@ import networkx as nx
 import amrlib
 from amrlib.graph_processing.amr_plot import *
 import graphviz    # sudo apt install graphviz; pip3 install graphviz
-import torch
+
 
 class AMR_Container:
     """
     its instances will contain the AMR representation of the sentences. 
     https://github.com/bjascob/amrlib
     """
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     try:
-        stog_model = amrlib.load_stog_model(device = device)
-    else:
+        stog_model = amrlib.load_stog_model(device=device)
+    except:
         device = "cpu"
-        stog_model = amrlib.load_stog_model(device = device)
+        stog_model = amrlib.load_stog_model(device=device)
 
     def __init__(self, sentence: str = None, graph_str: str = None) -> None:
         self.sentence = sentence
@@ -75,5 +76,3 @@ if __name__ == "__main__":
     )
     embed()
     exit()
-
-

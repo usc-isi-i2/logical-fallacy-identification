@@ -1,5 +1,10 @@
+from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS
+from amr_container import AMR_Container
+from sklearn.metrics import pairwise_distances
+from scipy.spatial.distance import cosine
 from typing import Any, List
 import networkx as nx
+import numpy as np
 import joblib
 import json
 import pandas as pd
@@ -9,49 +14,10 @@ from pathlib import Path
 from tqdm import tqdm
 from IPython import embed
 
-from amr_container import AMR_Container
+import warnings
 
-
-PATH_TO_TRAIN_DATA = ((Path(__file__).parent) /
-                      "data/edu_train_amr_parse_tree.txt").absolute()
-
-
-PATH_TO_SENTENCES_AMR_OBJECTS = ((Path(__file__).parent) /
-                                 "tmp/sentences_with_AMR_container_objects.joblib").absolute()
-
-
-PATH_TO_MASKED_SENTENCES_AMRS = ((Path(__file__).parent) /
-                                     "tmp/masked_sentences_with_AMR_container_objects.joblib").absolute()
-
-
-def graph2vec(list_of_graphs: List[nx.DiGraph]) -> None:
-    # TODO
-    """
-    Generate the graph features over a set of graphs
-
-    Args:
-        list_of_graphs (List[Any]): list of graphs 
-    """
-    raise NotImplementedError()
-
-
-def get_edgelist(graph: nx.DiGraph):
-    return [x.split() for x in nx.generate_edgelist(graph, data=False)]
-
-
-def calc_similarity(graph_1: Any, graph_2: Any) -> float:
-    # TODO (also check the other similarities)
-    """
-    return the similarity of two graphs
-
-    Args:
-        graph_1 (_type_): first graph
-        graph_2 (_type_): second graph
-
-    Returns:
-        float: calculated similarity
-    """
-    raise NotImplementedError()
+from eval import compute_random_baseline, mean_average_precision
+warnings.filterwarnings("ignore")
 
 
 def get_amr_sentences(lines: List[str]):
@@ -123,6 +89,7 @@ def read_amr_graph(path: Path) -> List[AMR_Container]:
     print(n, len(raw_sentences), len(amr_sentences))
     return graphs
 
+
 def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
     if os.path.exists(PATH_TO_MASKED_SENTENCES_AMRS):
         results = joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
@@ -139,9 +106,10 @@ def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
         original_article = data["source_article"]
 
         updated_masked_article = re.sub(
-            r"MSK<(\d+)>", r"MSK\1", masked_article)
+            r"MSK<(\d+)>", r"MSK\1", masked_article
+        )
 
-        updated_masked_article = re.sub(r"\n", " ", updated_masked_article)
+        updated_masked_article = re.sub(r"\n", ". ", updated_masked_article)
 
         amr_container = AMR_Container(
             sentence=updated_masked_article
@@ -157,32 +125,41 @@ def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
     )
 
 
-def generate_all_edge_lists():
-    results = get_amr_labels_from_csv_file(csv_path='data/edu_train.csv')
-    for index, result in tqdm(enumerate(results), leave = False):
-        digraph = result[1].graph_nx
-        edge_list = get_edgelist(digraph)
-        with open(os.path.join("tmp", "edge_lists", f"{index}.json"), 'w') as f:
-            json.dump({
-                "edges": edge_list
-                }, f)
-
-
-    
-
-
-
 if __name__ == "__main__":
-    # if os.path.exists(PATH_TO_SENTENCES_AMR_OBJECTS):
-    #     graphs = joblib.load(PATH_TO_SENTENCES_AMR_OBJECTS)
-    # else:
-    #     graphs = read_amr_graph(path=PATH_TO_TRAIN_DATA)
-    #     joblib.dump(
-    #         graphs,
-    #         PATH_TO_SENTENCES_AMR_OBJECTS
-    #     )
-    # embed()
 
-    
-    generate_all_edge_lists()
+    # get_similar_graphs(
+    #     index = 10,
+    #     graph_embeddings=pd.read_csv(PATH_TO_GRAPH_EMBEDDINGS),
+    #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS),
+    # )
 
+    # top_ns = [5, 10, 20]
+
+    results = pd.read_csv(PATH_TO_MOST_SIMILAR_GRAPHS)
+    fallacy_types_counts = results[['sent_a', 'type_a']].drop_duplicates(
+    ).groupby("type_a").apply(lambda x: len(x))
+    statistics = pd.DataFrame()
+    top_n = 10
+
+    all_types = results['type_a'].unique().tolist()
+    for type in all_types:
+        type_records = results[results['type_a'] == type]
+        type_records = type_records.sort_values(by=['sent_a', 'similarity'])
+
+        sub_type_records = type_records.groupby('sent_a').apply(
+            lambda x: x[:top_n]).reset_index(drop=True)
+
+        num_sentences = sub_type_records['sent_a'].nunique()
+        match_for_each_sentence_vec = sub_type_records.groupby('sent_a').apply(
+            lambda x: (np.array(x['type_b'].tolist()) == np.array([type])).astype(int)).values
+
+        statistics = statistics.append({
+            'type': type,
+            'num_records': num_sentences,
+            'top_n': top_n,
+            'ratio/all_classes': num_sentences / np.sum(fallacy_types_counts),
+            'MAP': mean_average_precision(match_for_each_sentence_vec),
+            'random_baseline_MAP': compute_random_baseline(fallacy_types_counts, type, top_n)
+        }, ignore_index=True)
+
+    statistics.to_csv(PATH_TO_STATISTICS, index=False)
