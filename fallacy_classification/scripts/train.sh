@@ -1,0 +1,11 @@
+python train_roBERTa.py \
+-tr ../data/updated_edu_train_with_neg.csv \
+-dv ../data/updated_edu_dev_with_neg.csv \
+-tk 'roberta-large' \
+-mn 'roberta-large' \
+-mp ../models \
+-ia 'cleaner_prompt' \
+-ta 'mapped_label' \
+-d  0 \
+-op 12 \
+-ep 10

@@ -12,10 +12,11 @@ class AMR_Container:
     its instances will contain the AMR representation of the sentences. 
     https://github.com/bjascob/amrlib
     """
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     try:
         stog_model = amrlib.load_stog_model(device = device)
-    else:
+    except:
         device = "cpu"
         stog_model = amrlib.load_stog_model(device = device)
 
