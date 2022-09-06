@@ -1,0 +1,61 @@
+sentence 1: Skipping looking for a second opinion or evidence and just asking one doctor is what fallacy?
+Claim Y: just asking one doctor 
+Credibility: looking for a second opinion or evidence 
+### 
+sentence 2: I think scientists are wrong. There is no such thing as global warming. I just finished talking to my boss, and he thought the idea was ridiculous.
+Claim Y: scientists are wrong. 
+Credibility: finished talking to my boss, he thought the idea was ridiculous
+###
+sentence 3: You use support from someone who is a trustworthy expert.
+Claim Y: support from someone 
+Credibility: someone who is a trustworthy expert 
+###
+sentence 4: You should eat more green leafy vegetables, because Ms. Lord says so, and she is an expert on grammar and vocabulary.
+Claim Y: eat more green leafy vegetables, because Ms. Lord says so
+Credibility: she is an expert on grammar and vocabulary
+### 
+sentence 5: U.S. Sen. Tom Coburn says that lesbianism is rampant in the Oklahoma schools. This must, indeed, be true, because surely the senator couldn\'t be mistaken about the schools in his own state.
+Claim Y: senator says lesbianism is rampant in the Oklahoma schools
+Credibility: senator couldn\'t be mistaken about the schools in his own state
+### 
+sentence 6: I have served over 20 years in the military, and based on my professional opinion, I believe more money needs to be spent on protective armor and military vehicles.
+Claim Y: money needs to be spent on protective armor and military vehicles
+Credibility: I have served over 20 years in the military
+### 
+sentence 7: Dr. X is an engineer, and he doesn\’t believe in global warming.
+Claim Y:  he doesn\’t believe in global warming
+Credibility:  Dr. X is an engineer
+### 
+sentence 8: Despite the fact that our Q4 numbers are much lower than usual, we should push forward using the same strategy because our CEO Barbara says this is the best approach.
+Claim Y: should push forward using the same strategy 
+Credibility: CEO Barbara says this is the best approach.
+### 
+sentence 9: My dad went to school, so he knows everything about the education system.
+Claim Y: he knows everything about the education system.
+Credibility: My dad went to school
+### 
+sentence 10: We should move to the Midwest because Mujtaba from the Wall Street Journal says the cost of living is cheaper there.
+Claim Y: should move to the Midwest
+Credibility: Mujtaba from the Wall Street Journal says the cost of living is cheaper there
+### 
+sentence 11: I think that businesses should not have to limit the amount of pollutants they  release into the atmosphere because Rush Limbaugh says that there is no real  evidence for industrial pollutants causing the Greenhouse Effect.
+Claim Y: businesses should not have to limit the amount of pollutants they  release into the atmosphere
+Credibility: Rush Limbaugh says that there is no real  evidence
+### 
+sentence 12: Studies show it takes up to seven years for the human body to digest a piece of gum.
+Claim Y: it takes up to seven years for the human body to digest a piece of gum.
+Credibility: Studies show 
+### 
+sentence 13: We should abolish the death penalty. Even Taylor Swift is opposed to it.
+Claim Y: should abolish the death penalty
+Credibility:  Even Taylor Swift is opposed to it
+###  
+sentence 14: My father told me that the sky is green. So it must be the truth.
+Claim Y: the sky is green
+Credibility: My father told me
+###  
+sentence 15: Michael Jordan wears Hanes underwear, so you should too!
+Claim Y: you should wear Hanes underwear
+Credibility: Micheal Jordan wears Hanes underwear
+### 
+sentence 16: 

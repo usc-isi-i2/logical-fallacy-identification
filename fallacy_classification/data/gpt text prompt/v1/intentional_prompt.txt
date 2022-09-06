@@ -1,0 +1,63 @@
+sentence 1: no concrete proof that Duterte himself is corrupt
+Argument: no concrete proof that Duterte himself is corrupt
+Intention: he is an honest politician
+### 
+sentence 2: Saying that the burden of proof lies not with the person making the claim, but with someone else to disprove.
+Argument: burden of proof lies not with the person making the claim
+Intention: burden of proof lies with someone else to disprove
+### 
+sentence 3: No one has ever been able to prove that extraterrestrials do not exist, so they must be real.
+Argument: No one has ever been able to prove that extraterrestrials do not exist
+Intention: proving extraterrestrials are real
+### 
+sentence 4: Do you think that we should convict this criminal?
+Argument: convict this criminal
+Intention: doubting the action of convicting a criminal
+### 
+sentence 5:How many times per day do you beat your wife?
+Argument: How many times per day do you beat your wife
+Intention: do you beat your wife
+### 
+sentence 6: The Geo Metro is a superior car because it averages 43 miles per gallon.
+Argument: it averages 43 miles per gallon
+Intention: to prove that Geo Metro is a superior car
+### 
+sentence 7: Has your clinic stopped those unethical practices yet?
+Argument: Has your clinic stopped those unethical practices
+Intention: Is your clinic using unethical practices
+### 
+sentence 8: Have you stopped cheating on your tests?
+Argument: Have you stopped cheating on your tests
+Intention: Are cheating on your tests
+### 
+sentence 9: No one has proven God exists, so He doesn\’t.
+Argument: No one has proven God exists
+Intention: to prove god doesn't exist 
+### 
+sentence 10: \"You didn't do your homework, did you?\" is an example of...
+Argument: You didn't do your homework
+Intention: Did you do your homework 
+### 
+sentence 11: The ideas from that member of the club are wrong, but he isn’t actually a true member of the club so his ideas do not matter.
+Argument: ideas from that member of the club are wrong
+Intention: to prove that member of the club doesn\'t matter
+### 
+sentence 12: A woman decides to visit a certain doctor after only asking advice on the best doctors from ONE friend.
+Argument:  woman decides to visit a certain doctor after only asking advice
+Intention: woman got advice from only ONE friend
+### 
+sentence 13: Saying that because one finds something difficult to understand, therefore it\'s not true
+Argument: something is not true
+Intention: something difficult to understand
+### 
+sentence 14: We have no evidence that the Illuminati ever existed. They must have been so clever that they destroyed all the evidence.
+Argument: no evidence that the Illuminati ever existed
+Intention: Illuminati were clever
+### 
+sentence 15: We haven\’t found the ruins of Troy, so the city of Troy didn\’t really exist.
+Argument: haven\’t found the ruins of Troy
+Intention: city of Troy didn\'t really exist
+### 
+sentence 16: 
+
+

@@ -1,0 +1,76 @@
+sentence 1: The officer told me to freeze but it was too hot out to be freezing, so I was justified in running away.
+statement: officer told me to freeze
+premise:it was too hot out to be freezing
+conclusion: justified in running away 
+### 
+sentence 2: A warm beer is better than a cold beer. After all, nothing is better than a cold beer, and a warm beer is better than nothing.
+statement: Warm beer is better than cold beer
+premise: nothing is better than cold beer 
+conclusion: warm beer is better than nothing
+### 
+sentence 3: I like my steak rare. But I don’t care for aardvark steak, even though it’s the rarest steak in the world.
+statement: like my steak rare
+premise: don’t care for aardvark steak
+conclusion: its the rarest steak in the world. 
+### 
+sentence 4: Noisy children are a real headache. Two aspirin will make a headache go away. Therefore, two aspirin will make noisy children go away.
+statement: Noisy Childred are a real headche. 
+premise: Two asprins make headache go away. 
+conclusion: two asprins will make children go away.
+###
+Sentence 5: The police said they suspect several people of setting the fire. Therefore, I can't be under suspicion because I was alone all night.
+statement: I was alone
+premise: police suspect several people
+conclusion: I can't be under suspection
+### 
+sentence 6: It is said that we have a good understanding of our universe.  Therefore, we know exactly how it began and exactly when.
+statement: we have a understanding of our universe
+premise: our understanding of our universe is good
+conclusion: we know how it began and exactly when.
+###
+sentence 7: In many cases you can't really tell whether patients are improving because of what the therapist is doing or because of the placebo effect—there's a fuzzy line separating the two--so we must conclude that they are actually the same mechanism of improvement.
+statement: patients are improving. 
+premise: patients are improving either because of the therapist or placebo effect. 
+conclusion: therapy and placebo effect have same mechanism of improvement. 
+### 
+sentence 8: When the judge asked the defendant why he hadn't paid his parking fines, he said that he shouldn't have to pay them because the sign said 'Fine for parking here' and so he naturally presumed that it would be fine to park there.
+statement: he shouldn't have to pay for parking fine
+premise: fine for parking here
+conclusion: presumed it would be fine for parking there. 
+### 
+sentence 9: All living beings come from other living beings.  Therefore, the first forms of life must have come from a living being.  That living being is God.
+statement: all living beings come from other livings beings 
+premise: first forms of life must have come from living beings 
+conclusion: god is a living being
+### 
+sentence 10: If you are open to it, love will find you.
+statement: love finds openings. 
+premise: you are open to love
+conclusion: love will find you
+### 
+sentence 11:\“I don’t understand why you’re saying I broke a promise. I said I’d never speak again to my ex-girlfriend. And I didn’t. I just sent her a quick text.\”
+statement: I said I'd never speak again to my ex-girlfriend
+premise: I just sent her a quick text message
+conclusion:I didn't speak to my ex-girlfriend.
+### 
+sentence 12: Sugar is an essential component of the body...a key material in all sorts of metabolic processes, neglecting the fact that it is glucose (blood sugar) not ordinary table sugar (sucrose) that is the vital nourishment.
+statement: sugar is an essential component of the body
+premise: ordinary table sugar(sucrose) is vital to nourishment
+conclusion: neglecting that it is glucose that is vital to nourishment
+### 
+sentence 13: “Every society is, of course, repressive to some extent – as Sigmund Freud pointed out, repression is the price we pay for civilization.”
+statement: every society is repressive to some extent
+premise: repression is the price 
+conclusion: we pay for civilization
+### 
+sentence 14:Why does the law state that you have to be 21 years old to drink?  Does it really make any difference if you are 20 years and 364 days old?  That is absurd.  Therefore, if a single day makes no difference, then a collection of 1095 single days won’t make any difference. Therefore, changing the drinking age to 18 will not make any difference.
+statement: does the law state that you have to be 21 years old to drink?
+premise:it really make any difference if you are 20 years and 364 days old?  That is absurd
+conclusion: changing the drinking age to 18 will not make any difference. 
+### 
+sentence 15: The nuthatch was discovered by Tilly Turnow in the woods, while hopping from branch to branch of an elm tree, singing happily.
+statement: The nuthatch was discovered by Tilly Turnow in the woods
+premise: the nuthatch was hopping from branch to branch while singing
+conclusion: the nuthatch was happy 
+###
+sentence 16: 

@@ -1,0 +1,61 @@
+sentence 1: Either we pass this ordinance or there will be rioting in the streets.
+Choice 1: pass this ordinance 
+Choice 2: Rioting in the streets 
+### 
+sentence 2: We as the Board can either choose to approve this initial public offering or we can suffer slow annihilation at the hands of our competitors.
+Choice 1: approve this initial public offering
+Choice 2: suffer slow annihilation at the hands of our competitors
+### 
+sentence 3: If we are too scared to open the economy completely, then we'll have to keep it closed forever.
+Choice 1: scared to open the economy completely
+Choice 2: keep it closed forever
+### 
+sentence 4: The museum's new gemstones and precious minerals exhibit need more security guards. If you don't agree, then you must be planning to steal a piece of the exhibit.
+Choice 1: agree 
+Choice 2: planning to steal a piece of the exhibit.
+### 
+sentence 5: Too much candy can cause cavities. You should avoid eating any candy unless you want cavities.
+Choice 1: should avoid eating any candy 
+Choice 2: unless you want cavities 
+### 
+sentence 6: Either you decide that you can afford this stereo, or decide not to have music for a while
+Choice 1: afford this stereo
+Choice 2: not to have music for a while
+### 
+sentence 7:\"If you do not submit your requirements today, you should drop your classes with Sir Lean.\"
+Choice 1: not submit your requirements today
+Choice 2: should drop your classes
+### 
+sentence 8: We should ban all hairspray or the world will end!
+Choice 1: should ban hairspray
+Choice 2: the world will end
+### 
+sentence 9: Look, the only way to improve social programs is to raise taxes. You have to either raise taxes, or accept that the poor and needy are going to suffer.
+Choice 1: raise taxes
+Choice 2: accept that the poor and needy are going to suffer. 
+### 
+sentence 10: Dad, either you let me go to the party or you're a bad dad.
+Choice 1: let me go the party
+Choice 2: bad dad 
+### 
+sentence 11: You can go to bed in 5 minutes or you can go to bed in ten minutes. What's your choice?
+Choice 1: go to bed in 5 minutes
+Choice 2: go to bed in ten minutes
+### 
+sentence 12: Either you text your friend or you don't have any fun at all.
+Choice 1: text your friend
+Choice 2: don't have any fun at all
+### 
+sentence 13:Either go to the party or spend the night in your room crying.
+Choice 1: go to the party
+Choice 2: spend the night in your room
+### 
+sentence 14: It is either you are for the US war on terror or against it.
+Choice 1: for the US war on terror
+Choice 2: against US war on terror
+### 
+sentence 15:Either you love me, or you hate me.
+Choice 1: you love me
+Choice 2: you hate me
+### 
+sentence 16:

@@ -1,0 +1,61 @@
+sentence 1: f you don't have a recycling bin you hate the earth and don't care about pollution.
+Claim: you don’t have a recycling bin 
+Distortion: you hate earth and don’t care about pollution
+### 
+sentence 2: Students tell Ms. Higgins her hair color looks different on her. Ms. Higgins can't believe her students called ugly and horrendous to look at.
+Claim: her hair color looks different on her 
+Distortion: her students called her ugly and horrendous to look at 
+### 
+sentence 3: People who don't support the proposed state minimum wage increase hate the poor.
+Claim: don’t support the proposed state minimum wage increase 
+Distortion: hate the poor 
+### 
+sentence 4: Students only want cell phones so they can text their friends in class; it's about time students focused more on their studies and less on their social lives.
+Claim: only want cell phones so they can text their friends 
+Distortion: students focussed more on studies and less on their social lives
+### 
+sentence 5: Those who believe in behavior modification obviously want to try to control everyone by subjecting them to rewards and punishments.
+Claim: control everyone by subjecting them to rewards and punishments 
+Distortion: Those who believe in behaviour modification 
+### 
+sentence 6: My opponent in the election keeps claiming that he wants to give tax credits to poor people. That means that he wants to raise taxes for the middle class.
+Claim: wants to give tax credits to poor people 
+Distortion: raise taxes for middle class 
+### 
+sentence 7: Misrepresenting someone\’s argument to make it easier to attack
+Claim: make it easier to attack 
+Distortion: Misrepresenting someone\'s argument 
+### 
+sentence 8: The student didn\'t want to participate in the beach cleanup. Later, the student\'s advisor says \"I can't believe she doesn't believe in climate change\".
+Claim: student didn\'t want to participate in beach cleanup. 
+Distortion: she doesn\'t believe in climate change 
+### 
+sentence 9: How can you possibly believe in evolution? That would mean that you believe that an elephant evolved from a mouse, and that’s just ridiculous
+Claim: believe in evolution
+Distortion: believe that elephant evolved from a mouse 
+### 
+sentence 10: People who don\'t support the proposed state minimum wage increase hate the poor.
+Claim: don\'t support minimum wage increase
+Distortion: hate the poor 
+### 
+sentence 11: After Jhon said that we should put more money into health and education, Warren responded by saying that he was surprised that Jhon hates our country so much that he wants to leave it defenseless by cutting military spending.
+Claim: put more money into health and education 
+Distortion: leave country defensless by cutting military spending 
+### 
+sentence 12: Quite the contrary: The Senator thinks the environment is such a wreck that no one's car choice or driving habits would make the slightest difference.
+Claim: environment is such a wreck 
+Distortion: car or driving habits would make the slightest difference 
+### 
+sentence 13: we should not build bike lanes because cyclists run red lights
+Claim: should not build bike lanes 
+Distortion: cyclists run red lights 
+### 
+sentence 14: The mayor argued that we need to reduce funding for the animal shelter in order to balance the budget. Don't vote for someone who doesn't think the government should care about animals.
+Claim: reduce funding for animal shelter
+Distortion: government shouldn't care about animals 
+### 
+sentence 15: My opponent argues that we should abolish the soda tax. It's a shame that he wants to encourage people to eat and drink unhealthily. I say we keep it.
+Claim: abolish soda tax
+Distortion: encourage people to eat and drink unhealthily
+### 
+sentence 16: 

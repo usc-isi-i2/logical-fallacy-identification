@@ -2,3 +2,4 @@
 **/.DS_Store
 **/tmp/**
 AMR_parsers_and_graphs/graph2vec/
+AMR_parsers_and_graphs/processed/**

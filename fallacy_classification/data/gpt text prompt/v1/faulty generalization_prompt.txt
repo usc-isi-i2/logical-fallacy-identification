@@ -1,0 +1,91 @@
+sentence 1: My cousin said her Math class was hard. The one that I\’m in is hard too. All Math classes must be hard.  
+Phenomenon: her math class was hard, one that I m in is hard. 
+Conclusion: all math classes must be hard.  
+     
+###
+
+sentence 2: A person hanging out in a bar will be an alcoholic.
+Phenomenon: person hanging out in a bar.
+Conclusion: will be an alcoholic  
+     
+###
+          
+sentence 3: All engineers are introverts who would rather relate to computers than people. 
+Phenomenon: engineers are introverts.
+Conclusion: relate to computers than people
+
+###
+
+sentence 4: My neighbor\’s child was kidnapped while playing alone in her yard. My city must be a dangerous place for children.
+Phenomenon: neighbor\'s child was kidnapped while playing 
+Conclusion: My city must be a dangerous place 
+
+### 
+
+sentence 5: If we ban Hummers because they are bad for the environment, eventually the government will ban all cars, so we should not ban Hummers.
+Phenomenon: if we ban Hummers, the government will ban cars. 
+Conclusion:should not ban Hummers
+
+###
+ 
+sentence 6: Some tall people recently vandalized the park, tall people are irresponsible
+Phenomenon: tall people recently vandalized the park 
+Conclusion: tall people are irresponsible
+
+### 
+
+sentence 7: Duke University has the best basketball player in the NCAA, therefore they will win the tournament this year.
+Phenomenon: Duke University has the best basketball player
+Conclusion: they will win the tournament this year
+
+###
+
+sentence 8: If we let this child bring the permission slip late, there is no reason to ever set a deadline for anything again!
+Phenomenon: no reason to ever set a deadline
+Conclusion: if we let this child bring the permission slip late 
+
+###
+
+sentence 9: My father smoked four packs of cigarettes a day since age fourteen and lived until age sixty-nine. Therefore, smoking really can\’t be that bad for you.
+Phenomenon: smoked four packs of cigarettes a day and lived until age sixty-nine 
+Conclusion: smoking can\'t be really bad for you
+
+### 
+
+sentence 10: All robin have red breasts
+Phenomenon: robin have read breasts 
+Conclusion: All robin have read breasts 
+
+###
+
+sentence 11: This clinic sure makes a lot of money. Each of the psychologists who work there must earn a large income.
+Phenomenon: clinic makes a lot of money
+Conclusion: psycologists who work there must earn a large income 
+
+###
+
+sentence 12: "Our planet is going to be destroyed! People are creating too much waste, the temperature will continue to rise, natural disasters will occur more frequently, the animals will starve to death, and the planet will basically turn into Venus!"
+Phenomenon: People are creating too much waste, the temperature will continue to rise, natural disasters will occur more frequently, the animal will starve to death 
+Conclusion: planet will basically turn into Venus
+
+###
+
+sentence 13: If you eat that cookie tonight, you\'ll eat ten tomorrow, and by this time next year, you\'ll be eating 1 million cookies a day.
+Phenomenon: you eat that cookie tonight
+Conclusion: you\'ll eat ten tomorrow and by this time next year you\'ll be eating 1 million cookies a day
+
+###
+
+sentence 14:  Major in English in college, start reading poetry, and next thing you know, you will become an unemployed pot-smoking loser.
+Phenomenon: Major in English in college
+Conclusion: you will become an unemployed pot-smoking loser 
+
+###
+
+sentence 15: There are no good restaurants in New York; I tried two in Times Square, and they were awful.
+Phenomenon: I tried two restaurants in Times Square and they were awful
+Conclusion: There are no good restaurants in New York
+
+###
+
+sentence 16:

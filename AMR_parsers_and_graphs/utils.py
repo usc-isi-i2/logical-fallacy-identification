@@ -1,3 +1,7 @@
+from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS
+from amr_container import AMR_Container
+from sklearn.metrics import pairwise_distances
+from scipy.spatial.distance import cosine
 from sklearn.metrics import pairwise_distances
 from scipy.spatial.distance import cosine
 from typing import Any, List
@@ -18,10 +22,8 @@ warnings.filterwarnings("ignore")
 from amr_container import AMR_Container
 from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS
 
-
-
-
-
+from eval import compute_random_baseline, mean_average_precision
+warnings.filterwarnings("ignore")
 
 
 def get_amr_sentences(lines: List[str]):
@@ -93,6 +95,7 @@ def read_amr_graph(path: Path) -> List[AMR_Container]:
     print(n, len(raw_sentences), len(amr_sentences))
     return graphs
 
+
 def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
     if os.path.exists(PATH_TO_MASKED_SENTENCES_AMRS):
         results = joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
@@ -128,53 +131,8 @@ def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
     )
 
 
-        
-def mean_reciprocal_rank(rs) -> float:
-    rs = (np.asarray(r).nonzero()[0] for r in rs)
-    return np.mean([1. / (r[0] + 1) if r.size else 0. for r in rs])
-
-
-def precision_at_k(r, k):
-    assert k >= 1
-    r = np.asarray(r)[:k] != 0
-    if r.size != k:
-        raise ValueError('Relevance score length < k')
-    return np.mean(r)
-
-def average_precision(r):
-    r = np.asarray(r) != 0
-    out = [precision_at_k(r, k + 1) for k in range(r.size) if r[k]]
-    if not out:
-        return 0.
-    return np.mean(out)
-
-
-def mean_average_precision(rs):
-    return np.mean([average_precision(r) for r in rs])
-
-
-def compute_random_baseline(fallacy_types_numbers: pd.Series, fallacy_type: str, top_n: int = 10):
-    type_prob_dict = dict(zip(
-        fallacy_types_numbers.index,
-        fallacy_types_numbers.values / np.sum(fallacy_types_numbers)
-    ))
-
-    results = []
-    for _ in range(fallacy_types_numbers[fallacy_type]):
-        predictions = np.random.choice(
-            a = list(type_prob_dict.keys()),
-            size = top_n,
-            p = list(type_prob_dict.values())
-        )
-        predictions = (np.array([type]) == np.array(predictions)).astype(int)
-        results.append(predictions)
-    return mean_average_precision(np.array(results))
-
-
-
 if __name__ == "__main__":
 
-    
     # get_similar_graphs(
     #     index = 10,
     #     graph_embeddings=pd.read_csv(PATH_TO_GRAPH_EMBEDDINGS),
@@ -184,30 +142,30 @@ if __name__ == "__main__":
     # top_ns = [5, 10, 20]
 
     results = pd.read_csv(PATH_TO_MOST_SIMILAR_GRAPHS)
-    fallacy_types_numbers = results[['sent_a', 'type_a']].drop_duplicates().groupby("type_a").apply(lambda x: len(x))
+    fallacy_types_counts = results[['sent_a', 'type_a']].drop_duplicates(
+    ).groupby("type_a").apply(lambda x: len(x))
     statistics = pd.DataFrame()
     top_n = 10
-
-
 
     all_types = results['type_a'].unique().tolist()
     for type in all_types:
         type_records = results[results['type_a'] == type]
-        type_records = type_records.sort_values(by = ['sent_a', 'similarity'])
+        type_records = type_records.sort_values(by=['sent_a', 'similarity'])
 
-        sub_type_records = type_records.groupby('sent_a').apply(lambda x: x[:top_n]).reset_index(drop = True)
+        sub_type_records = type_records.groupby('sent_a').apply(
+            lambda x: x[:top_n]).reset_index(drop=True)
 
         num_sentences = sub_type_records['sent_a'].nunique()
-        match_for_each_sentence_vec = sub_type_records.groupby('sent_a').apply(lambda x: (np.array(x['type_b'].tolist()) == np.array([type])).astype(int)).values
-        
+        match_for_each_sentence_vec = sub_type_records.groupby('sent_a').apply(
+            lambda x: (np.array(x['type_b'].tolist()) == np.array([type])).astype(int)).values
+
         statistics = statistics.append({
             'type': type,
             'num_records': num_sentences,
             'top_n': top_n,
-            'ratio/all_classes': num_sentences / np.sum(fallacy_types_numbers),
+            'ratio/all_classes': num_sentences / np.sum(fallacy_types_counts),
             'MAP': mean_average_precision(match_for_each_sentence_vec),
-            'random_baseline_MAP': compute_random_baseline(fallacy_types_numbers, type, top_n)
+            'random_baseline_MAP': compute_random_baseline(fallacy_types_counts, type, top_n)
         }, ignore_index=True)
 
-    statistics.to_csv(PATH_TO_STATISTICS, index = False)
-
+    statistics.to_csv(PATH_TO_STATISTICS, index=False)

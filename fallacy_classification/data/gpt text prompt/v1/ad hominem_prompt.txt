@@ -1,0 +1,62 @@
+sentence 1: She should not be voted president because she's a liar and a thief.
+attack: She’s a liar and a thief 
+claim: should not be voted 
+### 
+sentence 2: The car was built with cheap parts, so it only goes to show that the car will fall apart.
+attack: cheap parts 
+claim: car will fall apart 
+### 
+sentence 3: Kelly is the most selfish, annoying person that I know. She says that we should recycle to help save the Earth, but she only thinks about herself, so she must be wrong. 
+attack: most selfish annoying person 
+claim: she only thinks about herself, so she must be wrong 
+### 
+sentence 4: That candidate wants to raise the minimum wage, but they aren\'t even smart enough to run a business.
+attack: aren\'t even smart enough to run a business.
+claim: candidate wants to raise the minimum wage
+### 
+sentence 5: There\'s no way you know this - you\'re clearly too young to understand!
+attack: too young to understand
+claim: There\'s no way you know this 
+### 
+sentence 6: Billy - \"An apple is a vegetable.\"  Bobby -\ "Don\'t listen to Billy; he failed Spanish class last year. \"
+attack: failed Spanish class last year 
+claim: An apple is a vegetable 
+### 
+sentence 7: Of course Lou would want to go biking on field trip day - biking is the only thing he ever does! He shouldn\'t be allowed to choose an activity.
+attack: biking is the only thing he ever does 
+claim: He shouldn\'t be allowed to do an activity 
+### 
+sentence 8: Dismissing someone's viewpoint on an issue because he himself is inconsistent in that very thing.
+attack: he himself is incosistent 
+claim: Dissmissing someone's viewpoint on an issue
+### 
+sentence 9: My teacher always brings up stuff about Women\'s Rights. She only cares about it because she is a woman. The stats she shows us are probably bias.
+attack: She only cares about it because she is a woman 
+claim: My teacher always brings up stuff about Women\'s Rights
+### 
+sentence 10: Senator Jones supports a strong national defense, and he wants your vote. I would never vote for a coward like him.
+attack: a coward like him 
+claim: I would never vote 
+### 
+sentence 11: Bill, you drive a beat-up car from the 1980s. For this reason, we can never allow you to be a lifeguard at the community pool.
+attack: you drive a beat up car
+claim: we can never allow you to be a lifeguard at the community pool
+### 
+sentence 12: in response to the claim that \"Eating fast food is unhealthy\": \“But I saw you eat a burger and fries for lunch only a few hours ago!\"
+attack: I saw you eat a burger and fries for lunch only a few hours ago 
+claim: Eating fast food is unhealthy 
+### 
+sentence 13: People who don\'t like K-pop are racist.
+attack: racist 
+claim: people who don\'t like K-pop
+### 
+sentence 14: Kelly is the most selfish, annoying person that I know. She says that we should recycle to help save the Earth, but she only thinks about herself, so she must be wrong.
+attack: Kelly is the most selfish, annoying person that I know 
+claim: She only thinks about herself 
+### 
+sentence 15: \"She\'s such a mean teacher and person – that\'s why she wouldn\'t raise my grade ONE percent!\"
+attack: She\'s such a mean teacher and person 
+claim: that\'s why she wouldn\'t raise my grade ONE percent
+### 
+sentence 16: 
+
