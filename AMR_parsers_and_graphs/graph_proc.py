@@ -1,6 +1,8 @@
 from utils import *
 from consts import *
-import gmatch4py as gm
+import networkx as nx
+import json
+from sklearn.metrics import pairwise_distances
 
 def get_edgelist(graph: nx.DiGraph):
     label2int = {}
@@ -34,11 +36,12 @@ def get_graph_similarity_gmatch(graph_a: nx.Graph, graph_b: nx.Graph) -> float:
     raise NotImplementedError()
 
 
-def get_similar_graphs(
+def get_similar_graphs_graph2vec(
     index,
     graph_embeddings: pd.DataFrame,
     sentences_with_amr_container: List[Any],
 ):
+    kernel_name = "graph2vec"
     graph_embeddings.set_index('type', inplace = True)
     graph_embeddings_indices = graph_embeddings.index.tolist()
     dist_out = 1-pairwise_distances(graph_embeddings.values, metric="cosine")
@@ -64,19 +67,12 @@ def get_similar_graphs(
                 }, ignore_index=True)
     
     
-    results.to_csv(PATH_TO_MOST_SIMILAR_GRAPHS, index = False)
+    results.to_csv(f"{PATH_TO_MOST_SIMILAR_GRAPHS}{kernel_name}.csv", index = False)
 
 
 
 
 if __name__ == "__main__":
-    sentences_with_amr_container = joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
-    g1 = sentences_with_amr_container[10][1].graph_nx
-    g2 = sentences_with_amr_container[15][1].graph_nx
-
-    ged=gm.GraphEditDistance(1,1,1,1) # all edit costs are equal to 1
-    result=ged.compare([g1,g2],None) 
-    print(result)
-
+    pass
 
     

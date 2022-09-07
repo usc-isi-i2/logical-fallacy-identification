@@ -1,18 +1,14 @@
-from operator import index
-from torch_geometric.data import Data
-import random
+from embeddings import get_bert_embeddings
 import re
 from torch_geometric.loader import DataLoader
 from torch import nn
 from torch_geometric.nn import global_mean_pool, SAGEConv
 import torch.nn.functional as F
-import torch_geometric.transforms as T
 from torch_geometric.utils import degree
 from torch_geometric.utils.convert import from_networkx
-import pandas as pd
 import torch
 import networkx as nx
-from torch_geometric.data import InMemoryDataset, Data
+from torch_geometric.data import InMemoryDataset
 from consts import *
 from IPython import embed
 import joblib
@@ -86,6 +82,18 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
 
         return edge_type2index
 
+    
+    def get_node_embeddings(g):
+        label2embeddings = {}
+        pattern = r'"[a-zA-Z0-9]+/([\w]+)(-\d*)?"'
+
+        for node in g.nodes(data=True):
+            label = node[1]['label']
+            word = re.findall(pattern, label)[0][0]
+
+            label2embeddings[label] = get_bert_embeddings(word)
+        return label2embeddings
+
     def get_label_mappings(self):
         label2index = {}
         all_labels = set()
@@ -121,10 +129,10 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 )
                 for edge in g.edges(data=True)
             ])
+            
             pyg_graph = from_networkx(new_g)
-            pyg_graph.x = torch.Tensor([
-                self.label2index[obj[2]]
-            ] * pyg_graph.num_nodes).view(-1, 1)
+            pyg_graph.x = degree(pyg_graph.edge_index[0]).view(-1, 1)
+            embed()
             pyg_graph.y = torch.tensor([
                 self.label2index[obj[2]]
             ])

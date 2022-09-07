@@ -17,7 +17,7 @@ PATH_TO_GRAPH_EMBEDDINGS = (
     (Path(__file__).parent) / "tmp/graph_2_vec_results.csv").absolute()
 
 PATH_TO_MOST_SIMILAR_GRAPHS = (
-    (Path(__file__).parent) / "tmp/most_similar_graphs_for_each.csv").absolute()
+    (Path(__file__).parent) / "tmp/most_similar_graphs_for_each.").absolute()
 
 PATH_TO_STATISTICS = ((Path(__file__).parent) /
                       "tmp/statistics.csv").absolute()

@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from IPython import embed
 
 
 def mean_reciprocal_rank(rs) -> float:
@@ -27,19 +28,19 @@ def mean_average_precision(rs):
     return np.mean([average_precision(r) for r in rs])
 
 
-def compute_random_baseline(fallacy_types_numbers: pd.Series, fallacy_type: str, top_n: int = 10):
+def compute_random_baseline(fallacy_types_counts: pd.Series, fallacy_type: str, top_n: int = 10):
     type_prob_dict = dict(zip(
-        fallacy_types_numbers.index,
-        fallacy_types_numbers.values / np.sum(fallacy_types_numbers)
+        fallacy_types_counts.index,
+        fallacy_types_counts.values / np.sum(fallacy_types_counts)
     ))
 
     results = []
-    for _ in range(fallacy_types_numbers[fallacy_type]):
+    for _ in range(fallacy_types_counts[fallacy_type]):
         predictions = np.random.choice(
             a=list(type_prob_dict.keys()),
             size=top_n,
             p=list(type_prob_dict.values())
         )
-        predictions = (np.array([type]) == np.array(predictions)).astype(int)
+        predictions = (np.array([fallacy_type]) == np.array(predictions)).astype(int)
         results.append(predictions)
     return mean_average_precision(np.array(results))

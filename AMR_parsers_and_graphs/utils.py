@@ -1,14 +1,8 @@
 from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS
 from amr_container import AMR_Container
-from sklearn.metrics import pairwise_distances
-from scipy.spatial.distance import cosine
-from sklearn.metrics import pairwise_distances
-from scipy.spatial.distance import cosine
 from typing import Any, List
-import networkx as nx
 import numpy as np
 import joblib
-import json
 import pandas as pd
 import os
 import re
@@ -19,11 +13,7 @@ from IPython import embed
 import warnings
 warnings.filterwarnings("ignore")
 
-from amr_container import AMR_Container
-from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS
-
 from eval import compute_random_baseline, mean_average_precision
-warnings.filterwarnings("ignore")
 
 
 def get_amr_sentences(lines: List[str]):
@@ -133,39 +123,43 @@ def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
 
 if __name__ == "__main__":
 
-    # get_similar_graphs(
+    # get_similar_graphs_graph2vec(
     #     index = 10,
     #     graph_embeddings=pd.read_csv(PATH_TO_GRAPH_EMBEDDINGS),
     #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS),
     # )
 
     # top_ns = [5, 10, 20]
-
-    results = pd.read_csv(PATH_TO_MOST_SIMILAR_GRAPHS)
-    fallacy_types_counts = results[['sent_a', 'type_a']].drop_duplicates(
-    ).groupby("type_a").apply(lambda x: len(x))
+    kernel_names = ["edge_histogram", "graph2vec"]
     statistics = pd.DataFrame()
+
     top_n = 10
 
-    all_types = results['type_a'].unique().tolist()
-    for type in all_types:
-        type_records = results[results['type_a'] == type]
-        type_records = type_records.sort_values(by=['sent_a', 'similarity'])
+    for kernel_name in kernel_names:
+        results = pd.read_csv(f"{PATH_TO_MOST_SIMILAR_GRAPHS}{kernel_name}.csv")
+        fallacy_types_counts = results[['sent_a', 'type_a']].drop_duplicates(
+        ).groupby("type_a").apply(lambda x: len(x))
+        
+        all_types = results['type_a'].unique().tolist()
+        for type in all_types:
+            type_records = results[results['type_a'] == type]
+            type_records = type_records.sort_values(by=['sent_a', 'similarity'])
 
-        sub_type_records = type_records.groupby('sent_a').apply(
-            lambda x: x[:top_n]).reset_index(drop=True)
+            sub_type_records = type_records.groupby('sent_a').apply(
+                lambda x: x[:top_n]).reset_index(drop=True)
 
-        num_sentences = sub_type_records['sent_a'].nunique()
-        match_for_each_sentence_vec = sub_type_records.groupby('sent_a').apply(
-            lambda x: (np.array(x['type_b'].tolist()) == np.array([type])).astype(int)).values
+            num_sentences = sub_type_records['sent_a'].nunique()
+            match_for_each_sentence_vec = sub_type_records.groupby('sent_a').apply(
+                lambda x: (np.array(x['type_b'].tolist()) == np.array([type])).astype(int)).values
 
-        statistics = statistics.append({
-            'type': type,
-            'num_records': num_sentences,
-            'top_n': top_n,
-            'ratio/all_classes': num_sentences / np.sum(fallacy_types_counts),
-            'MAP': mean_average_precision(match_for_each_sentence_vec),
-            'random_baseline_MAP': compute_random_baseline(fallacy_types_counts, type, top_n)
-        }, ignore_index=True)
+            statistics = statistics.append({
+                'algorithm': kernel_name,
+                'type': type,
+                'num_records': num_sentences,
+                'top_n': top_n,
+                'ratio/all_classes': num_sentences / np.sum(fallacy_types_counts),
+                'MAP': mean_average_precision(match_for_each_sentence_vec),
+                'random_baseline_MAP': compute_random_baseline(fallacy_types_counts, type, top_n)
+            }, ignore_index=True)
 
     statistics.to_csv(PATH_TO_STATISTICS, index=False)
