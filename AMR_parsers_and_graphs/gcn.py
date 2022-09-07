@@ -1,10 +1,11 @@
+from eval import get_random_predictions_for_pyg_metrics
 from embeddings import get_bert_embeddings
 import re
 from torch_geometric.loader import DataLoader
 from torch import nn
 from torch_geometric.nn import global_mean_pool, SAGEConv
 import torch.nn.functional as F
-from torch_geometric.utils import degree
+from sklearn.metrics import classification_report
 from torch_geometric.utils.convert import from_networkx
 import torch
 import networkx as nx
@@ -12,6 +13,7 @@ from torch_geometric.data import InMemoryDataset
 from consts import *
 from IPython import embed
 import joblib
+from tqdm import tqdm
 
 
 class NormalNet(torch.nn.Module):
@@ -82,16 +84,39 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
 
         return edge_type2index
 
-    
-    def get_node_embeddings(g):
+    def get_node_embeddings(self, g):
         label2embeddings = {}
-        pattern = r'"[a-zA-Z0-9]+/([\w]+)(-\d*)?"'
 
-        for node in g.nodes(data=True):
-            label = node[1]['label']
-            word = re.findall(pattern, label)[0][0]
+        for i, node in enumerate(g.nodes(data=True)):
+            try:
+                label = node[1]['label']
+                if label == '"-"':
+                    label = '"negative"'
+                if label == '"+"':
+                    label = '"positive"'
+                if not re.match(r'".*"', label):
+                    label = f'"{label}"'
 
-            label2embeddings[label] = get_bert_embeddings(word)
+                if '/' in label and '-' in label:
+                    pattern = r'"[a-zA-Z0-9]+/([a-zA-Z-]+)(-\d*)?"'
+                    word = re.findall(pattern, label)[0][0]
+                    word = re.sub('-', ' ', word)
+                elif '/' in label and '-' not in label:
+                    pattern = r'"[a-zA-Z0-9]+/([\w]+)"'
+                    word = re.findall(pattern, label)[0]
+
+                else:
+                    word = re.findall(r'"(.*)"', label)[0]
+
+                if word == " ":
+                    print(label)
+                    embed()
+            except Exception as e:
+                print(e)
+                print(label)
+                word = label
+
+            label2embeddings[i] = get_bert_embeddings(word).tolist()
         return label2embeddings
 
     def get_label_mappings(self):
@@ -118,9 +143,10 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
         # TODO add the embedding to the x property
         # TODO add the edge_types to the edge_type property
         data_list = []
-        for obj in self.amr_graphs_with_sentences:
+        for obj in tqdm(self.amr_graphs_with_sentences, leave=False):
             g = obj[1].graph_nx
             node2index = self.get_node_mappings(g)
+            label2embeddings = self.get_node_embeddings(g)
             new_g = nx.Graph()
             new_g.add_edges_from([
                 (
@@ -129,10 +155,8 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 )
                 for edge in g.edges(data=True)
             ])
-            
+            nx.set_node_attributes(new_g, label2embeddings, name='x')
             pyg_graph = from_networkx(new_g)
-            pyg_graph.x = degree(pyg_graph.edge_index[0]).view(-1, 1)
-            embed()
             pyg_graph.y = torch.tensor([
                 self.label2index[obj[2]]
             ])
@@ -141,7 +165,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
         torch.save((data, slices), self.processed_paths[0])
 
 
-def train(loader):
+def train(model, loader, optimizer):
     model.train()
 
     for data in loader:  # Iterate in batches over the training dataset.
@@ -153,47 +177,76 @@ def train(loader):
         optimizer.zero_grad()  # Clear gradients.
 
 
-def test(loader):
+def test(model, loader):
     model.eval()
+
+    all_predictions = []
+    all_true_labels = []
 
     correct = 0
     for data in loader:  # Iterate in batches over the training/test dataset.
         out = model(data, data.batch)
         pred = out.argmax(dim=1)  # Use the class with highest probability.
+        all_predictions.extend(pred.tolist())
+        all_true_labels.extend(data.y.tolist())
         # Check against ground-truth labels.
         correct += int((pred == data.y).sum())
     # Derive ratio of correct predictions.
-    return correct / len(loader.dataset)
+    return correct / len(loader.dataset), all_predictions, all_true_labels
 
 
 if __name__ == "__main__":
     dataset = Logical_Fallacy_Dataset(root='.')
     dataset = dataset.shuffle()
-    last_train_index = int(len(dataset) * 1)
+    last_train_index = int(len(dataset) * .8)
 
     train_dataset = dataset[:last_train_index]
-    # test_dataset = dataset[last_train_index:]
+    test_dataset = dataset[last_train_index:]
 
     print(f'Number of training graphs: {len(train_dataset)}')
-    # print(f'Number of test graphs: {len(test_dataset)}')
+    print(f'Number of test graphs: {len(test_dataset)}')
 
     train_data_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-    # test_data_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
+    test_data_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = NormalNet(
-        num_input_features=1,
+        num_input_features=dataset.num_features,
         num_output_features=len(dataset.label2index)
     ).to(device)
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(
         model.parameters(), lr=0.001, weight_decay=5e-4)
 
-    for epoch in range(1, 171):
-        train(train_data_loader)
-        train_acc = test(train_data_loader)
-        # test_acc = test(test_data_loader)
-        # print(
-        #     f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}, Test Acc: {test_acc:.4f}')
+    num_epochs = 200
+
+    for epoch in range(1, num_epochs):
+        train(model, train_data_loader, optimizer)
+        train_acc, all_train_predictions, all_train_true_labels = test(
+            model, train_data_loader)
+        test_acc, all_test_predictions, all_test_true_labels = test(
+            model, test_data_loader)
         print(
-            f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}')
+            f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}, Test Acc: {test_acc:.4f}')
+        if epoch == num_epochs - 1:
+            label2index = dataset.label2index
+            index2label = {v: k for k, v in label2index.items()}
+
+            all_test_predictions = [index2label[pred]
+                                    for pred in all_test_predictions]
+            all_test_true_labels = [index2label[true_label]
+                                    for true_label in all_test_true_labels]
+
+            print(get_random_predictions_for_pyg_metrics(
+                dataset=dataset,
+                all_test_true_labels=all_test_true_labels,
+                size=100
+            ))
+
+            print(classification_report(
+                y_pred=all_test_predictions,
+                y_true=all_test_true_labels
+            ))
+
+        # print(
+        #     f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}')
