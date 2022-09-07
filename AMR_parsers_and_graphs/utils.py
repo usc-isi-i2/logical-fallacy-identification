@@ -130,7 +130,7 @@ if __name__ == "__main__":
     # )
 
     # top_ns = [5, 10, 20]
-    kernel_names = ["edge_histogram", "graph2vec"]
+    kernel_names = ["edge_histogram", "graph2vec", 'graphlet_sampling']
     statistics = pd.DataFrame()
 
     top_n = 10
