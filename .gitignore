@@ -1,5 +1,6 @@
 **/__pycache__/**
 **/.DS_Store
-**/tmp/**
+**/tmp/*.joblib
+**/tmp/edge_lists/**
 AMR_parsers_and_graphs/graph2vec/
 AMR_parsers_and_graphs/processed/**
