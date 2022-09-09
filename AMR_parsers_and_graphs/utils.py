@@ -1,7 +1,8 @@
-from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS
+from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS, PATH_TO_MASKED_SENTENCES_AMRS_TMP
 from amr_container import AMR_Container
-from typing import Any, List
+from typing import List
 import numpy as np
+import networkx as nx
 import joblib
 import pandas as pd
 import os
@@ -120,16 +121,60 @@ def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
         PATH_TO_MASKED_SENTENCES_AMRS
     )
 
+def get_clearn_node_labels_for_graph(g: nx.DiGraph):
+    label2word = {}
+    for node in g.nodes(data=True):
+        try:
+            node_name = node[0]
+            label = node[1]['label']
+            if label == '"-"':
+                label = '"negative"'
+            if label == '"+"':
+                label = '"positive"'
+            if not re.match(r'".*"', label):
+                label = f'"{label}"'
 
-if __name__ == "__main__":
+            if '/' in label and '-' in label:
+                pattern = r'"[a-zA-Z0-9]+/([a-zA-Z-]+)(-\d*)?"'
+                word = re.findall(pattern, label)[0][0]
+                word = re.sub('-', ' ', word)
+            elif '/' in label and '-' not in label:
+                pattern = r'"[a-zA-Z0-9]+/([\w]+)"'
+                word = re.findall(pattern, label)[0]
 
-    # get_similar_graphs_graph2vec(
-    #     index = 10,
-    #     graph_embeddings=pd.read_csv(PATH_TO_GRAPH_EMBEDDINGS),
-    #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS),
-    # )
+            else:
+                word = re.findall(r'"(.*)"', label)[0]
 
-    # top_ns = [5, 10, 20]
+            if word == " ":
+                print(label)
+                embed()
+        except Exception as e:
+            print(e)
+            print(label)
+            word = label
+            
+        label2word[node_name] = word
+    return label2word
+    
+
+def augment_amr_container_objects_with_clean_node_labels(sentences_with_amr_container):
+    for obj in tqdm(sentences_with_amr_container, leave = False):
+        try:
+            graph = obj[1].graph_nx
+            label2word = get_clearn_node_labels_for_graph(g = graph)
+            obj[1].label2word = label2word
+
+        except Exception as e:
+            obj[1].label2word = None
+            embed()
+    
+    joblib.dump(
+        sentences_with_amr_container,
+        PATH_TO_MASKED_SENTENCES_AMRS
+    )
+
+    
+def compute_statistics_based_on_different_kernels():
     kernel_names = ["edge_histogram", "graph2vec", 'graphlet_sampling', 'transformers']
     statistics = pd.DataFrame()
 
@@ -163,3 +208,20 @@ if __name__ == "__main__":
             }, ignore_index=True)
 
     statistics.to_csv(PATH_TO_STATISTICS, index=False)
+
+    
+
+
+if __name__ == "__main__":
+    augment_amr_container_objects_with_clean_node_labels(
+        sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
+    )
+
+    # get_similar_graphs_graph2vec(
+    #     index = 10,
+    #     graph_embeddings=pd.read_csv(PATH_TO_GRAPH_EMBEDDINGS),
+    #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS),
+    # )
+
+    # top_ns = [5, 10, 20]
+    

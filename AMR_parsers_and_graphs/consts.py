@@ -1,16 +1,15 @@
 from pathlib import Path
 
 
-PATH_TO_TRAIN_DATA = ((Path(__file__).parent) /
-                      "data/edu_train_amr_parse_tree.txt").absolute()
-
-
 PATH_TO_SENTENCES_AMR_OBJECTS = ((Path(__file__).parent) /
                                  "tmp/sentences_with_AMR_container_objects.joblib").absolute()
 
 
 PATH_TO_MASKED_SENTENCES_AMRS = ((Path(__file__).parent) /
                                  "tmp/masked_sentences_with_AMR_container_objects.joblib").absolute()
+
+PATH_TO_MASKED_SENTENCES_AMRS_TMP = ((Path(__file__).parent) /
+                                 "tmp/masked_sentences_with_AMR_container_objects.tmp.joblib").absolute()
 
 
 PATH_TO_GRAPH_EMBEDDINGS = (
