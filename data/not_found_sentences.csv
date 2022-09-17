@@ -1,680 +1,680 @@
-sentence,label
-"Callie: Did you know that Jake Tooten was a racist?
+split,sentence,label
+train,"Callie: Did you know that Jake Tooten was a racist?
 Chris: I know Jake well. Why do you say he’s a racist?
 Callie: He was on a podcast the other day...
 Chris: Did he say something racist?
 Callie: No, but the podcast host did an interview two years ago with a woman who said she supported an organization that had a history of racism back in the 1960s. Jake clearly supports racism!
 ",faulty generalization
-"Speaker 1: I think we should lower the age of sexual consent to 16.
+train,"Speaker 1: I think we should lower the age of sexual consent to 16.
 Speaker 2: 16 year olds are children. So, you think it’s OK for children to have sex? No, we shouldn’t lower the age of consent.",fallacy of extension
-"Maury: Please put all my chips on red 21.
+train,"Maury: Please put all my chips on red 21.
 Dealer: Are you sure you want to do that?  Red 21 just came up in the last spin.
 Maury:  I didn’t know that!  Thank you!  Put it on black 15 instead.  I can’t believe I almost made that mistake!
 ",false causality
-"Speaker 1: We should have single payer, government funded health care. That would be the best solution to the health care crisis in our country.
+train,"Speaker 1: We should have single payer, government funded health care. That would be the best solution to the health care crisis in our country.
 Speaker 2: You voted for Bernie Sanders. You’re probably a communist.",ad hominem
-" Tony: I bought a book on the law of attraction and two days later I won $30k in a lottery. I wasn’t a believer of the law of attraction before, but now I am!
+train," Tony: I bought a book on the law of attraction and two days later I won $30k in a lottery. I wasn’t a believer of the law of attraction before, but now I am!
 ",false causality
-"Q: Did the President have an affair?
+train,"Q: Did the President have an affair?
 A: ""He's very busy at the moment with the Middle East Peace talks, and has no time for
  silly accusations."" ",fallacy of relevance
-"Callie: Did you know that Jake Tooten was a racist?
+train,"Callie: Did you know that Jake Tooten was a racist?
 Chris: I know Jake well. Why do you say he’s a racist?
 Callie: He was on a podcast the other day...
 Chris: Did he say something racist?
 Callie: No, but the podcast host did an interview two years ago with a woman who said she supported an organization that had a history of racism back in the 1960s. Jake clearly supports racism!
 ",faulty generalization
-"Eric: For my lottery numbers, I chose 6, 14, 22, 35, 38, 40.  What did you choose?
+train,"Eric: For my lottery numbers, I chose 6, 14, 22, 35, 38, 40.  What did you choose?
 Steve: I chose 1, 2, 3, 4, 5, 6.
 Eric: You idiot!  Those numbers will never come up!
 ",false causality
-"Speaker 1: I think the idea of a moral law requires the existence of a lawgiver (i.e. God).
+train,"Speaker 1: I think the idea of a moral law requires the existence of a lawgiver (i.e. God).
 Speaker 2: Of course you would say that. You’re a Christian. Why should we listen to you?",ad hominem
-"The shopping is a red herring, since the original issue was
+train,"The shopping is a red herring, since the original issue was
 video games. ",fallacy of relevance
-"Speaker 1: We should have single payer, government funded health care. That would be the best solution to the health care crisis in our country.
+train,"Speaker 1: We should have single payer, government funded health care. That would be the best solution to the health care crisis in our country.
 Speaker 2: You voted for Bernie Sanders. You’re probably a communist.",ad hominem
-"Lolita: Since about half the people in the world are female, the chances of the next person to walk out that door being female is about 50/50.
+train,"Lolita: Since about half the people in the world are female, the chances of the next person to walk out that door being female is about 50/50.
 Celina: Do you realize that is the door to Dr. Vulvastein, the gynecologist?
 ",false causality
-"Pastor Pete: People are turning to God everywhere!  9 out of 10 people I interviewed said that they had a personal relationship with Jesus Christ.
+train,"Pastor Pete: People are turning to God everywhere!  9 out of 10 people I interviewed said that they had a personal relationship with Jesus Christ.
 Fred: Where did you find these people you interviewed?
 Pastor Pete: In my church.
 ",faulty generalization
-"Speaker 1: You should trust the Bible because it’s the Word of God.
+train,"Speaker 1: You should trust the Bible because it’s the Word of God.
 Speaker 2: How do you know it’s the Word of God?
 Speaker 1: Because God tells us it is.
 Speaker 2: Where does God tell us this?
 Speaker 1: Right here, in the Bible.",circular reasoning
-"All babysitters have pimples.
+train,"All babysitters have pimples.
 All babysitter club members are babysitters.
 Therefore, some babysitter club members have pimples.Example #2:
 All forest creatures live in the woods.
 All leprechauns are forest creatures.
 Therefore, some leprechauns live in the woods.
 ",fallacy of logic
-"Either God created the world or evolution happened.
+train,"Either God created the world or evolution happened.
 Evolution happened.
 Therefore, God did not create the world.",fallacy of logic
-"Either God created the world or evolution happened.
+train,"Either God created the world or evolution happened.
 Evolution happened.
 Therefore, God did not create the world.",fallacy of logic
-"Marty: Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985.
+train,"Marty: Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985.
 Doc: I've had enough practical jokes for one evening. Good night, future boy!
 ",intentional
-"Speaker 1: I think we should have single payer, universal, health care.
+train,"Speaker 1: I think we should have single payer, universal, health care.
 Speaker 2: Communist countries tried that. We don’t want America to be a communist country. We shouldn’t have single payer health care.",fallacy of extension
-"Speaker 1: We should have single payer, government funded health care. That would be the best solution to the health care crisis in our country.
+train,"Speaker 1: We should have single payer, government funded health care. That would be the best solution to the health care crisis in our country.
 Speaker 2: You voted for Bernie Sanders. You’re probably a communist.",ad hominem
-"Speaker 1: I think we should lower the age of sexual consent to 16.
+train,"Speaker 1: I think we should lower the age of sexual consent to 16.
 Speaker 2: 16 year olds are children. So, you think it’s OK for children to have sex? No, we shouldn’t lower the age of consent.",fallacy of extension
-"Child: This fish tastes funny. I don’t want to eat this.
+train,"Child: This fish tastes funny. I don’t want to eat this.
 Parent: There are children starving in Africa. Eat your dinner.",fallacy of relevance
-"Maury: Please put all my chips on red 21.
+train,"Maury: Please put all my chips on red 21.
 Dealer: Are you sure you want to do that?  Red 21 just came up in the last spin.
 Maury:  I didn’t know that!  Thank you!  Put it on black 15 instead.  I can’t believe I almost made that mistake!
 ",false causality
-"Parent: I really don’t want you to smoke pot. It’s still illegal, and could get you into trouble.
+train,"Parent: I really don’t want you to smoke pot. It’s still illegal, and could get you into trouble.
 Child: Didn’t you smoke pot when you were my age? You must not think it’s a big deal.",ad hominem
-" In 2011, Christian broadcaster, Harold Camping, (once again) predicted the end of the world via Jesus, and managed to get many Christians to join his alarmist campaign.  During this time, and especially after the Armageddon date had passed,  many Christian groups publicly declared that Camping is not a “true Christian”.  On a personal note, I think Camping was and is as much of a Christian as any other self-proclaimed Christian and religious/political/ethical beliefs aside, I give him credit for having the cojones to make a falsifiable claim about his religious beliefs.Example #2:
+train," In 2011, Christian broadcaster, Harold Camping, (once again) predicted the end of the world via Jesus, and managed to get many Christians to join his alarmist campaign.  During this time, and especially after the Armageddon date had passed,  many Christian groups publicly declared that Camping is not a “true Christian”.  On a personal note, I think Camping was and is as much of a Christian as any other self-proclaimed Christian and religious/political/ethical beliefs aside, I give him credit for having the cojones to make a falsifiable claim about his religious beliefs.Example #2:
 ",intentional
-"Speaker 1: I think we should have an expanded social safety net for the poor in our country.
+train,"Speaker 1: I think we should have an expanded social safety net for the poor in our country.
 Speaker 2: So, you think we should just throw money at lazy people who don’t want to work and think they are entitled to be kept up by other people, right?",fallacy of extension
-"Lolita: Since about half the people in the world are female, the chances of the next person to walk out that door being female is about 50/50.
+train,"Lolita: Since about half the people in the world are female, the chances of the next person to walk out that door being female is about 50/50.
 Celina: Do you realize that is the door to Dr. Vulvastein, the gynecologist?
 ",false causality
-"Your mom thinks you spend too much time playing video games. You bring up that
+train,"Your mom thinks you spend too much time playing video games. You bring up that
 she spends too much time shopping.",fallacy of relevance
-"Each brick in that building weighs less than a pound.  Therefore, the building weighs less than a pound.Example #2:
+train,"Each brick in that building weighs less than a pound.  Therefore, the building weighs less than a pound.Example #2:
 Hydrogen is not wet.  Oxygen is not wet.  Therefore, water (H2O) is not wet.
 ",faulty generalization
-"Speaker 1: I think we should have an expanded social safety net for the poor in our country.
+train,"Speaker 1: I think we should have an expanded social safety net for the poor in our country.
 Speaker 2: So, you think we should just throw money at lazy people who don’t want to work and think they are entitled to be kept up by other people, right?",fallacy of extension
-"Child: This fish tastes funny. I don’t want to eat this.
+train,"Child: This fish tastes funny. I don’t want to eat this.
 Parent: There are children starving in Africa. Eat your dinner.",fallacy of relevance
-"Speaker 1: I think marijuana should be legalized. It would be better for the country if we didn’t have this drug war.
+train,"Speaker 1: I think marijuana should be legalized. It would be better for the country if we didn’t have this drug war.
 Speaker 2: Of course you think that. You’re a pothead.",ad hominem
-"Maury: Please put all my chips on red 21.
+train,"Maury: Please put all my chips on red 21.
 Dealer: Are you sure you want to do that?  Red 21 just came up in the last spin.
 Maury:  I didn’t know that!  Thank you!  Put it on black 15 instead.  I can’t believe I almost made that mistake!
 ",false causality
-"Parent: I really don’t want you to smoke pot. It’s still illegal, and could get you into trouble.
+train,"Parent: I really don’t want you to smoke pot. It’s still illegal, and could get you into trouble.
 Child: Didn’t you smoke pot when you were my age? You must not think it’s a big deal.",ad hominem
-" In 2011, Christian broadcaster, Harold Camping, (once again) predicted the end of the world via Jesus, and managed to get many Christians to join his alarmist campaign.  During this time, and especially after the Armageddon date had passed,  many Christian groups publicly declared that Camping is not a “true Christian”.  On a personal note, I think Camping was and is as much of a Christian as any other self-proclaimed Christian and religious/political/ethical beliefs aside, I give him credit for having the cojones to make a falsifiable claim about his religious beliefs.Example #2:
+train," In 2011, Christian broadcaster, Harold Camping, (once again) predicted the end of the world via Jesus, and managed to get many Christians to join his alarmist campaign.  During this time, and especially after the Armageddon date had passed,  many Christian groups publicly declared that Camping is not a “true Christian”.  On a personal note, I think Camping was and is as much of a Christian as any other self-proclaimed Christian and religious/political/ethical beliefs aside, I give him credit for having the cojones to make a falsifiable claim about his religious beliefs.Example #2:
 ",intentional
-"Speaker 1: I think it’s terrible that a game hunter killed Cecil the lion.
+train,"Speaker 1: I think it’s terrible that a game hunter killed Cecil the lion.
 Speaker 2: What about all the babies that are killed every day by abortion?",fallacy of relevance
-"Bruce is American, or he is not from New Jersey.
+train,"Bruce is American, or he is not from New Jersey.
 Bruce is not American, therefore, he is not from New Jersey.",fallacy of logic
-"Speaker 1: We are using thousands of people, who are going door to door to help us spread the word about social injustice and the need for change.
+train,"Speaker 1: We are using thousands of people, who are going door to door to help us spread the word about social injustice and the need for change.
 Speaker: Well then, I can’t be a part of this because I was always been taught that it’s wrong to use people.",equivocation
-"Callie: Did you know that Jake Tooten was a racist?
+train,"Callie: Did you know that Jake Tooten was a racist?
 Chris: I know Jake well. Why do you say he’s a racist?
 Callie: He was on a podcast the other day...
 Chris: Did he say something racist?
 Callie: No, but the podcast host did an interview two years ago with a woman who said she supported an organization that had a history of racism back in the 1960s. Jake clearly supports racism!
 ",faulty generalization
-"Eric: For my lottery numbers, I chose 6, 14, 22, 35, 38, 40.  What did you choose?
+train,"Eric: For my lottery numbers, I chose 6, 14, 22, 35, 38, 40.  What did you choose?
 Steve: I chose 1, 2, 3, 4, 5, 6.
 Eric: You idiot!  Those numbers will never come up!
 ",false causality
-"Dr. Simmons: I am working on a way to lengthen the human lifespan to about 200 years.
+train,"Dr. Simmons: I am working on a way to lengthen the human lifespan to about 200 years.
 Misty: You are declaring war on Mother Nature, and Mother Nature always wins!
 ",equivocation
-"Speaker 1: I think we should lower the age of sexual consent to 16.
+train,"Speaker 1: I think we should lower the age of sexual consent to 16.
 Speaker 2: 16 year olds are children. So, you think it’s OK for children to have sex? No, we shouldn’t lower the age of consent.",fallacy of extension
-"NASA: Yes, we really did successfully land men on the moon.
+train,"NASA: Yes, we really did successfully land men on the moon.
 TinFoilHatGuy1969: Yeah, right. And Elvis is really dead.
 ",intentional
-"NASA: Yes, we really did successfully land men on the moon.
+train,"NASA: Yes, we really did successfully land men on the moon.
 TinFoilHatGuy1969: Yeah, right. And Elvis is really dead.
 ",intentional
-"Speaker 1: Did you torture the prisoner?
+train,"Speaker 1: Did you torture the prisoner?
 Speaker 2: No, we just held him under water for a while, and then did a mock hanging.",equivocation
-"Hydrogen is not wet.  Oxygen is not wet.  Therefore, water (H2O) is not wet.Example #3:
+train,"Hydrogen is not wet.  Oxygen is not wet.  Therefore, water (H2O) is not wet.Example #3:
 Your brain is made of molecules.  Molecules are not the source of consciousness.  Therefore, your brain cannot be the source of consciousness.
 ",faulty generalization
-"Pastor Pete: People are turning to God everywhere!  9 out of 10 people I interviewed said that they had a personal relationship with Jesus Christ.
+train,"Pastor Pete: People are turning to God everywhere!  9 out of 10 people I interviewed said that they had a personal relationship with Jesus Christ.
 Fred: Where did you find these people you interviewed?
 Pastor Pete: In my church.
 ",faulty generalization
-"Dr. Simmons: I am working on a way to lengthen the human lifespan to about 200 years.
+train,"Dr. Simmons: I am working on a way to lengthen the human lifespan to about 200 years.
 Misty: You are declaring war on Mother Nature, and Mother Nature always wins!
 ",equivocation
-"Lolita: Since about half the people in the world are female, the chances of the next person to walk out that door being female is about 50/50.
+train,"Lolita: Since about half the people in the world are female, the chances of the next person to walk out that door being female is about 50/50.
 Celina: Do you realize that is the door to Dr. Vulvastein, the gynecologist?
 ",false causality
-"Billy: How could the universe be 6000 years old when we know the speed of light, the distance of astronomical objects (13+ billion light years away), and the fact that the light has reached us[1]?
+train,"Billy: How could the universe be 6000 years old when we know the speed of light, the distance of astronomical objects (13+ billion light years away), and the fact that the light has reached us[1]?
 Marty: 6000 years is not a firm number.  The universe can be as old as about 10,000 years.
 Billy: How do you figure that?...
 ",fallacy of relevance
-"Marty: Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985.
+train,"Marty: Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985.
 Doc: I've had enough practical jokes for one evening. Good night, future boy!
 ",intentional
-"Speaker 1: I think marijuana should be legalized. It would be better for the country if we didn’t have this drug war.
+train,"Speaker 1: I think marijuana should be legalized. It would be better for the country if we didn’t have this drug war.
 Speaker 2: Of course you think that. You’re a pothead.",ad hominem
-"Q: Did the President have an affair?
+train,"Q: Did the President have an affair?
 A: ""He's very busy at the moment with the Middle East Peace talks, and has no time for
  silly accusations."" ",fallacy of relevance
-"Speaker 1: I think marijuana should be legalized. It would be better for the country if we didn’t have this drug war.
+train,"Speaker 1: I think marijuana should be legalized. It would be better for the country if we didn’t have this drug war.
 Speaker 2: Of course you think that. You’re a pothead.",ad hominem
-"Jack: You should stop smoking - it's bad for you.
+train,"Jack: You should stop smoking - it's bad for you.
 Jill: Look who's talking! You smoke three packs a day!",ad hominem
-"Gus is Christian or Gus is politically liberal.
+train,"Gus is Christian or Gus is politically liberal.
 Gus is a Christian.
 Therefore, Gus is not politically liberal.",fallacy of logic
-" Tony: I bought a book on the law of attraction and two days later I won $30k in a lottery. I wasn’t a believer of the law of attraction before, but now I am!
+train," Tony: I bought a book on the law of attraction and two days later I won $30k in a lottery. I wasn’t a believer of the law of attraction before, but now I am!
 ",false causality
-"Speaker 1: I’m against the war.
+dev,"Speaker 1: I’m against the war.
 Speaker 2: You must hate our troops.",false dilemma
-"Speaker 1: No fault divorce is really harmful to the family and the larger society.
+dev,"Speaker 1: No fault divorce is really harmful to the family and the larger society.
 Speaker 2: Well, you must not really think that since you’re divorced yourself.",ad hominem
-"Premise: All black bears are omnivores.
+dev,"Premise: All black bears are omnivores.
 
 Premise: All raccoons are omnivores.
 
 Conclusion: All raccoons are black bears.",fallacy of logic
-"Speaker 1: I’m against the war.
+dev,"Speaker 1: I’m against the war.
 Speaker 2: You must hate our troops.",false dilemma
-"Premise: All black bears are omnivores.
+dev,"Premise: All black bears are omnivores.
 
 Premise: All raccoons are omnivores.
 
 Conclusion: All raccoons are black bears.",fallacy of logic
-"An influencer posts on Instagram that the restaurant ""EP is poppin'! Everyone worth knowing is here tonight - come on down!"" -- this is an example of: lbl02",ad populum
-"But, Dad, I know you smoked when you were my age, so how can you tell me not to do it? lbl06",ad hominem
-"The Earth is round.
+test,"An influencer posts on Instagram that the restaurant ""EP is poppin'! Everyone worth knowing is here tonight - come on down!"" -- this is an example of: lbl02",ad populum
+test,"But, Dad, I know you smoked when you were my age, so how can you tell me not to do it? lbl06",ad hominem
+test,"The Earth is round.
 Therefore, Trump. lbl09",fallacy of logic
-"""I'm French and I don't like cheese.""
+test,"""I'm French and I don't like cheese.""
 ""All French like cheese.""
 ""I don't.""
 ""Then you must not really be French."" lbl11",intentional
-SM 1: Second World War discussion lbl07,fallacy of extension
-"""Running a marathon is very tiring because it is so exhausting."" lbl03",circular reasoning
-"Mrs. Collier, we can't take a quiz tomorrow! The new season of Game of Thrones premieres tonight!! lbl04",fallacy of relevance
-"”You can start a family early, or build financial stability for a better family life in the future.” lbl12",false dilemma
-"""Be my friend or be my enemy."" lbl12",false dilemma
-"Either you believe what I’m saying, or you must believe exactly the opposite. lbl12",false dilemma
-Senator Smith says we should cut back the Defense budget. His position is that we should let down our defenses and just trust our enemies not to attack us! lbl07,fallacy of extension
-The speaker or writer appeals to the audience's trust by establishing his credibility or trustworthiness as a writer or speaker? lbl10,fallacy of credibility
-Caroline says that she thinks her friends should not be so rude to the new girl. Jenna says that she cannot believe that Caroline is choosing to be better friends with the new girl than the girls who have always known her. lbl07,fallacy of extension
-"Mr. Stark's idea for implementing affirmative action in the university's admission process is complete folly. He say's he wants the student body to represent diversity in the community. But that's ridiculous. I suppose this means we'll have to throw out our academic standards while were at it. After all, if we're going to let students into our prestigious institution just because of their gender or the color of their skin, then what's going to happen to our reputation?
+test,SM 1: Second World War discussion lbl07,fallacy of extension
+test,"""Running a marathon is very tiring because it is so exhausting."" lbl03",circular reasoning
+test,"Mrs. Collier, we can't take a quiz tomorrow! The new season of Game of Thrones premieres tonight!! lbl04",fallacy of relevance
+test,"”You can start a family early, or build financial stability for a better family life in the future.” lbl12",false dilemma
+test,"""Be my friend or be my enemy."" lbl12",false dilemma
+test,"Either you believe what I’m saying, or you must believe exactly the opposite. lbl12",false dilemma
+test,Senator Smith says we should cut back the Defense budget. His position is that we should let down our defenses and just trust our enemies not to attack us! lbl07,fallacy of extension
+test,The speaker or writer appeals to the audience's trust by establishing his credibility or trustworthiness as a writer or speaker? lbl10,fallacy of credibility
+test,Caroline says that she thinks her friends should not be so rude to the new girl. Jenna says that she cannot believe that Caroline is choosing to be better friends with the new girl than the girls who have always known her. lbl07,fallacy of extension
+test,"Mr. Stark's idea for implementing affirmative action in the university's admission process is complete folly. He say's he wants the student body to represent diversity in the community. But that's ridiculous. I suppose this means we'll have to throw out our academic standards while were at it. After all, if we're going to let students into our prestigious institution just because of their gender or the color of their skin, then what's going to happen to our reputation?
 
 Identify the logical fallacy commited in this argument. lbl07",fallacy of extension
-"When sales of hot chocolate go up, street crime drops. lbl01",false causality
-"Lindsay's mom is concerned when she finds out that Lindsay skipped class one day. She tells Lindsay that she will now start skipping more frequently. Then she will drop out altogether, never graduate or get into college, and end up unemployed and living at home for the rest of her life.
+test,"When sales of hot chocolate go up, street crime drops. lbl01",false causality
+test,"Lindsay's mom is concerned when she finds out that Lindsay skipped class one day. She tells Lindsay that she will now start skipping more frequently. Then she will drop out altogether, never graduate or get into college, and end up unemployed and living at home for the rest of her life.
 What type of fallacy has Lindsay's mom committed? lbl05",faulty generalization
-Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
-Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
-We know the virus started in a lab because it's too deadly to have just been the result of basic circumstance. But it hasn't been as deadly for China which proves that it's lab-made. Because it's deadly. lbl03,circular reasoning
-"""Why are you hitting your computer!?""
+test,Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
+test,Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
+test,We know the virus started in a lab because it's too deadly to have just been the result of basic circumstance. But it hasn't been as deadly for China which proves that it's lab-made. Because it's deadly. lbl03,circular reasoning
+test,"""Why are you hitting your computer!?""
 ""The last time my wifi was weak, I hit my computer and it got better."" What is this? lbl01",false causality
-All people who live in England have bad teeth. lbl05,faulty generalization
-"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
-One cigarette will lead youth to addiction lbl05,faulty generalization
-Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
-"'Cotton and grain crops were lower this year than last. So, people must be stealing them.""
+test,All people who live in England have bad teeth. lbl05,faulty generalization
+test,"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
+test,One cigarette will lead youth to addiction lbl05,faulty generalization
+test,Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
+test,"'Cotton and grain crops were lower this year than last. So, people must be stealing them.""
 This is an example of what kind of logical fallacy? lbl09",fallacy of logic
-If you buy the Disney annual pass you will save money when visiting the happiest place on Earth! lbl11,intentional
-Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
-"Paige wants to play a guitar solo on our next recording. Her father is a horrible musician, though, so I doubt that Paula's any good either. lbl05",faulty generalization
-"""everyone is doing it"" mentality lbl02",ad populum
-Senator Smith says we should cut back the Defense budget. His position is that we should let down our defenses and just trust our enemies not to attack us! lbl07,fallacy of extension
-"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
-"""Running a marathon is very tiring because it is so exhausting."" lbl03",circular reasoning
-"When a statement falsely claims or assumes an ""either / or"" situation, when in fact there is at least one additional logically valid option, it is called... lbl12",false dilemma
-"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
+test,If you buy the Disney annual pass you will save money when visiting the happiest place on Earth! lbl11,intentional
+test,Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
+test,"Paige wants to play a guitar solo on our next recording. Her father is a horrible musician, though, so I doubt that Paula's any good either. lbl05",faulty generalization
+test,"""everyone is doing it"" mentality lbl02",ad populum
+test,Senator Smith says we should cut back the Defense budget. His position is that we should let down our defenses and just trust our enemies not to attack us! lbl07,fallacy of extension
+test,"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
+test,"""Running a marathon is very tiring because it is so exhausting."" lbl03",circular reasoning
+test,"When a statement falsely claims or assumes an ""either / or"" situation, when in fact there is at least one additional logically valid option, it is called... lbl12",false dilemma
+test,"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
 Nina: ""Dating apps are dangerous! Most people are catfished, and guys usually pretend to be so much better than they really are online. If we're so busy, we won't have time for any of that, anyway.""
 What fallacy is Nina leaning toward? lbl07",fallacy of extension
-"Wife: Should we buy the house?
+test,"Wife: Should we buy the house?
 Husband: The Realtor didn’t say anything about any problems, so I am sure it is fine. Let’s get it!
  lbl05",faulty generalization
-"""You are clearly just too young to understand this issue!"" lbl06",ad hominem
-"When your mom gets your phone bill and you have gone over the limit, you begin talking to her about how hard your math class is and how well you did on a test today. lbl04",fallacy of relevance
-"""I shouldn't have flunked the test because I never get F's"" is an example of lbl03",circular reasoning
-"Mrs. Miller taught your older brother, who was the class clown. She decides to be strict with you from the very first day of class because she thinks you will be a clown, too. lbl05",faulty generalization
-"I know for a fact that ghosts exist. My friend, who is a very reliable person, has seen ghosts on many occasions. lbl05",faulty generalization
-"Mob of people: Lower taxes! Lower taxes!
+test,"""You are clearly just too young to understand this issue!"" lbl06",ad hominem
+test,"When your mom gets your phone bill and you have gone over the limit, you begin talking to her about how hard your math class is and how well you did on a test today. lbl04",fallacy of relevance
+test,"""I shouldn't have flunked the test because I never get F's"" is an example of lbl03",circular reasoning
+test,"Mrs. Miller taught your older brother, who was the class clown. She decides to be strict with you from the very first day of class because she thinks you will be a clown, too. lbl05",faulty generalization
+test,"I know for a fact that ghosts exist. My friend, who is a very reliable person, has seen ghosts on many occasions. lbl05",faulty generalization
+test,"Mob of people: Lower taxes! Lower taxes!
 
 Politician: People, your taxes are high because of illegal immigrants. That's right—illegal immigrants. We need to get rid of them.
 
 Mob of people: (murmuring amongst themselves) Hmmm... immigrants. Let's get rid of them! lbl04",fallacy of relevance
-Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
-Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
-Students who want cell phones in school have no idea what they're talking about. lbl06,ad hominem
-"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
-"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
-" Doug is convinced he has lucky underwear. One time when he forgot to put on his lucky underwear, he got a parking ticket. Doug concludes that because he forgot to wear his lucky underwear, he got the ticket. Doug doesn't wash his lucky underwear often. This part isn't relevant to the example, but it is disturbing nonetheless. lbl01",false causality
-Students who want cell phones in school have no idea what they're talking about. lbl06,ad hominem
-Smoking pot is against the law because it is wrong; I know it is wrong because it is against the law lbl03,circular reasoning
-"My best friend says you’re a liar, so I’m not going to talk to you. lbl06",ad hominem
-"“No! Don't eat that piece of chocolate. Today, it's one piece of chocolate, but tomorrow, you've gained 20 lbs!” lbl05",faulty generalization
-"""Certainly this is the case at most colleges in America nowadays"" lbl02",ad populum
-"Giving 10% of your income to the Church will free a child’s soul from Limbo into Heaven, so give your money! lbl01",false causality
-"Why should merely cracking down on terrorism help to stop it, when that method hasn't worked in any other country? lbl11",intentional
-People who drive big cars probably hate the environment. lbl07,fallacy of extension
-", that it must be true lbl02",ad populum
-"""Her arguments against the protest were weak. After all, she can't be fair; she works for the government."" lbl06",ad hominem
-Let’s go buy the iPhone X in spite of the $999 price tag--all of our friends have one already! lbl02,ad populum
-The child did not do his chores so therefore all children are lazy. lbl05,faulty generalization
-"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
-Everyone is going to get the new smart phone when it comes out this weekend. Why aren’t you? lbl02,ad populum
-"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
-"Speaker 1: No fault divorce has proven to be detrimental to society and the family.
+test,Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
+test,Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
+test,Students who want cell phones in school have no idea what they're talking about. lbl06,ad hominem
+test,"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
+test,"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
+test," Doug is convinced he has lucky underwear. One time when he forgot to put on his lucky underwear, he got a parking ticket. Doug concludes that because he forgot to wear his lucky underwear, he got the ticket. Doug doesn't wash his lucky underwear often. This part isn't relevant to the example, but it is disturbing nonetheless. lbl01",false causality
+test,Students who want cell phones in school have no idea what they're talking about. lbl06,ad hominem
+test,Smoking pot is against the law because it is wrong; I know it is wrong because it is against the law lbl03,circular reasoning
+test,"My best friend says you’re a liar, so I’m not going to talk to you. lbl06",ad hominem
+test,"“No! Don't eat that piece of chocolate. Today, it's one piece of chocolate, but tomorrow, you've gained 20 lbs!” lbl05",faulty generalization
+test,"""Certainly this is the case at most colleges in America nowadays"" lbl02",ad populum
+test,"Giving 10% of your income to the Church will free a child’s soul from Limbo into Heaven, so give your money! lbl01",false causality
+test,"Why should merely cracking down on terrorism help to stop it, when that method hasn't worked in any other country? lbl11",intentional
+test,People who drive big cars probably hate the environment. lbl07,fallacy of extension
+test,", that it must be true lbl02",ad populum
+test,"""Her arguments against the protest were weak. After all, she can't be fair; she works for the government."" lbl06",ad hominem
+test,Let’s go buy the iPhone X in spite of the $999 price tag--all of our friends have one already! lbl02,ad populum
+test,The child did not do his chores so therefore all children are lazy. lbl05,faulty generalization
+test,"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
+test,Everyone is going to get the new smart phone when it comes out this weekend. Why aren’t you? lbl02,ad populum
+test,"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
+test,"Speaker 1: No fault divorce has proven to be detrimental to society and the family.
 Speaker 2: You didn’t seem to think that when you got divorced. lbl06",ad hominem
-French people are great at kissing.  Julie is French.  Get me a date! lbl05,faulty generalization
-"""I'm French and I don't like cheese.""
+test,French people are great at kissing.  Julie is French.  Get me a date! lbl05,faulty generalization
+test,"""I'm French and I don't like cheese.""
 ""All French like cheese.""
 ""I don't.""
 ""Then you must not really be French."" lbl11",intentional
-"Speaker 1 (Democrat): “Donald Trump is a known adulterer. It reflects badly on his character, and suggests he might not be trustworthy.”
+test,"Speaker 1 (Democrat): “Donald Trump is a known adulterer. It reflects badly on his character, and suggests he might not be trustworthy.”
 Speaker 2 (Republican): “What about Bill Clinton? You didn’t seem to care when he cheated.” lbl06",ad hominem
-"Paige wants to play a guitar solo on our next recording. Her father is a horrible musician, though, so I doubt that Paula's any good either. lbl05",faulty generalization
-"""everyone is doing it"" mentality lbl02",ad populum
-This fallacy attacks a position the opponent doesn’t really hold. lbl07,fallacy of extension
-40 million people can't be wrong! Buy the new Iphone XIV today! lbl02,ad populum
-I don't see how you can say you're an ethical person. It's so hard to get you to do anything; your work ethic is so bad lbl08,equivocation
-"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
+test,"Paige wants to play a guitar solo on our next recording. Her father is a horrible musician, though, so I doubt that Paula's any good either. lbl05",faulty generalization
+test,"""everyone is doing it"" mentality lbl02",ad populum
+test,This fallacy attacks a position the opponent doesn’t really hold. lbl07,fallacy of extension
+test,40 million people can't be wrong! Buy the new Iphone XIV today! lbl02,ad populum
+test,I don't see how you can say you're an ethical person. It's so hard to get you to do anything; your work ethic is so bad lbl08,equivocation
+test,"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
 Katie: I doubt that. What you are experiencing is what cognitive psychologists refer to as a ""false memory.""
  lbl06",ad hominem
-The speaker or writer appeals to the audience's trust by establishing his credibility or trustworthiness as a writer or speaker? lbl10,fallacy of credibility
-"“McDonald’s has served 100 billion people in the world. It must be the best fast food restaurant in the world"" is an example of lbl02",ad populum
-"It is immoral to kill an innocent human being.  Fetuses are innocent human  beings.  Therefore, it is immoral to kill fetuses. lbl08",equivocation
-"You call the Marcoses murderers and plunderers yet you cannot lend me money for my school project, murdering my chance for a higher grade. You are just like them. lbl04",fallacy of relevance
-"Mob of people: Lower taxes! Lower taxes!
+test,The speaker or writer appeals to the audience's trust by establishing his credibility or trustworthiness as a writer or speaker? lbl10,fallacy of credibility
+test,"“McDonald’s has served 100 billion people in the world. It must be the best fast food restaurant in the world"" is an example of lbl02",ad populum
+test,"It is immoral to kill an innocent human being.  Fetuses are innocent human  beings.  Therefore, it is immoral to kill fetuses. lbl08",equivocation
+test,"You call the Marcoses murderers and plunderers yet you cannot lend me money for my school project, murdering my chance for a higher grade. You are just like them. lbl04",fallacy of relevance
+test,"Mob of people: Lower taxes! Lower taxes!
 
 Politician: People, your taxes are high because of illegal immigrants. That's right—illegal immigrants. We need to get rid of them.
 
 Mob of people: (murmuring amongst themselves) Hmmm... immigrants. Let's get rid of them! lbl04",fallacy of relevance
-"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
-"Only asking 5 people their opinion about Christian Heritage and saying their opinions are the ""majority"" of people. lbl11",intentional
-Big deal! Lots of people cheat too. lbl04,fallacy of relevance
-This fallacy attacks a position the opponent doesn’t really hold. lbl07,fallacy of extension
-"It is ridiculous to have spent thousands of dollars to rescue two whales trapped in the ice. Why, look at all the people trapped in jobs they don't like. lbl04",fallacy of relevance
-"""Flight attendants are the nicest people. I should know—I’ve taken two flights."" lbl05",faulty generalization
-Has your psychology department stopped teaching that ineffective approach to therapy yet? lbl03,circular reasoning
-Violent video games are directly related to gun violence in schools and should be banned for teens. The school day should start an hour later. lbl04,fallacy of relevance
-"Having come from the same political party, he is sure to communicate biased and untrue claims about his party-mates lbl06",ad hominem
-"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
-"When asked about his comments Trump made on his tape with Billy Bush, Trump responded, “It’s locker room talk, and it’s one of those things. I will knock the hell out of ISIS. We’re going to defeat ISIS. ISIS happened a number of years ago in a vacuum that was left because of bad judgment. And I will tell you, I will take care of ISIS.” lbl04",fallacy of relevance
-"Don't ever steal! Once you start, you won't be able to stop, and you'll end up bankrupt. lbl05",faulty generalization
-"""We must legalize weed, it is tearing families apart."" Response: ""But look at all those druggies getting arrested, they are obviously criminals."" lbl04",fallacy of relevance
-"Louise is running for class president. In her campaign speech she says, ""My opponent does not deserve to win. She is a smoker and she cheated on her boyfriend last year."" What fallacy has Louise committed?
+test,"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
+test,"Only asking 5 people their opinion about Christian Heritage and saying their opinions are the ""majority"" of people. lbl11",intentional
+test,Big deal! Lots of people cheat too. lbl04,fallacy of relevance
+test,This fallacy attacks a position the opponent doesn’t really hold. lbl07,fallacy of extension
+test,"It is ridiculous to have spent thousands of dollars to rescue two whales trapped in the ice. Why, look at all the people trapped in jobs they don't like. lbl04",fallacy of relevance
+test,"""Flight attendants are the nicest people. I should know—I’ve taken two flights."" lbl05",faulty generalization
+test,Has your psychology department stopped teaching that ineffective approach to therapy yet? lbl03,circular reasoning
+test,Violent video games are directly related to gun violence in schools and should be banned for teens. The school day should start an hour later. lbl04,fallacy of relevance
+test,"Having come from the same political party, he is sure to communicate biased and untrue claims about his party-mates lbl06",ad hominem
+test,"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
+test,"When asked about his comments Trump made on his tape with Billy Bush, Trump responded, “It’s locker room talk, and it’s one of those things. I will knock the hell out of ISIS. We’re going to defeat ISIS. ISIS happened a number of years ago in a vacuum that was left because of bad judgment. And I will tell you, I will take care of ISIS.” lbl04",fallacy of relevance
+test,"Don't ever steal! Once you start, you won't be able to stop, and you'll end up bankrupt. lbl05",faulty generalization
+test,"""We must legalize weed, it is tearing families apart."" Response: ""But look at all those druggies getting arrested, they are obviously criminals."" lbl04",fallacy of relevance
+test,"Louise is running for class president. In her campaign speech she says, ""My opponent does not deserve to win. She is a smoker and she cheated on her boyfriend last year."" What fallacy has Louise committed?
 http://www.funtrivia.com lbl06",ad hominem
-Leonardo DiCaprio is just a dumb actor. What does he really know about climate change? lbl06,ad hominem
-If you buy the Disney annual pass you will save money when visiting the happiest place on Earth! lbl11,intentional
-"If I go to the bathroom, I will miss the notes, then I'll do poorly on a test, then I won't get into college, so I won't go to the bathroom. lbl05",faulty generalization
-"Makes the claim that EVERYONE is using this product, and you should, too. lbl02",ad populum
-We cannot listen to John’s opinion on global warming because he is a tree hugger. lbl06,ad hominem
-"“We must accept the traditions of the men of old time who affirm themselves to be the offspring of the gods - that is what they say - and they must surely have known their own ancestors. How can we doubt the word of the children of the gods?” - Plato, Timaeus lbl03",circular reasoning
-I dropped the ball because Mercury is in retrograde. lbl01,false causality
-"It is immoral to kill an innocent human being.  Fetuses are innocent human  beings.  Therefore, it is immoral to kill fetuses. lbl08",equivocation
-"Julie was trying to demonstrate to the audience of her speech that gender inequality is like ordering fast food. ""It's not good for us,"" she said, ""but we do it all the time and men tend to go out for a burger and fries more than women do.""
+test,Leonardo DiCaprio is just a dumb actor. What does he really know about climate change? lbl06,ad hominem
+test,If you buy the Disney annual pass you will save money when visiting the happiest place on Earth! lbl11,intentional
+test,"If I go to the bathroom, I will miss the notes, then I'll do poorly on a test, then I won't get into college, so I won't go to the bathroom. lbl05",faulty generalization
+test,"Makes the claim that EVERYONE is using this product, and you should, too. lbl02",ad populum
+test,We cannot listen to John’s opinion on global warming because he is a tree hugger. lbl06,ad hominem
+test,"“We must accept the traditions of the men of old time who affirm themselves to be the offspring of the gods - that is what they say - and they must surely have known their own ancestors. How can we doubt the word of the children of the gods?” - Plato, Timaeus lbl03",circular reasoning
+test,I dropped the ball because Mercury is in retrograde. lbl01,false causality
+test,"It is immoral to kill an innocent human being.  Fetuses are innocent human  beings.  Therefore, it is immoral to kill fetuses. lbl08",equivocation
+test,"Julie was trying to demonstrate to the audience of her speech that gender inequality is like ordering fast food. ""It's not good for us,"" she said, ""but we do it all the time and men tend to go out for a burger and fries more than women do.""
 What fallacy is this? lbl09",fallacy of logic
-“against the man;” attacking the individual rather than their position. lbl06,ad hominem
-"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
+test,“against the man;” attacking the individual rather than their position. lbl06,ad hominem
+test,"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
 Steve: What’s it called?
 Bill: Windows Vista!
 Steve: Sounds wonderful!  I can’t wait until all of your users install it on all their computers!
  lbl10",fallacy of credibility
-How many school shootings should we tolerate before we change the gun laws? lbl11,intentional
-My brother received the COVID-19 vaccine and then had diarrhea for a week. The vaccine is the reason my brother's bowels came undone. lbl01,false causality
-"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
-Caroline says that she thinks her friends should not be so rude to the new girl. Jenna says that she cannot believe that Caroline is choosing to be better friends with the new girl than the girls who have always known her. lbl07,fallacy of extension
-"Global chocolate consumption is highest in Switzerland, yet people there are among the trimmest in the industrialized world.  therefore, it's reasonable to conclude that chocolate helps keep your weight down. lbl01",false causality
-Women can't do as good a job as men. lbl05,faulty generalization
-"I know for a fact that ghosts exist. My friend, who is a very reliable person, has seen ghosts on many occasions. lbl05",faulty generalization
-I would never buy a Buick. My father owned two of them and both of them had frequent transmission problems. Buicks obviously break down all the time. lbl05,faulty generalization
-Encampment is like basic training. It’s CAP’s equivalent to Boot Camp. lbl09,fallacy of logic
-"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
+test,How many school shootings should we tolerate before we change the gun laws? lbl11,intentional
+test,My brother received the COVID-19 vaccine and then had diarrhea for a week. The vaccine is the reason my brother's bowels came undone. lbl01,false causality
+test,"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
+test,Caroline says that she thinks her friends should not be so rude to the new girl. Jenna says that she cannot believe that Caroline is choosing to be better friends with the new girl than the girls who have always known her. lbl07,fallacy of extension
+test,"Global chocolate consumption is highest in Switzerland, yet people there are among the trimmest in the industrialized world.  therefore, it's reasonable to conclude that chocolate helps keep your weight down. lbl01",false causality
+test,Women can't do as good a job as men. lbl05,faulty generalization
+test,"I know for a fact that ghosts exist. My friend, who is a very reliable person, has seen ghosts on many occasions. lbl05",faulty generalization
+test,I would never buy a Buick. My father owned two of them and both of them had frequent transmission problems. Buicks obviously break down all the time. lbl05,faulty generalization
+test,Encampment is like basic training. It’s CAP’s equivalent to Boot Camp. lbl09,fallacy of logic
+test,"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
 Katie: I doubt that. What you are experiencing is what cognitive psychologists refer to as a ""false memory.""
  lbl06",ad hominem
-Christine has a terrible experience with a boyfriend. She decides that all boys are mean. lbl05,faulty generalization
-He has smoked cigarettes his entire life and he doesn't have lung cancer. Therefore smoking doesn't cause lung cancer. lbl05,faulty generalization
-"Rick: I need to know if we should stop for lunch or not.  You are either hungry or not hungry, which is it?
+test,Christine has a terrible experience with a boyfriend. She decides that all boys are mean. lbl05,faulty generalization
+test,He has smoked cigarettes his entire life and he doesn't have lung cancer. Therefore smoking doesn't cause lung cancer. lbl05,faulty generalization
+test,"Rick: I need to know if we should stop for lunch or not.  You are either hungry or not hungry, which is it?
 
 Tina: If being hungry is being able to eat, I am always hungry.
  lbl07",fallacy of extension
-1 = a number; 2 = a number; therefore 1 = 2. lbl05,faulty generalization
-"Cat Stevens may be a successful and skilled musician, but let's not forget that he's been accused of extremist religious and political views. lbl06",ad hominem
-" Perhaps the most classic example of this fallacy is the argument for the existence of God.  Due to the understanding of nature through science, many of the arguments that used to be used for God (or gods) were abandoned, only to be replaced with new ones, usually involving questions to which science has not definitively answered yet.  The move from creationism to intelligent design is a prime example.  Currently the origin of life is a popular argument for God (although a classic argument from ignorance), and an area where we very well may have a scientific answer in the next decade, at which time, the “origin of life” argument will fade away and be replaced by another, thus moving the figurative goalposts farther back as our understanding of the natural world increases.Exception: This fallacy should not be confused with an argument or set of arguments, with multiple propositions inherent in the argument.  The reason for the difference between this kind of argument and the moving the goalposts fallacy, is a subtle one, but indicated by a strong initial claim (“has to be”, “must”, “required for”, etc.) that gets answered and/or what appears to be ad hoc objections that follow eventually leading to an impossible request for proof.
+test,1 = a number; 2 = a number; therefore 1 = 2. lbl05,faulty generalization
+test,"Cat Stevens may be a successful and skilled musician, but let's not forget that he's been accused of extremist religious and political views. lbl06",ad hominem
+test," Perhaps the most classic example of this fallacy is the argument for the existence of God.  Due to the understanding of nature through science, many of the arguments that used to be used for God (or gods) were abandoned, only to be replaced with new ones, usually involving questions to which science has not definitively answered yet.  The move from creationism to intelligent design is a prime example.  Currently the origin of life is a popular argument for God (although a classic argument from ignorance), and an area where we very well may have a scientific answer in the next decade, at which time, the “origin of life” argument will fade away and be replaced by another, thus moving the figurative goalposts farther back as our understanding of the natural world increases.Exception: This fallacy should not be confused with an argument or set of arguments, with multiple propositions inherent in the argument.  The reason for the difference between this kind of argument and the moving the goalposts fallacy, is a subtle one, but indicated by a strong initial claim (“has to be”, “must”, “required for”, etc.) that gets answered and/or what appears to be ad hoc objections that follow eventually leading to an impossible request for proof.
 Fun Fact: The name “moving the goalposts” comes from the analogy of kicking a perfect field goal in American football, only to have the goalposts be moved on you. This would be very unfair.
 References:
 This a logical fallacy frequently used on the Internet. No academic sources could be found.
 Questions about this fallacy? Ask our community!
  lbl11",intentional
-"'Cotton and grain crops were lower this year than last. So, people must be stealing them.""
+test,"'Cotton and grain crops were lower this year than last. So, people must be stealing them.""
 This is an example of what kind of logical fallacy? lbl09",fallacy of logic
-"The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy. lbl11",intentional
-"Most heroin users started out smoking pot. If you start smoking pot, you’ll end up a heroin user, too. lbl09",fallacy of logic
-"Accused on the 6 o'clock news of corruption and taking bribes, the senator said that we should all be very wary of the things we hear in the media, because we all know how very unreliable the media can be. lbl06",ad hominem
-sending M-16s to Syrian rebels inevitably mean boots on the ground in Damascus. lbl05,faulty generalization
-"""Russia has a terrible human rights record.""
+test,"The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy. lbl11",intentional
+test,"Most heroin users started out smoking pot. If you start smoking pot, you’ll end up a heroin user, too. lbl09",fallacy of logic
+test,"Accused on the 6 o'clock news of corruption and taking bribes, the senator said that we should all be very wary of the things we hear in the media, because we all know how very unreliable the media can be. lbl06",ad hominem
+test,sending M-16s to Syrian rebels inevitably mean boots on the ground in Damascus. lbl05,faulty generalization
+test,"""Russia has a terrible human rights record.""
 ""Well, the United States has done plenty of bad things, but we aren't a bad country, so Russia isn't, either."" -the President when confronted about Russia's human rights abuses. lbl04",fallacy of relevance
-all bachelors are unmarried males lbl03,circular reasoning
-Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
-"Don't try to tell me that you only watch educational programming, Emmy! I know for a fact that your sister only watches reality television. lbl05",faulty generalization
-"I have no intention of stopping the use of somatostatin on patients suffering from acute pancreatitis. I consider it to be a very reasonable choice. After all, it has been standard practice in our department for many years and we’ve been quite satisfied with the results we’ve had. lbl10",fallacy of credibility
-"A rainbow appeared in the sky the day before basketball tryouts, and I made the team! If there's a rainbow when I try out in the spring, I'm sure I'll make the team again. lbl01",false causality
-"“I admire the president for being a good role model.” REPLY: “But the New York Times says he’s a lousy role model, so you’re wrong.” lbl10",fallacy of credibility
-The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
-"Audrey: I am a human being. I am not a cyborg from the future here to destroy humanity.
+test,all bachelors are unmarried males lbl03,circular reasoning
+test,Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
+test,"Don't try to tell me that you only watch educational programming, Emmy! I know for a fact that your sister only watches reality television. lbl05",faulty generalization
+test,"I have no intention of stopping the use of somatostatin on patients suffering from acute pancreatitis. I consider it to be a very reasonable choice. After all, it has been standard practice in our department for many years and we’ve been quite satisfied with the results we’ve had. lbl10",fallacy of credibility
+test,"A rainbow appeared in the sky the day before basketball tryouts, and I made the team! If there's a rainbow when I try out in the spring, I'm sure I'll make the team again. lbl01",false causality
+test,"“I admire the president for being a good role model.” REPLY: “But the New York Times says he’s a lousy role model, so you’re wrong.” lbl10",fallacy of credibility
+test,The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
+test,"Audrey: I am a human being. I am not a cyborg from the future here to destroy humanity.
 Fred: Prove that you are human! Cyborgs don't pass out when they lose a lot of blood. Here's a knife.
 Audrey: Get to bed, Freddie. And no more SYFY channel before bed!
  lbl11",intentional
-The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
-Everyone is/is not doing it! It must/must not be a good thing! lbl02,ad populum
-"Kids: If you wouldn't eat your dog, why eat a turkey? Go vegan. lbl09",fallacy of logic
-"My grandfather was a typical Irishman - friendly, outgoing, and drunk half the time. lbl05",faulty generalization
-"The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy. lbl11",intentional
-Over one million students have purchased Brain Power. lbl02,ad populum
-"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
-"""Truly helps cramming for a test: my psychological test is crowded and I have an A."" lbl01",false causality
-"My sister-in-law, who is a teacher, said that this school is not somewhere that I would want to send my children. lbl10",fallacy of credibility
-We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
-"While jogging around the neighborhood, you are more likely to get bitten by someone’s pet dog, than by any member of the canine species. lbl05",faulty generalization
-Repeating the same thing as if you’re proving something lbl03,circular reasoning
-"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
+test,The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
+test,Everyone is/is not doing it! It must/must not be a good thing! lbl02,ad populum
+test,"Kids: If you wouldn't eat your dog, why eat a turkey? Go vegan. lbl09",fallacy of logic
+test,"My grandfather was a typical Irishman - friendly, outgoing, and drunk half the time. lbl05",faulty generalization
+test,"The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy. lbl11",intentional
+test,Over one million students have purchased Brain Power. lbl02,ad populum
+test,"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
+test,"""Truly helps cramming for a test: my psychological test is crowded and I have an A."" lbl01",false causality
+test,"My sister-in-law, who is a teacher, said that this school is not somewhere that I would want to send my children. lbl10",fallacy of credibility
+test,We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
+test,"While jogging around the neighborhood, you are more likely to get bitten by someone’s pet dog, than by any member of the canine species. lbl05",faulty generalization
+test,Repeating the same thing as if you’re proving something lbl03,circular reasoning
+test,"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
 Nina: ""Dating apps are dangerous! Most people are catfished, and guys usually pretend to be so much better than they really are online. If we're so busy, we won't have time for any of that, anyway.""
 What fallacy is Nina leaning toward? lbl07",fallacy of extension
-", that it must be true lbl02",ad populum
-The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
-This fallacy isn’t proof of anything except that you don’t know something. lbl11,intentional
-We cannot listen to John’s opinion on global warming because he is a tree hugger. lbl06,ad hominem
-"She is good at writing because she writes words effectively."" lbl03",circular reasoning
-iPhones are the best phone because everyone has them. lbl02,ad populum
-"Teachers don't have lives.""My best friend said her English class was hard, and the one I'm in is hard too. All English classes must be hard."" lbl05",faulty generalization
-"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
-We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
-Let’s go buy the iPhone X in spite of the $999 price tag--all of our friends have one already! lbl02,ad populum
-40 million people can't be wrong! Buy the new Iphone XIV today! lbl02,ad populum
-"I deserve to have a later curfew, so you should let me stay out until 10pm! lbl03",circular reasoning
-"""The Philippines is in poverty because of poor people."" lbl03",circular reasoning
-"“We must accept the traditions of the men of old time who affirm themselves to be the offspring of the gods - that is what they say - and they must surely have known their own ancestors. How can we doubt the word of the children of the gods?” - Plato, Timaeus lbl03",circular reasoning
-"""You are clearly just too young to understand this issue!"" lbl06",ad hominem
-Look at that face! Would anyone vote for that? Can you imagine that as the face of our next president? lbl06,ad hominem
-"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
-Let’s go buy the iPhone X in spite of the $999 price tag--all of our friends have one already! lbl02,ad populum
-Schools are like families; therefore teachers (like parents) should be allowed to discipline their students. lbl09,fallacy of logic
-", rather than considering the content of what the person is saying? lbl06",ad hominem
-"Everyone already believes that the defendant killed her husband, and that many people can't be wrong. lbl02",ad populum
-"The Earth is round.
+test,", that it must be true lbl02",ad populum
+test,The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
+test,This fallacy isn’t proof of anything except that you don’t know something. lbl11,intentional
+test,We cannot listen to John’s opinion on global warming because he is a tree hugger. lbl06,ad hominem
+test,"She is good at writing because she writes words effectively."" lbl03",circular reasoning
+test,iPhones are the best phone because everyone has them. lbl02,ad populum
+test,"Teachers don't have lives.""My best friend said her English class was hard, and the one I'm in is hard too. All English classes must be hard."" lbl05",faulty generalization
+test,"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
+test,We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
+test,Let’s go buy the iPhone X in spite of the $999 price tag--all of our friends have one already! lbl02,ad populum
+test,40 million people can't be wrong! Buy the new Iphone XIV today! lbl02,ad populum
+test,"I deserve to have a later curfew, so you should let me stay out until 10pm! lbl03",circular reasoning
+test,"""The Philippines is in poverty because of poor people."" lbl03",circular reasoning
+test,"“We must accept the traditions of the men of old time who affirm themselves to be the offspring of the gods - that is what they say - and they must surely have known their own ancestors. How can we doubt the word of the children of the gods?” - Plato, Timaeus lbl03",circular reasoning
+test,"""You are clearly just too young to understand this issue!"" lbl06",ad hominem
+test,Look at that face! Would anyone vote for that? Can you imagine that as the face of our next president? lbl06,ad hominem
+test,"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
+test,Let’s go buy the iPhone X in spite of the $999 price tag--all of our friends have one already! lbl02,ad populum
+test,Schools are like families; therefore teachers (like parents) should be allowed to discipline their students. lbl09,fallacy of logic
+test,", rather than considering the content of what the person is saying? lbl06",ad hominem
+test,"Everyone already believes that the defendant killed her husband, and that many people can't be wrong. lbl02",ad populum
+test,"The Earth is round.
 Therefore, Trump. lbl09",fallacy of logic
-"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
-"""Many democrats don't want a border wall with Mexico, which means they don't want to keep Americans safe"" IS an example of this fallacy. lbl07",fallacy of extension
-Look at that face! Would anyone vote for that? Can you imagine that as the face of our next president? lbl06,ad hominem
-We think this new MallTime game app will be a success because all girls like shopping. lbl05,faulty generalization
-Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
-"Paige wants to play a guitar solo on our next recording. Her father is a horrible musician, though, so I doubt that Paula's any good either. lbl05",faulty generalization
-The teenagers where rude and disrespectful therefore all teenagers are rude and disrespectful. lbl05,faulty generalization
-"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
-The Tooth Fairy is real because nobody has proven she doesn't exist.' This is an example of which fallacy? lbl11,intentional
-President Trump said that he was proud of the children who participated in this year's Special Olympics. Those kids are a bunch of losers. lbl06,ad hominem
-"""You are clearly just too young to understand this issue!"" lbl06",ad hominem
-"Either you believe what I’m saying, or you must believe exactly the opposite. lbl12",false dilemma
-Passing federal laws to control the amount of violence in music is the first step in a process that will result in absolute government control of the media and total censorship over all forms of artistic expression. lbl05,faulty generalization
-"My opponent raises a good point, but can we really trust him? I mean, he moved to this town two years ago and everyone knows that his wife left him. lbl06",ad hominem
-We are not weak if we make a proper use of those means which the God of nature hath placed in our power. lbl10,fallacy of credibility
-Saying that a compromise between two extremes is the truth lbl04,fallacy of relevance
-God must exist because every culture has some sort of belief in a higher being. lbl02,ad populum
-"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
-"When the arguer is attacked vs. the argument that is attacked, this is an example of: lbl06",ad hominem
-"Asserting that if we allow ""A"" to happen, then ""Z"" will consequently happen too, therefore ""A"" should not happen. lbl05",faulty generalization
-"“The rooster crows always before the sun rises, therefore the crowing rooster causes the sun to rise.” lbl01",false causality
-Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
-"""Her arguments against the protest were weak. After all, she can't be fair; she works for the government."" lbl06",ad hominem
-I don't understand why you're saying I broke a promise. I said I'd never speak to my ex-girlfriend again. And I didn't. I just sent her some pictures and text messages. lbl08,equivocation
-"""People who don't support the proposed state minimum wage increase must hate the poor so much.""
+test,"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
+test,"""Many democrats don't want a border wall with Mexico, which means they don't want to keep Americans safe"" IS an example of this fallacy. lbl07",fallacy of extension
+test,Look at that face! Would anyone vote for that? Can you imagine that as the face of our next president? lbl06,ad hominem
+test,We think this new MallTime game app will be a success because all girls like shopping. lbl05,faulty generalization
+test,Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
+test,"Paige wants to play a guitar solo on our next recording. Her father is a horrible musician, though, so I doubt that Paula's any good either. lbl05",faulty generalization
+test,The teenagers where rude and disrespectful therefore all teenagers are rude and disrespectful. lbl05,faulty generalization
+test,"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
+test,The Tooth Fairy is real because nobody has proven she doesn't exist.' This is an example of which fallacy? lbl11,intentional
+test,President Trump said that he was proud of the children who participated in this year's Special Olympics. Those kids are a bunch of losers. lbl06,ad hominem
+test,"""You are clearly just too young to understand this issue!"" lbl06",ad hominem
+test,"Either you believe what I’m saying, or you must believe exactly the opposite. lbl12",false dilemma
+test,Passing federal laws to control the amount of violence in music is the first step in a process that will result in absolute government control of the media and total censorship over all forms of artistic expression. lbl05,faulty generalization
+test,"My opponent raises a good point, but can we really trust him? I mean, he moved to this town two years ago and everyone knows that his wife left him. lbl06",ad hominem
+test,We are not weak if we make a proper use of those means which the God of nature hath placed in our power. lbl10,fallacy of credibility
+test,Saying that a compromise between two extremes is the truth lbl04,fallacy of relevance
+test,God must exist because every culture has some sort of belief in a higher being. lbl02,ad populum
+test,"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
+test,"When the arguer is attacked vs. the argument that is attacked, this is an example of: lbl06",ad hominem
+test,"Asserting that if we allow ""A"" to happen, then ""Z"" will consequently happen too, therefore ""A"" should not happen. lbl05",faulty generalization
+test,"“The rooster crows always before the sun rises, therefore the crowing rooster causes the sun to rise.” lbl01",false causality
+test,Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
+test,"""Her arguments against the protest were weak. After all, she can't be fair; she works for the government."" lbl06",ad hominem
+test,I don't understand why you're saying I broke a promise. I said I'd never speak to my ex-girlfriend again. And I didn't. I just sent her some pictures and text messages. lbl08,equivocation
+test,"""People who don't support the proposed state minimum wage increase must hate the poor so much.""
 
 Which logical fallacy is used in the statement above? lbl07",fallacy of extension
-"”You can start a family early, or build financial stability for a better family life in the future.” lbl12",false dilemma
-Allowing abortion in the first week of pregnancy would lead to allowing it in the ninth month lbl05,faulty generalization
-"While jogging around the neighborhood, you are more likely to get bitten by someone’s pet dog, than by any member of the canine species. lbl05",faulty generalization
-"Mr. Stark's idea for implementing affirmative action in the university's admission process is complete folly. He say's he wants the student body to represent diversity in the community. But that's ridiculous. I suppose this means we'll have to throw out our academic standards while were at it. After all, if we're going to let students into our prestigious institution just because of their gender or the color of their skin, then what's going to happen to our reputation?
+test,"”You can start a family early, or build financial stability for a better family life in the future.” lbl12",false dilemma
+test,Allowing abortion in the first week of pregnancy would lead to allowing it in the ninth month lbl05,faulty generalization
+test,"While jogging around the neighborhood, you are more likely to get bitten by someone’s pet dog, than by any member of the canine species. lbl05",faulty generalization
+test,"Mr. Stark's idea for implementing affirmative action in the university's admission process is complete folly. He say's he wants the student body to represent diversity in the community. But that's ridiculous. I suppose this means we'll have to throw out our academic standards while were at it. After all, if we're going to let students into our prestigious institution just because of their gender or the color of their skin, then what's going to happen to our reputation?
 
 Identify the logical fallacy commited in this argument. lbl07",fallacy of extension
-"Lindsay's mom is concerned when she finds out that Lindsay skipped class one day. She tells Lindsay that she will now start skipping more frequently. Then she will drop out altogether, never graduate or get into college, and end up unemployed and living at home for the rest of her life.
+test,"Lindsay's mom is concerned when she finds out that Lindsay skipped class one day. She tells Lindsay that she will now start skipping more frequently. Then she will drop out altogether, never graduate or get into college, and end up unemployed and living at home for the rest of her life.
 What type of fallacy has Lindsay's mom committed? lbl05",faulty generalization
-I dropped the ball because Mercury is in retrograde. lbl01,false causality
-"Having come from the same political party, he is sure to communicate biased and untrue claims about his party-mates lbl06",ad hominem
-"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
-"Audrey: I am a human being. I am not a cyborg from the future here to destroy humanity.
+test,I dropped the ball because Mercury is in retrograde. lbl01,false causality
+test,"Having come from the same political party, he is sure to communicate biased and untrue claims about his party-mates lbl06",ad hominem
+test,"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
+test,"Audrey: I am a human being. I am not a cyborg from the future here to destroy humanity.
 Fred: Prove that you are human! Cyborgs don't pass out when they lose a lot of blood. Here's a knife.
 Audrey: Get to bed, Freddie. And no more SYFY channel before bed!
  lbl11",intentional
-"Jimmy stole Tommy’s lunch in the past.
+test,"Jimmy stole Tommy’s lunch in the past.
 Therefore, it is acceptable for Tommy to steal Jimmy’s lunch today. lbl04",fallacy of relevance
-We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
-something that kills is deadly lbl03,circular reasoning
-"Giving 10% of your income to the Church will free a child’s soul from Limbo into Heaven, so give your money! lbl01",false causality
-Big deal! Lots of people cheat too. lbl04,fallacy of relevance
-"It is warmer this year in Las Vegas as compared to last year; therefore, global warming is rapidly accelerating. lbl05",faulty generalization
-"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
-"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
-I would never buy a Buick. My father owned two of them and both of them had frequent transmission problems. Buicks obviously break down all the time. lbl05,faulty generalization
-"""I am torn between studying for the quiz or not. But, I know that if I don't study for the quiz, I will fail. If I fail the quiz, I get a D in the class. If I get a D, it will lower my GPA. If my GPA lowers, I can't play football. If I can't play football, I don't get a scholarship. No scholarship, no college. No college, no life!"" lbl05",faulty generalization
-"Rick: I need to know if we should stop for lunch or not.  You are either hungry or not hungry, which is it?
+test,We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
+test,something that kills is deadly lbl03,circular reasoning
+test,"Giving 10% of your income to the Church will free a child’s soul from Limbo into Heaven, so give your money! lbl01",false causality
+test,Big deal! Lots of people cheat too. lbl04,fallacy of relevance
+test,"It is warmer this year in Las Vegas as compared to last year; therefore, global warming is rapidly accelerating. lbl05",faulty generalization
+test,"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
+test,"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
+test,I would never buy a Buick. My father owned two of them and both of them had frequent transmission problems. Buicks obviously break down all the time. lbl05,faulty generalization
+test,"""I am torn between studying for the quiz or not. But, I know that if I don't study for the quiz, I will fail. If I fail the quiz, I get a D in the class. If I get a D, it will lower my GPA. If my GPA lowers, I can't play football. If I can't play football, I don't get a scholarship. No scholarship, no college. No college, no life!"" lbl05",faulty generalization
+test,"Rick: I need to know if we should stop for lunch or not.  You are either hungry or not hungry, which is it?
 
 Tina: If being hungry is being able to eat, I am always hungry.
  lbl07",fallacy of extension
-"""People who don't support the proposed state minimum wage increase must hate the poor so much.""
+test,"""People who don't support the proposed state minimum wage increase must hate the poor so much.""
 
 Which logical fallacy is used in the statement above? lbl07",fallacy of extension
-We can't believe what he says out of that ugly mouth of his. lbl06,ad hominem
-Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
-"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
+test,We can't believe what he says out of that ugly mouth of his. lbl06,ad hominem
+test,Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
+test,"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
 Steve: What’s it called?
 Bill: Windows Vista!
 Steve: Sounds wonderful!  I can’t wait until all of your users install it on all their computers!
  lbl10",fallacy of credibility
-Kerry’s plan will raise taxes by at least $900 billion his first hundred days. lbl11,intentional
-"“I admire the president for being a good role model.” REPLY: “But the New York Times says he’s a lousy role model, so you’re wrong.” lbl10",fallacy of credibility
-I cannot listen to anyone who does not share my social and political values. lbl06,ad hominem
-"Oh, please. What do you know about labor laws? You don't even have a job. lbl06",ad hominem
-"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
-The president of Honduras is a good leader because he is a leader of the country. This is an example of which common fallacy? lbl03,circular reasoning
-"The economy grows as the number of likes on my Instagram account continue to increase. Clearly, the two are linked. lbl01",false causality
-"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
-One cigarette will lead youth to addiction lbl05,faulty generalization
-"If you don't say the Pledge of Allegiance, then you must be a traitor. lbl12",false dilemma
-Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
-The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
-"When a statement falsely claims or assumes an ""either / or"" situation, when in fact there is at least one additional logically valid option, it is called... lbl12",false dilemma
-Personally attacking someone to shift attention away from your views is lbl06,ad hominem
-We can't believe what he says out of that ugly mouth of his. lbl06,ad hominem
-"The economy grows as the number of likes on my Instagram account continue to increase. Clearly, the two are linked. lbl01",false causality
-"Rick: I need to know if we should stop for lunch or not.  You are either hungry or not hungry, which is it?
+test,Kerry’s plan will raise taxes by at least $900 billion his first hundred days. lbl11,intentional
+test,"“I admire the president for being a good role model.” REPLY: “But the New York Times says he’s a lousy role model, so you’re wrong.” lbl10",fallacy of credibility
+test,I cannot listen to anyone who does not share my social and political values. lbl06,ad hominem
+test,"Oh, please. What do you know about labor laws? You don't even have a job. lbl06",ad hominem
+test,"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
+test,The president of Honduras is a good leader because he is a leader of the country. This is an example of which common fallacy? lbl03,circular reasoning
+test,"The economy grows as the number of likes on my Instagram account continue to increase. Clearly, the two are linked. lbl01",false causality
+test,"Aristotle thought women were inferior to men. Aristotle is one of the smartest men who ever lived, so he must be right about this. lbl10",fallacy of credibility
+test,One cigarette will lead youth to addiction lbl05,faulty generalization
+test,"If you don't say the Pledge of Allegiance, then you must be a traitor. lbl12",false dilemma
+test,Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
+test,The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
+test,"When a statement falsely claims or assumes an ""either / or"" situation, when in fact there is at least one additional logically valid option, it is called... lbl12",false dilemma
+test,Personally attacking someone to shift attention away from your views is lbl06,ad hominem
+test,We can't believe what he says out of that ugly mouth of his. lbl06,ad hominem
+test,"The economy grows as the number of likes on my Instagram account continue to increase. Clearly, the two are linked. lbl01",false causality
+test,"Rick: I need to know if we should stop for lunch or not.  You are either hungry or not hungry, which is it?
 
 Tina: If being hungry is being able to eat, I am always hungry.
  lbl07",fallacy of extension
-"I don't see how you can believe he is not guilty of that crime. He's a terrible person and I can prove it. In fact, several years ago he was convicted of that same kind of crime. lbl04",fallacy of relevance
-"If this test were based on fraudulent norms, then it would be invalid. But the norms are not fraudulent. Therefore, this test is valid. lbl09",fallacy of logic
-"We have to stop the tuition increase! The next thing you know, they'll be charging $40,000 a semester! lbl05",faulty generalization
-"Helga: You should not be eating that... it has been scientifically proven that eating fat burgers are no good for your health.
+test,"I don't see how you can believe he is not guilty of that crime. He's a terrible person and I can prove it. In fact, several years ago he was convicted of that same kind of crime. lbl04",fallacy of relevance
+test,"If this test were based on fraudulent norms, then it would be invalid. But the norms are not fraudulent. Therefore, this test is valid. lbl09",fallacy of logic
+test,"We have to stop the tuition increase! The next thing you know, they'll be charging $40,000 a semester! lbl05",faulty generalization
+test,"Helga: You should not be eating that... it has been scientifically proven that eating fat burgers are no good for your health.
 Hugh: You eat fat burgers all the time so that can’t be true. lbl06",ad hominem
-"""Dad, it's difficult to make a living on my salary.""
+test,"""Dad, it's difficult to make a living on my salary.""
 
 ""Consider yourself lucky. When I was your age, I was living on $40 a week."" lbl04",fallacy of relevance
-Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
-"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
-"Throughout history, most philosophers thought men were more rational than women, therefore this is true. lbl02",ad populum
-"The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy. lbl11",intentional
-Not believing in the Tooth Fairy is like denying that the Titanic sank because eye-witnesses did not agree if the ship broke in half before or after it sank. lbl09,fallacy of logic
-Christine has a terrible experience with a boyfriend. She decides that all boys are mean. lbl05,faulty generalization
-The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
-"If you don't get up early every day you will be late. The more you are late the more trouble you will get into. The more trouble you get into, you will end up losing your job and your family will starve. (This is an example of...) lbl05",faulty generalization
-"Dr. McKenzie said all kids can fly, so it must be true! lbl10",fallacy of credibility
-"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
-", that it must be true lbl02",ad populum
-Have you stopped cheating on tests?  To answer yes means you cheated before. To answer no means you continue to cheat. lbl11,intentional
-Personally attacking someone to shift attention away from your views is lbl06,ad hominem
-Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
-"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
+test,Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
+test,"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
+test,"Throughout history, most philosophers thought men were more rational than women, therefore this is true. lbl02",ad populum
+test,"The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy. lbl11",intentional
+test,Not believing in the Tooth Fairy is like denying that the Titanic sank because eye-witnesses did not agree if the ship broke in half before or after it sank. lbl09,fallacy of logic
+test,Christine has a terrible experience with a boyfriend. She decides that all boys are mean. lbl05,faulty generalization
+test,The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
+test,"If you don't get up early every day you will be late. The more you are late the more trouble you will get into. The more trouble you get into, you will end up losing your job and your family will starve. (This is an example of...) lbl05",faulty generalization
+test,"Dr. McKenzie said all kids can fly, so it must be true! lbl10",fallacy of credibility
+test,"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
+test,", that it must be true lbl02",ad populum
+test,Have you stopped cheating on tests?  To answer yes means you cheated before. To answer no means you continue to cheat. lbl11,intentional
+test,Personally attacking someone to shift attention away from your views is lbl06,ad hominem
+test,Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
+test,"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
 Steve: What’s it called?
 Bill: Windows Vista!
 Steve: Sounds wonderful!  I can’t wait until all of your users install it on all their computers!
  lbl10",fallacy of credibility
-"Four out of five dentists recommend Happy Glossy Smiley toothpaste brand. Therefore, it must be great. lbl05",faulty generalization
-We think this new MallTime game app will be a success because all little girls like shopping. lbl05,faulty generalization
-"When asked about his comments Trump made on his tape with Billy Bush, Trump responded, “It’s locker room talk, and it’s one of those things. I will knock the hell out of ISIS. We’re going to defeat ISIS. ISIS happened a number of years ago in a vacuum that was left because of bad judgment. And I will tell you, I will take care of ISIS.” lbl04",fallacy of relevance
-"""Everyone is wearing the new skinny jeans from American Eagle. Are you?"" lbl02",ad populum
-"Most heroin users started out smoking pot. If you start smoking pot, you’ll end up a heroin user, too. lbl09",fallacy of logic
-This type of ad taps into a person's desire to be part of a group. lbl02,ad populum
-"If you aren’t a capitalist, you must be a communist. lbl12",false dilemma
-"All of my red-headed friends are good dancers. Therefore, all red-headed people must be good dancers. 
+test,"Four out of five dentists recommend Happy Glossy Smiley toothpaste brand. Therefore, it must be great. lbl05",faulty generalization
+test,We think this new MallTime game app will be a success because all little girls like shopping. lbl05,faulty generalization
+test,"When asked about his comments Trump made on his tape with Billy Bush, Trump responded, “It’s locker room talk, and it’s one of those things. I will knock the hell out of ISIS. We’re going to defeat ISIS. ISIS happened a number of years ago in a vacuum that was left because of bad judgment. And I will tell you, I will take care of ISIS.” lbl04",fallacy of relevance
+test,"""Everyone is wearing the new skinny jeans from American Eagle. Are you?"" lbl02",ad populum
+test,"Most heroin users started out smoking pot. If you start smoking pot, you’ll end up a heroin user, too. lbl09",fallacy of logic
+test,This type of ad taps into a person's desire to be part of a group. lbl02,ad populum
+test,"If you aren’t a capitalist, you must be a communist. lbl12",false dilemma
+test,"All of my red-headed friends are good dancers. Therefore, all red-headed people must be good dancers. 
 This assumption from my experience is an example of lbl05",faulty generalization
-iPhones are the best phone because everyone has them. lbl02,ad populum
-"I know for a fact that ghosts exist. My friend, who is a very reliable person, has seen ghosts on many occasions. lbl05",faulty generalization
-"Julie was trying to demonstrate to the audience of her speech that gender inequality is like ordering fast food. ""It's not good for us,"" she said, ""but we do it all the time and men tend to go out for a burger and fries more than women do.""
+test,iPhones are the best phone because everyone has them. lbl02,ad populum
+test,"I know for a fact that ghosts exist. My friend, who is a very reliable person, has seen ghosts on many occasions. lbl05",faulty generalization
+test,"Julie was trying to demonstrate to the audience of her speech that gender inequality is like ordering fast food. ""It's not good for us,"" she said, ""but we do it all the time and men tend to go out for a burger and fries more than women do.""
 What fallacy is this? lbl09",fallacy of logic
-My opponent is trying to convince you that we evolved from monkeys who were swinging from trees; a truly ludicrous claim. lbl07,fallacy of extension
-Have you stopped cheating on tests?  To answer yes means you cheated before. To answer no means you continue to cheat. lbl11,intentional
-"The economy grows as the number of likes on my Instagram account continue to increase. Clearly, the two are linked. lbl01",false causality
-Big deal! Lots of people cheat too. lbl04,fallacy of relevance
-"If everyone believes it, you should too! lbl02",ad populum
-"""You're a Westener and you're an idiot."" lbl06",ad hominem
-"Our house was burglarized right after that new family moved in next door. Therefore, that new family must have been involved. lbl01",false causality
-SM 5: Argument regarding insanity as a defense against execution lbl04,fallacy of relevance
-"Speaker 1: No fault divorce has proven to be detrimental to society and the family.
+test,My opponent is trying to convince you that we evolved from monkeys who were swinging from trees; a truly ludicrous claim. lbl07,fallacy of extension
+test,Have you stopped cheating on tests?  To answer yes means you cheated before. To answer no means you continue to cheat. lbl11,intentional
+test,"The economy grows as the number of likes on my Instagram account continue to increase. Clearly, the two are linked. lbl01",false causality
+test,Big deal! Lots of people cheat too. lbl04,fallacy of relevance
+test,"If everyone believes it, you should too! lbl02",ad populum
+test,"""You're a Westener and you're an idiot."" lbl06",ad hominem
+test,"Our house was burglarized right after that new family moved in next door. Therefore, that new family must have been involved. lbl01",false causality
+test,SM 5: Argument regarding insanity as a defense against execution lbl04,fallacy of relevance
+test,"Speaker 1: No fault divorce has proven to be detrimental to society and the family.
 Speaker 2: You didn’t seem to think that when you got divorced. lbl06",ad hominem
-We are not weak if we make a proper use of those means which the God of nature hath placed in our power. lbl10,fallacy of credibility
-Encampment is like basic training. It’s CAP’s equivalent to Boot Camp. lbl09,fallacy of logic
-"""We must legalize weed, it is tearing families apart."" Response: ""But look at all those druggies getting arrested, they are obviously criminals."" lbl04",fallacy of relevance
-"I currently have as patients in my practice all the patients in this town who are willing and able to pay $5,000 per session for long-term twice-weekly therapy. If you buy my practice, all my clients will be included. Therefore, if you buy my practice you will then have at least some patients willing and able to pay $5,000 per session for long-term twice-weekly therapy. lbl09",fallacy of logic
-Repeating the same thing as if you’re proving something lbl03,circular reasoning
-Pay taxes or go to jail lbl12,false dilemma
-"Charlie: Illegal posting and sharing of songs online are crippling the music industry.
+test,We are not weak if we make a proper use of those means which the God of nature hath placed in our power. lbl10,fallacy of credibility
+test,Encampment is like basic training. It’s CAP’s equivalent to Boot Camp. lbl09,fallacy of logic
+test,"""We must legalize weed, it is tearing families apart."" Response: ""But look at all those druggies getting arrested, they are obviously criminals."" lbl04",fallacy of relevance
+test,"I currently have as patients in my practice all the patients in this town who are willing and able to pay $5,000 per session for long-term twice-weekly therapy. If you buy my practice, all my clients will be included. Therefore, if you buy my practice you will then have at least some patients willing and able to pay $5,000 per session for long-term twice-weekly therapy. lbl09",fallacy of logic
+test,Repeating the same thing as if you’re proving something lbl03,circular reasoning
+test,Pay taxes or go to jail lbl12,false dilemma
+test,"Charlie: Illegal posting and sharing of songs online are crippling the music industry.
 Bob: You couldn’t be more wrong; the music industry is doing just fine. I can’t believe you think the government should be allowed to regulate what I share with my “friends.” No one wants a world where I can’t loan a book to my girlfriend, let my roommate borrow my iPod, or share a funny meme with my blog followers. lbl07",fallacy of extension
-"In a study designed by a famous academic to test the effects of pleasant imagery on motivation, employees were shown images of baby animals and beautiful nature scenes for their first five minutes at work.
+test,"In a study designed by a famous academic to test the effects of pleasant imagery on motivation, employees were shown images of baby animals and beautiful nature scenes for their first five minutes at work.
 
 Amazingly, results showed a 10 percent leap in profits in the first quarter and record earnings over the course of a year. So, showing employees pleasant images is a great way to increase their motivation and improve productivity lbl10",fallacy of credibility
-"Charlie: Fast food is filled with salt, fat, and added sugars. We need better regulation of the industry.
+test,"Charlie: Fast food is filled with salt, fat, and added sugars. We need better regulation of the industry.
 Bob: That may be, but you’re such a hypocrite! I saw you devour a Triple-Baconator, super-sized fries, and 64 ounces of soda yesterday. lbl06",ad hominem
-You appealed to popularity or the fact that many people do something as an attempted form of validation. lbl02,ad populum
-Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
-"Most heroin users started out smoking pot. If you start smoking pot, you’ll end up a heroin user, too. lbl09",fallacy of logic
-"I don't see how you can believe he is not guilty of that crime. He's a terrible person and I can prove it. In fact, several years ago he was convicted of that same kind of crime. lbl04",fallacy of relevance
-sending M-16s to Syrian rebels inevitably mean boots on the ground in Damascus. lbl05,faulty generalization
-"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
-"I have no intention of stopping the use of somatostatin on patients suffering from acute pancreatitis. I consider it to be a very reasonable choice. After all, it has been standard practice in our department for many years and we’ve been quite satisfied with the results we’ve had. lbl10",fallacy of credibility
-"Mob of people: Lower taxes! Lower taxes!
+test,You appealed to popularity or the fact that many people do something as an attempted form of validation. lbl02,ad populum
+test,Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
+test,"Most heroin users started out smoking pot. If you start smoking pot, you’ll end up a heroin user, too. lbl09",fallacy of logic
+test,"I don't see how you can believe he is not guilty of that crime. He's a terrible person and I can prove it. In fact, several years ago he was convicted of that same kind of crime. lbl04",fallacy of relevance
+test,sending M-16s to Syrian rebels inevitably mean boots on the ground in Damascus. lbl05,faulty generalization
+test,"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
+test,"I have no intention of stopping the use of somatostatin on patients suffering from acute pancreatitis. I consider it to be a very reasonable choice. After all, it has been standard practice in our department for many years and we’ve been quite satisfied with the results we’ve had. lbl10",fallacy of credibility
+test,"Mob of people: Lower taxes! Lower taxes!
 
 Politician: People, your taxes are high because of illegal immigrants. That's right—illegal immigrants. We need to get rid of them.
 
 Mob of people: (murmuring amongst themselves) Hmmm... immigrants. Let's get rid of them! lbl04",fallacy of relevance
-"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
-"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
-I'd also like you to consider the possibility that these people intend to attack both Mandela and myself. That doesn't mean I'm excluding the possibility that it really is Mandela these lunatics are after. I just want you to think critically about what you are doing. Pieter van Heerden was murdered. That means there are eyes and ears everywhere. Experience has taught me that red herrings are an important part of intelligence work. Do you follow me? lbl04,fallacy of relevance
-"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
+test,"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
+test,"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
+test,I'd also like you to consider the possibility that these people intend to attack both Mandela and myself. That doesn't mean I'm excluding the possibility that it really is Mandela these lunatics are after. I just want you to think critically about what you are doing. Pieter van Heerden was murdered. That means there are eyes and ears everywhere. Experience has taught me that red herrings are an important part of intelligence work. Do you follow me? lbl04,fallacy of relevance
+test,"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
 Steve: What’s it called?
 Bill: Windows Vista!
 Steve: Sounds wonderful!  I can’t wait until all of your users install it on all their computers!
  lbl10",fallacy of credibility
-Look at that face! Would anyone vote for that? Can you imagine that as the face of our next president? lbl06,ad hominem
-"Do most Americans believe in God? To find out, we asked over 10,000 scientists at colleges and universities throughout America. Less than 40 percent said they believed in God. The conclusion is obvious: Most Americans no longer believe in God. lbl05",faulty generalization
-"I have no intention of stopping the use of somatostatin on patients suffering from acute pancreatitis. I consider it to be a very reasonable choice. After all, it has been standard practice in our department for many years and we’ve been quite satisfied with the results we’ve had. lbl10",fallacy of credibility
-"Speaker 1 (Democrat): “Donald Trump is a known adulterer. It reflects badly on his character, and suggests he might not be trustworthy.”
+test,Look at that face! Would anyone vote for that? Can you imagine that as the face of our next president? lbl06,ad hominem
+test,"Do most Americans believe in God? To find out, we asked over 10,000 scientists at colleges and universities throughout America. Less than 40 percent said they believed in God. The conclusion is obvious: Most Americans no longer believe in God. lbl05",faulty generalization
+test,"I have no intention of stopping the use of somatostatin on patients suffering from acute pancreatitis. I consider it to be a very reasonable choice. After all, it has been standard practice in our department for many years and we’ve been quite satisfied with the results we’ve had. lbl10",fallacy of credibility
+test,"Speaker 1 (Democrat): “Donald Trump is a known adulterer. It reflects badly on his character, and suggests he might not be trustworthy.”
 Speaker 2 (Republican): “What about Bill Clinton? You didn’t seem to care when he cheated.” lbl06",ad hominem
-"""Russia has a terrible human rights record.""
+test,"""Russia has a terrible human rights record.""
 ""Well, the United States has done plenty of bad things, but we aren't a bad country, so Russia isn't, either."" -the President when confronted about Russia's human rights abuses. lbl04",fallacy of relevance
-"If you don't get up early every day you will be late. The more you are late the more trouble you will get into. The more trouble you get into, you will end up losing your job and your family will starve. (This is an example of...) lbl05",faulty generalization
-Everyone is/is not doing it! It must/must not be a good thing! lbl02,ad populum
-Everyone is buying the new iPhone that’s coming out this weekend. You have to buy it too lbl02,ad populum
-President Trump said that he was proud of the children who participated in this year's Special Olympics. Those kids are a bunch of losers. lbl06,ad hominem
-I don't understand why you're saying I broke a promise. I said I'd never speak to my ex-girlfriend again. And I didn't. I just sent her some pictures and text messages. lbl08,equivocation
-"""Everyone is wearing the new skinny jeans from American Eagle. Are you?"" lbl02",ad populum
-"""everyone is doing it"" mentality lbl02",ad populum
-"Mr. Gough supports the cell phone ban and he's an idiot, so we should let teachers keep their cell phones. lbl06",ad hominem
-"At a recent cocktail party, the conversation has turned to family pets, and your friend asks you “Are you a cat or a dog person?"" lbl12",false dilemma
-Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
-"When your mom gets your phone bill and you have gone over the limit, you begin talking to her about how hard your math class is and how well you did on a test today. lbl04",fallacy of relevance
-"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
-taps into people's desire to belong lbl02,ad populum
-It’s cold on a summer day. Global warming is a hoax. lbl01,false causality
-"Everyone already believes that the defendant killed her husband, and that many people can't be wrong. lbl02",ad populum
-"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
-There is definitely a link between dementia and drinking energy drinks. I read about it on Wikipedia. lbl10,fallacy of credibility
-"""1 is a number and 2 is a number so 1 = 2"" lbl09",fallacy of logic
-"Wife: Should we buy the house?
+test,"If you don't get up early every day you will be late. The more you are late the more trouble you will get into. The more trouble you get into, you will end up losing your job and your family will starve. (This is an example of...) lbl05",faulty generalization
+test,Everyone is/is not doing it! It must/must not be a good thing! lbl02,ad populum
+test,Everyone is buying the new iPhone that’s coming out this weekend. You have to buy it too lbl02,ad populum
+test,President Trump said that he was proud of the children who participated in this year's Special Olympics. Those kids are a bunch of losers. lbl06,ad hominem
+test,I don't understand why you're saying I broke a promise. I said I'd never speak to my ex-girlfriend again. And I didn't. I just sent her some pictures and text messages. lbl08,equivocation
+test,"""Everyone is wearing the new skinny jeans from American Eagle. Are you?"" lbl02",ad populum
+test,"""everyone is doing it"" mentality lbl02",ad populum
+test,"Mr. Gough supports the cell phone ban and he's an idiot, so we should let teachers keep their cell phones. lbl06",ad hominem
+test,"At a recent cocktail party, the conversation has turned to family pets, and your friend asks you “Are you a cat or a dog person?"" lbl12",false dilemma
+test,Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
+test,"When your mom gets your phone bill and you have gone over the limit, you begin talking to her about how hard your math class is and how well you did on a test today. lbl04",fallacy of relevance
+test,"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
+test,taps into people's desire to belong lbl02,ad populum
+test,It’s cold on a summer day. Global warming is a hoax. lbl01,false causality
+test,"Everyone already believes that the defendant killed her husband, and that many people can't be wrong. lbl02",ad populum
+test,"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
+test,There is definitely a link between dementia and drinking energy drinks. I read about it on Wikipedia. lbl10,fallacy of credibility
+test,"""1 is a number and 2 is a number so 1 = 2"" lbl09",fallacy of logic
+test,"Wife: Should we buy the house?
 Husband: The Realtor didn’t say anything about any problems, so I am sure it is fine. Let’s get it!
  lbl05",faulty generalization
-"""everyone is doing it"" mentality lbl02",ad populum
-"Ross Geller, an evolutionary biologist and perhaps the foremost expert in the field, says that evolution is true. Therefore, it's true. lbl10",fallacy of credibility
-Don’t believe what Alex says about global warming. Alex dropped out of college! lbl06,ad hominem
-We are not weak if we make a proper use of those means which the God of nature hath placed in our power. lbl10,fallacy of credibility
-Repeating the same thing as if you’re proving something lbl03,circular reasoning
-Everyone is going to get the new smart phone when it comes out this weekend. Why aren’t you? lbl02,ad populum
-People from big cities are not as friendly as those from small towns. lbl05,faulty generalization
-"Accused on the 6 o'clock news of corruption and taking bribes, the senator said that we should all be very wary of the things we hear in the media, because we all know how very unreliable the media can be. lbl06",ad hominem
-Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
-"A rainbow appeared in the sky the day before basketball tryouts, and I made the team! If there's a rainbow when I try out in the spring, I'm sure I'll make the team again. lbl01",false causality
-Why would you lend money to some who looks like they don't have a job? lbl06,ad hominem
-"""Judge Danforth in the play, 'The Crucible,' offers Proctor two choice: you are either with this court or against it"" IS an example of this fallacy. lbl12",false dilemma
-"Speaker 1: No fault divorce has proven to be detrimental to society and the family.
+test,"""everyone is doing it"" mentality lbl02",ad populum
+test,"Ross Geller, an evolutionary biologist and perhaps the foremost expert in the field, says that evolution is true. Therefore, it's true. lbl10",fallacy of credibility
+test,Don’t believe what Alex says about global warming. Alex dropped out of college! lbl06,ad hominem
+test,We are not weak if we make a proper use of those means which the God of nature hath placed in our power. lbl10,fallacy of credibility
+test,Repeating the same thing as if you’re proving something lbl03,circular reasoning
+test,Everyone is going to get the new smart phone when it comes out this weekend. Why aren’t you? lbl02,ad populum
+test,People from big cities are not as friendly as those from small towns. lbl05,faulty generalization
+test,"Accused on the 6 o'clock news of corruption and taking bribes, the senator said that we should all be very wary of the things we hear in the media, because we all know how very unreliable the media can be. lbl06",ad hominem
+test,Stating that something should be done (or agreed to) because everyone else thinks this way. lbl02,ad populum
+test,"A rainbow appeared in the sky the day before basketball tryouts, and I made the team! If there's a rainbow when I try out in the spring, I'm sure I'll make the team again. lbl01",false causality
+test,Why would you lend money to some who looks like they don't have a job? lbl06,ad hominem
+test,"""Judge Danforth in the play, 'The Crucible,' offers Proctor two choice: you are either with this court or against it"" IS an example of this fallacy. lbl12",false dilemma
+test,"Speaker 1: No fault divorce has proven to be detrimental to society and the family.
 Speaker 2: You didn’t seem to think that when you got divorced. lbl06",ad hominem
-"Cocaine is all natural; therefore, it is good for you. lbl10",fallacy of credibility
-Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
-"While jogging around the neighborhood, you are more likely to get bitten by someone’s pet dog, than by any member of the canine species. lbl05",faulty generalization
-"Mob of people: Lower taxes! Lower taxes!
+test,"Cocaine is all natural; therefore, it is good for you. lbl10",fallacy of credibility
+test,Al Gore feels that all companies are irresponsible and should be punished for allowing emissions which causes global warming. lbl07,fallacy of extension
+test,"While jogging around the neighborhood, you are more likely to get bitten by someone’s pet dog, than by any member of the canine species. lbl05",faulty generalization
+test,"Mob of people: Lower taxes! Lower taxes!
 
 Politician: People, your taxes are high because of illegal immigrants. That's right—illegal immigrants. We need to get rid of them.
 
 Mob of people: (murmuring amongst themselves) Hmmm... immigrants. Let's get rid of them! lbl04",fallacy of relevance
-something that kills is deadly lbl03,circular reasoning
-"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
+test,something that kills is deadly lbl03,circular reasoning
+test,"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
 Katie: I doubt that. What you are experiencing is what cognitive psychologists refer to as a ""false memory.""
  lbl06",ad hominem
-"Ted: Biological evolution is both a theory and a fact.
+test,"Ted: Biological evolution is both a theory and a fact.
 
 Edwin: That is ridiculous! How can you possibly be absolutely certain that we evolved from pond scum!
 
 Ted: Actually, that is a gross misrepresentation of my assertion. I never claimed we evolved from pond scum. lbl07",fallacy of extension
-"“No! Don't eat that piece of chocolate. Today, it's one piece of chocolate, but tomorrow, you've gained 20 lbs!” lbl05",faulty generalization
-"Latin should not be taught in school since it is not spoken anywhere in the world. All learning should have some use to be of value, and a dead language has no practical use. lbl04",fallacy of relevance
-"Misrepresents the context from which a quotation is taken; putting words or ideas in people’s mouth/head; creating a “dummy” or fake or falsified argument or situation so you can attack it .
+test,"“No! Don't eat that piece of chocolate. Today, it's one piece of chocolate, but tomorrow, you've gained 20 lbs!” lbl05",faulty generalization
+test,"Latin should not be taught in school since it is not spoken anywhere in the world. All learning should have some use to be of value, and a dead language has no practical use. lbl04",fallacy of relevance
+test,"Misrepresents the context from which a quotation is taken; putting words or ideas in people’s mouth/head; creating a “dummy” or fake or falsified argument or situation so you can attack it .
 This is what fallacy? lbl07",fallacy of extension
-"My friend said that if you sneeze more than three times, you have the corona virus. lbl10",fallacy of credibility
-"Teachers don't have lives.""My best friend said her English class was hard, and the one I'm in is hard too. All English classes must be hard."" lbl05",faulty generalization
-"Brandon: We should have tastier lunches!
+test,"My friend said that if you sneeze more than three times, you have the corona virus. lbl10",fallacy of credibility
+test,"Teachers don't have lives.""My best friend said her English class was hard, and the one I'm in is hard too. All English classes must be hard."" lbl05",faulty generalization
+test,"Brandon: We should have tastier lunches!
 Jaylen: Don't listen to him! He's a terrible person! I saw him trip another student and steal his lunch money! lbl06",ad hominem
-"Charlie: Fast food is filled with salt, fat, and added sugars. We need better regulation of the industry.
+test,"Charlie: Fast food is filled with salt, fat, and added sugars. We need better regulation of the industry.
 Bob: That may be, but you’re such a hypocrite! I saw you devour a Triple-Baconator, super-sized fries, and 64 ounces of soda yesterday. lbl06",ad hominem
-"When sales of hot chocolate go up, street crime drops. lbl01",false causality
-The word of Zorbo the Great is flawless and perfect. We know this because it says so in The Great and Infallible Book of Zorbo's Best and Most Truest Things that are Definitely True and Should Not Ever Be Questioned. lbl03,circular reasoning
-"When sales of hot chocolate go up, street crime drops. lbl01",false causality
-"If you don't say the Pledge of Allegiance, then you must be a traitor. lbl12",false dilemma
-"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
+test,"When sales of hot chocolate go up, street crime drops. lbl01",false causality
+test,The word of Zorbo the Great is flawless and perfect. We know this because it says so in The Great and Infallible Book of Zorbo's Best and Most Truest Things that are Definitely True and Should Not Ever Be Questioned. lbl03,circular reasoning
+test,"When sales of hot chocolate go up, street crime drops. lbl01",false causality
+test,"If you don't say the Pledge of Allegiance, then you must be a traitor. lbl12",false dilemma
+test,"Lucas: I remember when I was about three years old my mother saved me from almost being eaten by a shark.
 Katie: I doubt that. What you are experiencing is what cognitive psychologists refer to as a ""false memory.""
  lbl06",ad hominem
-"On my walk to work this morning, a woman on her bike nearly ran me off the sidewalk. I hadn't realized that cyclists were so aggressive and rude! lbl05",faulty generalization
-"An influencer posts on Instagram that the restaurant ""EP is poppin'! Everyone worth knowing is here tonight - come on down!"" -- this is an example of: lbl02",ad populum
-"Latin should not be taught in school since it is not spoken anywhere in the world. All learning should have some use to be of value, and a dead language has no practical use. lbl04",fallacy of relevance
-"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
-"Dad drank at parties, too lbl06",ad hominem
-“It’s important to argue logically because logic is an essential part of argumentation.” lbl03,circular reasoning
-"Conclude that because A happens then B, C, D, E, F, G, H, I, J, K, L… will inevitably happen. lbl05",faulty generalization
-Cheesecake Factory is the best because it is always crowded lbl02,ad populum
-"""Truly helps cramming for a test: my psychological test is crowded and I have an A."" lbl01",false causality
-"Charlie: Illegal posting and sharing of songs online is crippling the music industry.
+test,"On my walk to work this morning, a woman on her bike nearly ran me off the sidewalk. I hadn't realized that cyclists were so aggressive and rude! lbl05",faulty generalization
+test,"An influencer posts on Instagram that the restaurant ""EP is poppin'! Everyone worth knowing is here tonight - come on down!"" -- this is an example of: lbl02",ad populum
+test,"Latin should not be taught in school since it is not spoken anywhere in the world. All learning should have some use to be of value, and a dead language has no practical use. lbl04",fallacy of relevance
+test,"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
+test,"Dad drank at parties, too lbl06",ad hominem
+test,“It’s important to argue logically because logic is an essential part of argumentation.” lbl03,circular reasoning
+test,"Conclude that because A happens then B, C, D, E, F, G, H, I, J, K, L… will inevitably happen. lbl05",faulty generalization
+test,Cheesecake Factory is the best because it is always crowded lbl02,ad populum
+test,"""Truly helps cramming for a test: my psychological test is crowded and I have an A."" lbl01",false causality
+test,"Charlie: Illegal posting and sharing of songs online is crippling the music industry.
 Bob: You couldn't be more wrong; the music industry is doing just fine! I can't believe you think the government should be allowed to regulate what I share with my friends. No one wants a world where I can't loan a book to my girlfriend, let my roommate borrow my iPod, or share a funny meme with my blog followers. lbl07",fallacy of extension
-"Lola: I don't think John would be a good fit to manage this project, because he doesn't have a lot of experience with project management.
+test,"Lola: I don't think John would be a good fit to manage this project, because he doesn't have a lot of experience with project management.
 John: But you don't have a lot of experience in project management either! lbl06",ad hominem
-Has your psychology department stopped teaching that ineffective approach to therapy yet? lbl03,circular reasoning
-"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
-"Only asking 5 people their opinion about Christian Heritage and saying their opinions are the ""majority"" of people. lbl11",intentional
-"“I admire the president for being a good role model.” REPLY: “But the New York Times says he’s a lousy role model, so you’re wrong.” lbl10",fallacy of credibility
-iPhones are the best phone because everyone has them. lbl02,ad populum
-"If the government allows psychologists to prescribe medications there will be no basis to block them from obtaining competence and legal authority to conduct other traditionally medical procedures such as diagnosing minor skin irritations, treating a sprained ankle, setting a broken bone, and performing neurosurgery."" Or: ""Never reduce a fee for any patient for any reason or else you'll find yourself constantly reducing fees for everyone, everyone will take advantage of you, your patients will lose respect for you and for therapy, and you'll loose money and go bankrupt. lbl05",faulty generalization
-We can either agree with Barbara's plan or just let the project fail. There is no other option. lbl12,false dilemma
-" Circular definition: a definition that is circular.
+test,Has your psychology department stopped teaching that ineffective approach to therapy yet? lbl03,circular reasoning
+test,"The majority of students are in favor of changing the colors of the graduation gowns to a single color to not exclude those that are non-binary, but a few people complained it wasn't ""tradition"" , so let's meet in the middle and just allow students to not attend graduation if they don't want to wear the traditional black and gold. lbl04",fallacy of relevance
+test,"Only asking 5 people their opinion about Christian Heritage and saying their opinions are the ""majority"" of people. lbl11",intentional
+test,"“I admire the president for being a good role model.” REPLY: “But the New York Times says he’s a lousy role model, so you’re wrong.” lbl10",fallacy of credibility
+test,iPhones are the best phone because everyone has them. lbl02,ad populum
+test,"If the government allows psychologists to prescribe medications there will be no basis to block them from obtaining competence and legal authority to conduct other traditionally medical procedures such as diagnosing minor skin irritations, treating a sprained ankle, setting a broken bone, and performing neurosurgery."" Or: ""Never reduce a fee for any patient for any reason or else you'll find yourself constantly reducing fees for everyone, everyone will take advantage of you, your patients will lose respect for you and for therapy, and you'll loose money and go bankrupt. lbl05",faulty generalization
+test,We can either agree with Barbara's plan or just let the project fail. There is no other option. lbl12,false dilemma
+test," Circular definition: a definition that is circular.
  lbl03",circular reasoning
-"I know three redheads who have terrible tempers, and since Annabel has red hair, I’ll bet she has a terrible temper, too. lbl05",faulty generalization
-"The Bible is true because God exists, and God exists because the Bible says so. lbl03",circular reasoning
-Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
-"Bill says Jenny would make a good class president, but Bill makes bad grades, so we shouldn’t vote for Jenny. lbl06",ad hominem
-"Charlie: Illegal posting and sharing of songs online are crippling the music industry.
+test,"I know three redheads who have terrible tempers, and since Annabel has red hair, I’ll bet she has a terrible temper, too. lbl05",faulty generalization
+test,"The Bible is true because God exists, and God exists because the Bible says so. lbl03",circular reasoning
+test,Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
+test,"Bill says Jenny would make a good class president, but Bill makes bad grades, so we shouldn’t vote for Jenny. lbl06",ad hominem
+test,"Charlie: Illegal posting and sharing of songs online are crippling the music industry.
 Bob: You couldn’t be more wrong; the music industry is doing just fine. I can’t believe you think the government should be allowed to regulate what I share with my “friends.” No one wants a world where I can’t loan a book to my girlfriend, let my roommate borrow my iPod, or share a funny meme with my blog followers. lbl07",fallacy of extension
-"Jack: I have tiny, invisible unicorns living in my anus.
+test,"Jack: I have tiny, invisible unicorns living in my anus.
 
 Nick: How do you figure?
 
@@ -683,209 +683,209 @@ Jack: Can you prove that I don't?
 Nick: No.
 
 Jack: Then I do. lbl11",intentional
-"It is immoral to kill an innocent human being.  Fetuses are innocent human  beings.  Therefore, it is immoral to kill fetuses. lbl08",equivocation
-I would never buy a Buick. My father owned two of them and both of them had frequent transmission problems. Buicks obviously break down all the time. lbl05,faulty generalization
-Schools are like families; therefore teachers (like parents) should be allowed to discipline their students. lbl09,fallacy of logic
-"Ross Geller, an evolutionary biologist and perhaps the foremost expert in the field, says that evolution is true. Therefore, it's true. lbl10",fallacy of credibility
-"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
-"My political candidate gives 10% of his income to the needy, goes to church every Sunday, and volunteers one day a week at a homeless shelter.  Therefore, he is honest and morally straight. lbl11",intentional
-"Cocaine is all natural; therefore, it is good for you. lbl10",fallacy of credibility
-"I am voting for Smith for President. My whole family is Democrat, so I'll be voting that way, too. lbl02",ad populum
-"I don't think that there should be marriage among homosexuals. Anyway, taxes on married people are high. I think that taxes on the married are just ridiculous. lbl04",fallacy of relevance
-"“The rooster crows always before the sun rises, therefore the crowing rooster causes the sun to rise.” lbl01",false causality
-"""Flight attendants are the nicest people. I should know—I’ve taken two flights."" lbl05",faulty generalization
-"assumes that if many people act or believe a certain way, it must be the right way lbl02",ad populum
-"Brandon: We should have tastier lunches!
+test,"It is immoral to kill an innocent human being.  Fetuses are innocent human  beings.  Therefore, it is immoral to kill fetuses. lbl08",equivocation
+test,I would never buy a Buick. My father owned two of them and both of them had frequent transmission problems. Buicks obviously break down all the time. lbl05,faulty generalization
+test,Schools are like families; therefore teachers (like parents) should be allowed to discipline their students. lbl09,fallacy of logic
+test,"Ross Geller, an evolutionary biologist and perhaps the foremost expert in the field, says that evolution is true. Therefore, it's true. lbl10",fallacy of credibility
+test,"""I'm gonna get an iPhone because everybody else has an iPhone and they're cool."" lbl02",ad populum
+test,"My political candidate gives 10% of his income to the needy, goes to church every Sunday, and volunteers one day a week at a homeless shelter.  Therefore, he is honest and morally straight. lbl11",intentional
+test,"Cocaine is all natural; therefore, it is good for you. lbl10",fallacy of credibility
+test,"I am voting for Smith for President. My whole family is Democrat, so I'll be voting that way, too. lbl02",ad populum
+test,"I don't think that there should be marriage among homosexuals. Anyway, taxes on married people are high. I think that taxes on the married are just ridiculous. lbl04",fallacy of relevance
+test,"“The rooster crows always before the sun rises, therefore the crowing rooster causes the sun to rise.” lbl01",false causality
+test,"""Flight attendants are the nicest people. I should know—I’ve taken two flights."" lbl05",faulty generalization
+test,"assumes that if many people act or believe a certain way, it must be the right way lbl02",ad populum
+test,"Brandon: We should have tastier lunches!
 Jaylen: Don't listen to him! He's a terrible person! I saw him trip another student and steal his lunch money! lbl06",ad hominem
-She took a drink from the drinking fountain yesterday and now she's sick. It must have been the public fountain that made her sick. lbl01,false causality
-"Bears are a subset of omnivores. Raccoons also are a subset of omnivores. But these two subsets do not overlap, and that fact makes the conclusion illogical. The argument is invalid—that is, the relationship between the premises doesn’t support the conclusion. lbl09",fallacy of logic
-A politician arguing that his opponent cannot possibly be a good choice for women because he has been married and divorced five times. lbl06,ad hominem
-All of those who hate the Duterte administration are CPP-NPA supporters. lbl05,faulty generalization
-"My friend said that if you sneeze more than three times, you have the corona virus. lbl10",fallacy of credibility
-"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
-"""If we ban Hummers because they are bad for the environment eventually the government will ban all cars, so we should not ban Hummers."" lbl05",faulty generalization
-"""I bought a ticket to win a new car at the mall, since I have never won anything like that in the past."" lbl01",false causality
-"Up until the late 16th century, most people believed that the earth was the center of the universe.  This was seen as enough of a reason back then to accept this as true. lbl02",ad populum
-Allowing abortion in the first week of pregnancy would lead to allowing it in the ninth month lbl05,faulty generalization
-"“The rooster crows always before the sun rises, therefore the crowing rooster causes the sun to rise.” lbl01",false causality
-"""My opponent claims that water pollution is endangering our city waters. But have you thought about all of the air pollution in China? Where they have to wear masks sometimes in the city? That's what we really need to worry about."" lbl04",fallacy of relevance
-"""Truly helps cramming for a test: my psychological test is crowded and I have an A."" lbl01",false causality
-"We should go inside; the last time the clouds were that dark, there was a tornado. lbl05",faulty generalization
-"It is ridiculous to have spent thousands of dollars to rescue two whales trapped in the ice. Why, look at all the people trapped in jobs they don't like. lbl04",fallacy of relevance
-"Speaker 1 (Democrat): “Donald Trump is a known adulterer. It reflects badly on his character, and suggests he might not be trustworthy.”
+test,She took a drink from the drinking fountain yesterday and now she's sick. It must have been the public fountain that made her sick. lbl01,false causality
+test,"Bears are a subset of omnivores. Raccoons also are a subset of omnivores. But these two subsets do not overlap, and that fact makes the conclusion illogical. The argument is invalid—that is, the relationship between the premises doesn’t support the conclusion. lbl09",fallacy of logic
+test,A politician arguing that his opponent cannot possibly be a good choice for women because he has been married and divorced five times. lbl06,ad hominem
+test,All of those who hate the Duterte administration are CPP-NPA supporters. lbl05,faulty generalization
+test,"My friend said that if you sneeze more than three times, you have the corona virus. lbl10",fallacy of credibility
+test,"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
+test,"""If we ban Hummers because they are bad for the environment eventually the government will ban all cars, so we should not ban Hummers."" lbl05",faulty generalization
+test,"""I bought a ticket to win a new car at the mall, since I have never won anything like that in the past."" lbl01",false causality
+test,"Up until the late 16th century, most people believed that the earth was the center of the universe.  This was seen as enough of a reason back then to accept this as true. lbl02",ad populum
+test,Allowing abortion in the first week of pregnancy would lead to allowing it in the ninth month lbl05,faulty generalization
+test,"“The rooster crows always before the sun rises, therefore the crowing rooster causes the sun to rise.” lbl01",false causality
+test,"""My opponent claims that water pollution is endangering our city waters. But have you thought about all of the air pollution in China? Where they have to wear masks sometimes in the city? That's what we really need to worry about."" lbl04",fallacy of relevance
+test,"""Truly helps cramming for a test: my psychological test is crowded and I have an A."" lbl01",false causality
+test,"We should go inside; the last time the clouds were that dark, there was a tornado. lbl05",faulty generalization
+test,"It is ridiculous to have spent thousands of dollars to rescue two whales trapped in the ice. Why, look at all the people trapped in jobs they don't like. lbl04",fallacy of relevance
+test,"Speaker 1 (Democrat): “Donald Trump is a known adulterer. It reflects badly on his character, and suggests he might not be trustworthy.”
 Speaker 2 (Republican): “What about Bill Clinton? You didn’t seem to care when he cheated.” lbl06",ad hominem
-"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
-"Cocaine is all natural; therefore, it is good for you. lbl10",fallacy of credibility
-"My best friend says you’re a liar, so I’m not going to talk to you. lbl06",ad hominem
-I don't see how you can say you're an ethical person. It's so hard to get you to do anything; your work ethic is so bad lbl08,equivocation
-"Four out of five dentists recommend Happy Glossy Smiley toothpaste brand. Therefore, it must be great. lbl05",faulty generalization
-Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
-She took a drink from the drinking fountain yesterday and now she's sick. It must have been the public fountain that made her sick. lbl01,false causality
-"All of my red-headed friends are good dancers. Therefore, all red-headed people must be good dancers. 
+test,"Tony wants us to believe that the origin of life was an “accident”.  Tony is a godless SOB who has spent more time in jail than in church, so the only information we should consider from him is the best way to make license plates. lbl06",ad hominem
+test,"Cocaine is all natural; therefore, it is good for you. lbl10",fallacy of credibility
+test,"My best friend says you’re a liar, so I’m not going to talk to you. lbl06",ad hominem
+test,I don't see how you can say you're an ethical person. It's so hard to get you to do anything; your work ethic is so bad lbl08,equivocation
+test,"Four out of five dentists recommend Happy Glossy Smiley toothpaste brand. Therefore, it must be great. lbl05",faulty generalization
+test,Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
+test,She took a drink from the drinking fountain yesterday and now she's sick. It must have been the public fountain that made her sick. lbl01,false causality
+test,"All of my red-headed friends are good dancers. Therefore, all red-headed people must be good dancers. 
 This assumption from my experience is an example of lbl05",faulty generalization
-10 of the last 14 National Spelling Bee Champions have been Indian American. Indian Americans must all be great spellers! lbl05,faulty generalization
-"The Earth is round.
+test,10 of the last 14 National Spelling Bee Champions have been Indian American. Indian Americans must all be great spellers! lbl05,faulty generalization
+test,"The Earth is round.
 Therefore, Trump. lbl09",fallacy of logic
-"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
+test,"Bill: Hey, did you hear we have a new operating system out now?  It is better than anything else out there because we just released it!
 Steve: What’s it called?
 Bill: Windows Vista!
 Steve: Sounds wonderful!  I can’t wait until all of your users install it on all their computers!
  lbl10",fallacy of credibility
-"If you don't study, you'll fail your test. Then you will do poorly in the class and you GPA will fall. You won't get into a good college, so you'll never get a decent job and you'll end up poor and homeless. lbl05",faulty generalization
-"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
-"I am voting for Smith for President. My whole family is Democrat, so I'll be voting that way, too. lbl02",ad populum
-What is wrong with Tanya? She only has five hundred dollars saved and she’s going away to college next year. That would be like letting my four-year-old brother go to Russia by hisself. lbl09,fallacy of logic
-"She is good at writing because she writes words effectively."" lbl03",circular reasoning
-"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
-"Global chocolate consumption is highest in Switzerland, yet people there are among the trimmest in the industrialized world.  therefore, it's reasonable to conclude that chocolate helps keep your weight down. lbl01",false causality
-The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
-"""We must legalize weed, it is tearing families apart."" Response: ""But look at all those druggies getting arrested, they are obviously criminals."" lbl04",fallacy of relevance
-Our competitors use unhealthy sugar substitutes and artificial sweeteners. But Rev-Up Energy Drink contains one hundred percent real cane sugar to fuel your body better. lbl10,fallacy of credibility
-"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
-"I don't think that there should be marriage among homosexuals. Anyway, taxes on married people are high. I think that taxes on the married are just ridiculous. lbl04",fallacy of relevance
-My opponent is trying to convince you that we evolved from monkeys who were swinging from trees; a truly ludicrous claim. lbl07,fallacy of extension
-"If everyone believes it, you should too! lbl02",ad populum
-40 million people can't be wrong! Buy the new Iphone XIV today! lbl02,ad populum
-Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
-Christine has a terrible experience with a boyfriend. She decides that all boys are mean. lbl05,faulty generalization
-"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
-People nowadays only vote with their emotions instead of their brains. lbl05,faulty generalization
-"""Russia has a terrible human rights record.""
+test,"If you don't study, you'll fail your test. Then you will do poorly in the class and you GPA will fall. You won't get into a good college, so you'll never get a decent job and you'll end up poor and homeless. lbl05",faulty generalization
+test,"An ad claims that 3 out of 4 real estate agents reccommend moving to Sunnyville, California. lbl10",fallacy of credibility
+test,"I am voting for Smith for President. My whole family is Democrat, so I'll be voting that way, too. lbl02",ad populum
+test,What is wrong with Tanya? She only has five hundred dollars saved and she’s going away to college next year. That would be like letting my four-year-old brother go to Russia by hisself. lbl09,fallacy of logic
+test,"She is good at writing because she writes words effectively."" lbl03",circular reasoning
+test,"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
+test,"Global chocolate consumption is highest in Switzerland, yet people there are among the trimmest in the industrialized world.  therefore, it's reasonable to conclude that chocolate helps keep your weight down. lbl01",false causality
+test,The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
+test,"""We must legalize weed, it is tearing families apart."" Response: ""But look at all those druggies getting arrested, they are obviously criminals."" lbl04",fallacy of relevance
+test,Our competitors use unhealthy sugar substitutes and artificial sweeteners. But Rev-Up Energy Drink contains one hundred percent real cane sugar to fuel your body better. lbl10,fallacy of credibility
+test,"we can't have the public option, because if we do, health care reform won't get the votes of senators like him. lbl03",circular reasoning
+test,"I don't think that there should be marriage among homosexuals. Anyway, taxes on married people are high. I think that taxes on the married are just ridiculous. lbl04",fallacy of relevance
+test,My opponent is trying to convince you that we evolved from monkeys who were swinging from trees; a truly ludicrous claim. lbl07,fallacy of extension
+test,"If everyone believes it, you should too! lbl02",ad populum
+test,40 million people can't be wrong! Buy the new Iphone XIV today! lbl02,ad populum
+test,Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
+test,Christine has a terrible experience with a boyfriend. She decides that all boys are mean. lbl05,faulty generalization
+test,"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
+test,People nowadays only vote with their emotions instead of their brains. lbl05,faulty generalization
+test,"""Russia has a terrible human rights record.""
 ""Well, the United States has done plenty of bad things, but we aren't a bad country, so Russia isn't, either."" -the President when confronted about Russia's human rights abuses. lbl04",fallacy of relevance
-Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
-Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
-My brother received the COVID-19 vaccine and then had diarrhea for a week. The vaccine is the reason my brother's bowels came undone. lbl01,false causality
-"The claim that because somebody famous supports an idea, the idea must be right. This fallacy is often used in advertising. lbl10",fallacy of credibility
-"I'm tailgating her, because she cut me off! lbl04",fallacy of relevance
-"“My roommate Fatima said her philosophy class was hard, and the one I’m in is hard, too. All philosophy classes must be hard!” Insisted Baneen. lbl05",faulty generalization
-"""Be my friend or be my enemy."" lbl12",false dilemma
-God must exist because every culture has some sort of belief in a higher being. lbl02,ad populum
-"The Bible is true because God exists, and God exists because the Bible says so. lbl03",circular reasoning
-"""If we ban Hummers because they are bad for the environment eventually the government will ban all cars, so we should not ban Hummers."" lbl05",faulty generalization
-"""Dad, it's difficult to make a living on my salary.""
+test,Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
+test,Which type of appeal is used in the following phrases from the Declaration of Independence: “appealing to the Supreme Judge of the world” and “with a firm reliance on the protection of divine providence”? lbl10,fallacy of credibility
+test,My brother received the COVID-19 vaccine and then had diarrhea for a week. The vaccine is the reason my brother's bowels came undone. lbl01,false causality
+test,"The claim that because somebody famous supports an idea, the idea must be right. This fallacy is often used in advertising. lbl10",fallacy of credibility
+test,"I'm tailgating her, because she cut me off! lbl04",fallacy of relevance
+test,"“My roommate Fatima said her philosophy class was hard, and the one I’m in is hard, too. All philosophy classes must be hard!” Insisted Baneen. lbl05",faulty generalization
+test,"""Be my friend or be my enemy."" lbl12",false dilemma
+test,God must exist because every culture has some sort of belief in a higher being. lbl02,ad populum
+test,"The Bible is true because God exists, and God exists because the Bible says so. lbl03",circular reasoning
+test,"""If we ban Hummers because they are bad for the environment eventually the government will ban all cars, so we should not ban Hummers."" lbl05",faulty generalization
+test,"""Dad, it's difficult to make a living on my salary.""
 
 ""Consider yourself lucky. When I was your age, I was living on $40 a week."" lbl04",fallacy of relevance
-Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
-"""Many democrats don't want a border wall with Mexico, which means they don't want to keep Americans safe"" IS an example of this fallacy. lbl07",fallacy of extension
-We think this new MallTime game app will be a success because all girls like shopping. lbl05,faulty generalization
-The word of Zorbo the Great is flawless and perfect. We know this because it says so in The Great and Infallible Book of Zorbo's Best and Most Truest Things that are Definitely True and Should Not Ever Be Questioned. lbl03,circular reasoning
-"Asserting that if we allow ""A"" to happen, then ""Z"" will consequently happen too, therefore ""A"" should not happen. lbl05",faulty generalization
-"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
-Going to prom (when you don't want to) because 90 percent of your classmates are going lbl02,ad populum
-“She was wearing cowboy boots in her last Instagram picture so she must be into country music.” lbl05,faulty generalization
-"If I tell my teacher I have done my homework, but I have only done part of it, I am using lbl08",equivocation
-We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
-"“McDonald’s has served 100 billion people in the world. It must be the best fast food restaurant in the world"" is an example of lbl02",ad populum
-"""The Americans I know say they elected the new president because they were tired of having their jobs sent overseas. This question of jobs brought this president into office."" lbl05",faulty generalization
-"""Flight attendants are the nicest people. I should know—I’ve taken two flights."" lbl05",faulty generalization
-"Bears are a subset of omnivores. Raccoons also are a subset of omnivores. But these two subsets do not overlap, and that fact makes the conclusion illogical. The argument is invalid—that is, the relationship between the premises doesn’t support the conclusion. lbl09",fallacy of logic
-"Mr. Gough supports the cell phone ban and he's an idiot, so we should let teachers keep their cell phones. lbl06",ad hominem
-"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
-The speaker or writer appeals to the audience's trust by establishing his credibility or trustworthiness as a writer or speaker? lbl10,fallacy of credibility
-"""We need to fix our broken judicial system by electing new people.""
+test,Senator Curry is against the new F-99 laser fighter. I’m for it because I don’t want to leave America defenseless. lbl07,fallacy of extension
+test,"""Many democrats don't want a border wall with Mexico, which means they don't want to keep Americans safe"" IS an example of this fallacy. lbl07",fallacy of extension
+test,We think this new MallTime game app will be a success because all girls like shopping. lbl05,faulty generalization
+test,The word of Zorbo the Great is flawless and perfect. We know this because it says so in The Great and Infallible Book of Zorbo's Best and Most Truest Things that are Definitely True and Should Not Ever Be Questioned. lbl03,circular reasoning
+test,"Asserting that if we allow ""A"" to happen, then ""Z"" will consequently happen too, therefore ""A"" should not happen. lbl05",faulty generalization
+test,"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
+test,Going to prom (when you don't want to) because 90 percent of your classmates are going lbl02,ad populum
+test,“She was wearing cowboy boots in her last Instagram picture so she must be into country music.” lbl05,faulty generalization
+test,"If I tell my teacher I have done my homework, but I have only done part of it, I am using lbl08",equivocation
+test,We must eliminate affirmative action. We can’t rely on laws to end racial prejudice. lbl04,fallacy of relevance
+test,"“McDonald’s has served 100 billion people in the world. It must be the best fast food restaurant in the world"" is an example of lbl02",ad populum
+test,"""The Americans I know say they elected the new president because they were tired of having their jobs sent overseas. This question of jobs brought this president into office."" lbl05",faulty generalization
+test,"""Flight attendants are the nicest people. I should know—I’ve taken two flights."" lbl05",faulty generalization
+test,"Bears are a subset of omnivores. Raccoons also are a subset of omnivores. But these two subsets do not overlap, and that fact makes the conclusion illogical. The argument is invalid—that is, the relationship between the premises doesn’t support the conclusion. lbl09",fallacy of logic
+test,"Mr. Gough supports the cell phone ban and he's an idiot, so we should let teachers keep their cell phones. lbl06",ad hominem
+test,"Some of you have objected to the new test batteries that were purchased for our program, alleging that they have no demonstrable validity, were not adequately normed for the kind of clients we see, and are unusable for clients who are physically disabled. What you have conveniently failed to mention, however, is that they cost less than a third of the price for the other tests we had been using, are much easier to learn, and can be administered and scored in less than half the time of the tests we used to use. lbl04",fallacy of relevance
+test,The speaker or writer appeals to the audience's trust by establishing his credibility or trustworthiness as a writer or speaker? lbl10,fallacy of credibility
+test,"""We need to fix our broken judicial system by electing new people.""
 This logical fallacy is called... lbl03",circular reasoning
-"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
-"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
-“She was wearing cowboy boots in her last Instagram picture so she must be into country music.” lbl05,faulty generalization
-"You call the Marcoses murderers and plunderers yet you cannot lend me money for my school project, murdering my chance for a higher grade. You are just like them. lbl04",fallacy of relevance
-If you buy the Disney annual pass you will save money when visiting the happiest place on Earth! lbl11,intentional
-"If you don't study, you'll fail your test. Then you will do poorly in the class and you GPA will fall. You won't get into a good college, so you'll never get a decent job and you'll end up poor and homeless. lbl05",faulty generalization
-"In a study designed by a famous academic to test the effects of pleasant imagery on motivation, employees were shown images of baby animals and beautiful nature scenes for their first five minutes at work.
+test,"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
+test,"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
+test,“She was wearing cowboy boots in her last Instagram picture so she must be into country music.” lbl05,faulty generalization
+test,"You call the Marcoses murderers and plunderers yet you cannot lend me money for my school project, murdering my chance for a higher grade. You are just like them. lbl04",fallacy of relevance
+test,If you buy the Disney annual pass you will save money when visiting the happiest place on Earth! lbl11,intentional
+test,"If you don't study, you'll fail your test. Then you will do poorly in the class and you GPA will fall. You won't get into a good college, so you'll never get a decent job and you'll end up poor and homeless. lbl05",faulty generalization
+test,"In a study designed by a famous academic to test the effects of pleasant imagery on motivation, employees were shown images of baby animals and beautiful nature scenes for their first five minutes at work.
 
 Amazingly, results showed a 10 percent leap in profits in the first quarter and record earnings over the course of a year. So, showing employees pleasant images is a great way to increase their motivation and improve productivity lbl10",fallacy of credibility
-all bachelors are unmarried males lbl03,circular reasoning
-"Don't try to tell me that you only watch educational programming, Emmy! I know for a fact that your sister only watches reality television. lbl05",faulty generalization
-The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
-"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
-Leonardo DiCaprio is just a dumb actor. What does he really know about climate change? lbl06,ad hominem
-"It’s possible to pass the class without attending regularly. Therefore, you will pass even if you don’t attend regularly. lbl09",fallacy of logic
-"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
+test,all bachelors are unmarried males lbl03,circular reasoning
+test,"Don't try to tell me that you only watch educational programming, Emmy! I know for a fact that your sister only watches reality television. lbl05",faulty generalization
+test,The Senator thinks we can solve all our ecological problems by driving a Prius. lbl07,fallacy of extension
+test,"Your honor, while my son may have made a bad decision that night while under the influence of alcohol, it shouldn't affect the rest of his life. It was just one mistake. He's on the varsity swim team. lbl11",intentional
+test,Leonardo DiCaprio is just a dumb actor. What does he really know about climate change? lbl06,ad hominem
+test,"It’s possible to pass the class without attending regularly. Therefore, you will pass even if you don’t attend regularly. lbl09",fallacy of logic
+test,"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
 Nina: ""Dating apps are dangerous! Most people are catfished, and guys usually pretend to be so much better than they really are online. If we're so busy, we won't have time for any of that, anyway.""
 What fallacy is Nina leaning toward? lbl07",fallacy of extension
-Explaining that the U.S. Civil War was fought only because of the institution of slavery lbl01,false causality
-"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
+test,Explaining that the U.S. Civil War was fought only because of the institution of slavery lbl01,false causality
+test,"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
 Nina: ""Dating apps are dangerous! Most people are catfished, and guys usually pretend to be so much better than they really are online. If we're so busy, we won't have time for any of that, anyway.""
 What fallacy is Nina leaning toward? lbl07",fallacy of extension
-"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
-Has your psychology department stopped teaching that ineffective approach to therapy yet? lbl03,circular reasoning
-"Teaching assistant: the homework assignment was much harder than we thought, so I think we should give a few extra points to students who completed it.
+test,"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
+test,Has your psychology department stopped teaching that ineffective approach to therapy yet? lbl03,circular reasoning
+test,"Teaching assistant: the homework assignment was much harder than we thought, so I think we should give a few extra points to students who completed it.
 Professor: that’s a terrible idea. If we give everyone a perfect score for no reason, students won’t bother working hard in the future. lbl07",fallacy of extension
-The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
-"Cat Stevens may be a successful and skilled musician, but let's not forget that he's been accused of extremist religious and political views. lbl06",ad hominem
-"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
-"Mrs. Collier, we can't take a quiz tomorrow! The new season of Game of Thrones premieres tonight!! lbl04",fallacy of relevance
-All students are good and all clowns are bad. lbl05,faulty generalization
-The meteorologist predicted the wrong amount of rain for May. Obviously the meteorologist is unreliable. lbl05,faulty generalization
-Death penalty will not scare criminals because they don’t expect to be caught lbl07,fallacy of extension
-" Circular definition: a definition that is circular.
+test,The Freehold Raceway Mall is the best mall because there are always so many cars there. lbl02,ad populum
+test,"Cat Stevens may be a successful and skilled musician, but let's not forget that he's been accused of extremist religious and political views. lbl06",ad hominem
+test,"Company R.E. are working on advertisement for a new juice drink. Some of their marketing employees went to a school to do a survey on students’ beverage preference. The majority said they preferred orange-flavored drinks, so Jeff told his superiors that orange was the flavor favored most by high school students. lbl02",ad populum
+test,"Mrs. Collier, we can't take a quiz tomorrow! The new season of Game of Thrones premieres tonight!! lbl04",fallacy of relevance
+test,All students are good and all clowns are bad. lbl05,faulty generalization
+test,The meteorologist predicted the wrong amount of rain for May. Obviously the meteorologist is unreliable. lbl05,faulty generalization
+test,Death penalty will not scare criminals because they don’t expect to be caught lbl07,fallacy of extension
+test," Circular definition: a definition that is circular.
  lbl03",circular reasoning
-"If I go to the bathroom, I will miss the notes, then I'll do poorly on a test, then I won't get into college, so I won't go to the bathroom. lbl05",faulty generalization
-"Bears are a subset of omnivores. Raccoons also are a subset of omnivores. But these two subsets do not overlap, and that fact makes the conclusion illogical. The argument is invalid—that is, the relationship between the premises doesn’t support the conclusion. lbl09",fallacy of logic
-" Perhaps the most classic example of this fallacy is the argument for the existence of God.  Due to the understanding of nature through science, many of the arguments that used to be used for God (or gods) were abandoned, only to be replaced with new ones, usually involving questions to which science has not definitively answered yet.  The move from creationism to intelligent design is a prime example.  Currently the origin of life is a popular argument for God (although a classic argument from ignorance), and an area where we very well may have a scientific answer in the next decade, at which time, the “origin of life” argument will fade away and be replaced by another, thus moving the figurative goalposts farther back as our understanding of the natural world increases.Exception: This fallacy should not be confused with an argument or set of arguments, with multiple propositions inherent in the argument.  The reason for the difference between this kind of argument and the moving the goalposts fallacy, is a subtle one, but indicated by a strong initial claim (“has to be”, “must”, “required for”, etc.) that gets answered and/or what appears to be ad hoc objections that follow eventually leading to an impossible request for proof.
+test,"If I go to the bathroom, I will miss the notes, then I'll do poorly on a test, then I won't get into college, so I won't go to the bathroom. lbl05",faulty generalization
+test,"Bears are a subset of omnivores. Raccoons also are a subset of omnivores. But these two subsets do not overlap, and that fact makes the conclusion illogical. The argument is invalid—that is, the relationship between the premises doesn’t support the conclusion. lbl09",fallacy of logic
+test," Perhaps the most classic example of this fallacy is the argument for the existence of God.  Due to the understanding of nature through science, many of the arguments that used to be used for God (or gods) were abandoned, only to be replaced with new ones, usually involving questions to which science has not definitively answered yet.  The move from creationism to intelligent design is a prime example.  Currently the origin of life is a popular argument for God (although a classic argument from ignorance), and an area where we very well may have a scientific answer in the next decade, at which time, the “origin of life” argument will fade away and be replaced by another, thus moving the figurative goalposts farther back as our understanding of the natural world increases.Exception: This fallacy should not be confused with an argument or set of arguments, with multiple propositions inherent in the argument.  The reason for the difference between this kind of argument and the moving the goalposts fallacy, is a subtle one, but indicated by a strong initial claim (“has to be”, “must”, “required for”, etc.) that gets answered and/or what appears to be ad hoc objections that follow eventually leading to an impossible request for proof.
 Fun Fact: The name “moving the goalposts” comes from the analogy of kicking a perfect field goal in American football, only to have the goalposts be moved on you. This would be very unfair.
 References:
 This a logical fallacy frequently used on the Internet. No academic sources could be found.
 Questions about this fallacy? Ask our community!
  lbl11",intentional
-The teenagers where rude and disrespectful therefore all teenagers are rude and disrespectful. lbl05,faulty generalization
-"""Her arguments against the protest were weak. After all, she can't be fair; she works for the government."" lbl06",ad hominem
-"The meteorologist predicted the wrong amount of rain for May. Obviously, the meteorologist is unreliable. lbl05",faulty generalization
-"""You're too ugly to be class president!"" lbl06",ad hominem
-Senator Smith says we should cut back the Defense budget. His position is that we should let down our defenses and just trust our enemies not to attack us! lbl07,fallacy of extension
-Researchers are frauds who don’t earn their salaries lbl06,ad hominem
-"My grandfather was a typical Irishman - friendly, outgoing, and drunk half the time. lbl05",faulty generalization
-I dropped the ball because Mercury is in retrograde. lbl01,false causality
-all bachelors are unmarried males lbl03,circular reasoning
-All of those who hate the Duterte administration are CPP-NPA supporters. lbl05,faulty generalization
-"Teaching assistant: the homework assignment was much harder than we thought, so I think we should give a few extra points to students who completed it.
+test,The teenagers where rude and disrespectful therefore all teenagers are rude and disrespectful. lbl05,faulty generalization
+test,"""Her arguments against the protest were weak. After all, she can't be fair; she works for the government."" lbl06",ad hominem
+test,"The meteorologist predicted the wrong amount of rain for May. Obviously, the meteorologist is unreliable. lbl05",faulty generalization
+test,"""You're too ugly to be class president!"" lbl06",ad hominem
+test,Senator Smith says we should cut back the Defense budget. His position is that we should let down our defenses and just trust our enemies not to attack us! lbl07,fallacy of extension
+test,Researchers are frauds who don’t earn their salaries lbl06,ad hominem
+test,"My grandfather was a typical Irishman - friendly, outgoing, and drunk half the time. lbl05",faulty generalization
+test,I dropped the ball because Mercury is in retrograde. lbl01,false causality
+test,all bachelors are unmarried males lbl03,circular reasoning
+test,All of those who hate the Duterte administration are CPP-NPA supporters. lbl05,faulty generalization
+test,"Teaching assistant: the homework assignment was much harder than we thought, so I think we should give a few extra points to students who completed it.
 Professor: that’s a terrible idea. If we give everyone a perfect score for no reason, students won’t bother working hard in the future. lbl07",fallacy of extension
-"Either you believe what I’m saying, or you must believe exactly the opposite. lbl12",false dilemma
-"The claim that because somebody famous supports an idea, the idea must be right. This fallacy is often used in advertising. lbl10",fallacy of credibility
-I don't see how you can say you're an ethical person. It's so hard to get you to do anything; your work ethic is so bad lbl08,equivocation
-"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
-You can't believe Jack when he says there is a God because he doesn't even have a job. lbl06,ad hominem
-French people are great at kissing.  Julie is French.  Get me a date! lbl05,faulty generalization
-Smoking pot is against the law because it is wrong; I know it is wrong because it is against the law lbl03,circular reasoning
-All chess players are geniuses. lbl05,faulty generalization
-"Kids: If you wouldn't eat your dog, why eat a turkey? Go vegan. lbl09",fallacy of logic
-"White men can't jump. No, really, they can't! lbl05",faulty generalization
-There is definitely a link between dementia and drinking energy drinks. I read about it on Wikipedia. lbl10,fallacy of credibility
-"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
+test,"Either you believe what I’m saying, or you must believe exactly the opposite. lbl12",false dilemma
+test,"The claim that because somebody famous supports an idea, the idea must be right. This fallacy is often used in advertising. lbl10",fallacy of credibility
+test,I don't see how you can say you're an ethical person. It's so hard to get you to do anything; your work ethic is so bad lbl08,equivocation
+test,"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
+test,You can't believe Jack when he says there is a God because he doesn't even have a job. lbl06,ad hominem
+test,French people are great at kissing.  Julie is French.  Get me a date! lbl05,faulty generalization
+test,Smoking pot is against the law because it is wrong; I know it is wrong because it is against the law lbl03,circular reasoning
+test,All chess players are geniuses. lbl05,faulty generalization
+test,"Kids: If you wouldn't eat your dog, why eat a turkey? Go vegan. lbl09",fallacy of logic
+test,"White men can't jump. No, really, they can't! lbl05",faulty generalization
+test,There is definitely a link between dementia and drinking energy drinks. I read about it on Wikipedia. lbl10,fallacy of credibility
+test,"Thomas: ""Dating apps are an effective way to meet potential dates. With people's busy work schedules nowadays, technology can help you make connections.""
 Nina: ""Dating apps are dangerous! Most people are catfished, and guys usually pretend to be so much better than they really are online. If we're so busy, we won't have time for any of that, anyway.""
 What fallacy is Nina leaning toward? lbl07",fallacy of extension
-How many school shootings should we tolerate before we change the gun laws? lbl11,intentional
-"An influencer posts on Instagram that the restaurant ""EP is poppin'! Everyone worth knowing is here tonight - come on down!"" -- this is an example of: lbl02",ad populum
-Everyone knows that teenagers are lazy lbl05,faulty generalization
-"Charlie: I think we should put more money into schools. Quality public education is so important. Bob: So you’re saying we should cut military spending and spend it instead on more spiral notebooks and crayons? I guess you want our country to be a weak, defenseless target for terrorists. lbl07",fallacy of extension
-"If I go to the bathroom, I will miss the notes, then I'll do poorly on a test, then I won't get into college, so I won't go to the bathroom. lbl05",faulty generalization
-I can't trust the mayor or the governor. All politicians must be liars. lbl05,faulty generalization
-Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
-sending M-16s to Syrian rebels inevitably mean boots on the ground in Damascus. lbl05,faulty generalization
-"Jimmy stole Tommy’s lunch in the past.
+test,How many school shootings should we tolerate before we change the gun laws? lbl11,intentional
+test,"An influencer posts on Instagram that the restaurant ""EP is poppin'! Everyone worth knowing is here tonight - come on down!"" -- this is an example of: lbl02",ad populum
+test,Everyone knows that teenagers are lazy lbl05,faulty generalization
+test,"Charlie: I think we should put more money into schools. Quality public education is so important. Bob: So you’re saying we should cut military spending and spend it instead on more spiral notebooks and crayons? I guess you want our country to be a weak, defenseless target for terrorists. lbl07",fallacy of extension
+test,"If I go to the bathroom, I will miss the notes, then I'll do poorly on a test, then I won't get into college, so I won't go to the bathroom. lbl05",faulty generalization
+test,I can't trust the mayor or the governor. All politicians must be liars. lbl05,faulty generalization
+test,Eighty-five percent of those surveyed said that it is important to have a cell phone. lbl01,false causality
+test,sending M-16s to Syrian rebels inevitably mean boots on the ground in Damascus. lbl05,faulty generalization
+test,"Jimmy stole Tommy’s lunch in the past.
 Therefore, it is acceptable for Tommy to steal Jimmy’s lunch today. lbl04",fallacy of relevance
-Over one million students have purchased Brain Power. lbl02,ad populum
-"In a study designed by a famous academic to test the effects of pleasant imagery on motivation, employees were shown images of baby animals and beautiful nature scenes for their first five minutes at work.
+test,Over one million students have purchased Brain Power. lbl02,ad populum
+test,"In a study designed by a famous academic to test the effects of pleasant imagery on motivation, employees were shown images of baby animals and beautiful nature scenes for their first five minutes at work.
 
 Amazingly, results showed a 10 percent leap in profits in the first quarter and record earnings over the course of a year. So, showing employees pleasant images is a great way to increase their motivation and improve productivity lbl10",fallacy of credibility
-"On my walk to work this morning, a woman on her bike nearly ran me off the sidewalk. I hadn't realized that cyclists were so aggressive and rude! lbl05",faulty generalization
-"Everyone already believes that the defendant killed her husband, and that many people can't be wrong. lbl02",ad populum
-"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
-All chess players are geniuses. lbl05,faulty generalization
-"If I don't take this AP class, then I won't do well on the exam. If I don't do well on the AP exam, then I won't get into a good college. If I can't get into a good college, then I'll never get a good job. If I can't get a good job, then I'm going to have to live in my parents' basement forever. Guess I'll sign up for the AP class... lbl05",faulty generalization
-Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
-"Accused on the 6 o'clock news of corruption and taking bribes, the senator said that we should all be very wary of the things we hear in the media, because we all know how very unreliable the media can be. lbl06",ad hominem
-"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
-The meteorologist predicted the wrong amount of rain for May. Obviously the meteorologist is unreliable. lbl05,faulty generalization
-"How can you tell me I should exercise to lose weight? All you do is sit behind a desk all day. I've never seen you do a lick of exercise.
+test,"On my walk to work this morning, a woman on her bike nearly ran me off the sidewalk. I hadn't realized that cyclists were so aggressive and rude! lbl05",faulty generalization
+test,"Everyone already believes that the defendant killed her husband, and that many people can't be wrong. lbl02",ad populum
+test,"Jeff is preparing to create a commercial for a new energy drink. He visits a local high school and surveys students in an English class about their beverage preferences. The majority of the class says they prefer grape flavored drinks, so Jeff tells his superiors that grape is the flavor favored most by high school students. What error in reasoning has Jeff made? lbl05",faulty generalization
+test,All chess players are geniuses. lbl05,faulty generalization
+test,"If I don't take this AP class, then I won't do well on the exam. If I don't do well on the AP exam, then I won't get into a good college. If I can't get into a good college, then I'll never get a good job. If I can't get a good job, then I'm going to have to live in my parents' basement forever. Guess I'll sign up for the AP class... lbl05",faulty generalization
+test,Historians agree that studying the past is the best way to avoid repeating mistakes. lbl08,equivocation
+test,"Accused on the 6 o'clock news of corruption and taking bribes, the senator said that we should all be very wary of the things we hear in the media, because we all know how very unreliable the media can be. lbl06",ad hominem
+test,"A father talking to his daughter on dating a boyfriend he doesn’t like says, “If you continue dating this guy who doesn’t take his education seriously, you’ll end up dropping out of school, you then won’t be able to get a job, and you will get married too young.” lbl05",faulty generalization
+test,The meteorologist predicted the wrong amount of rain for May. Obviously the meteorologist is unreliable. lbl05,faulty generalization
+test,"How can you tell me I should exercise to lose weight? All you do is sit behind a desk all day. I've never seen you do a lick of exercise.
 
 Identify the logical fallacy commited in this argument. lbl06",ad hominem
-10 of the last 14 National Spelling Bee Champions have been Indian American. Indian Americans must all be great spellers! lbl05,faulty generalization
-"A: The Government should enact minimum-wage legislation so that workers are not exploited.
+test,10 of the last 14 National Spelling Bee Champions have been Indian American. Indian Americans must all be great spellers! lbl05,faulty generalization
+test,"A: The Government should enact minimum-wage legislation so that workers are not exploited.
 B: Nonsense. You say that only because you cannot find a good job. lbl06",ad hominem
-“against the man;” attacking the individual rather than their position. lbl06,ad hominem
-"""I bought a ticket to win a new car at the mall, since I have never won anything like that in the past."" lbl01",false causality
-SM 1: Second World War discussion lbl07,fallacy of extension
-"Jack: I have tiny, invisible unicorns living in my anus.
+test,“against the man;” attacking the individual rather than their position. lbl06,ad hominem
+test,"""I bought a ticket to win a new car at the mall, since I have never won anything like that in the past."" lbl01",false causality
+test,SM 1: Second World War discussion lbl07,fallacy of extension
+test,"Jack: I have tiny, invisible unicorns living in my anus.
 
 Nick: How do you figure?
 
@@ -894,5 +894,5 @@ Jack: Can you prove that I don't?
 Nick: No.
 
 Jack: Then I do. lbl11",intentional
-"Mrs. Miller taught your older brother, who was the class clown. She decides to be strict with you from the very first day of class because she thinks you will be a clown, too. lbl05",faulty generalization
-"Daniel was a precocious child and had a liking for logic. He reasoned that atoms are invisible, and that he was made of atoms and therefore invisible too. Unfortunately, despite his thinky skills, he lost the game of hide and go seek. lbl05",faulty generalization
+test,"Mrs. Miller taught your older brother, who was the class clown. She decides to be strict with you from the very first day of class because she thinks you will be a clown, too. lbl05",faulty generalization
+test,"Daniel was a precocious child and had a liking for logic. He reasoned that atoms are invisible, and that he was made of atoms and therefore invisible too. Unfortunately, despite his thinky skills, he lost the game of hide and go seek. lbl05",faulty generalization
