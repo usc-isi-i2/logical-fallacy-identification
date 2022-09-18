@@ -1,3 +1,4 @@
+from typing import Dict
 import networkx
 import pydotplus
 from IPython import embed
@@ -6,19 +7,21 @@ import amrlib
 from amrlib.graph_processing.amr_plot import *
 import graphviz    # sudo apt install graphviz; pip3 install graphviz
 
+try:
+    device = "cuda"
+    stog_model = amrlib.load_stog_model(device=device)
+    print('using GPU')
+except Exception as e:
+    print(e)
+    print('using CPU')
+    device = "cpu"
+    stog_model = amrlib.load_stog_model(device=device)
 
 class AMR_Container:
     """
     its instances will contain the AMR representation of the sentences. 
     https://github.com/bjascob/amrlib
     """
-    # device = "cuda" if torch.cuda.is_available() else "cpu"
-    device = "cpu"
-    try:
-        stog_model = amrlib.load_stog_model(device=device)
-    except:
-        device = "cpu"
-        stog_model = amrlib.load_stog_model(device=device)
 
     def __init__(self, sentence: str = None, graph_str: str = None) -> None:
         self.sentence = sentence
@@ -37,7 +40,8 @@ class AMR_Container:
         Returns:
             str: AMR representation of the sentence
         """
-        graph = self.stog_model.parse_sents([self.sentence])[0]
+            
+        graph = stog_model.parse_sents([self.sentence])[0]
         return graph
 
     def generate_graphviz(self) -> graphviz.Digraph:
@@ -62,6 +66,9 @@ class AMR_Container:
         dotplus = pydotplus.graph_from_dot_data(source)
         nx_graph = networkx.nx_pydot.from_pydot(dotplus)
         return nx_graph
+
+    def add_label2word(self, label2word: Dict[str, str]):
+        self.label2word = label2word
 
 
 if __name__ == "__main__":

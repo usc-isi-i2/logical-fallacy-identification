@@ -1,0 +1,114 @@
+
+  0%|                                             | 0/1849 [00:00<?, ?it/s]
+slogan expect
+slogan more
+slogan pay
+slogan less
+company expect
+company more
+company pay
+company less
+expect slogan
+expect company
+expect pay
+expect less
+more slogan
+more company
+more pay
+pay slogan
+pay expect
+
+  0%|                                   | 1/1849 [00:09<4:45:08,  9.26s/it]
+less slogan
+less company
+less expect
+21
+correlate have degree
+correlate size
+correlate shoe
+correlate name
+correlate big
+correlate write
+correlate person
+correlate good
+correlate msk0
+more size
+more shoe
+more name
+more big
+more have degree
+more write
+more person
+more good
+more msk0
+have degree correlate
+have degree shoe
+have degree name
+have degree more
+have degree write
+have degree person
+have degree good
+have degree msk0
+size correlate
+size more
+size name
+size big
+size have degree
+size write
+size person
+size good
+size msk0
+shoe correlate
+shoe more
+shoe have degree
+shoe big
+shoe person
+shoe good
+shoe msk0
+name correlate
+name more
+name have degree
+name size
+Traceback (most recent call last):
+  File "/nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 90, in <module>
+    for new_edge in get_relations_between_words(node1_label, node2_label):
+  File "/nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 39, in get_relations_between_words
+    obj = make_request(query=query)
+  File "/nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 24, in make_request
+    response = requests.get(query)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 723, in send
+    history = [resp for resp in gen]
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 723, in <listcomp>
+    history = [resp for resp in gen]
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/ssl.py", line 1310, in do_handshake
+    self._sslobj.do_handshake()
+KeyboardInterrupt
+name write

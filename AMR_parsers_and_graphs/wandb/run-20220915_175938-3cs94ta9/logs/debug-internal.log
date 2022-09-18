@@ -1,0 +1,550 @@
+2022-09-15 17:59:38,856 INFO    StreamThr :161245 [internal.py:wandb_internal():90] W&B internal server running at pid: 161245, started at: 2022-09-15 17:59:38.854331
+2022-09-15 17:59:38,859 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: status
+2022-09-15 17:59:38,864 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: status
+2022-09-15 17:59:38,868 DEBUG   SenderThread:161245 [sender.py:send():302] send: header
+2022-09-15 17:59:38,868 INFO    WriterThread:161245 [datastore.py:open_for_write():75] open: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/run-3cs94ta9.wandb
+2022-09-15 17:59:38,924 DEBUG   SenderThread:161245 [sender.py:send():302] send: run
+2022-09-15 17:59:39,182 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: check_version
+2022-09-15 17:59:39,184 INFO    SenderThread:161245 [dir_watcher.py:__init__():216] watching files in: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files
+2022-09-15 17:59:39,185 INFO    SenderThread:161245 [sender.py:_start_run_threads():913] run started: 3cs94ta9 with start time 1663289978.850611
+2022-09-15 17:59:39,185 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 17:59:39,188 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 17:59:39,188 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: check_version
+2022-09-15 17:59:39,276 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: run_start
+2022-09-15 17:59:39,284 DEBUG   HandlerThread:161245 [meta.py:__init__():35] meta init
+2022-09-15 17:59:39,284 DEBUG   HandlerThread:161245 [meta.py:__init__():50] meta init done
+2022-09-15 17:59:39,284 DEBUG   HandlerThread:161245 [meta.py:probe():216] probe
+2022-09-15 17:59:39,293 DEBUG   HandlerThread:161245 [meta.py:_setup_git():206] setup git
+2022-09-15 17:59:39,337 DEBUG   HandlerThread:161245 [meta.py:_setup_git():213] setup git done
+2022-09-15 17:59:39,338 DEBUG   HandlerThread:161245 [meta.py:_save_pip():54] save pip
+2022-09-15 17:59:39,341 DEBUG   HandlerThread:161245 [meta.py:_save_pip():68] save pip done
+2022-09-15 17:59:39,341 DEBUG   HandlerThread:161245 [meta.py:_save_conda():75] save conda
+2022-09-15 17:59:40,191 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_created():275] file/dir created: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 17:59:40,192 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_created():275] file/dir created: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/conda-environment.yaml
+2022-09-15 17:59:40,193 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_created():275] file/dir created: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/requirements.txt
+2022-09-15 17:59:44,196 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/conda-environment.yaml
+2022-09-15 17:59:44,247 DEBUG   HandlerThread:161245 [meta.py:_save_conda():85] save conda done
+2022-09-15 17:59:44,247 DEBUG   HandlerThread:161245 [meta.py:probe():254] probe done
+2022-09-15 17:59:44,262 DEBUG   SenderThread:161245 [sender.py:send():302] send: files
+2022-09-15 17:59:44,262 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-09-15 17:59:44,279 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 17:59:44,280 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 17:59:44,380 DEBUG   SenderThread:161245 [sender.py:send():302] send: telemetry
+2022-09-15 17:59:44,675 INFO    Thread-16 :161245 [upload_job.py:push():138] Uploaded file /tmp/tmpphyfffzqwandb/1mfcp1eo-wandb-metadata.json
+2022-09-15 17:59:45,198 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_created():275] file/dir created: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-metadata.json
+2022-09-15 17:59:46,527 DEBUG   SenderThread:161245 [sender.py:send():302] send: telemetry
+2022-09-15 17:59:46,614 DEBUG   SenderThread:161245 [sender.py:send():302] send: telemetry
+2022-09-15 17:59:46,730 DEBUG   SenderThread:161245 [sender.py:send():302] send: telemetry
+2022-09-15 17:59:57,217 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_created():275] file/dir created: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 17:59:59,220 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 17:59:59,389 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 17:59:59,389 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:00:05,773 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:00:05,775 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:00:05,776 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:00:05,782 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:00:06,229 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:00:07,231 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:00:10,239 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/config.yaml
+2022-09-15 18:00:10,510 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:00:14,496 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:00:14,497 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:00:29,612 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:00:46,298 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:00:46,412 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:00:49,613 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:00:49,614 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:01:04,718 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:25,434 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:02:25,435 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:29,155 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:29,156 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:29,157 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:29,459 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:02:29,460 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:02:29,558 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:02:29,661 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:02:29,663 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:02:29,756 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:02:29,756 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:02:44,035 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:02:44,036 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:02:44,037 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:02:44,039 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:02:44,387 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:02:44,722 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:44,722 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:02:45,388 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:02:52,071 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:02:52,073 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:02:52,073 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:02:52,077 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:02:52,395 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:02:53,398 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:02:55,883 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:02:59,812 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:02:59,813 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:03:14,914 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:03:14,915 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:03:29,095 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:03:30,018 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:03:30,019 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:03:38,078 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:03:38,080 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:03:38,080 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:03:38,083 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:03:38,459 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:03:39,461 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:03:45,119 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:03:45,120 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:04:00,224 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:04:00,225 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:04:02,310 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:04:15,330 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:04:15,331 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:04:27,031 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:04:27,032 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:04:27,033 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:04:27,037 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:04:27,522 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:04:29,528 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:04:30,452 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:04:30,453 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:04:35,566 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:04:45,562 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:04:45,563 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:05:00,669 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:05:00,669 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:05:08,758 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:05:15,779 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:05:15,780 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:05:16,492 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:05:16,493 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:05:16,494 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:05:16,497 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:05:16,589 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:05:17,591 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:05:30,884 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:05:30,885 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:05:41,981 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:05:45,994 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:05:45,995 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:06:01,111 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:06:01,112 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:06:04,854 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:06:04,856 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:06:04,857 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:06:04,859 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:06:05,657 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:06:07,660 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:06:15,202 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:06:16,219 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:06:16,219 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:06:31,322 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:06:31,323 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:06:46,430 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:06:46,431 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:06:47,366 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:06:47,368 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:06:47,368 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:06:47,373 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:06:47,713 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:06:48,344 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:06:49,716 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:07:01,532 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:07:01,533 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:07:16,646 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:07:16,646 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:07:21,540 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:07:25,065 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:07:25,067 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:07:25,067 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:07:25,070 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:07:25,763 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:07:27,766 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:07:31,748 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:07:31,749 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:07:46,857 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:07:46,858 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:07:50,771 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:07:50,772 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:07:50,773 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:07:50,778 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:07:50,799 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:07:51,801 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:07:54,751 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:08:01,961 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:08:01,962 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:08:16,830 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:08:16,832 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:08:16,832 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:08:16,835 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:08:17,062 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:08:17,062 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:08:17,836 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:08:17,837 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:08:27,870 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:08:32,164 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:08:32,165 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:08:47,350 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:08:47,351 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:09:01,052 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:09:02,460 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:09:02,461 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:09:17,567 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:09:17,568 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:09:32,680 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:09:32,681 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:09:34,177 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:09:47,792 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:09:47,793 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:10:02,896 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:10:02,897 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:10:07,222 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:10:07,224 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:10:07,224 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:10:07,229 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:10:07,247 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:10:07,974 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:10:09,977 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:10:18,003 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:10:18,004 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:10:33,114 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:10:33,115 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:10:40,326 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:10:48,222 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:10:48,223 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:11:03,322 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:11:03,323 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:11:13,546 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:11:18,434 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:11:18,434 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:11:33,535 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:11:33,536 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:11:44,394 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:11:44,396 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:11:44,396 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:11:44,399 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:11:45,099 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:11:46,101 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:11:46,627 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:11:48,652 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:11:48,653 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:12:03,756 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:12:03,757 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:12:18,860 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:12:18,861 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:12:19,783 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:12:33,976 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:12:33,977 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:12:49,087 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:12:49,088 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:12:52,888 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:13:04,205 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:13:04,206 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:13:19,319 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:13:19,320 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:13:26,007 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:13:34,438 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:13:34,439 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:13:49,553 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:13:49,554 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:13:59,114 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:14:04,657 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:14:04,658 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:14:19,764 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:14:19,765 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:14:32,193 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:14:34,867 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:14:34,868 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:14:49,973 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:14:49,973 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:15:05,091 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:15:05,092 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:15:05,289 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:15:20,195 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:15:20,195 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:15:35,300 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:15:35,301 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:15:38,411 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:15:50,405 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:15:50,405 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:16:05,019 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:16:05,020 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:16:05,021 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:16:05,024 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:16:05,436 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:16:05,507 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:16:05,507 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:16:06,439 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:16:11,519 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:16:20,605 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:16:20,606 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:16:35,711 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:16:35,712 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:16:37,920 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:16:37,921 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:16:37,922 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:16:37,927 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:16:38,486 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:16:40,489 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:16:44,600 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:16:50,835 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:16:50,835 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:17:05,939 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:17:05,940 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:17:14,391 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:17:14,392 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:17:14,393 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:17:14,398 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:17:14,534 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:17:16,538 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:17:17,728 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:17:21,043 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:17:21,044 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:17:33,930 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: partial_history
+2022-09-15 18:17:33,931 DEBUG   SenderThread:161245 [sender.py:send():302] send: history
+2022-09-15 18:17:33,932 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:17:33,935 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:17:34,565 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:17:36,149 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:17:36,149 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:17:36,569 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:17:50,843 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:17:51,252 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:17:51,253 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:18:06,362 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:18:06,363 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:18:21,467 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:18:21,468 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:18:23,979 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:18:36,570 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:18:36,571 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:18:51,673 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:18:51,674 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:18:57,072 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:19:06,779 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:19:06,780 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:19:21,885 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:19:21,886 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:19:30,156 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:19:36,990 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:19:36,991 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:19:52,089 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:19:52,090 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:20:03,222 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:20:07,195 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:20:07,196 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:20:22,299 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:20:22,300 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:20:36,396 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:20:37,403 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:20:37,404 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:20:52,507 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:20:52,508 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:21:07,608 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:21:07,609 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:21:09,510 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:21:22,715 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:21:22,716 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:21:37,819 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:21:37,821 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:21:42,647 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:21:52,933 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:21:52,934 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:22:08,038 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:22:08,039 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:22:15,700 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:22:23,148 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:22:23,149 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:22:38,252 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:22:38,253 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:22:48,787 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:22:53,357 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:22:53,358 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:23:08,469 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:23:08,470 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:23:21,920 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:23:23,584 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:23:23,585 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:23:38,689 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:23:38,691 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:23:53,795 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:23:53,796 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:23:55,061 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:24:08,904 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: stop_status
+2022-09-15 18:24:08,906 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: stop_status
+2022-09-15 18:24:09,405 DEBUG   SenderThread:161245 [sender.py:send():302] send: exit
+2022-09-15 18:24:09,406 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:09,406 INFO    SenderThread:161245 [sender.py:send_exit():438] handling exit code: 1
+2022-09-15 18:24:09,407 INFO    SenderThread:161245 [sender.py:send_exit():440] handling runtime: 1470
+2022-09-15 18:24:09,410 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:24:09,410 INFO    SenderThread:161245 [sender.py:send_exit():446] send defer
+2022-09-15 18:24:09,410 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:09,411 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,412 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 0
+2022-09-15 18:24:09,412 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,412 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-09-15 18:24:09,413 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 1
+2022-09-15 18:24:09,413 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,413 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 1
+2022-09-15 18:24:09,638 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,638 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-09-15 18:24:09,639 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:09,639 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 2
+2022-09-15 18:24:09,639 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:09,640 DEBUG   SenderThread:161245 [sender.py:send():302] send: stats
+2022-09-15 18:24:09,642 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,642 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 2
+2022-09-15 18:24:09,642 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,643 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-09-15 18:24:09,643 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 3
+2022-09-15 18:24:09,644 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,644 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 3
+2022-09-15 18:24:09,644 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,645 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-09-15 18:24:09,645 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 4
+2022-09-15 18:24:09,645 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,646 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 4
+2022-09-15 18:24:09,646 DEBUG   SenderThread:161245 [sender.py:send():302] send: summary
+2022-09-15 18:24:09,648 INFO    SenderThread:161245 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-09-15 18:24:09,649 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,649 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-09-15 18:24:09,649 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 5
+2022-09-15 18:24:09,650 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,650 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 5
+2022-09-15 18:24:09,650 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,650 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-09-15 18:24:09,650 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 6
+2022-09-15 18:24:09,651 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:09,651 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 6
+2022-09-15 18:24:09,651 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:09,651 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-09-15 18:24:09,745 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:10,102 INFO    Thread-12 :161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:24:10,183 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 7
+2022-09-15 18:24:10,183 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:10,184 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:10,185 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 7
+2022-09-15 18:24:10,185 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:10,186 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-09-15 18:24:10,186 INFO    SenderThread:161245 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-09-15 18:24:10,287 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,107 INFO    SenderThread:161245 [dir_watcher.py:_on_file_modified():292] file/dir modified: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:24:11,107 INFO    SenderThread:161245 [dir_watcher.py:finish():392] scan: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files
+2022-09-15 18:24:11,108 INFO    SenderThread:161245 [dir_watcher.py:finish():406] scan save: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log output.log
+2022-09-15 18:24:11,109 INFO    SenderThread:161245 [dir_watcher.py:finish():406] scan save: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-metadata.json wandb-metadata.json
+2022-09-15 18:24:11,109 INFO    SenderThread:161245 [dir_watcher.py:finish():406] scan save: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/requirements.txt requirements.txt
+2022-09-15 18:24:11,116 INFO    SenderThread:161245 [dir_watcher.py:finish():406] scan save: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json wandb-summary.json
+2022-09-15 18:24:11,117 INFO    SenderThread:161245 [dir_watcher.py:finish():406] scan save: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/config.yaml config.yaml
+2022-09-15 18:24:11,128 INFO    SenderThread:161245 [dir_watcher.py:finish():406] scan save: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/conda-environment.yaml conda-environment.yaml
+2022-09-15 18:24:11,134 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 8
+2022-09-15 18:24:11,135 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,137 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:11,142 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 8
+2022-09-15 18:24:11,144 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:11,144 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-09-15 18:24:11,144 INFO    SenderThread:161245 [file_pusher.py:finish():171] shutting down file pusher
+2022-09-15 18:24:11,243 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,244 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,346 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,346 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,449 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,449 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,487 INFO    Thread-17 :161245 [upload_job.py:push():138] Uploaded file /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/output.log
+2022-09-15 18:24:11,515 INFO    Thread-21 :161245 [upload_job.py:push():138] Uploaded file /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/conda-environment.yaml
+2022-09-15 18:24:11,524 INFO    Thread-20 :161245 [upload_job.py:push():138] Uploaded file /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/config.yaml
+2022-09-15 18:24:11,552 INFO    Thread-18 :161245 [upload_job.py:push():138] Uploaded file /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/requirements.txt
+2022-09-15 18:24:11,553 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,553 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,655 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,656 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,758 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,758 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,860 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,861 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:11,963 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:11,963 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,065 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,066 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,168 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,168 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,270 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,270 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,373 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,373 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,475 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,476 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,578 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,578 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,680 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,680 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,783 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,783 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,885 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,885 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:12,987 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:12,988 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,090 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,090 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,192 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,193 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,295 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,295 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,397 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,398 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,500 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,500 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,602 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,603 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,705 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,705 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,807 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,807 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:13,910 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:13,910 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,012 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,013 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,115 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,115 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,217 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,218 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,260 INFO    Thread-19 :161245 [upload_job.py:push():138] Uploaded file /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/files/wandb-summary.json
+2022-09-15 18:24:14,320 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,320 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,422 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,423 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,461 INFO    Thread-11 :161245 [sender.py:transition_state():459] send defer: 9
+2022-09-15 18:24:14,461 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:14,462 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 9
+2022-09-15 18:24:14,462 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:14,462 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-09-15 18:24:14,525 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,709 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 10
+2022-09-15 18:24:14,709 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,711 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:14,711 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 10
+2022-09-15 18:24:14,712 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:14,712 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-09-15 18:24:14,712 INFO    SenderThread:161245 [sender.py:transition_state():459] send defer: 11
+2022-09-15 18:24:14,713 DEBUG   SenderThread:161245 [sender.py:send():302] send: final
+2022-09-15 18:24:14,714 DEBUG   SenderThread:161245 [sender.py:send():302] send: footer
+2022-09-15 18:24:14,714 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: defer
+2022-09-15 18:24:14,714 INFO    HandlerThread:161245 [handler.py:handle_request_defer():164] handle defer: 11
+2022-09-15 18:24:14,714 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: defer
+2022-09-15 18:24:14,714 INFO    SenderThread:161245 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-09-15 18:24:14,813 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: poll_exit
+2022-09-15 18:24:14,813 DEBUG   SenderThread:161245 [sender.py:send_request():316] send_request: poll_exit
+2022-09-15 18:24:14,813 INFO    SenderThread:161245 [file_pusher.py:join():176] waiting for file pusher
+2022-09-15 18:24:15,109 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: sampled_history
+2022-09-15 18:24:15,111 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: get_summary
+2022-09-15 18:24:15,112 INFO    MainThread:161245 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-09-15 18:24:15,113 INFO    MainThread:161245 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-09-15 18:24:15,114 INFO    MainThread:161245 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2022-09-15 18:24:15,115 DEBUG   HandlerThread:161245 [handler.py:handle_request():141] handle_request: shutdown
+2022-09-15 18:24:15,115 INFO    HandlerThread:161245 [handler.py:finish():810] shutting down handler
+2022-09-15 18:24:15,714 INFO    WriterThread:161245 [datastore.py:close():279] close: /nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220915_175938-3cs94ta9/run-3cs94ta9.wandb
+2022-09-15 18:24:16,007 INFO    SenderThread:161245 [sender.py:finish():1312] shutting down sender
+2022-09-15 18:24:16,007 INFO    SenderThread:161245 [file_pusher.py:finish():171] shutting down file pusher
+2022-09-15 18:24:16,007 INFO    SenderThread:161245 [file_pusher.py:join():176] waiting for file pusher
+2022-09-15 18:24:16,120 INFO    MainThread:161245 [internal.py:handle_exit():80] Internal process exited

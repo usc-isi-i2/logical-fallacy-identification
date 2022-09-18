@@ -1,4 +1,4 @@
-from consts import PATH_TO_MASKED_SENTENCES_AMRS, PATH_TO_MOST_SIMILAR_GRAPHS, PATH_TO_STATISTICS, PATH_TO_MASKED_SENTENCES_AMRS_TMP
+from consts import *
 from amr_container import AMR_Container
 from typing import List
 import numpy as np
@@ -10,14 +10,20 @@ import re
 from pathlib import Path
 from tqdm import tqdm
 from IPython import embed
-
+from custom_logger import get_logger
 import warnings
 warnings.filterwarnings("ignore")
+
 
 from eval import compute_random_baseline, mean_average_precision
 
 
-def get_amr_sentences(lines: List[str]):
+
+logger = get_logger(
+    logger_name=f"{__name__}.{os.path.basename(__file__)}"
+)
+
+def get_amr_sentences_from_amr_generated_lines(lines: List[str]):
     results = []
     i = 0
     while i != len(lines):
@@ -37,7 +43,7 @@ def get_amr_sentences(lines: List[str]):
     return amr_sentences
 
 
-def get_raw_sentences(lines: List[str]):
+def get_raw_sentences_from_amr_generated_lines(lines: List[str]):
     results = []
     i = 0
     while i != len(lines):
@@ -56,69 +62,56 @@ def get_raw_sentences(lines: List[str]):
     ]
     return raw_sentences
 
+def generate_amr_containers_from_csv_file(input_data_path: Path or str, output_data_path: Path or str) -> None:
+    """
+    Read the csv data containing the source article, masked_article, and updated labels (train, dev, or test),
+    and create the AMR Container instances for them containg the AMR graphs in Graphviz and Networkx format. 
 
-def read_amr_graph(path: Path) -> List[AMR_Container]:
-    with open(path, 'r') as f:
-        lines = f.readlines()
+    Args:
+        input_data_path (Pathorstr): input data path
+        output_data_path (Pathorstr): path to save the outputs
 
-    amr_sentences = get_amr_sentences(
-        lines=lines
-    )
-    raw_sentences = get_raw_sentences(
-        lines=lines
-    )
-
-    graphs = []
-    n = 0
-    for raw_sentence, amr_sentence in tqdm(zip(raw_sentences, amr_sentences), leave=False):
-        try:
-            # TODO: check why some cases fail to generate the graphviz instance
-            # FIXME: the sentences which contain \n (related to the part that we have multiple sentences in one)
-            graphs.append(
-                AMR_Container(
-                    sentence=raw_sentence,
-                    graph_str=amr_sentence
-                )
-            )
-        except Exception as e:
-            n += 1
-            continue
-    print(n, len(raw_sentences), len(amr_sentences))
-    return graphs
-
-
-def get_amr_labels_from_csv_file(csv_path: Path or str) -> None:
-    if os.path.exists(PATH_TO_MASKED_SENTENCES_AMRS):
-        results = joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
+    Returns:
+        _type_: None
+    """
+    if os.path.exists(output_data_path):
+        results = joblib.load(output_data_path)
         return results
 
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(input_data_path)
 
     results = []
+    
 
     for _, (_, data) in tqdm(enumerate(df.iterrows()), leave=False):
+        try:
 
-        label = data["updated_label"]
-        masked_article = data["masked_articles"]
-        original_article = data["source_article"]
+            label = data["updated_label"]
+            masked_article = data["masked_articles"]
+            original_article = data["source_article"]
 
-        updated_masked_article = re.sub(
-            r"MSK<(\d+)>", r"MSK\1", masked_article
-        )
+            updated_masked_article = re.sub(
+                r"MSK<(\d+)>", r"MSK\1", masked_article
+            )
 
-        updated_masked_article = re.sub(r"\n", ". ", updated_masked_article)
+            updated_masked_article = re.sub(r"\n", ". ", updated_masked_article)
 
-        amr_container = AMR_Container(
-            sentence=updated_masked_article
-        )
-        results.append([
-            original_article,
-            amr_container,
-            label
-        ])
+            amr_container = AMR_Container(
+                sentence=updated_masked_article
+            )
+            results.append([
+                original_article,
+                amr_container,
+                label
+            ])
+        except Exception as e:
+            logger.error(
+                f"File: {input_data_path}, Error handling data: {updated_masked_article} with the following error: {e} \n"
+            )
+            continue
     joblib.dump(
         results,
-        PATH_TO_MASKED_SENTENCES_AMRS
+        output_data_path
     )
 
 def get_clearn_node_labels_for_graph(g: nx.DiGraph):
@@ -149,28 +142,32 @@ def get_clearn_node_labels_for_graph(g: nx.DiGraph):
                 print(label)
                 embed()
         except Exception as e:
-            print(e)
-            print(label)
+            logger.error(
+                f"Error finding the clean label of: {label} with the following error: {e} \n"
+            )
             word = label
             
         label2word[node_name] = word
     return label2word
     
 
-def augment_amr_container_objects_with_clean_node_labels(sentences_with_amr_container):
+def augment_amr_container_objects_with_clean_node_labels(sentences_with_amr_container, output_path: str or Path) -> None:
     for obj in tqdm(sentences_with_amr_container, leave = False):
         try:
             graph = obj[1].graph_nx
             label2word = get_clearn_node_labels_for_graph(g = graph)
-            obj[1].label2word = label2word
+            obj[1].add_label2word(label2word)
 
         except Exception as e:
-            obj[1].label2word = None
-            embed()
+            obj[1].add_label2word(None)
+            logger.error(
+                f"Error augmenting the graph of sentence: {obj[1].sentence} with the following error: {e} \n"
+            )
+            continue
     
     joblib.dump(
         sentences_with_amr_container,
-        PATH_TO_MASKED_SENTENCES_AMRS
+        output_path
     )
 
     
@@ -213,9 +210,14 @@ def compute_statistics_based_on_different_kernels():
 
 
 if __name__ == "__main__":
-    augment_amr_container_objects_with_clean_node_labels(
-        sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
-    )
+    # sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
+    #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
+    # )
+    # joblib.dump(
+    #     sentences_with_amr_container,
+    #     PATH_TO_MASKED_SENTENCES_AMRS_WITH_LABEL2WORD
+    # )
+    
 
     # get_similar_graphs_graph2vec(
     #     index = 10,
@@ -224,4 +226,28 @@ if __name__ == "__main__":
     # )
 
     # top_ns = [5, 10, 20]
+    
+
+    # generate_amr_containers_from_csv_file(
+    #     input_data_path=PATH_TO_ORIGINAL_DEV_DATA,
+    #     output_data_path=PATH_TO_MASKED_SENTENCES_AMRS_DEV
+    # )
+
+
+    # generate_amr_containers_from_csv_file(
+    #     input_data_path=PATH_TO_ORIGINAL_TEST_DATA,
+    #     output_data_path=PATH_TO_MASKED_SENTENCES_AMRS_TEST
+    # )
+
+
+    sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
+        sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS_DEV),
+        output_path=PATH_TO_MASKED_SENTENCES_AMRS_DEV_WITH_LABEL2WORD
+    )
+    
+
+    sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
+        sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS_TEST),
+        output_path=PATH_TO_MASKED_SENTENCES_AMRS_TEST_WITH_LABEL2WORD
+    )
     

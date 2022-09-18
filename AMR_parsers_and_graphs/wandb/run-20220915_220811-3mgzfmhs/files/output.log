@@ -1,0 +1,4432 @@
+
+  0%|                                             | 0/1849 [00:00<?, ?it/s]
+slogan expect
+slogan more
+slogan pay
+slogan less
+company expect
+company more
+company pay
+company less
+expect slogan
+expect company
+expect pay
+expect less
+more slogan
+more company
+more pay
+pay slogan
+pay expect
+
+  0%|                                   | 1/1849 [00:09<4:43:16,  9.20s/it]
+less slogan
+less company
+less expect
+21
+correlate have degree
+correlate size
+correlate shoe
+correlate name
+correlate big
+correlate write
+correlate person
+correlate good
+more size
+more shoe
+more name
+more big
+more have degree
+more write
+more person
+more good
+have degree correlate
+have degree shoe
+have degree name
+have degree more
+have degree write
+have degree person
+have degree good
+size correlate
+size more
+size name
+size big
+size have degree
+size write
+size person
+size good
+shoe correlate
+shoe more
+shoe have degree
+shoe big
+shoe person
+shoe good
+name correlate
+name more
+name have degree
+name size
+name big
+name write
+name person
+name good
+big correlate
+big more
+big shoe
+big have degree
+big write
+big person
+big good
+have degree size
+have degree big
+write correlate
+write more
+write have degree
+write size
+write name
+write big
+person correlate
+person have degree
+person size
+person shoe
+person good
+good correlate
+good more
+good have degree
+good size
+
+  0%|                                  | 2/1849 [00:41<11:36:59, 22.64s/it]
+good name
+good big
+good person
+73
+infer believe
+infer person
+infer many
+true cause
+true believe
+true person
+true many
+cause true
+cause person
+cause many
+believe infer
+believe many
+person infer
+person true
+
+  0%|                                   | 3/1849 [00:49<8:14:36, 16.08s/it]
+many infer
+many true
+many cause
+many believe
+19
+contrast person
+contrast name
+contrast say
+contrast have mod
+contrast constituent
+contrast amr unknown
+contrast negative
+have mod name
+have mod person
+have mod constituent
+have mod amr unknown
+have mod negative
+person contrast
+person name
+person amr unknown
+person negative
+name contrast
+name have mod
+name say
+name constituent
+name amr unknown
+name negative
+person say
+person have mod
+person constituent
+say contrast
+say name
+say person
+say constituent
+say have mod
+say amr unknown
+say negative
+have mod contrast
+constituent contrast
+constituent have mod
+constituent name
+constituent person
+constituent say
+constituent amr unknown
+constituent negative
+have mod say
+amr unknown contrast
+amr unknown have mod
+amr unknown person
+amr unknown name
+amr unknown say
+amr unknown constituent
+amr unknown negative
+negative contrast
+negative name
+
+  0%|                                   | 4/1849 [01:13<9:49:04, 19.16s/it]
+negative have mod
+negative constituent
+negative amr unknown
+54
+thing name
+thing go over
+thing month
+thing begin
+thing get
+thing score on scale
+thing test
+thing mathematics
+name thing
+name go over
+name data
+name month
+name begin
+name get
+name score on scale
+name test
+name mathematics
+thing data
+go over thing
+go over name
+go over begin
+go over get
+go over score on scale
+go over test
+go over mathematics
+data name
+data thing
+data month
+data begin
+data get
+data score on scale
+data test
+data mathematics
+month thing
+month name
+month data
+month begin
+month get
+month score on scale
+month test
+month mathematics
+begin thing
+begin name
+begin go over
+begin data
+begin month
+begin score on scale
+begin test
+begin mathematics
+get thing
+get name
+get go over
+get data
+get month
+get mathematics
+score on scale thing
+score on scale name
+score on scale go over
+score on scale data
+score on scale month
+score on scale begin
+score on scale test
+score on scale mathematics
+test thing
+test name
+test go over
+test data
+test month
+test begin
+test score on scale
+mathematics thing
+mathematics go over
+mathematics data
+
+  0%|                                  | 5/1849 [01:47<12:34:09, 24.54s/it]
+mathematics begin
+mathematics get
+mathematics score on scale
+77
+tell name
+tell yard
+tell cause
+tell possible
+tell animal
+tell wild
+tell woods
+tell negative
+person leave
+person yard
+person possible
+person animal
+person wild
+person woods
+name tell
+name leave
+name child
+name yard
+name cause
+name possible
+name animal
+name wild
+name woods
+leave person
+leave name
+leave possible
+leave animal
+leave wild
+leave woods
+child yard
+child cause
+child possible
+child animal
+child wild
+child woods
+child negative
+yard tell
+yard person
+yard name
+yard child
+yard cause
+yard possible
+yard animal
+yard wild
+yard woods
+yard negative
+cause tell
+cause name
+cause child
+cause yard
+cause animal
+cause wild
+cause woods
+cause negative
+possible tell
+possible person
+possible name
+possible leave
+possible child
+possible yard
+possible wild
+possible woods
+possible negative
+animal tell
+animal leave
+animal yard
+animal cause
+animal negative
+wild tell
+wild person
+wild name
+wild leave
+wild child
+wild yard
+wild cause
+wild possible
+wild woods
+wild negative
+woods tell
+woods person
+woods name
+woods leave
+woods child
+woods yard
+woods cause
+woods possible
+woods wild
+woods negative
+negative tell
+negative child
+negative yard
+negative cause
+
+negative possible
+negative animal
+negative wild
+negative woods
+96
+cause bad
+cause product
+cause environment
+cause value interval
+cause car
+cause recommend
+cause eventual
+bad cause
+bad name
+bad product
+bad value interval
+bad car
+bad recommend
+bad eventual
+bad negative
+product cause
+product environment
+product name
+product value interval
+product car
+product recommend
+product eventual
+product negative
+name bad
+name environment
+name product
+name value interval
+name car
+name recommend
+name eventual
+environment cause
+environment product
+environment name
+environment value interval
+environment car
+environment recommend
+environment eventual
+environment negative
+product bad
+value interval cause
+value interval bad
+value interval product
+value interval name
+value interval environment
+value interval car
+value interval recommend
+value interval eventual
+value interval negative
+car cause
+car bad
+car product
+car name
+car environment
+car value interval
+car recommend
+car eventual
+car negative
+recommend cause
+recommend bad
+recommend product
+recommend name
+recommend environment
+recommend value interval
+recommend car
+recommend eventual
+eventual cause
+eventual bad
+eventual product
+eventual name
+eventual environment
+eventual value interval
+eventual car
+eventual recommend
+eventual negative
+negative product
+negative environment
+negative value interval
+
+  0%|▏                                 | 7/1849 [03:04<16:20:31, 31.94s/it]
+negative eventual
+79
+multi sentence string entity
+multi sentence very
+multi sentence go
+multi sentence something
+multi sentence want
+string entity obligate
+string entity something
+string entity want
+string entity go
+string entity multi sentence
+string entity very
+very multi sentence
+very string entity
+very go
+very obligate
+very something
+very want
+go multi sentence
+go very
+go obligate
+go something
+go string entity
+go want
+obligate string entity
+obligate very
+obligate go
+something multi sentence
+something string entity
+something very
+something go
+something want
+want multi sentence
+want string entity
+want very
+want go
+
+  0%|▏                                 | 8/1849 [03:20<13:44:40, 26.88s/it]
+36
+multi sentence product
+multi sentence name
+multi sentence date entity
+multi sentence night
+multi sentence today
+multi sentence cheat
+multi sentence msnk0
+multi sentence expressive
+late name
+late night
+late today
+late obligate
+late cheat
+late msnk0
+late expressive
+product multi sentence
+product date entity
+product night
+product today
+product obligate
+product msnk0
+product expressive
+name multi sentence
+name late
+name date entity
+name night
+name today
+name obligate
+name cheat
+name expressive
+date entity multi sentence
+date entity product
+date entity name
+date entity obligate
+date entity cheat
+date entity msnk0
+date entity expressive
+night multi sentence
+night product
+night name
+night today
+night obligate
+night cheat
+night msnk0
+night expressive
+today multi sentence
+today late
+today product
+today name
+today night
+today obligate
+today cheat
+today msnk0
+today expressive
+obligate late
+obligate product
+obligate name
+obligate date entity
+obligate night
+obligate today
+obligate msnk0
+cheat multi sentence
+cheat late
+cheat name
+cheat date entity
+cheat night
+cheat today
+cheat msnk0
+cheat expressive
+msnk0 multi sentence
+msnk0 late
+msnk0 product
+msnk0 date entity
+msnk0 night
+msnk0 today
+msnk0 obligate
+msnk0 cheat
+msnk0 expressive
+expressive multi sentence
+expressive late
+expressive product
+expressive name
+expressive date entity
+expressive night
+expressive today
+
+  0%|▏                                 | 9/1849 [03:58<15:34:02, 30.46s/it]
+expressive msnk0
+87
+multi sentence thing
+multi sentence down
+multi sentence rate entity
+multi sentence set
+go name
+go thing
+go cause
+go set
+thing multi sentence
+thing rate entity
+thing cause
+thing set
+name go
+name down
+name rate entity
+name set
+down multi sentence
+down name
+down rate entity
+down go
+down thing
+down cause
+down set
+rate entity multi sentence
+rate entity thing
+rate entity name
+rate entity down
+rate entity cause
+rate entity set
+thing go
+thing down
+cause go
+cause thing
+cause down
+
+  1%|▏                                | 10/1849 [04:16<13:28:01, 26.36s/it]
+set multi sentence
+set thing
+set name
+set rate entity
+39
+cause feel
+cause everyone
+cause too
+make person
+make everyone
+make recommend
+make too
+feel cause
+feel name
+feel everyone
+feel recommend
+feel do
+feel too
+person make
+person do
+person everyone
+person recommend
+person too
+name feel
+name do
+name everyone
+name too
+do person
+do name
+do recommend
+do too
+everyone cause
+everyone make
+everyone feel
+everyone recommend
+everyone do
+everyone too
+recommend make
+recommend feel
+recommend person
+recommend do
+recommend everyone
+recommend too
+do feel
+do everyone
+too cause
+too make
+too feel
+too person
+
+  1%|▏                                | 11/1849 [04:37<12:44:48, 24.97s/it]
+too do
+too everyone
+too recommend
+48
+oppose person
+oppose name
+oppose extend
+oppose care
+oppose health
+oppose fund
+oppose government organization
+oppose govern
+oppose child
+oppose minority
+oppose poor
+oppose liberal
+oppose political party
+oppose democrat
+propose name
+propose care
+propose health
+propose fund
+propose government organization
+propose govern
+propose child
+propose minority
+propose poor
+propose cause
+propose liberal
+propose political party
+propose democrat
+person oppose
+person care
+person health
+person fund
+person government organization
+person govern
+person child
+person minority
+person poor
+person political party
+person democrat
+name oppose
+name propose
+name extend
+name care
+name health
+name fund
+name government organization
+name govern
+name minority
+name poor
+name liberal
+name political party
+name democrat
+extend oppose
+extend name
+extend health
+extend fund
+extend government organization
+extend govern
+extend minority
+extend poor
+extend cause
+extend liberal
+extend political party
+extend democrat
+care oppose
+care propose
+care name
+care government organization
+care govern
+care child
+care minority
+care poor
+care cause
+care liberal
+care political party
+care democrat
+health oppose
+health propose
+health person
+health name
+health extend
+health fund
+health government organization
+health govern
+health child
+health minority
+health poor
+health cause
+health liberal
+health political party
+health democrat
+fund oppose
+fund propose
+fund person
+fund name
+fund extend
+fund health
+fund govern
+fund child
+fund minority
+fund poor
+fund cause
+fund liberal
+fund political party
+fund democrat
+government organization oppose
+government organization propose
+government organization person
+government organization name
+government organization extend
+government organization care
+government organization health
+government organization child
+government organization minority
+government organization poor
+government organization cause
+government organization liberal
+government organization political party
+government organization democrat
+govern oppose
+govern propose
+govern person
+govern name
+govern extend
+govern care
+govern health
+govern fund
+govern child
+govern minority
+govern poor
+govern cause
+govern liberal
+govern political party
+govern democrat
+child oppose
+child propose
+child care
+child health
+child fund
+child government organization
+child govern
+child liberal
+child political party
+child name
+child democrat
+minority oppose
+minority propose
+minority person
+minority name
+minority extend
+minority care
+minority health
+minority fund
+minority government organization
+minority govern
+minority poor
+minority cause
+minority liberal
+minority political party
+minority democrat
+poor oppose
+poor propose
+poor person
+poor name
+poor extend
+poor care
+poor health
+poor fund
+poor government organization
+poor govern
+poor minority
+poor cause
+poor liberal
+poor political party
+poor democrat
+cause propose
+cause extend
+cause care
+cause health
+cause fund
+cause government organization
+cause govern
+cause minority
+cause poor
+cause political party
+cause democrat
+liberal oppose
+liberal propose
+liberal name
+liberal extend
+liberal care
+liberal health
+liberal fund
+liberal government organization
+liberal govern
+liberal child
+liberal minority
+liberal poor
+liberal democrat
+political party oppose
+political party propose
+political party person
+political party name
+political party extend
+political party care
+political party health
+political party fund
+political party government organization
+political party govern
+political party child
+political party minority
+political party poor
+political party cause
+political party democrat
+democrat oppose
+democrat propose
+democrat person
+democrat name
+democrat extend
+democrat care
+democrat health
+democrat fund
+democrat government organization
+democrat govern
+democrat child
+democrat minority
+democrat poor
+
+  1%|▏                                | 12/1849 [06:17<24:20:46, 47.71s/it]
+democrat liberal
+democrat political party
+229
+multi sentence person
+multi sentence taste
+multi sentence fish
+multi sentence funny
+multi sentence have rel role
+multi sentence parent
+multi sentence miss
+multi sentence continent
+multi sentence dinner
+multi sentence negative
+multi sentence africa
+say fish
+say funny
+say have rel role
+say parent
+say want
+say miss
+say starve
+say continent
+say dinner
+say africa
+person multi sentence
+person taste
+person fish
+person funny
+person have rel role
+person parent
+person starve
+person continent
+person miss
+person dinner
+person africa
+name taste
+name fish
+name funny
+name have rel role
+name parent
+name want
+name miss
+name starve
+name continent
+name dinner
+name africa
+taste multi sentence
+taste name
+taste say
+taste person
+taste have rel role
+taste parent
+taste want
+taste miss
+taste starve
+taste continent
+taste dinner
+taste negative
+taste africa
+fish multi sentence
+fish say
+fish name
+fish funny
+fish person
+fish have rel role
+fish parent
+fish want
+fish miss
+fish starve
+fish continent
+fish dinner
+fish negative
+fish africa
+funny multi sentence
+funny say
+funny person
+funny name
+funny fish
+funny have rel role
+funny parent
+funny want
+funny miss
+funny starve
+funny continent
+funny dinner
+funny negative
+funny africa
+say taste
+person want
+have rel role multi sentence
+have rel role say
+have rel role person
+have rel role name
+have rel role taste
+have rel role fish
+have rel role funny
+have rel role want
+have rel role miss
+have rel role starve
+have rel role continent
+have rel role dinner
+have rel role negative
+have rel role africa
+parent multi sentence
+parent say
+parent name
+parent taste
+parent fish
+parent funny
+parent want
+parent miss
+parent starve
+parent person
+parent continent
+parent dinner
+parent negative
+parent africa
+want say
+want name
+want taste
+want fish
+want funny
+want person
+want have rel role
+want parent
+want starve
+want continent
+want miss
+want dinner
+want africa
+miss multi sentence
+miss say
+miss name
+miss taste
+miss funny
+miss have rel role
+miss parent
+miss starve
+miss person
+miss continent
+miss dinner
+miss negative
+miss africa
+starve say
+starve person
+starve name
+starve taste
+starve fish
+starve funny
+starve have rel role
+starve parent
+starve want
+starve miss
+starve dinner
+starve negative
+starve africa
+continent multi sentence
+continent say
+continent person
+continent taste
+continent fish
+continent funny
+continent have rel role
+continent parent
+continent want
+continent miss
+continent dinner
+continent negative
+continent africa
+dinner multi sentence
+dinner say
+dinner name
+dinner taste
+dinner funny
+dinner have rel role
+dinner parent
+dinner want
+dinner miss
+dinner starve
+dinner continent
+dinner negative
+dinner africa
+negative multi sentence
+negative taste
+negative fish
+negative funny
+negative have rel role
+negative parent
+negative miss
+negative starve
+negative continent
+negative dinner
+negative africa
+africa multi sentence
+africa say
+africa person
+africa name
+africa taste
+africa fish
+africa funny
+africa have rel role
+africa parent
+africa want
+africa miss
+africa starve
+africa dinner
+
+  1%|▏                                | 13/1849 [07:46<30:44:53, 60.29s/it]
+204
+multi sentence think
+multi sentence recommend
+multi sentence hire
+multi sentence company
+multi sentence someone
+multi sentence redesign
+multi sentence website
+multi sentence throw away
+multi sentence money
+multi sentence resource
+multi sentence external
+multi sentence instead of
+multi sentence build up
+multi sentence team
+multi sentence design
+multi sentence in house
+multi sentence amr unknown
+multi sentence run
+multi sentence long
+say recommend
+say hire
+say company
+say someone
+say redesign
+say website
+say throw away
+say money
+say resource
+say external
+say instead of
+say build up
+say team
+say design
+say in house
+say hurt
+say run
+say long
+person hire
+person company
+person redesign
+person website
+person throw away
+person money
+person resource
+person external
+person instead of
+person build up
+person team
+person design
+person in house
+person hurt
+person run
+person long
+name think
+name hire
+name company
+name someone
+name redesign
+name website
+name throw away
+name money
+name resource
+name external
+name instead of
+name build up
+name team
+name design
+name in house
+name hurt
+name run
+name long
+think multi sentence
+think name
+think hire
+think company
+think someone
+think redesign
+think website
+think say
+think person
+think recommend
+think throw away
+think money
+think resource
+think external
+think instead of
+think build up
+think team
+think design
+think in house
+think amr unknown
+think hurt
+think run
+think long
+recommend multi sentence
+recommend say
+recommend company
+recommend someone
+recommend redesign
+recommend website
+recommend throw away
+recommend money
+recommend resource
+recommend external
+recommend instead of
+recommend build up
+recommend team
+recommend design
+recommend in house
+recommend amr unknown
+recommend hurt
+recommend run
+recommend long
+hire multi sentence
+hire say
+hire person
+hire name
+hire think
+hire website
+hire recommend
+hire throw away
+hire company
+hire money
+hire resource
+hire external
+hire instead of
+hire build up
+hire team
+hire design
+hire in house
+hire amr unknown
+hire hurt
+hire run
+hire long
+company multi sentence
+company say
+company think
+company recommend
+company someone
+company redesign
+company person
+company name
+company throw away
+company money
+company resource
+company external
+company instead of
+company build up
+company team
+company design
+company in house
+company amr unknown
+company hurt
+company run
+company long
+someone multi sentence
+someone think
+someone recommend
+someone company
+someone website
+someone say
+someone name
+someone throw away
+someone money
+someone resource
+someone external
+someone instead of
+someone build up
+someone team
+someone design
+someone in house
+someone amr unknown
+someone hurt
+someone run
+someone long
+redesign multi sentence
+redesign say
+redesign person
+redesign name
+redesign think
+redesign recommend
+redesign company
+redesign throw away
+redesign money
+redesign resource
+redesign external
+redesign instead of
+redesign build up
+redesign team
+redesign design
+redesign in house
+redesign amr unknown
+redesign hurt
+redesign run
+redesign long
+website multi sentence
+website say
+website person
+website name
+website think
+website recommend
+website hire
+website someone
+website throw away
+website company
+website money
+website resource
+website external
+website instead of
+website build up
+website team
+website design
+website in house
+website amr unknown
+website hurt
+website run
+website long
+say think
+recommend think
+recommend hire
+throw away multi sentence
+throw away say
+throw away person
+throw away name
+throw away think
+throw away recommend
+throw away hire
+throw away company
+throw away someone
+throw away redesign
+throw away website
+throw away external
+throw away build up
+throw away team
+throw away design
+throw away in house
+throw away amr unknown
+throw away hurt
+throw away run
+throw away long
+company hire
+company website
+money multi sentence
+money say
+money person
+money name
+money think
+money recommend
+money hire
+money someone
+money redesign
+money website
+money resource
+money external
+money instead of
+money build up
+money team
+money design
+money in house
+money amr unknown
+money hurt
+money company
+money run
+money long
+resource multi sentence
+resource say
+resource person
+resource name
+resource think
+resource recommend
+resource hire
+resource company
+resource someone
+resource redesign
+resource website
+resource money
+resource instead of
+resource build up
+resource team
+resource design
+resource in house
+resource amr unknown
+resource hurt
+resource run
+resource long
+external multi sentence
+external say
+external person
+external name
+external think
+external recommend
+external hire
+external company
+external someone
+external redesign
+external website
+external throw away
+external money
+external instead of
+external build up
+external team
+external design
+external in house
+external amr unknown
+external hurt
+external run
+external long
+instead of multi sentence
+instead of say
+instead of person
+instead of name
+instead of think
+instead of recommend
+instead of hire
+instead of company
+instead of someone
+instead of redesign
+instead of website
+instead of money
+instead of resource
+instead of external
+instead of team
+instead of design
+instead of in house
+instead of amr unknown
+instead of hurt
+instead of run
+instead of long
+build up multi sentence
+build up say
+build up person
+build up name
+build up think
+build up recommend
+build up hire
+build up company
+build up someone
+build up redesign
+build up website
+build up throw away
+build up money
+build up resource
+build up external
+build up design
+build up in house
+build up amr unknown
+build up hurt
+build up run
+build up long
+team multi sentence
+team say
+team person
+team name
+team think
+team recommend
+team hire
+team someone
+team redesign
+team website
+team throw away
+team money
+team resource
+team external
+team instead of
+team amr unknown
+team hurt
+team company
+team run
+team long
+design multi sentence
+design say
+design person
+design name
+design think
+design recommend
+design hire
+design company
+design someone
+design website
+design throw away
+design money
+design resource
+design external
+design instead of
+design build up
+design in house
+design amr unknown
+design hurt
+design run
+design long
+in house multi sentence
+in house say
+in house person
+in house name
+in house think
+in house recommend
+in house hire
+in house company
+in house someone
+in house redesign
+in house website
+in house throw away
+in house money
+in house resource
+in house instead of
+in house build up
+in house design
+in house amr unknown
+in house hurt
+in house run
+in house long
+amr unknown multi sentence
+amr unknown think
+amr unknown recommend
+amr unknown hire
+amr unknown company
+amr unknown someone
+amr unknown redesign
+amr unknown website
+amr unknown throw away
+amr unknown money
+amr unknown resource
+amr unknown external
+amr unknown instead of
+amr unknown build up
+amr unknown team
+amr unknown design
+amr unknown in house
+amr unknown hurt
+amr unknown run
+amr unknown long
+hurt say
+hurt person
+hurt name
+hurt think
+hurt recommend
+hurt hire
+hurt company
+hurt someone
+hurt redesign
+hurt website
+hurt throw away
+hurt money
+hurt resource
+hurt external
+hurt instead of
+hurt build up
+hurt team
+hurt design
+hurt in house
+hurt amr unknown
+hurt long
+run multi sentence
+run say
+run name
+run think
+run recommend
+run hire
+run company
+run someone
+run redesign
+run website
+run throw away
+run money
+run resource
+run external
+run instead of
+run build up
+run team
+run design
+run in house
+run amr unknown
+long multi sentence
+long say
+long person
+long name
+long think
+long recommend
+long hire
+long company
+long someone
+long redesign
+long website
+long throw away
+long money
+long resource
+long external
+long instead of
+long build up
+
+  1%|▏                               | 14/1849 [11:22<54:41:45, 107.31s/it]
+long design
+long in house
+long amr unknown
+long hurt
+494
+beware make
+beware feel
+beware string entity
+beware only
+beware logic
+beware msnk0
+beware negative
+appeal feel
+appeal string entity
+appeal only
+appeal logic
+appeal imperative
+appeal msnk0
+appeal negative
+make beware
+make string entity
+make logic
+make imperative
+make msnk0
+make negative
+feel beware
+feel appeal
+feel only
+feel make
+feel logic
+feel imperative
+feel msnk0
+feel negative
+string entity beware
+string entity appeal
+string entity make
+string entity only
+string entity imperative
+string entity negative
+only beware
+only appeal
+only feel
+only string entity
+only make
+only logic
+only imperative
+only msnk0
+only negative
+make feel
+make only
+logic beware
+logic appeal
+logic feel
+logic only
+logic imperative
+logic msnk0
+logic negative
+imperative appeal
+imperative make
+imperative feel
+imperative string entity
+imperative only
+imperative logic
+imperative msnk0
+imperative negative
+msnk0 beware
+msnk0 appeal
+msnk0 make
+msnk0 feel
+msnk0 only
+msnk0 logic
+msnk0 imperative
+msnk0 negative
+negative beware
+negative appeal
+negative make
+negative feel
+negative string entity
+
+  1%|▎                                | 15/1849 [11:55<43:17:16, 84.97s/it]
+negative imperative
+negative msnk0
+76
+tap person
+tap belong
+tap product
+tap name
+tap do
+tap everyone
+tap else
+tap expressive
+desire product
+desire name
+desire mean
+desire do
+desire everyone
+desire else
+desire expressive
+person tap
+person product
+person mean
+person else
+person expressive
+belong tap
+belong name
+belong mean
+belong do
+belong everyone
+belong else
+belong expressive
+product tap
+product desire
+product person
+product mean
+product everyone
+product else
+name tap
+name desire
+name belong
+name mean
+name else
+mean desire
+mean belong
+mean product
+mean name
+mean everyone
+mean else
+mean expressive
+do tap
+do desire
+do belong
+do else
+everyone tap
+everyone desire
+everyone belong
+everyone product
+everyone mean
+everyone expressive
+else tap
+else desire
+else person
+else belong
+else product
+else name
+else mean
+else do
+else expressive
+expressive tap
+expressive desire
+
+  1%|▎                                | 16/1849 [12:26<34:54:45, 68.57s/it]
+expressive mean
+expressive everyone
+expressive else
+70
+show quality
+show live
+show improve
+show research
+show invent
+science come
+science quality
+science live
+science improve
+science research
+science invent
+come science
+come live
+come improve
+come research
+come invent
+quality show
+quality science
+quality research
+quality invent
+live show
+live science
+live come
+live improve
+live research
+live invent
+improve show
+improve science
+improve come
+improve live
+improve research
+improve invent
+research show
+research come
+research quality
+research live
+research improve
+research invent
+invent show
+invent science
+invent come
+invent quality
+
+  1%|▎                                | 17/1849 [12:46<27:24:01, 53.84s/it]
+invent improve
+invent research
+45
+multi sentence cut
+multi sentence university
+multi sentence budget
+multi sentence temporal quantity
+multi sentence year
+multi sentence monetary quantity
+multi sentence dollar
+multi sentence just
+multi sentence possible
+multi sentence understand
+multi sentence cause
+multi sentence bleed
+multi sentence resemble
+multi sentence reduce
+multi sentence raise
+multi sentence schedule
+multi sentence jones
+multi sentence brown
+say university
+say budget
+say product
+say rate entity
+say temporal quantity
+say year
+say monetary quantity
+say dollar
+say just
+say possible
+say understand
+say thing
+say cause
+say bleed
+say resemble
+say reduce
+say raise
+say schedule
+say jones
+say brown
+person cut
+person university
+person budget
+person rate entity
+person temporal quantity
+person year
+person monetary quantity
+person dollar
+person just
+person understand
+person thing
+person bleed
+person resemble
+person think
+person reduce
+person raise
+person schedule
+person jones
+person brown
+name cut
+name university
+name budget
+name temporal quantity
+name year
+name monetary quantity
+name dollar
+name just
+name understand
+name bleed
+name resemble
+name reduce
+name raise
+name schedule
+name brown
+cut multi sentence
+cut person
+cut name
+cut product
+cut rate entity
+cut temporal quantity
+cut year
+cut dollar
+cut say
+cut possible
+cut understand
+cut thing
+cut cause
+cut want
+cut bleed
+cut resemble
+cut think
+cut recommend
+cut raise
+cut schedule
+cut instead of
+cut jones
+cut brown
+cut negative
+university multi sentence
+university say
+university person
+university name
+university budget
+university product
+university rate entity
+university temporal quantity
+university year
+university monetary quantity
+university dollar
+university just
+university possible
+university understand
+university thing
+university cause
+university want
+university bleed
+university resemble
+university think
+university recommend
+university reduce
+university raise
+university schedule
+university instead of
+university jones
+university brown
+university negative
+budget multi sentence
+budget say
+budget person
+budget name
+budget university
+budget temporal quantity
+budget year
+budget monetary quantity
+budget dollar
+budget just
+budget possible
+budget understand
+budget thing
+budget cause
+budget want
+budget bleed
+budget product
+budget resemble
+budget think
+budget recommend
+budget reduce
+budget raise
+budget schedule
+budget instead of
+budget jones
+budget brown
+budget negative
+product say
+product cut
+product university
+product rate entity
+product temporal quantity
+product year
+product monetary quantity
+product dollar
+product just
+product possible
+product understand
+product thing
+product want
+product bleed
+product resemble
+product think
+product reduce
+product schedule
+product instead of
+product jones
+product brown
+name jones
+rate entity say
+rate entity person
+rate entity cut
+rate entity university
+rate entity product
+rate entity year
+rate entity monetary quantity
+rate entity dollar
+rate entity just
+rate entity possible
+rate entity understand
+rate entity want
+rate entity bleed
+rate entity resemble
+rate entity think
+rate entity recommend
+rate entity reduce
+rate entity raise
+rate entity schedule
+rate entity instead of
+rate entity jones
+rate entity brown
+rate entity negative
+temporal quantity multi sentence
+temporal quantity say
+temporal quantity person
+temporal quantity name
+temporal quantity cut
+temporal quantity university
+temporal quantity budget
+temporal quantity product
+temporal quantity monetary quantity
+temporal quantity dollar
+temporal quantity just
+temporal quantity possible
+temporal quantity understand
+temporal quantity thing
+temporal quantity cause
+temporal quantity want
+temporal quantity bleed
+temporal quantity resemble
+temporal quantity think
+temporal quantity recommend
+temporal quantity reduce
+temporal quantity raise
+temporal quantity schedule
+temporal quantity instead of
+temporal quantity jones
+temporal quantity brown
+temporal quantity negative
+year multi sentence
+year say
+year person
+year name
+year cut
+year university
+year budget
+year product
+year rate entity
+year monetary quantity
+year dollar
+year just
+year possible
+year understand
+year thing
+year cause
+year want
+year bleed
+year resemble
+year think
+year recommend
+year reduce
+year raise
+year schedule
+year instead of
+year jones
+year brown
+year negative
+monetary quantity multi sentence
+monetary quantity say
+monetary quantity person
+monetary quantity name
+monetary quantity university
+monetary quantity budget
+monetary quantity product
+monetary quantity rate entity
+monetary quantity temporal quantity
+monetary quantity year
+monetary quantity just
+monetary quantity possible
+monetary quantity understand
+monetary quantity thing
+monetary quantity cause
+monetary quantity want
+monetary quantity bleed
+monetary quantity resemble
+monetary quantity think
+monetary quantity recommend
+monetary quantity reduce
+monetary quantity raise
+monetary quantity schedule
+monetary quantity instead of
+monetary quantity jones
+monetary quantity brown
+monetary quantity negative
+dollar multi sentence
+dollar say
+dollar person
+dollar name
+dollar cut
+dollar university
+dollar budget
+dollar product
+dollar rate entity
+dollar temporal quantity
+dollar year
+dollar just
+dollar possible
+dollar understand
+dollar thing
+dollar cause
+dollar want
+dollar bleed
+dollar resemble
+dollar think
+dollar recommend
+dollar reduce
+dollar raise
+dollar schedule
+dollar instead of
+dollar jones
+dollar brown
+dollar negative
+just multi sentence
+just say
+just person
+just name
+just university
+just budget
+just product
+just rate entity
+just temporal quantity
+just year
+just monetary quantity
+just dollar
+just possible
+just understand
+just thing
+just cause
+just want
+just bleed
+just resemble
+just think
+just recommend
+just reduce
+just raise
+just schedule
+just instead of
+just jones
+just brown
+just negative
+say cut
+possible multi sentence
+possible say
+possible cut
+possible university
+possible budget
+possible product
+possible rate entity
+possible temporal quantity
+possible year
+possible monetary quantity
+possible dollar
+possible just
+possible thing
+possible cause
+possible want
+possible bleed
+possible resemble
+possible think
+possible recommend
+possible reduce
+possible raise
+possible schedule
+possible instead of
+possible jones
+possible brown
+understand multi sentence
+understand say
+understand person
+understand name
+understand cut
+understand university
+understand budget
+understand product
+understand rate entity
+understand temporal quantity
+understand year
+understand monetary quantity
+understand dollar
+understand just
+understand cause
+understand want
+understand bleed
+understand resemble
+understand think
+understand recommend
+understand reduce
+understand raise
+understand schedule
+understand instead of
+understand jones
+understand brown
+understand negative
+thing say
+thing cut
+thing university
+thing budget
+thing temporal quantity
+thing year
+thing monetary quantity
+thing dollar
+thing just
+thing possible
+thing want
+thing bleed
+thing product
+thing resemble
+thing person
+thing think
+thing recommend
+thing reduce
+thing raise
+thing schedule
+thing instead of
+thing jones
+thing brown
+thing negative
+cause multi sentence
+cause say
+cause university
+cause budget
+cause temporal quantity
+cause year
+cause monetary quantity
+cause dollar
+cause just
+cause possible
+cause understand
+cause bleed
+cause resemble
+cause think
+cause reduce
+cause raise
+cause schedule
+cause instead of
+cause jones
+cause brown
+want cut
+want university
+want budget
+want product
+want rate entity
+want temporal quantity
+want year
+want monetary quantity
+want dollar
+want just
+want possible
+want understand
+want thing
+want resemble
+want think
+want recommend
+want reduce
+want raise
+want schedule
+want instead of
+want jones
+want brown
+want negative
+bleed multi sentence
+bleed say
+bleed name
+bleed cut
+bleed university
+bleed budget
+bleed product
+bleed rate entity
+bleed temporal quantity
+bleed year
+bleed monetary quantity
+bleed dollar
+bleed just
+bleed possible
+bleed understand
+bleed thing
+bleed cause
+bleed person
+bleed think
+bleed recommend
+bleed reduce
+bleed raise
+bleed schedule
+bleed jones
+bleed brown
+bleed negative
+product budget
+product raise
+resemble multi sentence
+resemble say
+resemble person
+resemble name
+resemble cut
+resemble university
+resemble budget
+resemble product
+resemble rate entity
+resemble temporal quantity
+resemble year
+resemble monetary quantity
+resemble dollar
+resemble just
+resemble possible
+resemble understand
+resemble thing
+resemble cause
+resemble want
+resemble think
+resemble recommend
+resemble reduce
+resemble raise
+resemble schedule
+resemble instead of
+resemble jones
+resemble brown
+resemble negative
+think cut
+think university
+think budget
+think product
+think rate entity
+think temporal quantity
+think year
+think monetary quantity
+think dollar
+think just
+think possible
+think thing
+think cause
+think want
+think bleed
+think resemble
+think reduce
+think raise
+think schedule
+think jones
+think brown
+think negative
+recommend cut
+recommend university
+recommend budget
+recommend rate entity
+recommend temporal quantity
+recommend year
+recommend monetary quantity
+recommend dollar
+recommend just
+recommend possible
+recommend understand
+recommend thing
+recommend want
+recommend bleed
+recommend resemble
+recommend raise
+recommend schedule
+recommend jones
+recommend brown
+recommend negative
+reduce multi sentence
+reduce say
+reduce person
+reduce name
+reduce university
+reduce budget
+reduce product
+reduce rate entity
+reduce temporal quantity
+reduce year
+reduce monetary quantity
+reduce dollar
+reduce just
+reduce possible
+reduce understand
+reduce thing
+reduce cause
+reduce want
+reduce bleed
+reduce resemble
+reduce think
+reduce schedule
+reduce jones
+reduce brown
+reduce negative
+raise multi sentence
+raise say
+raise name
+raise university
+raise budget
+raise rate entity
+raise temporal quantity
+raise year
+raise monetary quantity
+raise dollar
+raise just
+raise possible
+raise understand
+raise thing
+raise cause
+raise want
+raise bleed
+raise product
+raise resemble
+raise think
+raise recommend
+raise instead of
+raise jones
+raise brown
+raise negative
+schedule multi sentence
+schedule say
+schedule person
+schedule name
+schedule cut
+schedule university
+schedule budget
+schedule product
+schedule rate entity
+schedule temporal quantity
+schedule year
+schedule monetary quantity
+schedule dollar
+schedule just
+schedule possible
+schedule understand
+schedule thing
+schedule cause
+schedule want
+schedule bleed
+schedule resemble
+schedule think
+schedule recommend
+schedule reduce
+schedule instead of
+schedule jones
+schedule brown
+schedule negative
+instead of cut
+instead of university
+instead of budget
+instead of product
+instead of rate entity
+instead of temporal quantity
+instead of year
+instead of monetary quantity
+instead of dollar
+instead of just
+instead of possible
+instead of understand
+instead of thing
+instead of cause
+instead of want
+instead of resemble
+instead of raise
+instead of schedule
+instead of jones
+instead of brown
+instead of negative
+jones multi sentence
+jones say
+jones person
+jones cut
+jones university
+jones budget
+jones product
+jones name
+jones rate entity
+jones temporal quantity
+jones year
+jones monetary quantity
+jones dollar
+jones just
+jones possible
+jones understand
+jones thing
+jones cause
+jones want
+jones bleed
+jones resemble
+jones think
+jones recommend
+jones reduce
+jones raise
+jones schedule
+jones instead of
+jones brown
+jones negative
+brown multi sentence
+brown say
+brown person
+brown name
+brown cut
+brown university
+brown budget
+brown product
+brown rate entity
+brown temporal quantity
+brown year
+brown monetary quantity
+brown dollar
+brown just
+brown possible
+brown understand
+brown thing
+brown cause
+brown want
+brown bleed
+brown resemble
+brown think
+brown recommend
+brown reduce
+brown raise
+brown schedule
+brown instead of
+brown jones
+brown negative
+negative cut
+negative university
+negative budget
+negative rate entity
+negative temporal quantity
+negative year
+negative monetary quantity
+negative dollar
+negative just
+negative understand
+negative thing
+negative want
+negative bleed
+negative resemble
+negative think
+negative recommend
+negative reduce
+negative raise
+negative schedule
+negative instead of
+
+  1%|▎                               | 18/1849 [18:04<67:47:50, 133.30s/it]
+negative brown
+731
+use information
+use relevant
+use technique
+use other
+use argue
+use at hand
+use negative
+information use
+information technique
+information other
+information distract
+information argue
+information at hand
+information negative
+relevant use
+relevant technique
+relevant other
+relevant distract
+relevant argue
+relevant at hand
+technique use
+technique information
+technique relevant
+technique distract
+technique argue
+technique at hand
+technique negative
+other use
+other information
+other relevant
+other distract
+other argue
+other at hand
+other negative
+distract information
+distract relevant
+distract technique
+distract other
+distract at hand
+distract negative
+argue use
+argue information
+argue relevant
+argue technique
+argue other
+argue negative
+at hand use
+at hand information
+at hand relevant
+at hand technique
+at hand other
+at hand distract
+at hand negative
+negative use
+negative information
+negative technique
+negative other
+negative distract
+
+  1%|▎                               | 19/1849 [18:30<51:22:40, 101.07s/it]
+negative at hand
+60
+multi sentence equal
+have condition thing
+have condition name
+have condition cause
+have condition equal
+equal multi sentence
+equal name
+equal cause
+equal thing
+thing have condition
+thing equal
+name have condition
+name equal
+cause have condition
+cause equal
+equal have condition
+16
+
+  1%|▎                                | 20/1849 [18:37<37:01:35, 72.88s/it]
+multi sentence clean up
+multi sentence beach
+multi sentence change
+multi sentence climate
+want clean up
+want beach
+want change
+want climate
+person clean up
+person beach
+person change
+person climate
+name participate
+name clean up
+name beach
+name change
+name climate
+participate multi sentence
+participate name
+participate beach
+participate say
+participate person
+participate possible
+participate change
+participate climate
+participate negative
+clean up multi sentence
+clean up want
+clean up person
+clean up name
+clean up say
+clean up possible
+clean up change
+clean up climate
+clean up negative
+beach multi sentence
+beach want
+beach person
+beach name
+beach participate
+beach say
+beach possible
+beach change
+beach climate
+beach negative
+say participate
+say clean up
+say beach
+say change
+say climate
+person participate
+possible participate
+possible clean up
+possible beach
+possible change
+possible climate
+change multi sentence
+change want
+change participate
+change clean up
+change beach
+change say
+change possible
+change negative
+climate multi sentence
+climate want
+climate person
+climate name
+climate participate
+climate clean up
+climate beach
+climate say
+climate possible
+climate negative
+negative participate
+negative clean up
+negative beach
+
+  1%|▎                                | 21/1849 [19:12<31:14:31, 61.53s/it]
+negative climate
+80
+make grow
+make country
+make infer
+make have degree
+make healthy
+make more
+make medication
+make full
+make chemical
+make pronounce
+make i
+make possible
+make zambia
+protein plant
+protein grow
+protein country
+protein name
+protein cause
+protein infer
+protein healthy
+protein more
+protein take
+protein medication
+protein full
+protein chemical
+protein pronounce
+protein i
+protein possible
+protein zambia
+protein negative
+name plant
+name grow
+name country
+name infer
+name healthy
+name take
+name medication
+name full
+name chemical
+name pronounce
+name i
+name zambia
+plant protein
+plant name
+plant country
+plant cause
+plant infer
+plant have degree
+plant healthy
+plant more
+plant take
+plant medication
+plant full
+plant chemical
+plant pronounce
+plant i
+plant possible
+plant zambia
+plant negative
+grow protein
+grow name
+grow cause
+grow infer
+grow have degree
+grow healthy
+grow more
+grow take
+grow medication
+grow full
+grow chemical
+grow pronounce
+grow i
+grow possible
+grow zambia
+grow negative
+country make
+country protein
+country name
+country plant
+country cause
+country infer
+country have degree
+country healthy
+country more
+country take
+country medication
+country full
+country chemical
+country pronounce
+country i
+country possible
+country zambia
+country negative
+name protein
+cause protein
+cause plant
+cause grow
+cause country
+cause have degree
+cause healthy
+cause more
+cause take
+cause medication
+cause full
+cause chemical
+cause pronounce
+cause i
+cause zambia
+infer make
+infer protein
+infer name
+infer plant
+infer grow
+infer country
+infer healthy
+infer more
+infer take
+infer medication
+infer full
+infer chemical
+infer pronounce
+infer i
+infer possible
+infer zambia
+infer negative
+have degree make
+have degree plant
+have degree grow
+have degree country
+have degree cause
+have degree medication
+have degree full
+have degree chemical
+have degree pronounce
+have degree i
+have degree possible
+have degree zambia
+have degree negative
+healthy make
+healthy protein
+healthy name
+healthy plant
+healthy grow
+healthy country
+healthy cause
+healthy infer
+healthy more
+healthy take
+healthy medication
+healthy full
+healthy chemical
+healthy pronounce
+healthy i
+healthy possible
+healthy zambia
+healthy negative
+more make
+more protein
+more grow
+more country
+more cause
+more infer
+more healthy
+more take
+more medication
+more full
+more chemical
+more pronounce
+more i
+more possible
+more zambia
+more negative
+take protein
+take name
+take plant
+take grow
+take country
+take cause
+take infer
+take healthy
+take more
+take full
+take chemical
+take pronounce
+take i
+take possible
+take zambia
+take negative
+medication make
+medication protein
+medication name
+medication plant
+medication grow
+medication country
+medication cause
+medication infer
+medication have degree
+medication healthy
+medication more
+medication chemical
+medication pronounce
+medication i
+medication possible
+medication zambia
+medication negative
+full make
+full protein
+full name
+full plant
+full grow
+full country
+full cause
+full infer
+full have degree
+full healthy
+full more
+full take
+full pronounce
+full i
+full possible
+full zambia
+full negative
+chemical make
+chemical protein
+chemical name
+chemical plant
+chemical grow
+chemical country
+chemical cause
+chemical infer
+chemical have degree
+chemical healthy
+chemical more
+chemical take
+chemical medication
+chemical i
+chemical possible
+chemical zambia
+chemical negative
+pronounce make
+pronounce protein
+pronounce name
+pronounce plant
+pronounce grow
+pronounce country
+pronounce cause
+pronounce infer
+pronounce have degree
+pronounce healthy
+pronounce more
+pronounce take
+pronounce medication
+pronounce full
+pronounce zambia
+pronounce negative
+i make
+i protein
+i name
+i plant
+i grow
+i country
+i cause
+i infer
+i have degree
+i healthy
+i more
+i take
+i medication
+i full
+i chemical
+i possible
+i zambia
+i negative
+possible make
+possible protein
+possible plant
+possible grow
+possible country
+possible infer
+possible have degree
+possible healthy
+possible more
+possible take
+possible medication
+possible full
+possible chemical
+possible i
+possible zambia
+zambia make
+zambia protein
+zambia name
+zambia plant
+zambia grow
+zambia cause
+zambia infer
+zambia have degree
+zambia healthy
+zambia more
+zambia take
+zambia medication
+zambia full
+zambia chemical
+zambia pronounce
+zambia i
+zambia possible
+zambia negative
+negative protein
+negative plant
+negative grow
+negative country
+negative infer
+negative have degree
+negative healthy
+negative more
+negative take
+negative medication
+negative full
+negative chemical
+negative pronounce
+negative i
+negative zambia
+321
+
+  1%|▍                                | 22/1849 [21:31<43:04:28, 84.88s/it]
+multi sentence trash
+multi sentence smarmy
+multi sentence bridge
+multi sentence county
+multi sentence lack
+multi sentence worth
+multi sentence art
+multi sentence wrong
+multi sentence still
+multi sentence fallacy
+multi sentence logic
+multi sentence commit
+multi sentence argue
+multi sentence list
+multi sentence sell
+multi sentence have degree
+multi sentence good
+multi sentence most
+multi sentence after all
+multi sentence week
+multi sentence madison
+multi sentence imperative
+know name
+know person
+know trash
+know smarmy
+know bridge
+know county
+know lack
+know worth
+know art
+know contrast
+know think
+know wrong
+know still
+know identify
+know fallacy
+know logic
+know commit
+know thing
+know argue
+know be located at
+know list
+know sell
+know have degree
+know good
+know most
+know after all
+know temporal quantity
+know week
+know madison
+know imperative
+person trash
+person smarmy
+person bridge
+person county
+person lack
+person worth
+person art
+person wrong
+person still
+person identify
+person fallacy
+person logic
+person commit
+person argue
+person be located at
+person list
+person sell
+person most
+person after all
+person week
+person madison
+person imperative
+name know
+name trash
+name smarmy
+name bridge
+name county
+name lack
+name worth
+name art
+name wrong
+name still
+name fallacy
+name logic
+name commit
+name argue
+name be located at
+name sell
+name most
+name after all
+name week
+name madison
+name imperative
+say multi sentence
+say trash
+say smarmy
+say bridge
+say county
+say lack
+say worth
+say art
+say wrong
+say still
+say identify
+say fallacy
+say logic
+say commit
+say argue
+say be located at
+say list
+say sell
+say have degree
+say good
+say most
+say after all
+say week
+say madison
+say imperative
+person know
+trash multi sentence
+trash know
+trash person
+trash name
+trash say
+trash county
+trash lack
+trash worth
+trash art
+trash contrast
+trash think
+trash wrong
+trash still
+trash identify
+trash fallacy
+trash logic
+trash commit
+trash thing
+trash argue
+trash be located at
+trash list
+trash sell
+trash have degree
+trash good
+trash most
+trash after all
+trash temporal quantity
+trash week
+trash madison
+trash imperative
+smarmy multi sentence
+smarmy know
+smarmy person
+smarmy name
+smarmy say
+smarmy bridge
+smarmy county
+smarmy lack
+smarmy worth
+smarmy art
+smarmy contrast
+smarmy think
+smarmy wrong
+smarmy still
+smarmy identify
+smarmy fallacy
+smarmy logic
+smarmy commit
+smarmy thing
+smarmy argue
+smarmy be located at
+smarmy list
+smarmy sell
+smarmy have degree
+smarmy good
+smarmy most
+smarmy after all
+smarmy temporal quantity
+smarmy week
+smarmy madison
+smarmy imperative
+bridge multi sentence
+bridge know
+bridge person
+bridge name
+bridge say
+bridge smarmy
+bridge art
+bridge contrast
+bridge think
+bridge wrong
+bridge still
+bridge identify
+bridge fallacy
+bridge logic
+bridge commit
+bridge thing
+bridge argue
+bridge be located at
+bridge list
+bridge sell
+bridge have degree
+bridge good
+bridge most
+bridge after all
+bridge temporal quantity
+bridge week
+bridge madison
+bridge county
+bridge imperative
+county multi sentence
+county know
+county person
+county name
+county say
+county trash
+county smarmy
+county lack
+county worth
+county art
+county contrast
+county think
+county wrong
+county still
+county identify
+county fallacy
+county logic
+county commit
+county thing
+county argue
+county be located at
+county list
+county sell
+county have degree
+county good
+county most
+county after all
+county temporal quantity
+county week
+county madison
+county imperative
+lack multi sentence
+lack know
+lack person
+lack name
+lack say
+lack trash
+lack smarmy
+lack county
+lack art
+lack contrast
+lack think
+lack wrong
+lack still
+lack identify
+lack fallacy
+lack logic
+lack commit
+lack thing
+lack argue
+lack be located at
+lack list
+lack sell
+lack have degree
+lack good
+lack most
+lack after all
+lack temporal quantity
+lack week
+lack madison
+lack imperative
+worth multi sentence
+worth know
+worth person
+worth name
+worth say
+worth trash
+worth smarmy
+worth county
+worth contrast
+worth think
+worth wrong
+worth still
+worth identify
+worth fallacy
+worth logic
+worth commit
+worth thing
+worth argue
+worth be located at
+worth list
+worth sell
+worth have degree
+worth good
+worth most
+worth after all
+worth temporal quantity
+worth week
+worth madison
+worth imperative
+art multi sentence
+art know
+art name
+art say
+art trash
+art smarmy
+art bridge
+art county
+art lack
+art contrast
+art think
+art person
+art wrong
+art still
+art identify
+art fallacy
+art logic
+art commit
+art thing
+art argue
+art be located at
+art list
+art sell
+art have degree
+art good
+art most
+art after all
+art temporal quantity
+art week
+art madison
+art imperative
+contrast know
+contrast trash
+contrast smarmy
+contrast bridge
+contrast county
+contrast lack
+contrast worth
+contrast art
+contrast wrong
+contrast still
+contrast identify
+contrast fallacy
+contrast logic
+contrast commit
+contrast thing
+contrast argue
+contrast be located at
+contrast list
+contrast sell
+contrast have degree
+contrast good
+contrast most
+contrast after all
+contrast temporal quantity
+contrast week
+contrast madison
+contrast imperative
+think know
+think trash
+think smarmy
+think bridge
+think county
+think lack
+think worth
+think art
+think identify
+think fallacy
+think logic
+think commit
+think argue
+think be located at
+think list
+think sell
+think have degree
+think good
+think most
+think after all
+think week
+think madison
+think imperative
+wrong multi sentence
+wrong know
+wrong person
+wrong name
+wrong say
+wrong trash
+wrong smarmy
+wrong bridge
+wrong county
+wrong lack
+wrong worth
+wrong art
+wrong contrast
+wrong still
+wrong identify
+wrong fallacy
+wrong logic
+wrong commit
+wrong thing
+wrong argue
+wrong be located at
+wrong list
+wrong sell
+wrong have degree
+wrong good
+wrong most
+wrong after all
+wrong temporal quantity
+wrong week
+wrong madison
+wrong imperative
+still multi sentence
+still know
+still person
+still name
+still say
+still trash
+still smarmy
+still bridge
+still county
+still lack
+still worth
+still art
+still contrast
+still wrong
+still identify
+still fallacy
+still logic
+still commit
+still thing
+still argue
+still be located at
+still list
+still sell
+still have degree
+still good
+still most
+still after all
+still temporal quantity
+still week
+still madison
+still imperative
+identify know
+identify person
+identify say
+identify trash
+identify smarmy
+identify bridge
+identify county
+identify lack
+identify worth
+identify art
+identify contrast
+identify think
+identify wrong
+identify still
+identify logic
+identify commit
+identify thing
+identify argue
+identify be located at
+identify list
+identify sell
+identify have degree
+identify good
+identify most
+identify after all
+identify temporal quantity
+identify week
+identify madison
+fallacy multi sentence
+fallacy know
+fallacy person
+fallacy name
+fallacy say
+fallacy trash
+fallacy smarmy
+fallacy bridge
+fallacy county
+fallacy lack
+fallacy worth
+fallacy art
+fallacy contrast
+fallacy think
+fallacy wrong
+fallacy still
+fallacy thing
+fallacy argue
+fallacy be located at
+fallacy list
+fallacy sell
+fallacy have degree
+fallacy good
+fallacy most
+fallacy after all
+fallacy temporal quantity
+fallacy week
+fallacy madison
+fallacy imperative
+logic multi sentence
+logic know
+logic person
+logic name
+logic say
+logic trash
+logic smarmy
+logic bridge
+logic county
+logic lack
+logic worth
+logic contrast
+logic think
+logic wrong
+logic still
+logic identify
+logic commit
+logic thing
+logic argue
+logic be located at
+logic list
+logic sell
+logic have degree
+logic good
+logic most
+logic after all
+logic temporal quantity
+logic week
+logic madison
+commit multi sentence
+commit know
+commit person
+commit name
+commit say
+commit trash
+commit smarmy
+commit bridge
+commit county
+commit lack
+commit worth
+commit art
+commit contrast
+commit think
+commit wrong
+commit still
+commit identify
+commit logic
+commit argue
+commit be located at
+commit thing
+commit list
+commit sell
+commit have degree
+commit good
+commit most
+commit after all
+commit temporal quantity
+commit week
+commit madison
+commit imperative
+thing know
+thing trash
+thing smarmy
+thing bridge
+thing county
+thing lack
+thing worth
+thing art
+thing contrast
+thing wrong
+thing still
+thing identify
+thing fallacy
+thing logic
+thing be located at
+thing list
+thing sell
+thing have degree
+thing good
+thing most
+thing after all
+thing week
+thing madison
+thing imperative
+argue multi sentence
+argue know
+argue person
+argue name
+argue say
+argue trash
+argue smarmy
+argue bridge
+argue county
+argue lack
+argue worth
+argue art
+argue contrast
+argue think
+argue wrong
+argue still
+argue identify
+argue fallacy
+argue logic
+argue commit
+argue be located at
+argue thing
+argue list
+argue sell
+argue have degree
+argue good
+argue most
+argue after all
+argue temporal quantity
+argue week
+argue madison
+argue imperative
+be located at know
+be located at person
+be located at name
+be located at say
+be located at trash
+be located at smarmy
+be located at bridge
+be located at county
+be located at lack
+be located at worth
+be located at art
+be located at contrast
+be located at think
+be located at wrong
+be located at still
+be located at identify
+be located at fallacy
+be located at logic
+be located at commit
+be located at thing
+be located at argue
+be located at list
+be located at sell
+be located at have degree
+be located at good
+be located at most
+be located at temporal quantity
+be located at week
+be located at madison
+be located at imperative
+thing commit
+thing argue
+list multi sentence
+list know
+list person
+list say
+list trash
+list smarmy
+list bridge
+list county
+list lack
+list worth
+list contrast
+list think
+list wrong
+list still
+list identify
+list fallacy
+list logic
+list commit
+list thing
+list argue
+list be located at
+list sell
+list have degree
+list good
+list most
+list after all
+list temporal quantity
+list week
+list madison
+list imperative
+sell multi sentence
+sell know
+sell person
+sell name
+sell say
+sell trash
+sell smarmy
+sell bridge
+sell county
+sell lack
+sell worth
+sell art
+sell contrast
+sell think
+sell wrong
+sell still
+sell identify
+sell fallacy
+sell logic
+sell commit
+sell thing
+sell argue
+sell be located at
+sell list
+sell have degree
+sell good
+sell most
+sell after all
+sell temporal quantity
+sell week
+sell madison
+sell imperative
+have degree multi sentence
+have degree know
+have degree say
+have degree trash
+have degree smarmy
+have degree bridge
+have degree county
+have degree lack
+have degree worth
+have degree art
+have degree contrast
+have degree think
+have degree wrong
+have degree still
+have degree identify
+have degree fallacy
+have degree logic
+have degree commit
+have degree thing
+have degree argue
+have degree be located at
+have degree list
+have degree sell
+have degree after all
+have degree temporal quantity
+have degree week
+have degree madison
+have degree imperative
+good multi sentence
+good know
+good say
+good trash
+good smarmy
+good bridge
+good county
+good lack
+good worth
+good contrast
+good think
+good wrong
+good still
+good identify
+good fallacy
+good logic
+good commit
+good thing
+good argue
+good be located at
+good list
+good most
+good after all
+good temporal quantity
+good week
+good madison
+good imperative
+most multi sentence
+most know
+most person
+most name
+most say
+most trash
+most smarmy
+most bridge
+most county
+most lack
+most worth
+most art
+most contrast
+most think
+most wrong
+most still
+most identify
+most fallacy
+most logic
+most commit
+most thing
+most argue
+most be located at
+most list
+most sell
+most good
+most after all
+most temporal quantity
+most week
+most madison
+most imperative
+after all multi sentence
+after all know
+after all person
+after all name
+after all say
+after all trash
+after all smarmy
+after all bridge
+after all county
+after all lack
+after all worth
+after all art
+after all contrast
+after all think
+after all wrong
+after all still
+after all identify
+after all fallacy
+after all logic
+after all commit
+after all thing
+after all argue
+after all list
+after all sell
+after all have degree
+after all good
+after all most
+after all temporal quantity
+after all week
+after all madison
+after all imperative
+temporal quantity know
+temporal quantity trash
+temporal quantity smarmy
+temporal quantity bridge
+temporal quantity county
+temporal quantity lack
+temporal quantity worth
+temporal quantity art
+temporal quantity contrast
+temporal quantity wrong
+temporal quantity still
+temporal quantity identify
+temporal quantity fallacy
+temporal quantity logic
+temporal quantity commit
+temporal quantity argue
+temporal quantity be located at
+temporal quantity list
+temporal quantity sell
+temporal quantity have degree
+temporal quantity good
+temporal quantity most
+temporal quantity after all
+temporal quantity madison
+temporal quantity imperative
+week multi sentence
+week know
+week person
+week name
+week say
+week trash
+week smarmy
+week bridge
+week county
+week lack
+week worth
+week art
+week contrast
+week think
+week wrong
+week still
+week identify
+week fallacy
+week logic
+week commit
+week thing
+week argue
+week be located at
+week list
+week sell
+week have degree
+week good
+week most
+week after all
+week madison
+week imperative
+madison multi sentence
+madison know
+madison person
+madison name
+madison say
+madison trash
+madison smarmy
+madison bridge
+madison county
+madison lack
+madison worth
+madison art
+madison contrast
+madison think
+madison wrong
+madison still
+madison identify
+madison fallacy
+madison logic
+madison commit
+madison thing
+madison argue
+madison be located at
+madison list
+madison sell
+madison have degree
+madison good
+madison most
+madison after all
+madison temporal quantity
+madison week
+madison imperative
+county bridge
+imperative multi sentence
+imperative know
+imperative person
+imperative name
+imperative trash
+imperative smarmy
+imperative bridge
+imperative county
+imperative lack
+imperative worth
+imperative art
+imperative contrast
+imperative think
+imperative wrong
+imperative still
+imperative fallacy
+imperative commit
+imperative thing
+imperative argue
+imperative be located at
+imperative list
+imperative sell
+imperative have degree
+imperative good
+imperative most
+imperative after all
+imperative temporal quantity
+imperative week
+imperative madison
+947
+want control
+
+  1%|▍                               | 23/1849 [28:24<92:53:11, 183.13s/it]
+want subject
+want reward
+want punish
+name try
+name control
+name subject
+name reward
+name punish
+try name
+try everyone
+try subject
+try reward
+try punish
+control want
+control name
+control reward
+control punish
+everyone want
+everyone try
+everyone subject
+everyone reward
+everyone punish
+subject want
+subject name
+subject try
+subject everyone
+subject reward
+subject punish
+reward want
+reward name
+reward try
+reward control
+reward everyone
+reward subject
+reward punish
+punish want
+punish name
+punish try
+punish control
+punish everyone
+
+  1%|▍                               | 24/1849 [28:42<67:49:38, 133.80s/it]
+43
+multi sentence have quant
+multi sentence more
+multi sentence have
+have name
+have have quant
+have more
+have thing
+have infer
+thing have quant
+thing more
+thing infer
+name have
+name have quant
+thing have
+have quant multi sentence
+have quant have
+have quant thing
+have quant name
+have quant infer
+more multi sentence
+more have
+more thing
+have multi sentence
+infer have
+infer thing
+infer have quant
+26
+
+  1%|▍                                | 25/1849 [28:54<49:12:11, 97.11s/it]
+multi sentence ultimate
+multi sentence exist
+multi sentence system
+multi sentence justice
+multi sentence entire
+multi sentence serious
+multi sentence true
+multi sentence obligate
+control flaw
+control system
+control justice
+control entire
+control thing
+control serious
+control true
+control bad
+control very
+control cause
+control obligate
+control exist
+control negative
+thing ultimate
+thing flaw
+thing system
+thing justice
+thing entire
+thing serious
+thing true
+thing bad
+thing very
+thing obligate
+thing exist
+name act
+name ultimate
+name exist
+name flaw
+name system
+name justice
+name entire
+name serious
+name true
+name very
+act multi sentence
+act name
+act ultimate
+act exist
+act flaw
+act system
+act justice
+act entire
+act thing
+act serious
+act true
+act bad
+act very
+act cause
+act obligate
+act negative
+ultimate multi sentence
+ultimate thing
+ultimate name
+ultimate act
+ultimate exist
+ultimate flaw
+ultimate system
+ultimate justice
+ultimate entire
+ultimate serious
+ultimate true
+ultimate bad
+ultimate very
+ultimate cause
+ultimate obligate
+ultimate negative
+exist multi sentence
+exist name
+exist act
+exist ultimate
+exist flaw
+exist system
+exist justice
+exist entire
+exist thing
+exist serious
+exist true
+exist bad
+exist very
+exist cause
+exist obligate
+exist negative
+flaw control
+flaw thing
+flaw name
+flaw act
+flaw ultimate
+flaw exist
+flaw justice
+flaw entire
+flaw bad
+flaw very
+flaw cause
+flaw obligate
+flaw negative
+system multi sentence
+system control
+system name
+system act
+system ultimate
+system exist
+system serious
+system true
+system bad
+system thing
+system very
+system cause
+system obligate
+system negative
+justice multi sentence
+justice control
+justice thing
+justice name
+justice act
+justice ultimate
+justice exist
+justice flaw
+justice entire
+justice serious
+justice true
+justice bad
+justice very
+justice cause
+justice obligate
+justice negative
+entire multi sentence
+entire control
+entire thing
+entire name
+entire act
+entire ultimate
+entire exist
+entire flaw
+entire justice
+entire serious
+entire true
+entire bad
+entire very
+entire cause
+entire obligate
+entire negative
+thing control
+thing act
+serious multi sentence
+serious control
+serious thing
+serious name
+serious act
+serious ultimate
+serious exist
+serious system
+serious justice
+serious entire
+serious true
+serious bad
+serious very
+serious cause
+serious obligate
+serious negative
+true multi sentence
+true control
+true thing
+true name
+true act
+true ultimate
+true exist
+true system
+true justice
+true entire
+true serious
+true bad
+true very
+true obligate
+true negative
+bad control
+bad thing
+bad act
+bad ultimate
+bad exist
+bad flaw
+bad system
+bad justice
+bad entire
+bad serious
+bad obligate
+very control
+very thing
+very name
+very act
+very ultimate
+very exist
+very flaw
+very system
+very justice
+very entire
+very serious
+very cause
+very negative
+cause control
+cause act
+cause ultimate
+cause exist
+cause flaw
+cause system
+cause justice
+cause entire
+cause serious
+cause very
+obligate multi sentence
+obligate control
+obligate thing
+obligate act
+obligate ultimate
+obligate exist
+obligate flaw
+obligate system
+obligate justice
+obligate entire
+obligate serious
+obligate true
+obligate bad
+obligate negative
+exist control
+negative act
+negative ultimate
+negative exist
+negative flaw
+negative system
+negative justice
+negative entire
+negative serious
+negative true
+negative very
+negative obligate
+negative control
+244
+
+  1%|▍                                | 26/1849 [30:40<50:34:59, 99.89s/it]
+cause cell
+cause use
+cause ever
+cause now
+have cell
+have need
+have now
+have negative
+product phone
+product cell
+product use
+product ever
+product now
+name phone
+name cell
+name use
+name ever
+name need
+name now
+phone cause
+phone product
+phone use
+phone ever
+phone need
+phone now
+phone negative
+cell cause
+cell have
+cell product
+cell name
+cell use
+cell ever
+cell need
+cell now
+cell negative
+use cause
+use name
+use phone
+use cell
+use ever
+use need
+use now
+ever cause
+ever product
+ever name
+ever phone
+ever cell
+ever use
+ever need
+ever now
+ever negative
+need name
+need phone
+need cell
+need use
+need ever
+need negative
+now cause
+now product
+now name
+now phone
+now cell
+now use
+now ever
+now negative
+negative phone
+negative ever
+negative need
+
+  1%|▍                                | 27/1849 [31:11<40:04:03, 79.17s/it]
+negative have
+71
+jock play
+jock football
+dumb person
+dumb play
+dumb football
+person football
+play jock
+play dumb
+football jock
+football dumb
+football person
+11
+multi sentence cousin
+
+  2%|▍                                | 28/1849 [31:16<28:45:29, 56.85s/it]
+multi sentence state
+say cousin
+say too
+say obligate
+say exemplify
+person cousin
+person obligate
+person exemplify
+person state
+have rel role product
+have rel role too
+have rel role obligate
+have rel role exemplify
+have rel role state
+product cousin
+product too
+product exemplify
+product state
+name cousin
+name exemplify
+name state
+cousin multi sentence
+cousin say
+cousin product
+cousin name
+cousin too
+cousin obligate
+cousin exemplify
+cousin state
+product have rel role
+too multi sentence
+too say
+too have rel role
+too product
+too cousin
+Traceback (most recent call last):
+  File "/nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 91, in <module>
+    for new_edge in get_relations_between_words(node1_label, node2_label):
+  File "/nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 39, in get_relations_between_words
+    obj = make_request(query=query)
+  File "/nas/home/souratih/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 24, in make_request
+    response = requests.get(query)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/http/client.py", line 1040, in _send_output
+    self.send(msg)
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/nas/home/souratih/anaconda3/envs/cbr/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+KeyboardInterrupt
