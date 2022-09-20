@@ -1,0 +1,680 @@
+
+Start the training ...
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+***** Running training *****
+  Num examples = 1849
+  Num Epochs = 32
+  Instantaneous batch size per device = 16
+  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Gradient Accumulation steps = 1
+  Total optimization steps = 3712
+Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/3712 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+
+
+  1%|          | 37/3712 [00:05<08:04,  7.59it/s]
+{'loss': 2.5139, 'learning_rate': 9.865301724137933e-06, 'epoch': 0.43}
+  1%|▏         | 50/3712 [00:07<08:53,  6.86it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+  2%|▏         | 90/3712 [00:13<09:02,  6.68it/s]
+{'loss': 2.5092, 'learning_rate': 9.730603448275863e-06, 'epoch': 0.86}
+  3%|▎         | 100/3712 [00:15<13:34,  4.44it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+  4%|▍         | 140/3712 [00:21<07:32,  7.89it/s]
+{'loss': 2.4189, 'learning_rate': 9.595905172413795e-06, 'epoch': 1.29}
+  4%|▍         | 150/3712 [00:23<12:38,  4.69it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+  5%|▌         | 192/3712 [00:29<08:15,  7.11it/s]
+{'loss': 2.4163, 'learning_rate': 9.461206896551725e-06, 'epoch': 1.72}
+  5%|▌         | 200/3712 [00:30<11:27,  5.11it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+  7%|▋         | 245/3712 [00:37<08:06,  7.13it/s]
+{'loss': 2.1849, 'learning_rate': 9.326508620689657e-06, 'epoch': 2.16}
+  7%|▋         | 250/3712 [00:38<09:29,  6.08it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+  8%|▊         | 297/3712 [00:45<07:33,  7.52it/s]
+{'loss': 1.7885, 'learning_rate': 9.191810344827587e-06, 'epoch': 2.59}
+  8%|▊         | 300/3712 [00:46<10:19,  5.51it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+  9%|▉         | 334/3712 [00:51<07:36,  7.40it/s]
+
+  9%|▉         | 349/3712 [00:53<06:57,  8.05it/s]
+  9%|▉         | 350/3712 [00:53<07:22,  7.59it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 10%|█         | 388/3712 [00:59<07:33,  7.33it/s]
+ 11%|█         | 400/3712 [01:01<09:31,  5.79it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 48.61it/s]
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 12%|█▏        | 441/3712 [01:07<07:49,  6.96it/s]
+ 12%|█▏        | 450/3712 [01:08<08:26,  6.44it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+ 12%|█▏        | 450/3712 [01:09<08:26,  6.44it/s]
+
+
+
+ 13%|█▎        | 494/3712 [01:15<07:06,  7.54it/s]
+{'loss': 0.8788, 'learning_rate': 8.65301724137931e-06, 'epoch': 4.31}
+ 13%|█▎        | 500/3712 [01:16<10:07,  5.29it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+ 13%|█▎        | 500/3712 [01:17<10:07,  5.29itSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-500
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/special_tokens_map.json
+
+
+ 15%|█▍        | 542/3712 [02:03<06:51,  7.71it/s]
+ 15%|█▍        | 550/3712 [02:05<10:48,  4.88it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 53%|█████▎    | 10/19 [00:00<00:00, 32.39it/s]
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 16%|█▌        | 592/3712 [02:11<08:14,  6.31it/s]
+{'loss': 0.656, 'learning_rate': 8.383620689655173e-06, 'epoch': 5.17}
+ 16%|█▌        | 600/3712 [02:12<09:38,  5.38it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+ 17%|█▋        | 646/3712 [02:19<06:46,  7.55it/s]
+{'loss': 0.5015, 'learning_rate': 8.248922413793105e-06, 'epoch': 5.6}
+ 18%|█▊        | 650/3712 [02:20<07:05,  7.20it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 18%|█▊        | 686/3712 [02:25<06:47,  7.43it/s]
+
+ 19%|█▉        | 699/3712 [02:27<07:36,  6.60it/s]
+ 19%|█▉        | 700/3712 [02:27<10:14,  4.90it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 20%|█▉        | 738/3712 [02:33<06:37,  7.49it/s]
+ 20%|██        | 750/3712 [02:35<08:24,  5.87it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 48.15it/s]
+
+
+
+ 21%|██        | 787/3712 [02:41<07:54,  6.16it/s]
+
+ 22%|██▏       | 800/3712 [02:43<09:50,  4.93it/s]
+ 22%|██▏       | 800/3712 [02:43<09:50,  4.93it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 23%|██▎       | 840/3712 [02:49<06:25,  7.44it/s]
+{'loss': 0.2408, 'learning_rate': 7.710129310344829e-06, 'epoch': 7.33}
+ 23%|██▎       | 850/3712 [02:51<06:44,  7.08it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 24%|██▍       | 894/3712 [02:57<07:34,  6.20it/s]
+{'loss': 0.2122, 'learning_rate': 7.57543103448276e-06, 'epoch': 7.76}
+ 24%|██▍       | 900/3712 [02:58<09:48,  4.78it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 25%|██▌       | 943/3712 [03:05<06:05,  7.57it/s]
+{'loss': 0.2182, 'learning_rate': 7.44073275862069e-06, 'epoch': 8.19}
+ 26%|██▌       | 950/3712 [03:06<06:14,  7.38it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 27%|██▋       | 996/3712 [03:13<06:11,  7.31it/s]
+{'loss': 0.1675, 'learning_rate': 7.306034482758622e-06, 'epoch': 8.62}
+ 27%|██▋       | 1000/3712 [03:14<11:05,  4.07it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 27%|██▋       | 1000/3712 [03:15<11:05,  4.07iSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1000
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/special_tokens_map.json
+
+
+ 28%|██▊       | 1043/3712 [04:01<05:57,  7.48it/s]
+{'loss': 0.1616, 'learning_rate': 7.171336206896552e-06, 'epoch': 9.05}
+ 28%|██▊       | 1050/3712 [04:02<05:25,  8.17it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 29%|██▉       | 1095/3712 [04:09<05:40,  7.68it/s]
+{'loss': 0.086, 'learning_rate': 7.036637931034484e-06, 'epoch': 9.48}
+ 30%|██▉       | 1100/3712 [04:10<08:49,  4.93it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 31%|███       | 1146/3712 [04:17<06:06,  6.99it/s]
+{'loss': 0.1298, 'learning_rate': 6.901939655172414e-06, 'epoch': 9.91}
+ 31%|███       | 1150/3712 [04:18<06:19,  6.75it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 32%|███▏      | 1186/3712 [04:23<05:41,  7.39it/s]
+
+ 32%|███▏      | 1199/3712 [04:25<05:58,  7.02it/s]
+ 32%|███▏      | 1200/3712 [04:26<08:36,  4.86it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 33%|███▎      | 1240/3712 [04:31<05:42,  7.22it/s]
+ 34%|███▎      | 1250/3712 [04:33<06:08,  6.69it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 53%|█████▎    | 10/19 [00:00<00:00, 32.55it/s]
+
+
+
+ 35%|███▍      | 1293/3712 [04:39<05:11,  7.76it/s]
+{'loss': 0.0848, 'learning_rate': 6.497844827586207e-06, 'epoch': 11.21}
+ 35%|███▌      | 1300/3712 [04:41<09:53,  4.06it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 36%|███▌      | 1343/3712 [04:47<06:47,  5.81it/s]
+{'loss': 0.0388, 'learning_rate': 6.363146551724139e-06, 'epoch': 11.64}
+ 36%|███▋      | 1350/3712 [04:48<05:16,  7.46it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 38%|███▊      | 1395/3712 [04:56<05:07,  7.54it/s]
+{'loss': 0.052, 'learning_rate': 6.228448275862069e-06, 'epoch': 12.07}
+ 38%|███▊      | 1400/3712 [04:56<07:44,  4.98it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 39%|███▉      | 1448/3712 [05:04<04:50,  7.80it/s]
+{'loss': 0.0571, 'learning_rate': 6.093750000000001e-06, 'epoch': 12.5}
+ 39%|███▉      | 1450/3712 [05:04<05:44,  6.57it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 40%|████      | 1497/3712 [05:11<05:28,  6.74it/s]
+{'loss': 0.0676, 'learning_rate': 5.959051724137932e-06, 'epoch': 12.93}
+ 40%|████      | 1500/3712 [05:12<07:12,  5.11it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 40%|████      | 1500/3712 [05:13<07:12,  5.11iSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1500
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/special_tokens_map.json
+
+
+
+ 42%|████▏     | 1543/3712 [06:00<04:57,  7.29it/s]
+{'loss': 0.0439, 'learning_rate': 5.824353448275863e-06, 'epoch': 13.36}
+ 42%|████▏     | 1550/3712 [06:00<04:40,  7.70it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 43%|████▎     | 1599/3712 [06:08<04:40,  7.55it/s]
+{'loss': 0.0366, 'learning_rate': 5.689655172413794e-06, 'epoch': 13.79}
+ 43%|████▎     | 1600/3712 [06:08<07:17,  4.83it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 44%|████▍     | 1636/3712 [06:14<03:58,  8.72it/s]
+ 44%|████▍     | 1650/3712 [06:15<04:24,  7.80it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 53%|█████▎    | 10/19 [00:00<00:00, 32.21it/s]
+
+
+
+
+ 46%|████▌     | 1699/3712 [06:23<05:23,  6.23it/s]
+{'loss': 0.0351, 'learning_rate': 5.420258620689656e-06, 'epoch': 14.66}
+ 46%|████▌     | 1700/3712 [06:24<07:00,  4.79it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 47%|████▋     | 1739/3712 [06:30<04:39,  7.06it/s]
+ 47%|████▋     | 1750/3712 [06:32<06:43,  4.86it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 48.26it/s]
+
+
+
+ 48%|████▊     | 1793/3712 [06:38<03:37,  8.81it/s]
+{'loss': 0.0169, 'learning_rate': 5.150862068965518e-06, 'epoch': 15.52}
+ 48%|████▊     | 1800/3712 [06:39<06:36,  4.83it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 50%|████▉     | 1842/3712 [06:46<04:17,  7.27it/s]
+{'loss': 0.0238, 'learning_rate': 5.016163793103449e-06, 'epoch': 15.95}
+ 50%|████▉     | 1850/3712 [06:47<03:34,  8.67it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 51%|█████     | 1897/3712 [06:54<03:55,  7.71it/s]
+{'loss': 0.0125, 'learning_rate': 4.88146551724138e-06, 'epoch': 16.38}
+ 51%|█████     | 1900/3712 [06:54<05:50,  5.17it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 52%|█████▏    | 1947/3712 [07:02<04:16,  6.88it/s]
+{'loss': 0.0338, 'learning_rate': 4.746767241379311e-06, 'epoch': 16.81}
+ 53%|█████▎    | 1950/3712 [07:02<04:21,  6.75it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 54%|█████▎    | 1988/3712 [07:08<03:22,  8.53it/s]
+ 54%|█████▍    | 2000/3712 [07:10<05:35,  5.11it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 47.97it/s]
+
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/special_tokens_map.json
+
+
+ 55%|█████▍    | 2037/3712 [07:56<04:12,  6.64it/s]
+ 55%|█████▌    | 2050/3712 [07:58<03:56,  7.02it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+  0%|          | 0/19 [00:00<?, ?it/s]
+
+
+
+ 56%|█████▋    | 2089/3712 [08:04<03:12,  8.43it/s]
+
+ 57%|█████▋    | 2100/3712 [08:06<05:42,  4.70it/s]
+ 57%|█████▋    | 2100/3712 [08:06<05:42,  4.70it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 58%|█████▊    | 2142/3712 [08:12<03:08,  8.33it/s]
+{'loss': 0.0236, 'learning_rate': 4.207974137931035e-06, 'epoch': 18.53}
+ 58%|█████▊    | 2150/3712 [08:13<03:22,  7.72it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 59%|█████▉    | 2192/3712 [08:20<03:32,  7.16it/s]
+{'loss': 0.0248, 'learning_rate': 4.073275862068966e-06, 'epoch': 18.97}
+ 59%|█████▉    | 2200/3712 [08:21<05:00,  5.03it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 60%|██████    | 2243/3712 [08:28<03:31,  6.95it/s]
+{'loss': 0.0178, 'learning_rate': 3.938577586206897e-06, 'epoch': 19.4}
+ 61%|██████    | 2250/3712 [08:29<03:18,  7.36it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 62%|██████▏   | 2299/3712 [08:36<02:42,  8.69it/s]
+{'loss': 0.006, 'learning_rate': 3.8038793103448278e-06, 'epoch': 19.83}
+ 62%|██████▏   | 2300/3712 [08:36<04:36,  5.10it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 63%|██████▎   | 2337/3712 [08:42<03:20,  6.85it/s]
+ 63%|██████▎   | 2350/3712 [08:44<02:50,  7.99it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.58it/s]
+
+
+
+ 64%|██████▍   | 2390/3712 [08:50<03:24,  6.47it/s]
+ 65%|██████▍   | 2400/3712 [08:51<04:34,  4.78it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.53it/s]
+
+
+
+ 66%|██████▌   | 2441/3712 [08:58<03:09,  6.70it/s]
+{'loss': 0.0114, 'learning_rate': 3.3997844827586208e-06, 'epoch': 21.12}
+ 66%|██████▌   | 2450/3712 [08:59<02:59,  7.04it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 67%|██████▋   | 2491/3712 [09:06<02:54,  6.99it/s]
+{'loss': 0.0206, 'learning_rate': 3.2650862068965522e-06, 'epoch': 21.55}
+ 67%|██████▋   | 2500/3712 [09:07<04:26,  4.54it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 67%|██████▋   | 2500/3712 [09:08<04:26,  4.54iSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-2500
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2500/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2500/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2500/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2500/special_tokens_map.json
+
+
+ 69%|██████▊   | 2544/3712 [09:54<02:42,  7.20it/s]
+{'loss': 0.0059, 'learning_rate': 3.1303879310344832e-06, 'epoch': 21.98}
+ 69%|██████▊   | 2550/3712 [09:55<03:35,  5.39it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+
+ 70%|███████   | 2600/3712 [10:03<03:30,  5.28it/s]
+{'loss': 0.0112, 'learning_rate': 2.9956896551724142e-06, 'epoch': 22.41}
+ 70%|███████   | 2600/3712 [10:03<03:30,  5.28it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 71%|███████▏  | 2646/3712 [10:10<02:20,  7.56it/s]
+{'loss': 0.0125, 'learning_rate': 2.860991379310345e-06, 'epoch': 22.84}
+ 71%|███████▏  | 2650/3712 [10:11<02:36,  6.78it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 73%|███████▎  | 2698/3712 [10:18<02:02,  8.30it/s]
+{'loss': 0.0075, 'learning_rate': 2.726293103448276e-06, 'epoch': 23.28}
+ 73%|███████▎  | 2700/3712 [10:18<02:57,  5.71it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 74%|███████▍  | 2740/3712 [10:24<02:03,  7.88it/s]
+{'loss': 0.0112, 'learning_rate': 2.591594827586207e-06, 'epoch': 23.71}
+ 74%|███████▍  | 2750/3712 [10:25<02:06,  7.59it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 75%|███████▌  | 2790/3712 [10:32<01:53,  8.12it/s]
+ 75%|███████▌  | 2800/3712 [10:34<02:48,  5.41it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.56it/s]
+
+
+
+ 77%|███████▋  | 2841/3712 [10:40<01:59,  7.29it/s]
+{'loss': 0.0041, 'learning_rate': 2.3221982758620692e-06, 'epoch': 24.57}
+ 77%|███████▋  | 2850/3712 [10:41<01:59,  7.22it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 78%|███████▊  | 2893/3712 [10:48<02:00,  6.81it/s]
+{'loss': 0.0168, 'learning_rate': 2.1875000000000002e-06, 'epoch': 25.0}
+ 78%|███████▊  | 2900/3712 [10:50<02:52,  4.71it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 79%|███████▉  | 2944/3712 [10:56<01:59,  6.42it/s]
+{'loss': 0.0104, 'learning_rate': 2.0528017241379312e-06, 'epoch': 25.43}
+ 79%|███████▉  | 2950/3712 [10:57<02:22,  5.34it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 81%|████████  | 2994/3712 [11:04<01:42,  6.99it/s]
+{'loss': 0.0141, 'learning_rate': 1.9181034482758622e-06, 'epoch': 25.86}
+ 81%|████████  | 3000/3712 [11:05<02:55,  4.05it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 81%|████████  | 3000/3712 [11:06<02:55,  4.05iSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-3000
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3000/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3000/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3000/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3000/special_tokens_map.json
+
+
+ 82%|████████▏ | 3043/3712 [11:52<02:08,  5.21it/s]
+{'loss': 0.0081, 'learning_rate': 1.7834051724137932e-06, 'epoch': 26.29}
+ 82%|████████▏ | 3050/3712 [11:53<01:30,  7.28it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 83%|████████▎ | 3093/3712 [12:00<01:26,  7.12it/s]
+{'loss': 0.0023, 'learning_rate': 1.6487068965517242e-06, 'epoch': 26.72}
+ 84%|████████▎ | 3100/3712 [12:02<02:08,  4.77it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 85%|████████▍ | 3147/3712 [12:08<01:06,  8.52it/s]
+{'loss': 0.0223, 'learning_rate': 1.5140086206896555e-06, 'epoch': 27.16}
+ 85%|████████▍ | 3150/3712 [12:09<01:18,  7.12it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 86%|████████▌ | 3199/3712 [12:16<01:37,  5.27it/s]
+{'loss': 0.008, 'learning_rate': 1.3793103448275862e-06, 'epoch': 27.59}
+ 86%|████████▌ | 3200/3712 [12:17<02:20,  3.65it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 87%|████████▋ | 3238/3712 [12:22<00:54,  8.73it/s]
+ 88%|████████▊ | 3250/3712 [12:24<01:00,  7.69it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.57it/s]
+
+
+
+ 89%|████████▊ | 3291/3712 [12:30<01:13,  5.72it/s]
+ 89%|████████▉ | 3300/3712 [12:32<01:20,  5.12it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 95%|█████████▍| 18/19 [00:00<00:00, 31.95it/s]
+
+
+
+ 90%|█████████ | 3346/3712 [12:38<00:45,  7.96it/s]
+{'loss': 0.0101, 'learning_rate': 9.752155172413795e-07, 'epoch': 28.88}
+ 90%|█████████ | 3350/3712 [12:39<01:00,  5.94it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 91%|█████████▏| 3394/3712 [12:46<00:55,  5.78it/s]
+{'loss': 0.0062, 'learning_rate': 8.405172413793105e-07, 'epoch': 29.31}
+ 92%|█████████▏| 3400/3712 [12:48<01:03,  4.92it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 93%|█████████▎| 3447/3712 [12:54<00:30,  8.74it/s]
+{'loss': 0.0049, 'learning_rate': 7.058189655172415e-07, 'epoch': 29.74}
+ 93%|█████████▎| 3450/3712 [12:55<00:33,  7.86it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 94%|█████████▍| 3488/3712 [13:00<00:29,  7.53it/s]
+ 94%|█████████▍| 3500/3712 [13:02<00:37,  5.67it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.39it/s]
+
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3500/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3500/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3500/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-3500/special_tokens_map.json
+
+
+ 95%|█████████▌| 3539/3712 [13:49<00:25,  6.90it/s]
+ 96%|█████████▌| 3550/3712 [13:50<00:22,  7.12it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.95it/s]
+
+
+
+ 97%|█████████▋| 3592/3712 [13:57<00:17,  6.83it/s]
+ 97%|█████████▋| 3600/3712 [13:58<00:23,  4.85it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 97%|█████████▋| 3600/3712 [13:59<00:23,  4.85it/s]
+
+
+
+ 98%|█████████▊| 3643/3712 [14:05<00:13,  5.03it/s]
+{'loss': 0.0056, 'learning_rate': 1.670258620689655e-07, 'epoch': 31.47}
+ 98%|█████████▊| 3650/3712 [14:06<00:10,  5.74it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+100%|█████████▉| 3697/3712 [14:13<00:01,  8.66it/s]
+{'loss': 0.0041, 'learning_rate': 3.2327586206896556e-08, 'epoch': 31.9}
+100%|█████████▉| 3700/3712 [14:13<00:02,  4.86it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+100%|█████████▉| 3704/3712 [14:15<00:01,  4.38it/s]
+{'train_runtime': 856.0152, 'train_samples_per_second': 69.12, 'train_steps_per_second': 4.336, 'train_loss': 0.3240435829683175, 'epoch': 32.0}
+PredictionOutput(predictions=array([[ 4.2957425 , -2.1239707 , -1.8680837 , ..., -0.99811697,
+         8.457875  ,  0.53060913],
+       [-0.8996904 , -2.282948  , -2.2645745 , ..., -0.25727972,
+        -1.0387214 ,  0.9773439 ],
+       [-0.6894693 ,  2.0018632 , -1.4498204 , ..., -1.5095605 ,
+        -1.6816888 , -1.4038447 ],
+       ...,
+       [-1.0913014 , 10.702037  , -0.7056667 , ..., -0.89297104,
+        -0.4771372 , -1.0483793 ],
+       [-1.6137252 , -0.30847457, -1.461925  , ..., -1.8133167 ,
+         6.1324916 , -1.3417488 ],
+       [-0.61441857, -1.768872  , -0.97138906, ..., -0.7124105 ,
+        -0.3804116 , -0.8212568 ]], dtype=float32), label_ids=array([ 6, 11,  7,  9, 11,  6,  6, 11,  5,  3,  9, 11,  0,  1, 11, 12,  1,
+        7,  0, 12,  3,  1,  8,  3,  6,  8,  0,  0, 11,  0, 11,  3,  3,  5,
+        2,  8,  9,  1, 11,  1,  5, 12,  0, 12,  1,  2, 12,  0,  5,  7,  3,
+       11,  2,  4,  8,  3, 12, 11, 11, 10,  7, 11,  0, 10, 12,  0,  1,  8,
+       12,  5, 10,  5,  1,  8,  0, 12,  1,  7, 10, 12,  7,  7,  2,  0,  2,
+       10, 11,  0,  6,  0, 10,  9,  5,  5,  0,  9,  1,  2,  8,  9,  0,  2,
+        0,  7, 11,  9,  6,  6,  9,  3, 12,  7, 11, 11, 11, 10,  2,  8,  9,
+        0,  7,  3, 11, 11, 12,  8,  0,  4, 11,  5,  8, 11,  1,  5, 11,  7,
+       11,  0, 11,  0, 11,  6,  0, 11, 11,  8, 11,  1,  8,  6,  5,  0, 11,
+        9,  0,  1,  5,  0,  1,  8,  8,  0,  2, 11, 11,  0,  6,  5,  6, 11,
+        2,  2,  7,  9, 11,  1, 11,  1,  8,  9,  8,  6,  3,  8, 10,  1,  2,
+        0, 11, 11,  3,  8,  6,  2,  4,  1, 11, 11, 11, 11,  0, 11,  2,  1,
+        8,  1,  9,  0,  1, 11,  1,  5,  1,  6,  5,  0,  8,  0,  1, 10, 11,
+        9,  0, 11, 12,  2,  4,  0, 11,  2, 12,  2, 11,  7,  3,  2,  2,  8,
+        3,  0,  2, 11,  8,  8,  9,  3, 11,  6, 11,  0,  3,  2,  8, 10, 12,
+       11,  5, 10,  6,  9, 11,  6,  3,  1,  6,  3,  7, 11,  6,  2, 11,  4,
+       10,  9,  2,  0, 11,  5,  1, 11,  6, 11,  9, 11,  0,  0,  0, 11, 11,
+100%|██████████| 3712/3712 [14:16<00:00,  7.30it/s]
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|██████████| 3712/3712 [14:16<00:00,  4.34it/s]
+***** Running Prediction *****
+  Num examples = 300
+  Batch size = 16
+100%|██████████| 19/19 [00:00<00:00, 26.97it/s]

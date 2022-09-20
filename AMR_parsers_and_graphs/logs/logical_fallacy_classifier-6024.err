@@ -1,0 +1,72 @@
+  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 16.46ba/s]100%|██████████| 2/2 [00:00<00:00, 16.43ba/s]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 75.75ba/s]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 12.40ba/s]
+Some weights of the model checkpoint at roberta-large were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'roberta.pooler.dense.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-large and are newly initialized: ['classifier.out_proj.weight', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220919_181315-ym98ye7o
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run solar-breeze-2
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/logical_fallacy_classification
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/logical_fallacy_classification/runs/ym98ye7o
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+***** Running training *****
+  Num examples = 1849
+  Num Epochs = 8
+  Instantaneous batch size per device = 16
+  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Gradient Accumulation steps = 1
+  Total optimization steps = 928
+Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/928 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  0%|          | 1/928 [00:00<14:32,  1.06it/s]  0%|          | 2/928 [00:01<07:40,  2.01it/s]  0%|          | 3/928 [00:01<04:52,  3.16it/s]  0%|          | 4/928 [00:01<03:34,  4.30it/s]  1%|          | 5/928 [00:01<03:04,  5.01it/s]  1%|          | 6/928 [00:01<02:47,  5.50it/s]  1%|          | 7/928 [00:01<02:35,  5.91it/s]  1%|          | 8/928 [00:01<02:23,  6.43it/s]  1%|          | 10/928 [00:02<02:06,  7.25it/s]  1%|          | 11/928 [00:02<02:07,  7.20it/s]  1%|▏         | 12/928 [00:02<02:05,  7.31it/s]  1%|▏         | 13/928 [00:02<02:04,  7.32it/s]  2%|▏         | 15/928 [00:02<01:49,  8.30it/s]  2%|▏         | 16/928 [00:02<01:50,  8.26it/s]  2%|▏         | 18/928 [00:03<01:47,  8.49it/s]  2%|▏         | 19/928 [00:03<01:46,  8.52it/s]  2%|▏         | 20/928 [00:03<01:48,  8.34it/s]  2%|▏         | 22/928 [00:03<01:43,  8.73it/s]  2%|▏         | 23/928 [00:03<02:41,  5.61it/s]  3%|▎         | 25/928 [00:04<02:38,  5.71it/s]  3%|▎         | 26/928 [00:04<02:43,  5.52it/s]  3%|▎         | 28/928 [00:04<02:16,  6.57it/s]  3%|▎         | 30/928 [00:04<01:58,  7.56it/s]  3%|▎         | 31/928 [00:05<02:25,  6.16it/s]  3%|▎         | 32/928 [00:05<02:13,  6.73it/s]  4%|▎         | 33/928 [00:05<02:08,  6.94it/s]  4%|▎         | 34/928 [00:05<02:08,  6.98it/s]  4%|▍         | 35/928 [00:05<02:02,  7.32it/s]  4%|▍         | 36/928 [00:05<02:00,  7.40it/s]  4%|▍         | 37/928 [00:05<01:56,  7.64it/s]  4%|▍         | 39/928 [00:06<01:43,  8.62it/s]  4%|▍         | 40/928 [00:06<01:52,  7.90it/s]  4%|▍         | 41/928 [00:06<01:52,  7.91it/s]  5%|▍         | 42/928 [00:06<01:52,  7.89it/s]  5%|▍         | 43/928 [00:06<01:49,  8.07it/s]  5%|▍         | 45/928 [00:06<01:47,  8.19it/s]  5%|▍         | 46/928 [00:07<01:54,  7.69it/s]  5%|▌         | 48/928 [00:07<01:53,  7.73it/s]  5%|▌         | 49/928 [00:07<02:00,  7.29it/s]                                                  5%|▌         | 50/928 [00:07<02:00,  7.29it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+  0%|          | 0/19 [00:00<?, ?it/s][A
+ 26%|██▋       | 5/19 [00:00<00:00, 49.70it/s][A
+ 53%|█████▎    | 10/19 [00:00<00:00, 33.00it/s][A
+ 74%|███████▎  | 14/19 [00:00<00:00, 32.25it/s][A
+ 95%|█████████▍| 18/19 [00:00<00:00, 32.47it/s][ATraceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 106, in <module>
+    trainer.train()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 1521, in train
+    return inner_training_loop(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 1840, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 2065, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 2787, in evaluate
+    output = eval_loop(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 3072, in evaluation_loop
+    metrics = self.compute_metrics(EvalPrediction(predictions=all_preds, label_ids=all_labels))
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 84, in compute_metrics
+    precision, recall, f1, _ = precision_recall_fscore_support(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 1563, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 1381, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: | 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: / 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: - 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: \ 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: | 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: / 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: - 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:         train/epoch ▁
+wandb:   train/global_step ▁
+wandb: train/learning_rate ▁
+wandb:          train/loss ▁
+wandb: 
+wandb: Run summary:
+wandb:         train/epoch 0.43
+wandb:   train/global_step 50
+wandb: train/learning_rate 1e-05
+wandb:          train/loss 2.5324
+wandb: 
+wandb: Synced solar-breeze-2: https://wandb.ai/zhpinkman/logical_fallacy_classification/runs/ym98ye7o
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220919_181315-ym98ye7o/logs

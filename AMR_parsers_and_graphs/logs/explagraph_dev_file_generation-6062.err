@@ -1,0 +1,8 @@
+Downloading:   0%|          | 0.00/1.18k [00:00<?, ?B/s]Downloading: 100%|██████████| 1.18k/1.18k [00:00<00:00, 1.65MB/s]
+Downloading:   0%|          | 0.00/190 [00:00<?, ?B/s]Downloading: 100%|██████████| 190/190 [00:00<00:00, 285kB/s]
+Downloading:   0%|          | 0.00/10.6k [00:00<?, ?B/s]Downloading: 100%|██████████| 10.6k/10.6k [00:00<00:00, 13.1MB/s]
+Downloading:   0%|          | 0.00/612 [00:00<?, ?B/s]Downloading: 100%|██████████| 612/612 [00:00<00:00, 902kB/s]
+Downloading:   0%|          | 0.00/116 [00:00<?, ?B/s]Downloading: 100%|██████████| 116/116 [00:00<00:00, 174kB/s]
+Downloading:   0%|          | 0.00/39.3k [00:00<?, ?B/s]Downloading: 100%|██████████| 39.3k/39.3k [00:00<00:00, 420kB/s]
+Downloading:   0%|          | 0.00/90.9M [00:00<?, ?B/s]Downloading:   1%|          | 638k/90.9M [00:00<00:14, 6.28MB/s]Downloading:   2%|▏         | 1.62M/90.9M [00:00<00:10, 8.34MB/s]Downloading:   3%|▎         | 3.15M/90.9M [00:00<00:07, 11.5MB/s]Downloading:   6%|▌         | 5.41M/90.9M [00:00<00:05, 15.9MB/s]Downloading:  10%|▉         | 8.75M/90.9M [00:00<00:03, 22.2MB/s]Downloading:  14%|█▍        | 12.7M/90.9M [00:00<00:02, 28.1MB/s]Downloading:  21%|██        | 18.7M/90.9M [00:00<00:01, 38.6MB/s]Downloading:  27%|██▋       | 24.1M/90.9M [00:00<00:01, 43.4MB/s]Downloading:  34%|███▍      | 30.9M/90.9M [00:00<00:01, 51.0MB/s]slurmstepd: error: *** JOB 6062 ON node03 CANCELLED AT 2022-09-20T20:26:07 ***
+Downloading:  42%|████▏     | 37.9M/90.9M [00:01<00:00, 56.7MB/s]

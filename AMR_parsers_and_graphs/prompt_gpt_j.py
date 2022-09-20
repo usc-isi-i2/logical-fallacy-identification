@@ -1,12 +1,31 @@
-from ctypes import Union
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import re
+from tqdm import tqdm
+import string
+import os
+import torch
+from keybert import KeyBERT
 from IPython import embed
 import joblib
 from consts import *
-tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B")
+import argparse
 
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-j-6B")
+kw_model = KeyBERT()
+
+parser = argparse.ArgumentParser(
+    description='Functionalities related to prompt generation using gpt-j')
+parser.add_argument('--task', help='the task that you want to do', type=str)
+parser.add_argument(
+    '--input_file', help='input_file that is probbaly a file containing the sentences with amr_objects', type=str)
+parser.add_argument(
+    '--output_file', help='output_file the the output probably containg the generated beliefs and arguments will be saved in', type=str)
+
+
+args = parser.parse_args()
+
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"device: {device}")
 
 
 def get_belief_argument_from_sentence(sentence: str):
@@ -31,14 +50,14 @@ def get_belief_argument_from_sentence(sentence: str):
     argument: Therefore Joe ate greasy food
     ###
     Students should not be allowed to park in lots now reserved for faculty because those lots should be for faculty only
-    belief: those lots should be for faculty only
-    argument: Students should not be allowed to park in lots now reserved for faculty
+    belief: Students should not be allowed to park in lots now reserved for faculty
+    argument: those lots should be for faculty only
     ###
     Senator Randall isn't lying when she says she cares about her constituents; she wouldn't lie to people she cares about
     belief: Senator Randall isn't lying when she says she cares about her constituents
     argument: she wouldn't lie to people she cares about
     ###
-    If we ban Hummers because they are bad for the environment eventually the government will ban all cars so we should not ban Hummers
+    If we ban Hummers because they are bad for the environment eventually the government will ban all cars, so we should not ban Hummers
     belief: If we ban Hummers because they are bad for the environment eventually the government will ban all cars
     argument: so we should not ban Hummers
     ###
@@ -55,24 +74,24 @@ def get_belief_argument_from_sentence(sentence: str):
     argument: it is morally wrong to interfere with nature and treat sick people with medicine
     ###
     Debate moderator: ""What will you do to fix the economic crisis?"" Candidate: ""It's important to focus on what started this crisis, to begin with, My opponent""
-    belief: ""what will you do to fix the economic crisis?""
-    argument: ""It's important to focus on what started this crisis, to begin with, My opponent""
+    belief: Debate moderator: ""what will you do to fix the economic crisis?""
+    argument: Candidate: ""It's important to focus on what started this crisis, to begin with, My opponent""
     ###
     You should give me a promotion, I have a lot of debt and am behind on my rent
-    belief: I have a lot of debt and am behind on my rent
-    argument: You should give me a promotion
+    belief: You should give me a promotion
+    argument: I have a lot of debt and am behind on my rent
     ###
     Those who believe in behavior modification obviously want to try to control everyone by subjecting them to rewards and punishments
     belief: Those who believe in behavior modification
     argument: obviously want to try to control everyone by subjecting them to rewards and punishments
     ###
     A mother tells her children not to leave the yard because there might be wild animals in the woods
-    belief: there might be wild animals in the woods
-    argument: A mother tells her children not to leave the yard
+    belief: A mother tells her children not to leave the yard
+    argument: there might be wild animals in the woods
     ###
     You oppose a senator's proposal to extend government-funded health care to poor minority children because that senator is a liberal Democrat
-    belief: that senator is a liberal Democrat
-    argument: You oppose a senator's proposal to extend government-funded health care to poor minority children
+    belief: You oppose a senator's proposal to extend government-funded health care to poor minority children
+    argument: that senator is a liberal Democrat
     ###
     This herbal supplement is made from a plant that grows in Zambia. It must be healthier than taking that medication which is full of chemicals I can't pronounce
     belief: This herbal supplement is made from a plant that grows in Zambia
@@ -95,38 +114,118 @@ def get_belief_argument_from_sentence(sentence: str):
     argument: therefore, my sleeping causes the sun to set
     ###
     Child: This fish tastes funny. I don't want to eat this. Parent: There are children starving in Africa. Eat your dinner.
-    belief: This fish tastes funny. I don't want to eat this.
+    belief: Child: This fish tastes funny. I don't want to eat this.
     argument: Parent: There are children starving in Africa. Eat your dinner.
     ###
     A mother is telling her daughter that she went over her data for the month, and the daughter begins telling her mother about getting an A on a math test.
     belief: A mother is telling her daughter that she went over her data for the month
     argument: and the daughter begins telling her mother about getting an A on a math test
     ###
+    Ms. Baker assigned me a lot of homework because she's a witch!
+    belief: Ms. Baker assigned me a lot of homework
+    argument: she's a witch!
+    ###
+    Three congressional representatives have had affairs. Members of Congress are adulterers.
+    belief: Three congressional representatives have had affairs.
+    argument: Members of Congress are adulterers.
+    ###
+    I lost my phone in the living room, so it will always be in the living room when it is lost.
+    belief: I lost my phone in the living room
+    argument: so it will always be in the living room when it is lost.
+    ###
     {sentence}
     belief: """
 
+    inputs = tokenizer(filled_in_prompt, return_tensors='pt').to(device)
 
-    inputs = tokenizer(filled_in_prompt, return_tensors = 'pt')
-
-    greedy_output = model.generate(**inputs, max_new_tokens = 150, top_p = 0.9, temperature = 0.8)
+    greedy_output = model.generate(
+        **inputs, max_new_tokens=200, top_p=0.9, temperature=0.8)
 
     outputs = tokenizer.decode(greedy_output[0], skip_special_tokens=True)
 
-    belief_locs = [(m.start(), m.end()) for m in re.finditer('belief:', outputs)]
-    arguments_locs = [(m.start(), m.end()) for m in re.finditer('argument:', outputs)]
+    belief_locs = [(m.start(), m.end())
+                   for m in re.finditer('belief:', outputs)]
+    arguments_locs = [(m.start(), m.end())
+                      for m in re.finditer('argument:', outputs)]
     hashtag_locs = [(m.start(), m.end()) for m in re.finditer('###', outputs)]
 
-    embed()
+    extracted_belief = outputs[belief_locs[25][0]: arguments_locs[25][0]][7:]
+    extracted_argument = outputs[arguments_locs[25]
+                                 [0]: hashtag_locs[25][0]][9:]
 
-    extracted_belief = outputs[belief_locs[22][0]: arguments_locs[22][0]][7:]
-    extracted_argument = outputs[arguments_locs[22][0]: hashtag_locs[22][0]][9:]
+    return extracted_belief.strip(), extracted_argument.strip()
 
-    return extracted_belief, extracted_argument
+
+def augment_sentences_with_amr_objects_with_belief_arguments(input_file_path: str or Path, output_file_path: str or Path) -> None:
+    if os.path.exists(output_file_path):
+        return
+    sentences_with_amr_objects = joblib.load(input_file_path)
+
+    for obj in tqdm(sentences_with_amr_objects, leave=False):
+        try:
+            belief_argument = get_belief_argument_from_sentence(obj[0])
+            obj[1].add_belief_argument(belief_argument)
+        except Exception as e:
+            obj[1].add_belief_argument(None)
+            continue
+
+    joblib.dump(
+        sentences_with_amr_objects,
+        output_file_path
+    )
+
+
+def is_empty(input):
+    return input.isspace() or input == ""
 
 
 if __name__ == "__main__":
-    sentences_with_amr_objects = joblib.load(PATH_TO_MASKED_SENTENCES_AMRS_DEV)
-    sent = sentences_with_amr_objects[111][0]
-    get_belief_argument_from_sentence(sent)
+    if args.task == "generate":
+        tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B")
+        print('loading the model!')
 
-    
+        model = AutoModelForCausalLM.from_pretrained(
+            "EleutherAI/gpt-j-6B").to(device)
+
+        print('loaded the model!')
+
+        augment_sentences_with_amr_objects_with_belief_arguments(
+            input_file_path=args.input_file,
+            output_file_path=args.output_file
+        )
+
+    elif args.task == "output_explagraph":
+        sentences_with_amr_objects = joblib.load(args.input_file)
+        with open(args.output_file, 'w') as f:
+            for index, obj in enumerate(sentences_with_amr_objects):
+                belief_arguments = obj[1].belief_argument
+                if belief_arguments is not None and not is_empty(belief_arguments[0]) and not is_empty(belief_arguments[1]):
+                    if index == len(sentences_with_amr_objects) - 1:
+                        f.write(
+                            f"{belief_arguments[0]}\t{belief_arguments[1]}\tsupport\t(marriage; capable of; deceiving)"
+                        )
+                    else:
+                        f.write(
+                            f"{belief_arguments[0]}\t{belief_arguments[1]}\tsupport\t(marriage; capable of; deceiving)\n"
+                        )
+
+    elif args.task == "external_node_generation":
+        sentences_with_amr_objects = joblib.load(args.input_file)
+        with open(args.output_file, 'w') as f:
+            for index, obj in enumerate(sentences_with_amr_objects):
+                belief_arguments = obj[1].belief_argument
+                if belief_arguments is not None and not is_empty(belief_arguments[0]) and not is_empty(belief_arguments[1]):
+                    keywords = kw_model.extract_keywords(obj[0], keyphrase_ngram_range=(
+                        1, 2), use_mmr=True, diversity=0.7, stop_words='english', top_n=5)
+                    keywords = [keyword[0] for keyword in keywords]
+                    if index == len(sentences_with_amr_objects) - 1:
+                        f.write(
+                            f"{', '.join(keywords)}"
+                        )
+                    else:
+                        f.write(
+                            f"{', '.join(keywords)}\n"
+                        )
+
+    else:
+        raise NotImplementedError()

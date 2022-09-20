@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/prompt_gpt_j.py", line 194, in <module>
+    if belief_arguments is not None and not string.isspace(belief_arguments[0]) and not string.isspace(belief_arguments[1]):
+AttributeError: module 'string' has no attribute 'isspace'
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/prompt_gpt_j.py", line 194, in <module>
+    if belief_arguments is not None and not string.isspace(belief_arguments[0]) and not string.isspace(belief_arguments[1]):
+AttributeError: module 'string' has no attribute 'isspace'
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/prompt_gpt_j.py", line 194, in <module>
+    if belief_arguments is not None and not string.isspace(belief_arguments[0]) and not string.isspace(belief_arguments[1]):
+AttributeError: module 'string' has no attribute 'isspace'

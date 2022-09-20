@@ -54,7 +54,7 @@ class NormalNet(torch.nn.Module):
 class Logical_Fallacy_Dataset(InMemoryDataset):
     def __init__(self, root, transform=None, pre_transform=None, pre_filter=None):
         self.amr_graphs_with_sentences = joblib.load(
-            PATH_TO_MASKED_SENTENCES_AMRS)
+            PATH_TO_MASKED_SENTENCES_AMRS_WITH_LABEL2WORD)
         self.edge_type2index = self.get_edge_mappings()
         self.label2index = self.get_label_mappings()
         super().__init__(root, transform, pre_transform, pre_filter)
@@ -84,40 +84,12 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
 
         return edge_type2index
 
-    def get_node_embeddings(self, g):
-        label2embeddings = {}
-
-        for i, node in enumerate(g.nodes(data=True)):
-            try:
-                label = node[1]['label']
-                if label == '"-"':
-                    label = '"negative"'
-                if label == '"+"':
-                    label = '"positive"'
-                if not re.match(r'".*"', label):
-                    label = f'"{label}"'
-
-                if '/' in label and '-' in label:
-                    pattern = r'"[a-zA-Z0-9]+/([a-zA-Z-]+)(-\d*)?"'
-                    word = re.findall(pattern, label)[0][0]
-                    word = re.sub('-', ' ', word)
-                elif '/' in label and '-' not in label:
-                    pattern = r'"[a-zA-Z0-9]+/([\w]+)"'
-                    word = re.findall(pattern, label)[0]
-
-                else:
-                    word = re.findall(r'"(.*)"', label)[0]
-
-                if word == " ":
-                    print(label)
-                    embed()
-            except Exception as e:
-                print(e)
-                print(label)
-                word = label
-
-            label2embeddings[i] = get_bert_embeddings(word).tolist()
-        return label2embeddings
+    def get_node_embeddings(self, g, label2word):
+        index2embeddings = {}
+        for i, node in enumerate(g.nodes()):
+            index2embeddings[i] = get_bert_embeddings(
+                label2word[node]).tolist()
+        return index2embeddings
 
     def get_label_mappings(self):
         label2index = {}
@@ -145,8 +117,9 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
         data_list = []
         for obj in tqdm(self.amr_graphs_with_sentences, leave=False):
             g = obj[1].graph_nx
+            label2word = obj[1].label2word
             node2index = self.get_node_mappings(g)
-            label2embeddings = self.get_node_embeddings(g)
+            index2embeddings = self.get_node_embeddings(g, label2word)
             new_g = nx.Graph()
             new_g.add_edges_from([
                 (
@@ -155,7 +128,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 )
                 for edge in g.edges(data=True)
             ])
-            nx.set_node_attributes(new_g, label2embeddings, name='x')
+            nx.set_node_attributes(new_g, index2embeddings, name='x')
             pyg_graph = from_networkx(new_g)
             pyg_graph.y = torch.tensor([
                 self.label2index[obj[2]]
@@ -198,7 +171,12 @@ def test(model, loader):
 if __name__ == "__main__":
     dataset = Logical_Fallacy_Dataset(root='.')
     dataset = dataset.shuffle()
+
+    embed()
+
     last_train_index = int(len(dataset) * .8)
+    BATCH_SIZE = 16
+    NUM_EPOCHS = 200
 
     train_dataset = dataset[:last_train_index]
     test_dataset = dataset[last_train_index:]
@@ -206,8 +184,10 @@ if __name__ == "__main__":
     print(f'Number of training graphs: {len(train_dataset)}')
     print(f'Number of test graphs: {len(test_dataset)}')
 
-    train_data_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-    test_data_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
+    train_data_loader = DataLoader(
+        train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+    test_data_loader = DataLoader(
+        test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = NormalNet(
@@ -218,9 +198,7 @@ if __name__ == "__main__":
     optimizer = torch.optim.Adam(
         model.parameters(), lr=0.001, weight_decay=5e-4)
 
-    num_epochs = 200
-
-    for epoch in range(1, num_epochs):
+    for epoch in range(1, NUM_EPOCHS):
         train(model, train_data_loader, optimizer)
         train_acc, all_train_predictions, all_train_true_labels = test(
             model, train_data_loader)
@@ -228,7 +206,7 @@ if __name__ == "__main__":
             model, test_data_loader)
         print(
             f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}, Test Acc: {test_acc:.4f}')
-        if epoch == num_epochs - 1:
+        if epoch == NUM_EPOCHS - 1:
             label2index = dataset.label2index
             index2label = {v: k for k, v in label2index.items()}
 

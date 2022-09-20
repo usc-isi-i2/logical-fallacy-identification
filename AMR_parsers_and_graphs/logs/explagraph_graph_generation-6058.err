@@ -1,0 +1,201 @@
+mv: './data/dev.tsv' and './data/dev.tsv' are the same file
+09/20/2022 19:06:40 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+09/20/2022 19:06:40 - INFO - pytorch_transformers.modeling_utils -   loading configuration file ./models/sp_model/config.json
+09/20/2022 19:06:40 - INFO - pytorch_transformers.modeling_utils -   Model config {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "finetuning_task": "eg",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_labels": 2,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 1,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "vocab_size": 50265
+}
+
+09/20/2022 19:06:40 - INFO - pytorch_transformers.tokenization_utils -   Model name './models/sp_model' not found in model shortcut name list (roberta-base, roberta-large, roberta-large-mnli). Assuming './models/sp_model' is a path or url to a directory containing tokenizer files.
+09/20/2022 19:06:40 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/vocab.json
+09/20/2022 19:06:40 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/merges.txt
+09/20/2022 19:06:40 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/added_tokens.json
+09/20/2022 19:06:40 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/special_tokens_map.json
+09/20/2022 19:06:40 - INFO - pytorch_transformers.modeling_utils -   loading weights file ./models/sp_model/pytorch_model.bin
+09/20/2022 19:07:19 - INFO - pytorch_transformers.modeling_utils -   Weights from pretrained model not used in RobertaForEX: ['classifier_stance.dense.weight', 'classifier_stance.dense.bias', 'classifier_stance.out_proj.weight', 'classifier_stance.out_proj.bias']
+09/20/2022 19:07:19 - INFO - __main__ -   Training/evaluation parameters Namespace(adam_epsilon=1e-06, cache_dir='./tmp', config_name='', data_cache_dir='./tmp', data_dir='./data', device=device(type='cuda'), do_eval=True, do_eval_edge=False, do_lower_case=True, do_prediction=False, do_train=False, eval_all_checkpoints=False, evaluate_during_training=True, fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, learning_rate=1e-05, local_rank=-1, logging_steps=50, max_grad_norm=1.0, max_nodes=11, max_seq_length=128, max_steps=-1, model_name_or_path='./models/sp_model', model_type='roberta_eg', n_gpu=1, no_cuda=False, num_train_epochs=10.0, output_dir='./models/sp_model', output_mode='classification', overwrite_cache=False, overwrite_output_dir=False, per_gpu_eval_batch_size=8, per_gpu_train_batch_size=8, run_on_test=False, save_steps=50, seed=42, server_ip='', server_port='', task_name='eg', tokenizer_name='', warmup_pct=None, warmup_steps=0, weight_decay=0.1)
+09/20/2022 19:07:19 - INFO - __main__ -   Evaluate the following checkpoints: ['./models/sp_model']
+09/20/2022 19:07:19 - INFO - pytorch_transformers.modeling_utils -   loading configuration file ./models/sp_model/config.json
+09/20/2022 19:07:19 - INFO - pytorch_transformers.modeling_utils -   Model config {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "finetuning_task": "eg",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_labels": 2,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 1,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "vocab_size": 50265
+}
+
+09/20/2022 19:07:19 - INFO - pytorch_transformers.modeling_utils -   loading weights file ./models/sp_model/pytorch_model.bin
+09/20/2022 19:07:30 - INFO - pytorch_transformers.modeling_utils -   Weights from pretrained model not used in RobertaForEX: ['classifier_stance.dense.weight', 'classifier_stance.dense.bias', 'classifier_stance.out_proj.weight', 'classifier_stance.out_proj.bias']
+09/20/2022 19:07:31 - INFO - __main__ -   Creating features from dataset file at ./data
+09/20/2022 19:07:31 - INFO - utils_joint_model -   Writing example 0 of 289
+09/20/2022 19:07:31 - INFO - utils_joint_model -   *** Example ***
+09/20/2022 19:07:31 - INFO - utils_joint_model -   id: 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   tokens: <s> `` just like stud ents are given a c ouple of we eks of pre par ation before taking ex ams , do ctors should also be given few days or we eks to prep are them selves before an operation or sur gery , after all sur gery is not as easy task '' . </s> </s> is an example of ... . </s> </s>
+09/20/2022 19:07:31 - INFO - utils_joint_model -   input_ids: 0 49519 8987 3341 26302 4189 1322 31699 102 438 41112 1116 1694 15390 1116 5234 5489 1258 23033 16883 3463 7042 6 5016 38636 17276 19726 1610 31699 37492 7033 368 1694 15390 560 40539 1322 35369 44513 23033 260 20829 368 12557 21712 6 10669 1250 12557 21712 354 3654 281 36187 45025 17809 4 2 2 354 260 46781 1116 734 4 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_start_index: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_end_index: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_label: -100 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 -100 -100 2 2 2 2 2 2 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100
+09/20/2022 19:07:31 - INFO - utils_joint_model -   edge_label: -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100
+09/20/2022 19:07:31 - INFO - utils_joint_model -   label: support (id = 0)
+09/20/2022 19:07:31 - INFO - utils_joint_model -   *** Example ***
+09/20/2022 19:07:31 - INFO - utils_joint_model -   id: 1
+09/20/2022 19:07:31 - INFO - utils_joint_model -   tokens: <s> you don âĢ Ļ t have to do this . my grand mother is in the hospital . i need my sal ary to support her med ication . she âĢ Ļ s d ying . </s> </s> my grand mother is in the hospital . i need my sal ary to support her med ication . she âĢ Ļ s d ying . </s> </s>
+09/20/2022 19:07:31 - INFO - utils_joint_model -   input_ids: 0 6968 7254 17 27 90 11990 560 5016 9226 4 4783 11377 19456 354 179 627 40179 4 118 30484 4783 26641 1766 560 22930 1843 4567 14086 4 8877 17 27 29 417 4048 4 2 2 4783 11377 19456 354 179 627 40179 4 118 30484 4783 26641 1766 560 22930 1843 4567 14086 4 8877 17 27 29 417 4048 4 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_start_index: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_end_index: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_label: -100 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 -100 -100 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100
+09/20/2022 19:07:31 - INFO - utils_joint_model -   edge_label: -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100
+09/20/2022 19:07:31 - INFO - utils_joint_model -   label: support (id = 0)
+09/20/2022 19:07:31 - INFO - utils_joint_model -   *** Example ***
+09/20/2022 19:07:31 - INFO - utils_joint_model -   id: 2
+09/20/2022 19:07:31 - INFO - utils_joint_model -   tokens: <s> i know five people from k ent ucky . they are all rac ists . </s> </s> there fore , k ent uck ians are racist . </s> </s>
+09/20/2022 19:07:31 - INFO - utils_joint_model -   input_ids: 0 118 27066 9579 11970 7761 330 1342 19873 4 10010 1322 1250 13249 1952 4 2 2 8585 13364 6 330 1342 5858 2071 1322 35969 4 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_start_index: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_end_index: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+09/20/2022 19:07:31 - INFO - utils_joint_model -   node_label: -100 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 -100 -100 2 2 2 2 2 2 2 2 2 2 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100
+09/20/2022 19:07:31 - INFO - utils_joint_model -   edge_label: -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100 -100
+09/20/2022 19:07:31 - INFO - utils_joint_model -   label: support (id = 0)
+Traceback (most recent call last):
+  File "./structured_model/run_joint_model.py", line 672, in <module>
+    main()
+  File "./structured_model/run_joint_model.py", line 653, in main
+    result = evaluate(args, model, tokenizer, processor, prefix=global_step, eval_split="dev")
+  File "./structured_model/run_joint_model.py", line 244, in evaluate
+    eval_dataset, examples = load_and_cache_examples(args, eval_task, tokenizer, evaluate=True,
+  File "./structured_model/run_joint_model.py", line 421, in load_and_cache_examples
+    features = convert_examples_to_features(examples, processor.get_stance_labels(), processor.get_node_labels(),
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/ExplaGraphs/structured_model/utils_joint_model.py", line 477, in convert_examples_to_features
+    assert len(input_ids) == max_seq_length
+AssertionError
+rm: cannot remove './data/internal_nodes_dev.txt': No such file or directory
+mv: cannot stat './models/sp_model/prediction_nodes_dev.lst': No such file or directory
+head: cannot open './data/internal_nodes_dev.txt' for reading: No such file or directory
+09/20/2022 19:07:33 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+09/20/2022 19:07:33 - INFO - pytorch_transformers.modeling_utils -   loading configuration file ./models/sp_model/config.json
+09/20/2022 19:07:33 - INFO - pytorch_transformers.modeling_utils -   Model config {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "finetuning_task": "eg",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_labels": 2,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 1,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "vocab_size": 50265
+}
+
+09/20/2022 19:07:33 - INFO - pytorch_transformers.tokenization_utils -   Model name './models/sp_model' not found in model shortcut name list (roberta-base, roberta-large, roberta-large-mnli). Assuming './models/sp_model' is a path or url to a directory containing tokenizer files.
+09/20/2022 19:07:33 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/vocab.json
+09/20/2022 19:07:33 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/merges.txt
+09/20/2022 19:07:33 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/added_tokens.json
+09/20/2022 19:07:33 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/special_tokens_map.json
+09/20/2022 19:07:34 - INFO - pytorch_transformers.modeling_utils -   loading weights file ./models/sp_model/pytorch_model.bin
+09/20/2022 19:07:47 - INFO - pytorch_transformers.modeling_utils -   Weights from pretrained model not used in RobertaForEX: ['classifier_stance.dense.weight', 'classifier_stance.dense.bias', 'classifier_stance.out_proj.weight', 'classifier_stance.out_proj.bias']
+09/20/2022 19:07:47 - INFO - __main__ -   Training/evaluation parameters Namespace(adam_epsilon=1e-06, cache_dir='./tmp', config_name='', data_cache_dir='./tmp', data_dir='./data', device=device(type='cuda'), do_eval=True, do_eval_edge=True, do_lower_case=True, do_prediction=False, do_train=False, eval_all_checkpoints=False, evaluate_during_training=True, fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, learning_rate=1e-05, local_rank=-1, logging_steps=50, max_grad_norm=1.0, max_nodes=11, max_seq_length=128, max_steps=-1, model_name_or_path='./models/sp_model', model_type='roberta_eg', n_gpu=1, no_cuda=False, num_train_epochs=10.0, output_dir='./models/sp_model', output_mode='classification', overwrite_cache=False, overwrite_output_dir=False, per_gpu_eval_batch_size=8, per_gpu_train_batch_size=8, run_on_test=False, save_steps=50, seed=42, server_ip='', server_port='', task_name='eg', tokenizer_name='', warmup_pct=None, warmup_steps=0, weight_decay=0.1)
+09/20/2022 19:07:47 - INFO - __main__ -   Evaluate the following checkpoints: ['./models/sp_model']
+09/20/2022 19:07:47 - INFO - pytorch_transformers.modeling_utils -   loading configuration file ./models/sp_model/config.json
+09/20/2022 19:07:47 - INFO - pytorch_transformers.modeling_utils -   Model config {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "finetuning_task": "eg",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_labels": 2,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 1,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "vocab_size": 50265
+}
+
+09/20/2022 19:07:47 - INFO - pytorch_transformers.modeling_utils -   loading weights file ./models/sp_model/pytorch_model.bin
+09/20/2022 19:07:57 - INFO - pytorch_transformers.modeling_utils -   Weights from pretrained model not used in RobertaForEX: ['classifier_stance.dense.weight', 'classifier_stance.dense.bias', 'classifier_stance.out_proj.weight', 'classifier_stance.out_proj.bias']
+09/20/2022 19:07:57 - INFO - __main__ -   Creating features from dataset file at ./data
+Traceback (most recent call last):
+  File "./structured_model/run_joint_model.py", line 672, in <module>
+    main()
+  File "./structured_model/run_joint_model.py", line 653, in main
+    result = evaluate(args, model, tokenizer, processor, prefix=global_step, eval_split="dev")
+  File "./structured_model/run_joint_model.py", line 244, in evaluate
+    eval_dataset, examples = load_and_cache_examples(args, eval_task, tokenizer, evaluate=True,
+  File "./structured_model/run_joint_model.py", line 415, in load_and_cache_examples
+    examples = processor.get_dev_examples(args.data_dir, args.do_eval_edge)
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/ExplaGraphs/structured_model/utils_joint_model.py", line 65, in get_dev_examples
+    open(os.path.join(data_dir, "internal_nodes_dev.txt"),
+FileNotFoundError: [Errno 2] No such file or directory: './data/internal_nodes_dev.txt'
+mv: cannot stat './models/sp_model/prediction_edges_dev.lst': No such file or directory

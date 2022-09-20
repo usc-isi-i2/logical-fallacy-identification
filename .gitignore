@@ -4,3 +4,5 @@
 # **/tmp/edge_lists/**
 # AMR_parsers_and_graphs/graph2vec/
 AMR_parsers_and_graphs/processed/**
+AMR_parsers_and_graphs/ExplaGraphs/
+AMR_parsers_and_graphs/xlm_roberta_logical_fallacy_classification/

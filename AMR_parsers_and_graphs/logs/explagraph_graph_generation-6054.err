@@ -1,0 +1,9 @@
+mv: 'ExplaGraphs/data/dev.tsv' and 'ExplaGraphs/data/dev.tsv' are the same file
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/ExplaGraphs/structured_model/run_joint_model.py", line 16, in <module>
+    from tensorboardX import SummaryWriter
+ModuleNotFoundError: No module named 'tensorboardX'
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/ExplaGraphs/structured_model/run_joint_model.py", line 16, in <module>
+    from tensorboardX import SummaryWriter
+ModuleNotFoundError: No module named 'tensorboardX'

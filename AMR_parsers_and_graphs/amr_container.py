@@ -71,6 +71,10 @@ class AMR_Container:
         self.label2word = label2word
 
 
+    def add_belief_argument(self, belief_argument):
+        self.belief_argument = belief_argument
+
+
 if __name__ == "__main__":
     sentence = "she is the best because everybody loves her."
     amr1 = AMR_Container(
