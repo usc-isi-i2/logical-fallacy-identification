@@ -1,0 +1,25 @@
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_setup.py:_flush():68] Configure stats pid to 1841604
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_setup.py:_flush():68] Loading settings from /cluster/raid/home/zhivar.sourati/.config/wandb/settings
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_setup.py:_flush():68] Loading settings from /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/settings
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'AMR_parsers_and_graphs/gcn.py', 'program': '/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py'}
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_init.py:_log_setup():476] Logging user logs to /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_011208-34ypu54y/logs/debug.log
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_init.py:_log_setup():477] Logging internal logs to /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_011208-34ypu54y/logs/debug-internal.log
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_init.py:init():516] calling init triggers
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.0003, 'epochs': 120, 'mid_layer_dropout': 0.3, 'layers_embeddings': [128, 64, 32], 'batch_size': 16, 'edge_attr': True}
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_init.py:init():569] starting backend
+2022-09-21 01:12:08,305 INFO    MainThread:1841604 [wandb_init.py:init():573] setting up manager
+2022-09-21 01:12:08,311 INFO    MainThread:1841604 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-09-21 01:12:08,316 INFO    MainThread:1841604 [wandb_init.py:init():580] backend started and connected
+2022-09-21 01:12:08,320 INFO    MainThread:1841604 [wandb_init.py:init():658] updated telemetry
+2022-09-21 01:12:08,328 INFO    MainThread:1841604 [wandb_init.py:init():692] communicating run to backend with 30 second timeout
+2022-09-21 01:12:08,894 INFO    MainThread:1841604 [wandb_run.py:_on_init():1974] communicating current version
+2022-09-21 01:12:08,960 INFO    MainThread:1841604 [wandb_run.py:_on_init():1978] got version response 
+2022-09-21 01:12:08,960 INFO    MainThread:1841604 [wandb_init.py:init():727] starting run threads in backend
+2022-09-21 01:12:13,852 INFO    MainThread:1841604 [wandb_run.py:_console_start():1954] atexit reg
+2022-09-21 01:12:13,852 INFO    MainThread:1841604 [wandb_run.py:_redirect():1812] redirect: SettingsConsole.WRAP_RAW
+2022-09-21 01:12:13,853 INFO    MainThread:1841604 [wandb_run.py:_redirect():1877] Wrapping output streams.
+2022-09-21 01:12:13,853 INFO    MainThread:1841604 [wandb_run.py:_redirect():1899] Redirects installed.
+2022-09-21 01:12:13,853 INFO    MainThread:1841604 [wandb_init.py:init():764] run started, returning control to user process
+2022-09-21 01:14:57,874 WARNING MsgRouterThr:1841604 [router.py:message_loop():77] message_loop has been closed

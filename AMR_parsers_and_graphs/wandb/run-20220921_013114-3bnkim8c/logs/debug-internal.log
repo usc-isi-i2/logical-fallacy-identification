@@ -1,0 +1,64 @@
+2022-09-21 01:31:14,038 INFO    StreamThr :1841973 [internal.py:wandb_internal():88] W&B internal server running at pid: 1841973, started at: 2022-09-21 01:31:14.037744
+2022-09-21 01:31:14,039 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: status
+2022-09-21 01:31:14,041 DEBUG   SenderThread:1841973 [sender.py:send_request():315] send_request: status
+2022-09-21 01:31:14,042 DEBUG   SenderThread:1841973 [sender.py:send():301] send: header
+2022-09-21 01:31:14,042 INFO    WriterThread:1841973 [datastore.py:open_for_write():75] open: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/run-3bnkim8c.wandb
+2022-09-21 01:31:14,048 DEBUG   SenderThread:1841973 [sender.py:send():301] send: run
+2022-09-21 01:31:14,407 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: check_version
+2022-09-21 01:31:14,412 INFO    SenderThread:1841973 [dir_watcher.py:__init__():216] watching files in: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files
+2022-09-21 01:31:14,412 INFO    SenderThread:1841973 [sender.py:_start_run_threads():912] run started: 3bnkim8c with start time 1663716674.035804
+2022-09-21 01:31:14,412 DEBUG   SenderThread:1841973 [sender.py:send():301] send: summary
+2022-09-21 01:31:14,413 INFO    SenderThread:1841973 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-21 01:31:14,414 DEBUG   SenderThread:1841973 [sender.py:send_request():315] send_request: check_version
+2022-09-21 01:31:14,483 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: run_start
+2022-09-21 01:31:14,488 DEBUG   HandlerThread:1841973 [meta.py:__init__():34] meta init
+2022-09-21 01:31:14,488 DEBUG   HandlerThread:1841973 [meta.py:__init__():49] meta init done
+2022-09-21 01:31:14,488 DEBUG   HandlerThread:1841973 [meta.py:probe():215] probe
+2022-09-21 01:31:14,495 DEBUG   HandlerThread:1841973 [meta.py:_setup_git():205] setup git
+2022-09-21 01:31:14,503 DEBUG   HandlerThread:1841973 [meta.py:_setup_git():212] setup git done
+2022-09-21 01:31:14,503 DEBUG   HandlerThread:1841973 [meta.py:_save_pip():53] save pip
+2022-09-21 01:31:14,504 DEBUG   HandlerThread:1841973 [meta.py:_save_pip():67] save pip done
+2022-09-21 01:31:14,504 DEBUG   HandlerThread:1841973 [meta.py:_save_conda():74] save conda
+2022-09-21 01:31:15,415 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/requirements.txt
+2022-09-21 01:31:15,415 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/wandb-summary.json
+2022-09-21 01:31:15,416 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/conda-environment.yaml
+2022-09-21 01:31:19,375 DEBUG   HandlerThread:1841973 [meta.py:_save_conda():84] save conda done
+2022-09-21 01:31:19,376 DEBUG   HandlerThread:1841973 [meta.py:probe():253] probe done
+2022-09-21 01:31:19,381 DEBUG   SenderThread:1841973 [sender.py:send():301] send: files
+2022-09-21 01:31:19,381 INFO    SenderThread:1841973 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2022-09-21 01:31:19,387 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 01:31:19,387 DEBUG   SenderThread:1841973 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 01:31:19,417 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/conda-environment.yaml
+2022-09-21 01:31:19,417 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/wandb-metadata.json
+2022-09-21 01:31:19,543 DEBUG   SenderThread:1841973 [sender.py:send():301] send: telemetry
+2022-09-21 01:31:19,959 INFO    Thread-17 :1841973 [upload_job.py:push():139] Uploaded file /tmp/tmpfyanc6h8wandb/4641e89p-wandb-metadata.json
+2022-09-21 01:31:20,417 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/output.log
+2022-09-21 01:31:22,419 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/output.log
+2022-09-21 01:31:24,420 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/output.log
+2022-09-21 01:31:34,550 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 01:31:34,550 DEBUG   SenderThread:1841973 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 01:31:38,427 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/output.log
+2022-09-21 01:31:42,430 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/output.log
+2022-09-21 01:31:43,500 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:31:44,431 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/output.log
+2022-09-21 01:31:45,431 INFO    Thread-13 :1841973 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/files/config.yaml
+2022-09-21 01:31:49,717 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 01:31:49,718 DEBUG   SenderThread:1841973 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 01:32:05,179 DEBUG   HandlerThread:1841973 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 01:32:05,179 DEBUG   SenderThread:1841973 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 01:32:14,451 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:32:45,405 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:33:16,439 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:33:47,419 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:34:18,387 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:34:49,358 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:35:20,359 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:35:51,337 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:36:22,339 DEBUG   SenderThread:1841973 [sender.py:send():301] send: stats
+2022-09-21 01:36:43,369 WARNING StreamThr :1841973 [internal.py:is_dead():385] Internal process exiting, parent pid 1841919 disappeared
+2022-09-21 01:36:43,369 ERROR   StreamThr :1841973 [internal.py:wandb_internal():147] Internal process shutdown.
+2022-09-21 01:36:44,341 INFO    WriterThread:1841973 [datastore.py:close():279] close: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_013114-3bnkim8c/run-3bnkim8c.wandb
+2022-09-21 01:36:44,341 INFO    SenderThread:1841973 [sender.py:finish():1315] shutting down sender
+2022-09-21 01:36:44,361 INFO    HandlerThread:1841973 [handler.py:finish():807] shutting down handler
+2022-09-21 01:36:45,520 INFO    MainThread:1841973 [internal.py:handle_exit():78] Internal process exited
+2022-09-21 01:36:45,520 WARNING MsgRouterThr:1841973 [router.py:message_loop():74] EOFError seen in message_loop

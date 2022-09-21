@@ -30,7 +30,7 @@ conda activate explagraph
 
 
 # for split in "train" "dev" "test"
-for split in "dev"
+for split in "test"
 do
 
 rm -rf ./data/dev.tsv ./data/test.tsv
@@ -65,10 +65,10 @@ cp "../tmp/explagraph/external_nodes_$split.tsv" ./data/external_nodes_dev.txt
 
 # STEP 4: COPY THE EXTRACTED INTERNAL NODES TO THE INTERNAL_NODES FILE IN THE DATA DIRECTORY
 
-rm ./data/internal_nodes_dev.txt
-mv ./models/sp_model/prediction_nodes_dev.lst ./data/internal_nodes_dev.txt
+rm -rf ./data/internal_nodes_dev.txt
+mv ./models/sp_model/prediction_nodes_test.lst ./data/internal_nodes_dev.txt
 
-# STEP 4: RUN THE test_structured_model.sh SCRIPT WITH THE do_eval_edge TO GET THE EDGES GENERATED
+# STEP 5: RUN THE test_structured_model.sh SCRIPT WITH THE do_eval_edge TO GET THE EDGES GENERATED
 
 python ./structured_model/run_joint_model.py \
     --model_type roberta_eg \

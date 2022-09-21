@@ -1,0 +1,18 @@
+Number of training graphs: 1479
+Number of test graphs: 370
+Epoch: 001, Train Acc: 0.1758, Test Acc: 0.1649
+Epoch: 002, Train Acc: 0.2035, Test Acc: 0.1730
+Epoch: 003, Train Acc: 0.2407, Test Acc: 0.1946
+Epoch: 004, Train Acc: 0.2928, Test Acc: 0.2243
+Epoch: 005, Train Acc: 0.3482, Test Acc: 0.2514
+Epoch: 006, Train Acc: 0.4064, Test Acc: 0.2622
+Epoch: 007, Train Acc: 0.4611, Test Acc: 0.2730
+Epoch: 008, Train Acc: 0.4821, Test Acc: 0.2784
+Epoch: 009, Train Acc: 0.5477, Test Acc: 0.3000
+Epoch: 010, Train Acc: 0.5903, Test Acc: 0.3324
+Epoch: 011, Train Acc: 0.6099, Test Acc: 0.3216
+Epoch: 012, Train Acc: 0.6545, Test Acc: 0.3243
+Epoch: 013, Train Acc: 0.7072, Test Acc: 0.3459
+Epoch: 014, Train Acc: 0.7289, Test Acc: 0.3676
+Epoch: 015, Train Acc: 0.7573, Test Acc: 0.3514
+Epoch: 016, Train Acc: 0.7843, Test Acc: 0.3703

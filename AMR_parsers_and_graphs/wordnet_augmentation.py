@@ -221,7 +221,7 @@ if __name__ == "__main__":
                         meronyms += 1
 
 
-        for edge_type in ["syn", "ant", "entail", 'part_of']: 
+        for edge_type in ["syn", "ant", "entails", 'part_of']: 
             logger.info(
                 f"{edge_type}: {[(label2word[edge[0]], label2word[edge[1]]) for edge in graph.edges(data = True) if edge[2]['label'] == edge_type]}"
             )

@@ -1,0 +1,20 @@
+Number of training graphs: 1479
+Number of test graphs: 370
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 253, in <module>
+    train_acc, all_train_predictions, all_train_true_labels = test(
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 193, in test
+    out = model(data, data.batch)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 54, in forward
+    x = self.conv1(x, edge_index, edge_type)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch_geometric/nn/conv/rgat_conv.py", line 341, in forward
+    out = self.propagate(edge_index=edge_index, edge_type=edge_type, x=x,
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 374, in propagate
+    out = self.message(**msg_kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch_geometric/nn/conv/rgat_conv.py", line 380, in message
+    w = torch.index_select(w, 0, edge_type)
+KeyboardInterrupt

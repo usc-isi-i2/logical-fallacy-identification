@@ -1,0 +1,36 @@
+09/21/2022 10:21:34 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+09/21/2022 10:21:34 - INFO - pytorch_transformers.modeling_utils -   loading configuration file ./models/sp_model/config.json
+09/21/2022 10:21:34 - INFO - pytorch_transformers.modeling_utils -   Model config {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "finetuning_task": "eg",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_labels": 2,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 1,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "vocab_size": 50265
+}
+
+09/21/2022 10:21:34 - INFO - pytorch_transformers.tokenization_utils -   Model name './models/sp_model' not found in model shortcut name list (roberta-base, roberta-large, roberta-large-mnli). Assuming './models/sp_model' is a path or url to a directory containing tokenizer files.
+09/21/2022 10:21:34 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/vocab.json
+09/21/2022 10:21:34 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/merges.txt
+09/21/2022 10:21:34 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/added_tokens.json
+09/21/2022 10:21:34 - INFO - pytorch_transformers.tokenization_utils -   loading file ./models/sp_model/special_tokens_map.json
+09/21/2022 10:21:34 - INFO - pytorch_transformers.modeling_utils -   loading weights file ./models/sp_model/pytorch_model.bin
+slurmstepd: error: *** JOB 6078 ON node01 CANCELLED AT 2022-09-21T10:21:37 ***

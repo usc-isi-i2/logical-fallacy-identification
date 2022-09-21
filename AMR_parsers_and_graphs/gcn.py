@@ -1,9 +1,10 @@
+import wandb
 from eval import get_random_predictions_for_pyg_metrics
 from embeddings import get_bert_embeddings
 import re
 from torch_geometric.loader import DataLoader
 from torch import nn
-from torch_geometric.nn import global_mean_pool, SAGEConv
+from torch_geometric.nn import global_mean_pool, SAGEConv, RGCNConv, HEATConv
 import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from torch_geometric.utils.convert import from_networkx
@@ -16,29 +17,48 @@ import joblib
 from tqdm import tqdm
 
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# device = torch.device('cpu')
+print(device)
+
+
 class NormalNet(torch.nn.Module):
-    def __init__(self, num_input_features, num_output_features):
+    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, num_relations):
         super(NormalNet, self).__init__()
 
-        self.conv1 = SAGEConv(
+        self.conv1 = HEATConv(
             num_input_features,
-            32
+            mid_layer_embeddings[0]
         )
-        self.conv2 = SAGEConv(
-            32,
-            16
+        self.conv2 = HEATConv(
+            mid_layer_embeddings[0],
+            mid_layer_embeddings[1]
         )
 
-        self.lin = nn.Linear(16, num_output_features)
+        self.dropout = nn.Dropout(mid_layer_dropout)
+
+        self.conv3 = HEATConv(
+            mid_layer_embeddings[1],
+            mid_layer_embeddings[2]
+        )
+
+        self.lin = nn.Linear(mid_layer_embeddings[2], num_output_features)
 
     def forward(self, data, batch):
         try:
-            x, edge_index = data.x, data.edge_index
+            x, edge_index, edge_attr = data.x, data.edge_index, data.edge_attr
 
-            x = self.conv1(x, edge_index)
+            x = self.conv1(x, edge_index, edge_attr)
 
             x = F.relu(x)
-            x = self.conv2(x, edge_index)
+            x = self.dropout(x)
+
+            x = self.conv2(x, edge_index, edge_attr)
+
+            x = F.relu(x)
+            x = self.dropout(x)
+
+            x = self.conv3(x, edge_index, edge_attr)
 
             x = global_mean_pool(x, batch)
 
@@ -47,6 +67,7 @@ class NormalNet(torch.nn.Module):
         except Exception as e:
             print(e)
             embed()
+            exit()
 
         return x
 
@@ -63,6 +84,10 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
     @property
     def processed_file_names(self):
         return ['data.pt']
+
+    @property
+    def num_relations(self) -> int:
+        return int(self.data.edge_type.max()) + 1
 
     def _download(self):
         return
@@ -121,15 +146,19 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
             node2index = self.get_node_mappings(g)
             index2embeddings = self.get_node_embeddings(g, label2word)
             new_g = nx.Graph()
-            new_g.add_edges_from([
+            all_edges = {
                 (
                     node2index[edge[0]],
                     node2index[edge[1]],
-                )
+                ): self.edge_type2index[edge[2]['label']]
                 for edge in g.edges(data=True)
-            ])
+            }
+
+            new_g.add_edges_from(list(all_edges.keys()))
             nx.set_node_attributes(new_g, index2embeddings, name='x')
+            nx.set_edge_attributes(new_g, all_edges, 'edge_attr')
             pyg_graph = from_networkx(new_g)
+            pyg_graph.edge_attr = pyg_graph.edge_attr.reshape(-1, 1)
             pyg_graph.y = torch.tensor([
                 self.label2index[obj[2]]
             ])
@@ -158,6 +187,7 @@ def test(model, loader):
 
     correct = 0
     for data in loader:  # Iterate in batches over the training/test dataset.
+        data = data.to(device)
         out = model(data, data.batch)
         pred = out.argmax(dim=1)  # Use the class with highest probability.
         all_predictions.extend(pred.tolist())
@@ -176,7 +206,23 @@ if __name__ == "__main__":
 
     last_train_index = int(len(dataset) * .8)
     BATCH_SIZE = 16
-    NUM_EPOCHS = 200
+    NUM_EPOCHS = 120
+    MID_LAYER_DROPOUT = 0.2
+    LAYERS_EMBEDDINGS = [128, 64, 32]
+    LEARNING_RATE = 1e-4
+
+    wandb.init(
+        project="Logical Fallacy Detection GCN",
+        entity='zhpinkman',
+        config={
+            "learning_rate": LEARNING_RATE,
+            "epochs": NUM_EPOCHS,
+            "mid_layer_dropout": MID_LAYER_DROPOUT,
+            "layers_embeddings": LAYERS_EMBEDDINGS,
+            "batch_size": BATCH_SIZE,
+            "edge_type": True
+        }
+    )
 
     train_dataset = dataset[:last_train_index]
     test_dataset = dataset[last_train_index:]
@@ -189,14 +235,18 @@ if __name__ == "__main__":
     test_data_loader = DataLoader(
         test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = NormalNet(
         num_input_features=dataset.num_features,
-        num_output_features=len(dataset.label2index)
-    ).to(device)
+        num_output_features=len(dataset.label2index),
+        mid_layer_dropout=MID_LAYER_DROPOUT,
+        mid_layer_embeddings=LAYERS_EMBEDDINGS,
+        num_relations=dataset.num_relations
+    )
+
+    model = model.to(device)
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(
-        model.parameters(), lr=0.001, weight_decay=5e-4)
+        model.parameters(), lr=LEARNING_RATE)
 
     for epoch in range(1, NUM_EPOCHS):
         train(model, train_data_loader, optimizer)
@@ -204,6 +254,12 @@ if __name__ == "__main__":
             model, train_data_loader)
         test_acc, all_test_predictions, all_test_true_labels = test(
             model, test_data_loader)
+
+        wandb.log({
+            "Train Accuracy": train_acc,
+            "Test Accuracy": test_acc
+        }, step=epoch)
+
         print(
             f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}, Test Acc: {test_acc:.4f}')
         if epoch == NUM_EPOCHS - 1:
@@ -225,6 +281,3 @@ if __name__ == "__main__":
                 y_pred=all_test_predictions,
                 y_true=all_test_true_labels
             ))
-
-        # print(
-        #     f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}')

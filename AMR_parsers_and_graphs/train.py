@@ -1,8 +1,10 @@
 import torch
 from sklearn.metrics import precision_recall_fscore_support, accuracy_score
 import numpy as np
+import joblib
 import pandas as pd
 import wandb
+from typing import List, Dict
 from pathlib import Path
 from transformers import TrainingArguments, Trainer, \
     AutoTokenizer, AutoModelForSequenceClassification
@@ -10,18 +12,153 @@ from transformers import DataCollatorWithPadding
 from IPython import embed
 from sklearn.preprocessing import LabelEncoder
 from datasets import Dataset, DatasetDict
+import argparse
+import networkx as nx
+
+parser = argparse.ArgumentParser(
+    description='Train a Classification Model for Logical Fallacy Detection')
+parser.add_argument(
+    '--experiment', help='The experiment we want to do by doing the training', type=str, default="train")
+parser.add_argument(
+    '--train_input_file', help="Train input file path", type=str
+)
+parser.add_argument(
+    '--dev_input_file', help="Dev input file path", type=str
+)
+parser.add_argument(
+    '--test_input_file', help="Test input file path", type=str
+)
+parser.add_argument(
+    '--input_type', help="The type of the input getting fed to the model (csv or amr)"
+)
+
+parser.add_argument(
+    '--augments', help="What part of the augmentation to be included in the sentences", type=str
+)
+
+args = parser.parse_args()
+
+# TODO: Check the comparison between the original and masked articles
+# TODO: Add similar sentences when training and see what happens
 
 
-TRAIN_DATA_PATH = ((Path(__file__).parent) / "data/edu_train.csv").absolute()
-DEV_DATA_PATH = ((Path(__file__).parent) / "data/edu_dev.csv").absolute()
-TEST_DATA_PATH = ((Path(__file__).parent) / "data/edu_test.csv").absolute()
+def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
+    template_dict = {
+        "syn": " is synonym of ",
+        "ant": " is antonym of ",
+        "entails": " entails ",
+        "part_of": " is part of "
+    }
+    results = []
+    for edge in graph.edges(data=True):
+        if edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
+            results.append(
+                f"{node2label[edge[0]]}{template_dict[edge[2]['label']]}{node2label[edge[1]]}"
+            )
+
+    return results
+
+
+def get_conceptnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
+    # TODO: implemented this
+    raise NotImplementedError()
+
+
+def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
+    """Read the sentences alongside their corresponding AMR graphs and output a single DataFrame
+
+    Args:
+        input_file (str): input file (.joblib)
+
+    Returns:
+        pd.DataFrame: the output
+    """
+    sentences = []
+    labels = []
+
+    data = joblib.load(input_file)
+    for obj in data:
+        masked_sentence = obj[1].sentence
+        graph = obj[1].graph_nx
+        augmented_sentences = []
+        if "wordnet" in augments:
+            augmented_sentences.extend(
+                get_wordnet_edges_in_sentences(
+                    graph,
+                    obj[1].label2word
+                )
+            )
+        if "conceptnet" in augments:
+            augmented_sentences.extend(
+                get_conceptnet_edges_in_sentences(
+                    graph,
+                    obj[1].label2word
+                )
+            )
+        sentences.append(
+            "; ".join([masked_sentence, *augmented_sentences])
+        )
+        labels.append(obj[2])
+
+    return pd.DataFrame({
+        "masked_articles": sentences,
+        "updated_label": labels
+    })
+
+
+def augment_records_with_similar_records(data_df: pd.DataFrame, num_cases: int = 3) -> pd.DataFrame:
+    """Add similar sentences to each record
+
+    Args:
+        data_df (pd.DataFrame): input DataFrame
+
+    Returns:
+        pd.DataFrame: output DataFrame augmented with similar entries
+    """
+    new_sentences = []
+    new_labels = []
+    for _, info in data_df.iterrows():
+        base_sentence = info['masked_articles']
+        similar_cases = data_df[data_df['updated_label'] == info['updated_label']].sample(num_cases)[
+            'masked_articles'].tolist()
+        new_sentence = ";".join([base_sentence, *similar_cases])
+        new_sentences.append(new_sentence)
+        new_labels.append(info['updated_label'])
+    return pd.DataFrame({
+        'masked_articles': new_sentences,
+        'updated_label': new_labels
+    })
+
+
 NUM_LABELS = 13
 BATCH_SIZE = 16
-NUM_TRAINING_EPOCHS = 8
+NUM_TRAINING_EPOCHS = 10
 
-train_df = pd.read_csv(TRAIN_DATA_PATH)[['masked_articles', 'updated_label']]
-dev_df = pd.read_csv(DEV_DATA_PATH)[['masked_articles', 'updated_label']]
-test_df = pd.read_csv(TEST_DATA_PATH)[['masked_articles', 'updated_label']]
+if args.input_type == "csv":
+    train_df = pd.read_csv(args.train_input_file)[
+        ['masked_articles', 'updated_label']]
+    dev_df = pd.read_csv(args.dev_input_file)[
+        ['masked_articles', 'updated_label']]
+    test_df = pd.read_csv(args.test_input_file)[
+        ['masked_articles', 'updated_label']]
+
+elif args.input_type == "amr":
+    train_df = read_csv_from_amr(
+        input_file=args.train_input_file, augments=args.augments.split('&'))
+    dev_df = read_csv_from_amr(
+        input_file=args.dev_input_file, augments=args.augments.split('&'))
+    test_df = read_csv_from_amr(
+        input_file=args.test_input_file, augments=args.augments.split('&'))
+
+embed()
+print(train_df.shape)
+print(train_df['masked_articles'].tolist()[:20])
+exit()
+
+if args.experiment == "case_augmented_training":
+    train_df = augment_records_with_similar_records(train_df)
+    dev_df = augment_records_with_similar_records(dev_df)
+    test_df = augment_records_with_similar_records(test_df)
 
 
 label_encoder = LabelEncoder()
@@ -60,7 +197,11 @@ model = AutoModelForSequenceClassification.from_pretrained(
 
 print('Model loaded!')
 
-wandb.init(project="logical_fallacy_classification", entity="zhpinkman")
+wandb.init(project="logical_fallacy_classification", entity="zhpinkman", config={
+    "batch_size": BATCH_SIZE,
+    "num_training_epochs": NUM_TRAINING_EPOCHS,
+    "experiment": args.experiment
+})
 
 training_args = TrainingArguments(
     do_eval=True,

@@ -1,0 +1,8 @@
+Number of training graphs: 1479
+Number of test graphs: 370
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 238, in <module>
+    model = NormalNet(
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 29, in __init__
+    self.conv1 = RGATConv(
+TypeError: RGATConv.__init__() missing 1 required positional argument: 'num_relations'

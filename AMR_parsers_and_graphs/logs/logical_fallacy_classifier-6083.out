@@ -1,0 +1,25 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+Wed Sep 21 10:28:05 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:27:00.0 Off |                    0 |
+| N/A   27C    P0    33W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+(1849, 2)
+['company \'s slogan " Expect More . Pay Less . " ', 'The bigger MSK<0> shoe size , the better MSK<0> handwriting ', 'Since many people believe this , then it must be true ', "MSK<0> is n't MSK<1> when MSK<0> says MSK<0> MSK<2> about MSK<0> constituents — MSK<0> would n't MSK<1> to people MSK<0> MSK<2> about . ", 'MSK<0> is MSK<1> MSK<2> that MSK<0> went over MSK<0> data for the month , and MSK<2> begins MSK<1> MSK<0> about getting an A on a math test . ', 'MSK<0> tells MSK<0> children not to leave the yard because there might be wild animals in the woods . ', 'If MSK<0> MSK<1> MSK<2> because MSK<2> are bad for the environment , eventually the government will MSK<1> all cars , so MSK<0> should not MSK<1> MSK<2> . ', 'very time MSK<0> goes MSK<1> MSK<0> is MSK<2> MSK<0> MSK<3> . Something about MSK<2> that MSK<3> must make MSK<0> want to go MSK<1> . ', '" MSK<0> were late tonight . MSK<0> must be cheating ! " ', 'Every time MSK<0> go to MSK<1> , MSK<2> goes down . Therefore , MSK<0> MSK<1> causes MSK<2> to set . ', 'Makes MSK<0> feel as though everyone is doing it , so MSK<0> should too . ', 'You oppose MSK<0> proposal to extend government - funded health care to poor minority children because MSK<0> is a liberal Democrat . ', 'MSK<0> : This fish tastes funny . I do n’t want to MSK<1> this . Parent : There are MSK<0> starving in Africa . MSK<1> your dinner . ', "MSK<0> : MSK<0> think MSK<1> should hire someone to redesign MSK<1> website . MSK<2> : MSK<2> 're saying MSK<1> should throw MSK<1> money away on external resources instead of building up MSK<1> in - house design team ? That 's going to hurt MSK<1> company in the long run . ", '" Beware of appeals made only to MSK<0> feelings and not to MSK<0> logic . " ', 'taps into people \'s desire to belong to MSK<0> . " Everyone else is doing MSK<0> ! " ', 'Science shows us that improved quality of life comes through research and invention . ', 'MSK<0> Jones : " The university just cut MSK<1> yearly budget by $ 10,000 . " MSK<0> Smith : " What are MSK<1> going to do ? " MSK<2> : " MSK<2> think MSK<1> should eliminate one of the teaching assistant positions . MSK<3> would take care of MSK<3> . " MSK<0> MSK<4> : " MSK<1> could reduce MSK<1> scheduled raises instead . " MSK<0> Brown : " I ca n\'t understand why you want to bleed MSK<1> dry like that , MSK<4> . " ', 'uses irrelevant information or other techniques to distract from the argument at hand ', 'If MSK<0> MSK<3> , MSK<0> will MSK<5> . MSK<0> MSK<5> . Therefore , MSK<0> MSK<3> . ']
+using GPU

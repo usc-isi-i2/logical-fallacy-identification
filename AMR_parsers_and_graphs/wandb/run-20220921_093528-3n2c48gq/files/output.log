@@ -1,0 +1,258 @@
+
+Start the training ...
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+***** Running training *****
+  Num examples = 1849
+  Num Epochs = 10
+  Instantaneous batch size per device = 16
+  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Gradient Accumulation steps = 1
+  Total optimization steps = 1160
+Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/1160 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+
+
+  3%|▎         | 37/1160 [00:05<02:27,  7.63it/s]
+{'loss': 2.5133, 'learning_rate': 9.56896551724138e-06, 'epoch': 0.43}
+  4%|▍         | 50/1160 [00:06<02:32,  7.29it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+  8%|▊         | 91/1160 [00:13<02:28,  7.18it/s]
+  9%|▊         | 100/1160 [00:14<03:51,  4.58it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+{'eval_loss': 2.2379941940307617, 'eval_accuracy': 0.23666666666666666, 'eval_f1': 0.15804171066613046, 'eval_precision': 0.2756338494498004, 'eval_recall': 0.23666666666666666, 'eval_runtime': 0.6304, 'eval_samples_per_second': 475.907, 'eval_steps_per_second': 30.141, 'epoch': 0.86}
+
+
+ 12%|█▏        | 142/1160 [00:21<02:04,  8.16it/s]
+ 13%|█▎        | 150/1160 [00:22<03:38,  4.62it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+{'eval_loss': 1.9601216316223145, 'eval_accuracy': 0.39, 'eval_f1': 0.32632873156572495, 'eval_precision': 0.37882096158616585, 'eval_recall': 0.39, 'eval_runtime': 0.6339, 'eval_samples_per_second': 473.283, 'eval_steps_per_second': 29.975, 'epoch': 1.29}
+
+
+ 17%|█▋        | 194/1160 [00:29<02:12,  7.27it/s]
+{'loss': 2.0049, 'learning_rate': 8.275862068965518e-06, 'epoch': 1.72}
+ 17%|█▋        | 200/1160 [00:30<03:02,  5.25it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+ 21%|██▏       | 247/1160 [00:37<02:01,  7.49it/s]
+{'loss': 1.705, 'learning_rate': 7.844827586206897e-06, 'epoch': 2.16}
+ 22%|██▏       | 250/1160 [00:38<02:30,  6.05it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+ 26%|██▌       | 299/1160 [00:45<01:46,  8.08it/s]
+{'loss': 1.3266, 'learning_rate': 7.413793103448277e-06, 'epoch': 2.59}
+ 26%|██▌       | 300/1160 [00:45<02:31,  5.67it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 29%|██▉       | 335/1160 [00:51<01:51,  7.39it/s]
+ 30%|███       | 350/1160 [00:53<01:47,  7.56it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 49.21it/s]
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 34%|███▎      | 391/1160 [00:59<01:42,  7.54it/s]
+ 34%|███▍      | 400/1160 [01:01<02:08,  5.91it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 74%|███████▎  | 14/19 [00:00<00:00, 31.76it/s]
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 38%|███▊      | 443/1160 [01:07<01:35,  7.51it/s]
+{'loss': 0.937, 'learning_rate': 6.1206896551724135e-06, 'epoch': 3.88}
+ 39%|███▉      | 450/1160 [01:08<01:51,  6.36it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+ 43%|████▎     | 497/1160 [01:15<01:15,  8.77it/s]
+{'loss': 0.7962, 'learning_rate': 5.689655172413794e-06, 'epoch': 4.31}
+ 43%|████▎     | 500/1160 [01:16<02:02,  5.38it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+ 43%|████▎     | 500/1160 [01:16<02:02,  5.38itSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-500
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/special_tokens_map.json
+
+
+ 47%|████▋     | 544/1160 [02:03<01:16,  8.07it/s]
+ 47%|████▋     | 550/1160 [02:05<02:05,  4.86it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+ 47%|████▋     | 550/1160 [02:05<02:05,  4.86it/s]
+
+
+
+ 51%|█████▏    | 596/1160 [02:11<01:14,  7.59it/s]
+{'loss': 0.5475, 'learning_rate': 4.8275862068965525e-06, 'epoch': 5.17}
+ 52%|█████▏    | 600/1160 [02:12<01:43,  5.39it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+ 56%|█████▌    | 648/1160 [02:19<01:00,  8.42it/s]
+{'loss': 0.4607, 'learning_rate': 4.396551724137931e-06, 'epoch': 5.6}
+ 56%|█████▌    | 650/1160 [02:19<01:11,  7.15it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+                                               /cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+
+ 60%|██████    | 700/1160 [02:27<01:31,  5.04it/s]
+{'loss': 0.4444, 'learning_rate': 3.96551724137931e-06, 'epoch': 6.03}
+ 60%|██████    | 700/1160 [02:27<01:31,  5.04it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+ 64%|██████▎   | 739/1160 [02:33<00:59,  7.07it/s]
+ 65%|██████▍   | 750/1160 [02:35<01:10,  5.83it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 48.13it/s]
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+ 69%|██████▉   | 800/1160 [02:43<01:11,  5.02it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 26%|██▋       | 5/19 [00:00<00:00, 47.90it/s]
+{'loss': 0.3281, 'learning_rate': 3.103448275862069e-06, 'epoch': 6.9}
+
+
+
+ 72%|███████▏  | 840/1160 [02:49<00:43,  7.39it/s]
+ 73%|███████▎  | 850/1160 [02:51<00:44,  6.94it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 73%|███████▎  | 850/1160 [02:51<00:44,  6.94it/s]
+
+
+
+ 77%|███████▋  | 894/1160 [02:57<00:43,  6.15it/s]
+{'loss': 0.2308, 'learning_rate': 2.241379310344828e-06, 'epoch': 7.76}
+ 78%|███████▊  | 900/1160 [02:58<00:53,  4.84it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 81%|████████  | 942/1160 [03:05<00:28,  7.65it/s]
+{'loss': 0.2493, 'learning_rate': 1.810344827586207e-06, 'epoch': 8.19}
+ 82%|████████▏ | 950/1160 [03:06<00:28,  7.34it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 86%|████████▌ | 996/1160 [03:13<00:22,  7.24it/s]
+{'loss': 0.1699, 'learning_rate': 1.3793103448275862e-06, 'epoch': 8.62}
+ 86%|████████▌ | 1000/1160 [03:14<00:38,  4.19it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 86%|████████▌ | 1000/1160 [03:15<00:38,  4.19iSaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1000
+Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/config.json
+Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/special_tokens_map.json
+
+
+ 90%|████████▉ | 1043/1160 [04:01<00:15,  7.46it/s]
+{'loss': 0.1946, 'learning_rate': 9.482758620689655e-07, 'epoch': 9.05}
+ 91%|█████████ | 1050/1160 [04:02<00:13,  8.12it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 94%|█████████▍| 1095/1160 [04:10<00:08,  7.63it/s]
+{'loss': 0.1358, 'learning_rate': 5.172413793103449e-07, 'epoch': 9.48}
+ 95%|█████████▍| 1100/1160 [04:10<00:11,  5.04it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+
+
+
+ 99%|█████████▊| 1145/1160 [04:17<00:02,  7.32it/s]
+{'loss': 0.1691, 'learning_rate': 8.620689655172414e-08, 'epoch': 9.91}
+ 99%|█████████▉| 1150/1160 [04:18<00:01,  6.72it/s]***** Running Evaluation *****
+  Num examples = 300
+  Batch size = 16
+ 99%|█████████▉| 1154/1160 [04:19<00:01,  4.77it/s]
+{'train_runtime': 260.6749, 'train_samples_per_second': 70.931, 'train_steps_per_second': 4.45, 'train_loss': 0.8806843095812305, 'epoch': 10.0}
+PredictionOutput(predictions=array([[ 4.442037  , -0.8943963 , -0.82642883, ...,  0.04745656,
+         3.3251078 , -1.151139  ],
+       [ 2.6984391 , -1.6752951 , -1.295975  , ..., -1.2513647 ,
+         1.0270549 , -0.84736943],
+       [-0.3569092 , -0.5002415 , -0.9675602 , ..., -1.0776246 ,
+         0.13405773, -0.63289744],
+       ...,
+       [-0.11875331,  6.817155  , -1.0728085 , ..., -0.5767717 ,
+         0.69583386, -0.505588  ],
+       [-0.6039907 , -0.6635906 , -0.811347  , ..., -0.8599132 ,
+         6.500157  , -1.6887728 ],
+       [ 0.16031732, -0.33166072, -0.754079  , ..., -0.62207425,
+        -1.3911756 , -0.2729783 ]], dtype=float32), label_ids=array([ 6, 11,  7,  9, 11,  6,  6, 11,  5,  3,  9, 11,  0,  1, 11, 12,  1,
+        7,  0, 12,  3,  1,  8,  3,  6,  8,  0,  0, 11,  0, 11,  3,  3,  5,
+        2,  8,  9,  1, 11,  1,  5, 12,  0, 12,  1,  2, 12,  0,  5,  7,  3,
+       11,  2,  4,  8,  3, 12, 11, 11, 10,  7, 11,  0, 10, 12,  0,  1,  8,
+       12,  5, 10,  5,  1,  8,  0, 12,  1,  7, 10, 12,  7,  7,  2,  0,  2,
+       10, 11,  0,  6,  0, 10,  9,  5,  5,  0,  9,  1,  2,  8,  9,  0,  2,
+        0,  7, 11,  9,  6,  6,  9,  3, 12,  7, 11, 11, 11, 10,  2,  8,  9,
+        0,  7,  3, 11, 11, 12,  8,  0,  4, 11,  5,  8, 11,  1,  5, 11,  7,
+       11,  0, 11,  0, 11,  6,  0, 11, 11,  8, 11,  1,  8,  6,  5,  0, 11,
+        9,  0,  1,  5,  0,  1,  8,  8,  0,  2, 11, 11,  0,  6,  5,  6, 11,
+        2,  2,  7,  9, 11,  1, 11,  1,  8,  9,  8,  6,  3,  8, 10,  1,  2,
+        0, 11, 11,  3,  8,  6,  2,  4,  1, 11, 11, 11, 11,  0, 11,  2,  1,
+        8,  1,  9,  0,  1, 11,  1,  5,  1,  6,  5,  0,  8,  0,  1, 10, 11,
+        9,  0, 11, 12,  2,  4,  0, 11,  2, 12,  2, 11,  7,  3,  2,  2,  8,
+        3,  0,  2, 11,  8,  8,  9,  3, 11,  6, 11,  0,  3,  2,  8, 10, 12,
+       11,  5, 10,  6,  9, 11,  6,  3,  1,  6,  3,  7, 11,  6,  2, 11,  4,
+       10,  9,  2,  0, 11,  5,  1, 11,  6, 11,  9, 11,  0,  0,  0, 11, 11,
+100%|█████████▉| 1159/1160 [04:20<00:00,  6.82it/s]
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|██████████| 1160/1160 [04:20<00:00,  4.45it/s]
+***** Running Prediction *****
+  Num examples = 300
+  Batch size = 16
+100%|██████████| 19/19 [00:00<00:00, 26.91it/s]

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 146, in <module>
+    train_df = read_csv_from_amr(
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 79, in read_csv_from_amr
+    data = joblib.load(input_file)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 650, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib'

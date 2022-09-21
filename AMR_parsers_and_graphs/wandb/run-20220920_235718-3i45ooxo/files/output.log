@@ -1,0 +1,8 @@
+
+using GPU
+Number of training graphs: 1479
+Number of test graphs: 370
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 222, in <module>
+    model = NormalNet(
+TypeError: NormalNet.__init__() got multiple values for argument 'num_input_features'

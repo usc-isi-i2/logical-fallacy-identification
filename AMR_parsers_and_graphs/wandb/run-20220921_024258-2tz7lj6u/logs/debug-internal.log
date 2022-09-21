@@ -1,0 +1,301 @@
+2022-09-21 02:42:58,189 INFO    StreamThr :1847653 [internal.py:wandb_internal():88] W&B internal server running at pid: 1847653, started at: 2022-09-21 02:42:58.188895
+2022-09-21 02:42:58,191 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: status
+2022-09-21 02:42:58,192 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: status
+2022-09-21 02:42:58,193 DEBUG   SenderThread:1847653 [sender.py:send():301] send: header
+2022-09-21 02:42:58,194 INFO    WriterThread:1847653 [datastore.py:open_for_write():75] open: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/run-2tz7lj6u.wandb
+2022-09-21 02:42:58,201 DEBUG   SenderThread:1847653 [sender.py:send():301] send: run
+2022-09-21 02:42:58,556 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: check_version
+2022-09-21 02:42:58,560 INFO    SenderThread:1847653 [dir_watcher.py:__init__():216] watching files in: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files
+2022-09-21 02:42:58,561 INFO    SenderThread:1847653 [sender.py:_start_run_threads():912] run started: 2tz7lj6u with start time 1663720978.186818
+2022-09-21 02:42:58,561 DEBUG   SenderThread:1847653 [sender.py:send():301] send: summary
+2022-09-21 02:42:58,561 INFO    SenderThread:1847653 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-21 02:42:58,562 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: check_version
+2022-09-21 02:42:58,633 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: run_start
+2022-09-21 02:42:58,637 DEBUG   HandlerThread:1847653 [meta.py:__init__():34] meta init
+2022-09-21 02:42:58,637 DEBUG   HandlerThread:1847653 [meta.py:__init__():49] meta init done
+2022-09-21 02:42:58,637 DEBUG   HandlerThread:1847653 [meta.py:probe():215] probe
+2022-09-21 02:42:58,644 DEBUG   HandlerThread:1847653 [meta.py:_setup_git():205] setup git
+2022-09-21 02:42:58,652 DEBUG   HandlerThread:1847653 [meta.py:_setup_git():212] setup git done
+2022-09-21 02:42:58,652 DEBUG   HandlerThread:1847653 [meta.py:_save_pip():53] save pip
+2022-09-21 02:42:58,653 DEBUG   HandlerThread:1847653 [meta.py:_save_pip():67] save pip done
+2022-09-21 02:42:58,653 DEBUG   HandlerThread:1847653 [meta.py:_save_conda():74] save conda
+2022-09-21 02:42:59,563 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/wandb-summary.json
+2022-09-21 02:42:59,563 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/conda-environment.yaml
+2022-09-21 02:42:59,563 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/requirements.txt
+2022-09-21 02:43:03,561 DEBUG   HandlerThread:1847653 [meta.py:_save_conda():84] save conda done
+2022-09-21 02:43:03,561 DEBUG   HandlerThread:1847653 [meta.py:probe():253] probe done
+2022-09-21 02:43:03,564 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/conda-environment.yaml
+2022-09-21 02:43:03,564 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/wandb-metadata.json
+2022-09-21 02:43:03,567 DEBUG   SenderThread:1847653 [sender.py:send():301] send: files
+2022-09-21 02:43:03,567 INFO    SenderThread:1847653 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2022-09-21 02:43:03,574 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:43:03,574 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:43:03,737 DEBUG   SenderThread:1847653 [sender.py:send():301] send: telemetry
+2022-09-21 02:43:04,213 INFO    Thread-17 :1847653 [upload_job.py:push():139] Uploaded file /tmp/tmptu58hyyqwandb/30ew0hs1-wandb-metadata.json
+2022-09-21 02:43:04,565 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_created():275] file/dir created: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:06,567 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:16,572 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:18,743 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:43:18,744 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:43:26,576 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:27,647 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:43:28,578 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:29,578 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/config.yaml
+2022-09-21 02:43:33,910 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:43:33,910 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:43:40,583 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:48,587 INFO    Thread-13 :1847653 [dir_watcher.py:_on_file_modified():292] file/dir modified: /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220921_024258-2tz7lj6u/files/output.log
+2022-09-21 02:43:49,079 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:43:49,079 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:43:58,619 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:44:04,244 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:44:04,244 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:44:19,428 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:44:19,428 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:44:29,617 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:44:34,596 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:44:34,596 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:44:49,763 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:44:49,763 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:45:00,617 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:45:04,935 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:45:04,935 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:45:20,100 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:45:20,100 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:45:31,542 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:45:35,264 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:45:35,264 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:45:50,428 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:45:50,429 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:46:09,351 ERROR   SenderThread:1847653 [retry.py:__call__():154] Retry attempt failed:
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x15030041cc10>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x15030041cc10>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 199, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x15030041cc10>: Failed to establish a new connection: [Errno 113] No route to host'))
+2022-09-21 02:46:10,429 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:46:17,697 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:46:17,698 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:46:30,429 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:46:30,429 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:46:33,477 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:46:45,597 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:46:45,597 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:47:00,765 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:47:00,766 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:47:04,450 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:47:15,958 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:47:15,959 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:47:31,123 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:47:31,124 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:47:35,416 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:47:46,293 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:47:46,293 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:48:01,457 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:48:01,457 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:48:06,380 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:48:16,624 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:48:16,624 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:48:31,786 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:48:31,786 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:48:37,388 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:48:46,947 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:48:46,947 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:49:02,109 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:49:02,109 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:49:08,349 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:49:17,272 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:49:17,272 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:49:32,456 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:49:32,456 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:49:39,304 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:49:47,617 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:49:47,617 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:50:02,777 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:50:02,777 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:50:10,265 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:50:17,938 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:50:17,939 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:50:33,104 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:50:33,104 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:50:41,286 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:50:48,266 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:50:48,266 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:51:03,430 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:51:03,430 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:51:12,329 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:51:18,593 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:51:18,594 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:51:33,777 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:51:33,777 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:51:43,344 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:51:48,936 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:51:48,936 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:52:04,100 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:52:04,100 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:52:14,361 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:52:19,264 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:52:19,265 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:52:34,428 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:52:34,428 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:52:45,424 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:52:49,590 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:52:49,590 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:53:04,761 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:53:04,762 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:53:16,447 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:53:19,926 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:53:19,927 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:53:35,092 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:53:35,093 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:53:47,512 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:53:50,268 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:53:50,268 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:54:05,428 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:54:05,429 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:54:18,537 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:54:20,592 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:54:20,593 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:54:35,774 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:54:35,774 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:54:49,593 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:54:50,939 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:54:50,939 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:55:06,098 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:55:06,098 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:55:20,656 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:55:21,369 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:55:21,369 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:55:36,532 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:55:36,532 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:55:51,671 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:55:51,698 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:55:51,698 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:56:06,857 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:56:06,857 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:56:22,021 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:56:22,021 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:56:22,713 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:56:37,189 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:56:37,190 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:56:52,356 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:56:52,357 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:56:53,773 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:57:07,518 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:57:07,518 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:57:22,682 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:57:22,682 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:57:24,910 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:57:37,852 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:57:37,853 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:57:53,025 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:57:53,025 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:57:56,132 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:58:08,190 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:58:08,190 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:58:23,357 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:58:23,357 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:58:27,181 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:58:38,527 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:58:38,527 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:58:53,692 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:58:53,692 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:58:58,190 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:59:08,858 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:59:08,859 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:59:24,019 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:59:24,020 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:59:29,197 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 02:59:39,215 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:59:39,215 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 02:59:54,379 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 02:59:54,379 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:00:00,195 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:00:09,548 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:00:09,548 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:00:24,732 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:00:24,732 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:00:31,174 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:00:39,894 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:00:39,895 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:00:55,057 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:00:55,057 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:01:02,188 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:01:10,220 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:01:10,221 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:01:25,383 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:01:25,383 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:01:33,134 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:01:40,545 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:01:40,545 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:01:55,709 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:01:55,709 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:02:04,143 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:02:10,868 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:02:10,868 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:02:26,037 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:02:26,038 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:02:35,173 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:02:41,200 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:02:41,201 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:02:56,372 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:02:56,373 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:03:06,136 DEBUG   SenderThread:1847653 [sender.py:send():301] send: stats
+2022-09-21 03:03:11,534 DEBUG   HandlerThread:1847653 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-21 03:03:11,534 DEBUG   SenderThread:1847653 [sender.py:send_request():315] send_request: stop_status
+2022-09-21 03:03:23,791 INFO    MainThread:1847653 [internal.py:handle_exit():78] Internal process exited
+2022-09-21 03:03:23,792 WARNING MsgRouterThr:1847653 [router.py:message_loop():74] EOFError seen in message_loop
