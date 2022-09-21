@@ -1,0 +1,10 @@
+ACADEMIC RESEARCH LICENSE AGREEMENT
+
+
+These data and code are being made public for research purpose only.
+
+For non-research use, please email us at: propaganda_analysis_project@googlegroups.com
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+

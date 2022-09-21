@@ -1,0 +1,32 @@
+\renewcommand\arraystretch{1.1}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{1.5cm}}
+\begin{tabular}{@{}lRRR@{}}
+    \toprule
+    \textbf{Configuration} & \textbf{F1-score} & \textbf{Precision} & \textbf{Recall} \\
+    \midrule
+    GloVe-6B-100D (uncased) & 0.3148 & 0.2015  & 0.7307 \\
+    GloVe-6B-100D  + SentiWordNet (\textsc{\textsc{swn}}) & 0.3171 & 0.2052 & 0.7059 \\
+    GloVe-6B-100D  + Arguing Lexicon (\textsc{al}) & 0.3105 &	0.1989 & \textbf{0.7359}\\
+    GloVe-6B-100D  + \textsc{swn} + \textsc{al} & 0.3223 & 0.2097 & 0.7026\\
+    GloVe-6B-100D  + \textsc{pos} & 0.3294 & 0.2169 & 0.6897\\
+    GloVe-6B-100D  + \textsc{swn} + \textsc{al} + \textsc{pos} & 0.3247 &	0.2132 & 0.6875\\
+    % \rule{0pt}{3ex}%
+    \hline
+    GloVe-42B-300D (uncased) & 0.3453 & 0.2472  & 0.5792 \\
+    % \rule{0pt}{3ex}%
+    \hline
+    \textsc{bert}-base-cased &  0.3759  & 0.2792  &  0.5783 \\
+    % \rule{0pt}{3ex}%
+    \hline
+    \textsc{bert}-base-uncased        & 0.3869 & 0.2884  & 0.5965 \\
+    \textsc{bert}-base-uncased + \textsc{swn} & 0.3893 &	0.2966 &	0.5784 \\
+    \textsc{bert}-base-uncased + \textsc{al} & 0.3921 & 0.3066	& 0.5507\\
+    \textsc{bert}-base-uncased + \textsc{swn} + \textsc{al} & 0.3912 & 0.2995 & 0.5687\\
+    \textsc{bert}-base-uncased + \textsc{pos} & 0.3912 &	0.2939 & 0.5915\\
+    \textsc{bert}-base-uncased + \textsc{swn} + \textsc{al} + \textsc{pos} ~~(``full'') & 0.3949 & 0.3025 & 0.5699 \\
+    % \rule{0pt}{3ex}%
+    \hline
+    full + majority voting (across 5 initializations) & 0.4065 & 0.3110 & 0.5901 \\
+    \textit{full + majority voting + span merging} &  \textbf{0.4115} & \textbf{0.3136} & 0.6026\\
+    \bottomrule
+\end{tabular}

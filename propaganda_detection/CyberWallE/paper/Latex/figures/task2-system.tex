@@ -1,0 +1,92 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,calc,arrows.meta,backgrounds}
+\usepackage[outline]{contour}
+\begin{document}
+\definecolor{inputcol}{RGB}{240, 248, 255}
+\definecolor{featurecol}{RGB}{74, 186, 186}
+\definecolor{modelcol}{RGB}{252, 240, 146}
+\definecolor{labelcol}{RGB}{250, 127, 77}
+\tikzset{
+    base/.style = {font=\small}, % \small\sffamily
+    box/.style = {base, rectangle, rounded corners, draw=black,
+                   minimum width=0.1cm, minimum height=0.5cm, 
+                   text centered},
+    input/.style = {box, fill=inputcol},
+    lstm/.style = {box, minimum width=1.5cm,fill=modelcol!80},
+    feature/.style = {box, fill=featurecol!50,
+                   minimum height=1cm,},
+    group/.style = {box, fill=featurecol!30},
+    labels/.style = {box, minimum width=1.5cm, fill=labelcol!90},
+    bg2/.style = {black!70},
+    bg3/.style = {black!60},
+    bg4/.style = {black!50},
+    bg5/.style = {black!40},
+    >=LaTeX
+}
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    align=center % necessary for intra-node linebreaks
+    ]
+%   \selectcolormodel{gray} % for checking readability in grayscale
+  \node (input)             [input]              {text fragments};
+  \node (input-rep) [input, above right=3mm and 3mm of input] {text fragments\\with repetition\\pre-processing};
+  \node (input-wo-rep) [input, right=3mm of input-rep] {text fragments\\w/o repetition\\instances};
+  \node (input-dup) [input, above left=2.5cm and 1.2cm of input] {text fragments\\with repetition\\+ duplicate\\annotation};
+  
+  \node (bert)     [feature, above of=input-rep]          {BERT\\embeddings};
+  \node (lin) [lstm, above=4mm of bert] {linear\\classifier};
+  
+  \node (presoft) [feature, above=4mm of lin] {pre-soft-\\max layer};
+  
+  \node (question)      [feature, left=1mm of presoft]   {question\\feature};
+  \node (ner)      [feature, left=1mm of question]   {NE\\features};
+  \node (arglex)      [feature, left=1mm of ner]   {rhetorical\\features};
+  \begin{scope}[on background layer]
+      \node (features) [group, fit={(presoft) (arglex) (question) (ner)}] {};
+  \end{scope}
+  
+  \node (bert2)     [feature, above of=input-wo-rep]          {BERT\\embeddings};
+  
+  \node (lin2) [lstm, above=4mm of bert2] {linear\\classifier};
+  \node (ffnn) [lstm, above of=features] {multilayer\\perceptron};
+  
+  \node (ffnn-labels) [labels, above=4mm of ffnn] {labels};
+  \node (labels-wo-rep) [labels, above=2.2cm of lin2] {labels w/o\\repetition};
+  
+  \node (labels) [labels, above of=ffnn-labels] {labels};
+  
+  
+  \draw[->]             (input) -- (input-rep);
+  \draw[->]             (input) -- (input-wo-rep.south west);
+  \draw[->]             (input) -- (input-dup);
+
+  \draw[->]             (input-rep) -- (bert.south);
+  \draw[->]             (input-wo-rep) -- (bert2.south);
+  
+  \draw[->]             (input) -- (arglex.south east);
+  \draw[->]             (input) -- (ner);
+  \draw[->]             (input) -- (question.south);
+
+  \draw[->]             (bert) -- (lin);
+  \draw[->]             (bert2) -- (lin2);
+  
+  \draw[->]             (lin) -- (presoft);
+  
+  \draw[->]             (features) -- (ffnn);
+  
+  \draw[->]             (ffnn) -- (ffnn-labels);
+  \draw[->]             (lin2) -- (labels-wo-rep);
+  \draw[->]             (labels-wo-rep) -- (labels);
+  \draw[->]             (ffnn-labels.north) -- node[base, fill=white] {label post-processing} (labels);
+  
+  
+  \begin{scope}[on background layer]
+    \draw[->]             ([xshift=-1cm]input-dup.north) -- (labels);
+    % Drawing this again, so the layering works:
+    \node (features) [group, fit={(presoft) (arglex) (question) (ner)}] {};
+  \end{scope}
+  \end{tikzpicture}
+\end{document}
+
+\end{document}

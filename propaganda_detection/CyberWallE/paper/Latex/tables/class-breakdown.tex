@@ -1,0 +1,30 @@
+\renewcommand\arraystretch{1.1}
+\begin{tabular}{@{}l @{\hskip -4mm } S[table-format=3.1] @{\hskip 1cm }  S[table-format=2.1] @{\hskip 1cm } S[table-format=2.1] S[table-format=2.1] S[table-format=2.1,table-space-text-pre={\textminus}~]@{}}
+\toprule
+&  & \multicolumn{1}{l}{~SI} & \multicolumn{3}{c}{TC} \\ 
+\cmidrule(r{1cm}){3-3}\cmidrule{4-6}
+\textbf{Technique}
+& \textbf{\begin{tabular}[c]{@{}c@{}}Proportion\\(dev)\end{tabular}}
+& \textbf{\begin{tabular}[c]{@{}c@{}}Recall\\(dev)\end{tabular}}
+& \textbf{\begin{tabular}[c]{@{}c@{}}F1-score\\(dev)\end{tabular}}
+& \textbf{\begin{tabular}[c]{@{}c@{}}F1-score\\(test)\end{tabular}}
+& \textbf{Change} \\
+\midrule
+Loaded language & 30.6  & 70.6    & 76.6     & 74.7     & {\textminus}~1.9  \\
+Name calling, labeling & 17.2 & 63.0     & 81.0   & 70.9  & {\textminus}~10.1\\
+Repetition & 13.6  & 63.8     & 73.3    & 47.7  & {\textminus}~25.6 \\
+Flag-waving & 8.2   & 74.4      & 73.7   & 54.4  & {\textminus}~19.3 \\
+Exaggeration, minimisation & 6.4 & 57.6  & 52.7     & 28.3  & {\textminus}~24.4 \\
+Doubt & 6.2 & 46.9  & 53.8    & 58.7     & {\MVPlus}~4.9   \\
+Appeal to fear/prejudice & 4.4 & 62.9  & 30.6    & 39.9     & {\MVPlus}~9.3 \\
+Slogans & 3.7 & 74.6 & 51.4     & 39.4  & {\textminus}~12.0   \\
+Whataboutism, straw men, red herring & 2.7 & 36.8 & 0.0    & 0.0     & 0.0\\
+Black-and-white fallacy & 2.1  & 46.9 & 21.4     & 23.7  & {\MVPlus}~2.3 \\
+Causal oversimplification & 1.7 & 50.7 & 21.1     & 15.4  & {\textminus}~5.7  \\
+Thought-terminating clich\'es & 1.6  & 51.4 & 17.4    & 23.8     & {\MVPlus}~6.4   \\
+Appeal to authority & 1.3 & 49.9 & 18.2     & 14.7  & {\textminus}~3.5  \\
+Bandwagon, reductio ad hitlerum& 0.5 & 8.4 & 22.2     & 12.2  & {\textminus}~10.0   \\
+\midrule
+All classes    & 100.0 & 63.8 & 66.4     & 57.4  & {\textminus}~9.0 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,82 @@
+============================================================================
+                            REVIEWER #1
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate (most submissions)
+                           Clarity (1-5): 3
+                         Soundness (1-5): 4
+                     Replicability (1-5): 4
+                  Overall recommendation: Accept
+
+Detailed Comments
+---------------------------------------------------------------------------
+This paper proposes two ensemble models for SI and TC tasks. They further improve the performance on this task through the addition of linguistic features and pre- and postprocessing techniques, apart from BERT feature. It is innovative to process the 'Repetition' technique, which achieves the best result among all the teams. The ablation study gives us a clear view of which feature is effective.
+However, I think the paper is difficult to follow somewhere, especially the System overview of TC system, why the 'Repetition' techniques have different situation between first occurrence and non-first occurrence in news articles? And I think it is better to explain why you specifically process the 'Repetition' technique. It is possible that a span contains multiple techniques and it would be better with further exploration, rather than just predicting one technique.
+---------------------------------------------------------------------------
+============================================================================
+                            REVIEWER #2
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate (most submissions)
+                           Clarity (1-5): 4
+                         Soundness (1-5): 4
+                     Replicability (1-5): 4
+                  Overall recommendation: Accept
+
+Detailed Comments
+---------------------------------------------------------------------------
+The authors used BERT embeddings to which they added lexical features and extensive label post-processing. For subtask SI, they used BERT embeddings, as well as manual features modeling sentiment, rhetorical structure, and POS tags, which were eventually fed into a bi-LSTM to produce IO labels, followed by some post-processing to merge neighboring spans.
+For subtask TC, they extracted the pre-softmax layer of BERT and further added extra features (rhetorical, named entities, question), while taking special care of repetitions as part of a complex ensemble architecture, followed by label post-processing.
+
+This is a well written paper with nice discussion, comparisons, etc.
+
+IMPORTANT NOTES:
+
+1. One team has submitted under two different team names, which is illegal and the second submission got eliminated. As a result, for many teams, their rank has changed (upwards). Please, check if this has affected you and update the text of your paper in the final version accordingly.
+
+2. Do you plan to release your code? If so, please consider adding a link to the repository (e.g., github) in the paper.
+
+3. One general remark: please, make sure it is crystal clear what your submitted system was. It is great to describe many experiments and to show analysis, but you should also say very clearly what your official submission was.
+---------------------------------------------------------------------------
+============================================================================
+                            REVIEWER #3
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate (most submissions)
+                           Clarity (1-5): 4
+                         Soundness (1-5): 5
+                     Replicability (1-5): 4
+                  Overall recommendation: Accept
+
+Detailed Comments
+---------------------------------------------------------------------------
+On the whole, the work in this paper is excellent. For the first subtask,  the author use a BERT embedding concatenated sentiment, rhetorically, and POS tag features as input of the bidirectional LSTM, and  a post-processing methoed that they merge the two surrounding spans into one larger span is uesd to increase the F1-score. For the another subtask, there are three models that are used to pedict the propaganda  technique categories. The base model generate a first set of predictions, the repetition model determines whether it is a REPETITION class, and the alternative model is to predict label of only the remaining thriteen classes.
+  However, I think the paper layout will be better after adjustment, among which table 1 and table 2 are not in the right position. And a more detailed description of the repetition model maskes it easier for the reader to understand how it words.
+---------------------------------------------------------------------------
+============================================================================
+                            REVIEWER #4
+============================================================================
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+                         Appropriateness: Appropriate (most submissions)
+                           Clarity (1-5): 5
+                         Soundness (1-5): 5
+                     Replicability (1-5): 5
+                  Overall recommendation: Accept
+
+Detailed Comments
+---------------------------------------------------------------------------
+1.An excellent description of both subtasks with sufficient details(experiments setup, training ...etc) 
+2. well-organized and well-written
+---------------------------------------------------------------------------

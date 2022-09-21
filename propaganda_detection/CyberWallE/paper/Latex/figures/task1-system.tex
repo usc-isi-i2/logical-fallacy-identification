@@ -1,0 +1,101 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,calc,arrows.meta,backgrounds}
+\usepackage[outline]{contour}
+\begin{document}
+\definecolor{inputcol}{RGB}{240, 248, 255}
+\definecolor{featurecol}{RGB}{74, 186, 186}
+\definecolor{modelcol}{RGB}{252, 240, 146}
+\definecolor{labelcol}{RGB}{250, 127, 77}
+\tikzset{
+    base/.style = {font=\small},
+    box/.style = {base, rectangle, rounded corners, draw=black,
+                   minimum width=0.1cm, minimum height=0.5cm, 
+                   text centered, node distance=1.2cm},
+    input/.style = {box, fill=inputcol},
+    lstm/.style = {box, minimum width=1.5cm, fill=modelcol!80, node distance=1.7cm},
+    lstm2/.style = {lstm, fill=modelcol!70, draw=black!70},
+    lstm3/.style = {lstm, fill=modelcol!60, draw=black!60},
+    lstm4/.style = {lstm, fill=modelcol!50, draw=black!50},
+    lstm5/.style = {lstm, fill=modelcol!40, draw=black!40},
+    feature/.style = {box, fill=featurecol!50, 
+                      minimum height=9mm, node distance=1.5cm},
+    group/.style = {box, fill=featurecol!30},
+    labels/.style = {box, minimum width=1.5cm, fill=labelcol!90},
+    labels2/.style = {labels, fill=labelcol!75, draw=black!70},
+    labels3/.style = {labels, fill=labelcol!65, draw=black!60},
+    labels4/.style = {labels, fill=labelcol!55, draw=black!50},
+    labels5/.style = {labels, fill=labelcol!45, draw=black!40},
+    bg2/.style = {black!70},
+    bg3/.style = {black!60},
+    bg4/.style = {black!50},
+    bg5/.style = {black!40},
+    >=LaTeX
+}
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    align=center % necessary for intra-node linebreaks
+    ]
+%   \selectcolormodel{gray} % for checking readability in grayscale
+  \node (senti)      [feature]   {sentiment\\features};
+  \node (bert)     [feature, left=1mm of senti]          {BERT\\embedding};
+  \node (arglex)      [feature, right=1mm of senti]   {rhetorical\\feature};
+  \node (pos)      [feature, right=1mm of arglex]   {POS\\tag};
+  \begin{scope}[on background layer]
+      \node (features) [group, fit={(bert) (senti) (arglex) (pos)}] {};
+  \end{scope}
+  \node (input)             [input, below of=features]              {sentence-wise input tokens};
+  \node (lstm) [lstm, above of=features] {bi-LSTM};
+   \begin{scope}[on background layer]
+      \node (lstm5) [lstm5, below right=-1mm and -6mm of lstm] {};
+      \node (lstm4) [lstm4, above left=-4mm and -13mm of lstm5] {};
+      \node (lstm3) [lstm3, above left=-4mm and -13mm of lstm4] {};
+      \node (lstm2) [lstm2, above left=-4mm and -13mm of lstm3] {};
+  \end{scope}
+  
+  \node (labels5) [labels5, above of=lstm5] {};
+  \node (labels4) [labels4, above of=lstm4] {};
+  \node (labels3) [labels3, above of=lstm3] {};
+  \node (labels2) [labels2, above of=lstm2] {};
+  \node (labels) [labels, above of=lstm] {IO labels};
+  
+  \node (majlabels) [labels, above of=labels] {consolidated IO labels};
+  \node (rawspans) [labels, above of=majlabels] {raw spans};
+  \node (finalspans) [labels, above of=rawspans] {final spans};
+  
+  \draw[->]             (input) -- (bert.south east);
+  \draw[->]             (input) -- (senti.south);
+  \draw[->]             (input) -- (arglex);
+  \draw[->]             (input) -- (pos.south west);
+  
+  \draw[->, bg2]             (features.north) -- (lstm2);
+  \draw[->, bg3]             (features.north) -- (lstm3);
+  \draw[->, bg4]             (features.north) -- (lstm4);
+  \draw[->, bg5]             (features.north) -- (lstm5);
+  
+  \draw[->]             (lstm) -- (labels);
+  \draw[->, bg2]             (lstm2) -- (labels2);
+  \draw[->, bg3]             (lstm3) -- (labels3);
+  \draw[->, bg4]             (lstm4) -- (labels4);
+  \draw[->, bg5]             (lstm5) -- (labels5);
+  
+  \draw[->, bg5]             (labels5) -- (majlabels.south);
+  \draw[->, bg4]             (labels4) -- (majlabels.south);
+  \draw[->, bg3]             (labels3) -- (majlabels.south);
+  \draw[->, bg2]             (labels2) -- (majlabels.south);
+  \draw[->]             (labels) -- node[base, left] {majority voting} (majlabels.south);
+  
+  \draw[->]             (majlabels) -- node[base, left] {conversion to spans} (rawspans);
+  \draw[->]             (rawspans) -- node[base, left] {merging close spans} (finalspans);
+  
+  % Drawing these again, so the layering works:
+  \node[lstm2, above left=-4mm and -13mm of lstm3] {};
+  \node[lstm, above of=features] {bi-LSTM};
+  \draw[->]             (features) -- (lstm);
+  \node (labels2) [labels2, above of=lstm2] {};
+  \node (labels) [labels, above of=lstm] {IO labels};
+  \draw[->]             (lstm) -- (labels);
+  \end{tikzpicture}
+\end{document}
+
+\end{document}
