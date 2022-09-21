@@ -28,6 +28,8 @@ conda activate explagraph
 #                                     -- internal_nodes
 #                                     -- external_nodes                                    
 
+# TODO: Check the bug here for the test set
+# FIXME: Check the bug here for the test set
 
 # for split in "train" "dev" "test"
 for split in "test"
