@@ -1,0 +1,27 @@
+\renewcommand\arraystretch{1.1}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{1.5cm}}
+\begin{tabular}{@{} l R @{}}
+\toprule
+\textbf{Configuration}     & \textbf{F1-score}     \\
+\midrule
+\textsc{bert}-base-cased + pre-softmax + multilayer perceptron (MLP) & 0.5485\\
+\textsc{bert}-base-uncased + pre-softmax + MLP & 0.5635
+\\ % NO REPETITION PREPROCESSING
+% \rule{0pt}{3ex}%
+\hline
+\textsc{bert}-base-uncased embeddings of \texttt{[CLS]} \& the first 10 tokens + MLP & 0.5870\\
+% \rule{0pt}{3ex}%
+% \cmidrule[0.02em]{1-2}
+\hline
+rep + \textsc{bert}-base-uncased + pre-softmax + MLP & 0.6341 \\
+% \rule{0pt}{3ex}%
+\hline
+rep + \textsc{bert}-base-uncased + pre-softmax + two named entity classes (\textsc{ne-2}) + MLP  & 0.6322\\ 
+rep + \textsc{bert}-base-uncased + pre-softmax + Arguing Lexicon (\textsc{al}) + MLP & 0.6350 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + question mark feature (\textsc{q}) + MLP  & 0.6359\\
+rep + \textsc{bert}-base-uncased + pre-softmax + \textsc{ne-2} + \textsc{al} + \textsc{q} + MLP ~~(``base model'') & 0.6359 \\ 
+% \rule{0pt}{3ex}%
+\hline
+\textit{base model + label post-processing} & \textbf{0.6640} \\
+\bottomrule
+\end{tabular}

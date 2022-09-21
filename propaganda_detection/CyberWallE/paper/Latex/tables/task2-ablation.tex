@@ -1,0 +1,42 @@
+\renewcommand\arraystretch{1.1}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{1.5cm}}
+\begin{tabular}{@{} l R @{}}
+\toprule
+\textbf{Configuration}     & \textbf{F1-score}     \\
+\midrule
+\textsc{bert}-base-cased + pre-softmax + multilayer perceptron (MLP) & 0.5485\\
+\textsc{bert}-base-uncased + pre-softmax + MLP & 0.5635
+\\ % NO REPETITION PREPROCESSING
+% \rule{0pt}{3ex}%
+\hline
+\textsc{bert}-base-uncased embeddings of \texttt{[CLS]} \& the first 10 tokens + CNN & 0.3189\\
+\textsc{bert}-base-uncased embeddings of \texttt{[CLS]} \& the first 10 tokens + KimCNN & 0.4835\\
+\textsc{bert}-base-uncased embeddings of \texttt{[CLS]} \& the first 10 tokens + MLP & 0.5870\\
+% \rule{0pt}{3ex}%
+% \cmidrule[0.02em]{1-2}
+\hline
+repetition pre-processing (rep) + \textsc{bert}-base-uncased + linear classifier & 0.6322 \\ 
+rep + \textsc{bert}-base-uncased + pre-softmax + XGBoost  & 0.6219 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + single-layer perceptron & 0.6312  \\
+rep + \textsc{bert}-base-uncased + pre-softmax + SVM & 0.6341 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + MLP & 0.6341 \\
+% \rule{0pt}{3ex}%
+\hline
+rep + \textsc{bert}-base-uncased + pre-softmax + America + MLP & 0.6312 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + reductio + MLP & 0.6322 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + emotion + MLP & 0.6331 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + sequence length + MLP & 0.6341 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + repetition count + MLP & 0.6350 \\
+% \rule{0pt}{3ex}%
+\hline
+rep + \textsc{bert}-base-uncased + pre-softmax + two named entity classes (\textsc{ne-2}) + MLP  & 0.6322\\ 
+rep + \textsc{bert}-base-uncased + pre-softmax + six named entity classes (\textsc{ne-6}) + MLP  & 0.6341\\
+rep + \textsc{bert}-base-uncased + pre-softmax + Arguing Lexicon (\textsc{al}) + MLP & 0.6350 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + question mark feature (\textsc{q}) + MLP  & 0.6359\\
+rep + \textsc{bert}-base-uncased + pre-softmax + \textsc{ne-6} + \textsc{al} + \textsc{q} + MLP & 0.6350 \\
+rep + \textsc{bert}-base-uncased + pre-softmax + \textsc{ne-2} + \textsc{al} + \textsc{q} + MLP ~~(``base model'') & 0.6359 \\ 
+% \rule{0pt}{3ex}%
+\hline
+\textit{base model + label post-processing} & \textbf{0.6640} \\
+\bottomrule
+\end{tabular}

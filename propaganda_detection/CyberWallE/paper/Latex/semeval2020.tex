@@ -1,0 +1,495 @@
+%
+% File semeval2020.tex
+%
+% Nathan Schneider
+%% Based on the style files for COLING-2020 (feiliu@cs.ucf.edu & liang.huang.sh@gmail.com), which were, in turn,
+%% Based on the style files for COLING-2018, which were, in turn,
+%% Based on the style files for COLING-2016, which were, in turn,
+%% Based on the style files for COLING-2014, which were, in turn,
+%% Based on the style files for ACL-2014, which were, in turn,
+%% Based on the style files for ACL-2013, which were, in turn,
+%% Based on the style files for ACL-2012, which were, in turn,
+%% based on the style files for ACL-2011, which were, in turn, 
+%% based on the style files for ACL-2010, which were, in turn, 
+%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
+%% based on the style files for EACL-2009 and IJCNLP-2008...
+
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\usepackage{coling2020}
+\usepackage{times}
+\usepackage{url, hyperref}
+\usepackage{latexsym}
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{pgfplots}
+\usepackage{booktabs} % pretty tables
+\usepackage{array}
+\usepackage{standalone} % import figures
+\usepackage{tikz}
+\usepackage{siunitx} % align floating point numbers in tables
+\usetikzlibrary{positioning,fit,calc,arrows.meta,backgrounds}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[title]{appendix}
+\usepackage{etoolbox}
+\apptocmd{\appendices}{\apptocmd{\thesection}{.}{}{}}{}{}
+
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{colorbrewer}
+
+\hyphenation{an-aly-sis}
+\hyphenation{an-aly-ses}
+\hyphenation{Sem-Eval}
+
+%\setlength\titlebox{5cm}
+\colingfinalcopy
+\title{CyberWallE at SemEval-2020 Task 11: An Analysis of Feature Engineering for Ensemble Models for Propaganda Detection}
+
+
+\author{Verena Blaschke\qquad Maxim Korniyenko\qquad Sam Tureski\\
+Seminar f\"{u}r Sprachwissenschaft\\
+Eberhard Karls Universit\"{a}t T\"{u}bingen\\
+{\tt first.last@student.uni-tuebingen.de}}
+
+\date{}
+
+\begin{document}
+\maketitle
+\blfootnote{This work is licensed under a Creative Commons Attribution 4.0 International Licence. \\
+Licence details: \url{http://creativecommons.org/licenses/by/4.0/}.}
+\begin{abstract}
+
+This paper describes our participation in the SemEval-2020 task Detection of Propaganda Techniques in News Articles.
+
+We participate in both subtasks: Span Identification (SI) and Technique Classification (TC).
+We use a bi-LSTM architecture in the SI subtask and train a complex ensemble model for the TC subtask.
+Our architectures are built using embeddings from BERT in  combination with additional lexical features and extensive label post-processing.
+
+Our systems achieve a rank of 8 out of 35 teams in the SI subtask (F1-score: 43.86\%) and 8 out of 31 teams in the TC subtask (F1-score: 57.37\%).
+
+\end{abstract}
+
+\section{Introduction}
+
+
+Propaganda is defined as ``the deliberate and systematic attempt to shape perceptions, manipulate cognitions, and direct behavior to achieve a response that furthers the desired intent of the propagandist" \cite[p.~6]{jowett2019propaganda}.
+
+With the advent of rapid dissemination of news articles through online social media, automatic detection of biased or fake reporting has become more crucial than ever before. 
+
+
+This paper describes our participation in both of the subtasks offered by \newcite{DaSanMartinoSemeval20task11} in the SemEval 2020 shared task for the Detection of Propaganda Techniques in News Articles. The Span Identification (SI) subtask is a binary classification problem to discover propaganda at the token level, and the Technique Classification (TC) subtask involves a 14-way classification of propagandistic text fragments. 
+
+To address the SI task, we combine token-level BERT embeddings and linguistic features with bidirectional LSTMs and data post-processing methods. 
+To address the TC task, we use BERT sequence embeddings and linguistic features to train a feed-forward neural network before post-processing is applied. 
+
+While top-scoring teams in a similar shared task \cite{EMNLP19DaSanMartino}  focus primarily on leveraging the performance of the pre-trained, context-dependent language model BERT, we find that further encoding of linguistic features offers a meaningful boost over both BERT and GloVe word embeddings alone.
+Majority voting and span merging in the SI task, as well as pre- and post-processing techniques to account for frequent occurrences of the \textsc{repetition} technique in the TC task result in further performance increases.
+Along with our best-performing model, we provide an extensive exploration into various embedding, feature and classifier combinations. 
+
+
+We release our code at \href{https://github.com/cicl-iscl/CyberWallE-propaganda-detection}{\texttt{github.com/cicl-iscl/CyberWallE-propaganda-detection}}.
+
+\section{Background}
+
+Before the introduction of the 2019 shared task on propaganda detection, approaches to propaganda recognition in news generally focused on classification at the article level.
+\newcite{rashkin2017truth} compare the language of ``trusted news articles" from a well-known corpus with stories from ``unreliable news sites". The publicly-available, feature-based tool Proppy, released by \newcite{barron2019proppy}, ranks articles by their likelihood of containing propagandist content. These previous systems have been prone to misclassification and lack of explainability, however, due to the assumption that articles from news sources deemed propagandist will always contain propaganda.
+
+The release of the shared task on Fine-Grained
+Propaganda Detection by \newcite{da2019findings} sparked the creation of numerous new detection systems, resulting in 14 system papers published. In contrast to this year's tasks, the 2019 participants encountered sentences, rather than tokens, in the binary classification round, and were asked to differentiate 18, rather than 14 classes, in the multiclass classification round. 
+
+The highest-scoring teams in that task integrate the language representation model BERT (Bidirectional Encoder Representations from Transformers) into their systems.
+BERT, developed by \newcite{devlin2019bert}, was shown to reach state-of-the-art performance on eleven natural language processing tasks at the time of its release. 
+The \texttt{base} version of the model for English contains 110 million parameters over 12 layers, produces embeddings of size 768 and encodes semantic information on a sub-token level. 
+
+
+A number of the previous year's teams use linguistic features in addition to BERT or other word embeddings. 
+
+\newcite{gupta-etal-2019-neural} employ six categories of features, ranging from topic representations to layout-derived features like sentence length. 
+
+\newcite{ferreira-cruz-etal-2019-sentence} work with simple linguistic features (e.g. punctuation frequency, sentence length) as well as type-token ratios and TF-IDF scores for uni- and bigrams. 
+\newcite{al-omari-etal-2019-justdeep}, by contrast, employ the output of a twitter-based sentiment analysis tool.
+Finally, \newcite{alhindi-etal-2019-fine} and \newcite{li-etal-2019-detection} both use features returned by the LIWC (Linguistic Inquiry and Word Count) text analysis software \cite{pennebaker2001linguistic}. 
+
+
+\section{Dataset}\label{dataset}
+The corpus used is an extension of the corpus described in \newcite{EMNLP19DaSanMartino}. 
+The articles, pulled from around 50 news outlets, have been annotated into specific techniques at the fragment level; several classes with few instances are then condensed under single labels, such as in \textsc{whataboutism, straw men, red herring}. 
+An example of a fragment containing an instance of the class \textsc{loaded language}:
+
+\vspace{-0.7em}
+{
+\centering
+$\text{\small not} \overbrace{\text{\small looking as though Trump killed his grandma}}^\text{loaded language}\text{\small.}$
+\\
+}
+Descriptions of each class can be found in \newcite{DaSanMartinoSemeval20task11}. 
+
+Class imbalance exists strongly in the dataset. 
+A minority of sentences are assessed to contain propaganda, and fragments that do contain propaganda are classed as only 3 of the 14 labels around 60\% percent of the time. 
+It is important to note that some of the techniques can be identified on the fragment level  (e.g. \textsc{name calling, flag-waving}), 
+while others often require a broader context of the discourse at hand to be discovered (e.g. \textsc{repetition, red herring}).
+
+
+
+
+\section{The Span Identification (SI) system}
+
+
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.35\textwidth}
+    \centering
+    % \fbox{
+    \includestandalone[width=\textwidth]{figures/task1-system}
+    % }
+    \caption{The span identification system.}
+    \label{fig:task1-architecture}
+\end{subfigure}
+\begin{subfigure}[b]{.56\textwidth}
+    \hspace{-2em}
+    \centering
+    % \fbox{
+    \includestandalone[width=\textwidth]{figures/task2-system}
+    % }
+    \caption{The technique classification system.}
+    \label{fig:task2-architecture}
+\end{subfigure}
+\caption{Our system architectures.}
+\label{fig:system-architectures}
+\end{figure}
+
+\subsection{System overview}
+
+Our architecture for the SI subtask is built around a bidirectional LSTM \cite{graves2005framewise}.
+We split the news articles into sentences (or sentence fragments) and tokenize these sentences. We convert the target spans into corresponding token-wise binary labels (\textit{I} - inside a span, \textit{O} - outside a span).
+
+Each token is represented as a vector consisting of a
+BERT embedding \cite{devlin2019bert} concatenated with two sentiment values (indicating how positive/negative the token is), a binary feature indicating whether the token is part of a rhetorically salient phrase, and a one-hot encoded POS tag representation.
+This input is fed into a bidirectional LSTM that predicts a label for each token. 
+We carry this out five times in total to abstract over the effect caused by random initializations.
+The five sets of predicted labels are consolidated via majority voting and then converted into spans.
+In a final step, we remove short gaps between spans by merging the two surrounding spans into one larger span.
+
+Figure~\ref{fig:task1-architecture} illustrates this architecture.
+
+\subsection{Experimental setup}
+
+We use the Natural Language Toolkit %\footnote{\url{https://www.nltk.org/}}
+3.2.4 \cite{bird2009natural}
+for sentence splitting and additional heuristics to divide long sentences into shorter fragments by splitting them along quotation marks, semicolons and commas when possible. The maximum sentence length is 35 tokens (long enough to fully include most input fragments, but short enough to reduce vanishing gradient issues).
+We use spaCy's pretrained model for English (version 2.0.0) as tokenizer.
+
+We use HuggingFace's pretrained BERT embeddings \cite{Wolf2019HuggingFacesTS},
+
+specifically the uncased base version. 
+We initially also experiment with
+the cased version, as well as small (6B tokens, 100 dimensions) and large (42B tokens, 300 dimensions) GloVe embeddings \cite{pennington2014glove}.
+
+The sentiment features are based on SentiWordNet 3.0.0 \cite{baccianella2010sentiwordnet}.\footnote{\url{https://github.com/aesuli/SentiWordNet}}
+Each token is associated with a positive and a negative sentiment score, each bounded between $0$ and $1$.
+Tokens that are not in the dataset (even in their lemmatized form as produced using spaCy's lemmatizer)  are assigned the value $[0, 0]$. 
+Polysemous tokens that are assigned several different scores by SentiWordNet are assigned the average of these values.
+
+The feature for rhetorically salient tokens is produced using the Arguing Lexicon\footnote{\url{http://mpqa.cs.pitt.edu/lexicons/arg_lexicon/}} \cite{somasundaran2007detecting},
+which contains phrase patterns for 17 different rhetorical strategies such as \textit{appeal to authority} or \textit{generalization}.
+Each token in a phrase contained in this lexicon is assigned the value~$1$, all others~$0$.
+
+The last feature is each token's one-hot encoded 15-dimensional POS tag, as determined by spaCy.
+
+We use Keras %footnote{\url{https://keras.io}} 
+2.2.5 with a Tensorflow 1.14 backend to build the LSTM. 
+We work with a batch size of 128, class weights (1.0 for \textit{O}, 6.5 for \textit{I}), 512 hidden units and a dropout rate of 25\%. 
+We use the Adam optimizer (learning rate: 0.001) to minimize the cross entropy across ten epochs.
+
+After predicting the labels and transforming them into spans, we merge all spans that are separated by less than 25 characters.
+We also experiment with using minimum gap lengths of up to fifty characters.
+
+During the development stage, we use
+all of the training data as training input to tune parameters based on development data performance.
+For the test set submissions, we extract the development data labels from the input for the TC task and concatenate the training and development data as model input.
+
+The predictions are evaluated using character-level precision, recall and F1-score for the propagandist fragments.
+More details can be found in the task description paper \cite{DaSanMartinoSemeval20task11}.
+
+
+\section{The Technique Classification (TC) system}
+
+
+\subsection{System overview}
+The foundation of our strategy for the TC subtask revolves around generating accurate predictions for the large and qualitatively unique \textsc{repetition} class.  
+Our key innovation in resolving this issue is to break prediction generation into several sub-models.
+
+For the \textit{base model}, we use lexical information encoded in each span to generate a first set of predictions (see the central branch of Figure~\ref{fig:task2-architecture}).
+We modify the input fragments slightly to represent repetition information.
+If a fragment has the \textsc{repetition} label (in the case of training data) or is repeated elsewhere in the same news article (development/test data), we append a copy of this sequence to itself.
+Then, we train a linear classifier on all fragments, which are represented using BERT embeddings.
+Afterwards, we take the pre-softmax layer from this model and concatenate it with additional features
+indicating whether a rhetorical technique is contained in the fragment, whether it mentions geopolitical entities or groups of people (two binary features), and whether it contains a question mark.
+These newly created vectors are used as input to a multilayer perceptron, which generates this model's final predictions.
+
+For our \textit{repetition model}, we isolate two simple features which are then assigned to every instance of the data---how often the segment is repeated in the article and whether it is the first such repetition (the left branch of Figure~\ref{fig:task2-architecture}).
+This post-processing step classifies instances as \textsc{repetition} if the given normalized span has at least one repetition in the article and it does not represent the first occurrence of it in the text.
+These predictions override the base model's predictions.
+
+If the base model predicts a \textsc{repetition} that is not confirmed by this post-processing step, this instance is re-classified by a third model, which we call the \textit{alternative model}
+(the right branch of Figure~\ref{fig:task2-architecture}).
+It is a linear classifier which uses BERT embeddings of the data as input and is trained using all training data except the instances of the \textsc{repetition} class.
+As a result, the model always predicts labels of only the remaining thirteen classes.
+
+The last step of this system is handling duplicates.
+Some of the fragments have several labels and appear as multiple identical instances in the data.
+We use the prediction from the alternative model to label the duplicate instance.
+If these predictions are identical or if there are three or more identical spans, we use the first model's runner-up predictions instead.
+
+
+\subsection{Experimental setup}
+
+The \textit{base model} and \textit{alternative model} use HuggingFace's pretrained \texttt{bert-base-uncased}
+vectors with a sequence classification head on top, \texttt{BertForSequenceClassification}. The maximum sequence length is 200 tokens, as determined by HuggingFace's pretrained BERT tokenizer.
+Our optimizer is \texttt{BertAdam} with a warmup rate of 0.1. 
+The base model is trained for two epochs with a learning rate of 1e-5 and a batch size of 12.
+The alternative model is trained for four epochs with a learning rate of 2e-5 and a batch size set to 32.
+This settings are based on the parameters recommended in \newcite{devlin2019bert}. 
+
+The rhetorical technique feature is generated using the Arguing Lexicon \cite{somasundaran2007detecting}, as in the previous task.
+We create the two named entity features using spaCy's pretrained named entity tagger (version 2.0.0) based on its predictions for `NORP' (nationalities, religious or political groups) and `GPE' (countries, cities, states).
+
+
+In order to build the base model's feed-forward neural network, we use Keras 2.2.5 for Tensorflow 1.14.
+The best results on the development set are achieved using a hidden layer with 128 units and a dropout rate of 25\%.
+This multilayer perceptron is trained for 15 epochs using a batch size of 128 instances.
+To minimize the cross entropy, we use the Adam optimizer with a learning rate set to 0.001.
+
+This final base model is chosen after a series of experiments exploring different input representations and machine learning models.
+
+As alternative BERT embeddings, we also test the cased version of HuggingFace's pretrained base model.
+Additionally, we experiment with alternatives to the pre-softmax layer of \texttt{BertForSequenceClassification}.
+To embed a sequence with BERT, it needs to be pre- and suffixed with two special embeddings, \texttt{[CLS]} and \texttt{[SEP]}.
+BERT's embedding for \texttt{[CLS]} in its final layer represents the entire sequence \cite{devlin2019bert}.
+We extract this embedding and concatenate it with the final-layer representations of the first ten actual tokens and feed this input to three different machine learning architectures.
+We use the Keras 2.2.5 implementation of a convolutional neural network (CNN) (3 layers of size 128, max pooling, dense layer)  as well as the KimCNN (a CNN architecture developed for NLP tasks by \newcite{kim-2014-convolutional}) and a multilayer-perceptron (same configuration as for our actual base model).
+
+In a further set of experiments, we compare different classifiers on top of the pre-softmax layer from \texttt{BertForSequenceClassification}.
+Firstly, we inspect the actual output of \texttt{BertForSequenceClassification}.
+We also test out the following classifiers: a decision tree with extreme gradient boosting \cite{chen2016xgboost}, a single-layer perceptron (with the same set-up as the neural net in the base model, only without the hidden layer) and a support vector machine (SVM) with the default configuration of Scikit-learn version 0.22.2 \cite{scikit-learn}.
+
+We also explore different input features (and combinations thereof) in an architecture otherwise identical to our actual base model.
+We use four additional binary named entity features (also created with spaCy) that indicate whether a text fragment contains organizations, names of people, cardinal numbers, and dates.
+Moreover, we test binary features indicating whether a fragment contains tokens related to the US (\textit{America}) or to the \textsc{reductio ad hitlerum} class (\textit{reductio}).
+Furthermore, we use the Natural Language Understanding Tool by IBM Cloud\footnote{\url{https://cloud.ibm.com/catalog/services/natural-language-understanding}} to get each fragment's anger, disgust, fear, joy and sadness ratings.
+Each value is between $0.0$ and $1.0$ and stored as an individual feature.
+We also examine two numerical features, one encoding the sequence length (in tokens) and the other encoding how often a text fragment is repeated in the given news article.
+
+This subtask is scored based on micro-averaged F1-score.
+
+\section{Results}
+
+
+\begin{table}[t]
+    \centering
+    \input{tables/task1-ablation}
+    \caption{Different embeddings and feature combinations for the development set of the SI task. The results are mean values across five runs. The configuration for our final model is in italics.}
+    \label{tab:task1-ablation}
+\end{table}
+
+\subsection{Span identification}
+
+Our best model achieves an F1-score of 42.39\% on the development set and 43.86\% on the test set (rank 8 of 35).
+In this subsection, we describe the findings of our feature ablation experiments.
+The detailed results can be found in Table~\ref{tab:task1-ablation}.
+
+Using the simplest token embedding (100-dimensional GloVe) yields a low precision but very high recall score (20.15\% compared to 73.07\%).
+Using larger (300-dimensional GloVe) or more sophisticated embeddings (BERT) lowers the system's recall score while increasing precision enough to also increase the F1-score.
+
+Adding linguistic features generally has similar effects.
+It should be noted, however, that while adding features mostly raises the overall score,
+the strength of this effect and the best composition of feature combinations vary greatly across runs.
+
+
+
+We observe a significant increase in performance by adding post-processing steps that make the model both more robust to initialization differences and improve the predictions.
+Majority voting across 5 model initializations raises the F1-score by more than one percentage point.
+During almost all runs, we observe that the predictions after majority voting have higher precision and recall scores than any of the individual predictions that went into this voting process.
+Merging nearby spans also yields better results for both metrics.
+We achieve good results for a range of minimum gap lengths (between 10 and 40 characters); optimum values within this range do not generalize between model initializations.
+
+
+
+\begin{table}[t]
+    \centering
+    \input{tables/task2-ablation-abridged}
+    \caption{Different embeddings, feature combinations and models for the development set of the TC task.
+
+    Where the tokens for the BERT embeddings are not specified, all token embeddings are used as input to the linear classifier, whose pre-softmax layer of the linear classifier is referred to as `pre-softmax.'
+    The results are mean values across five runs.
+    The configuration for our final model is in italics.
+    The full version of this table can be found in the appendix.
+    }
+    \label{tab:task2-ablation-abridged}
+\end{table}
+
+
+\subsection{Technique classification}
+
+Our final model for the TC task achieves a 66.42\% F1-score on the development set and 57.37\% on the
+test set, placing us eighth out of 31 teams.
+Table~\ref{tab:task2-ablation-abridged} presents part of our feature ablation study; the full table can be found in the appendix.
+
+We notice that our model design choices influence the model's performance at all stages of our system architecture.
+Firstly, when choosing embeddings to represent the input fragments, we observe that, like in the SI task, the uncased BERT embeddings yield better results than the cased versions.
+We also note that feeding the output of \texttt{BertForSequenceClassification}'s pre-softmax layer into another machine learning model leads to a higher F1-score than feeding in BERT embeddings (of \texttt{[CLS]} and the first ten tokens) directly: ca. 63\% versus 31.89-58.7\%.
+The latter range is so large because the model choice for that set-up matters: the KimCNN yields significantly better results than a standard CNN, but it is still outperformed by the multilayer perceptron. 
+
+Furthermore, we observe that the repetition pre-processing step markedly improves final results.
+In the base model (sans additional features), adding this step boosts the overall F1-score by 7 percentage points to 63.41\%, and the \textsc{repetition} F1-score alone from 12.36 to 65.5\%.
+We see that the choice of machine learning model has a modest effect for this architecture:
+Using an SVM or a multilayer perceptron yields marginally better results than using the linear classifier whose layer is fed into the other models, which in turn outperforms the decision trees with extreme gradient boosting and the single-layer perceptron slightly.
+
+Adding additional features also has a slight effect on the outcome.
+
+Based on mean values across five model initializations, 
+the bag-of-words features (\textit{America}, \textit{reductio}), the emotion feature and NE-2 slightly decrease the overall F1-score,
+the sequence length feature and NE-6 do not change the result,
+and the repetition count, the rhetorical phrase lexicon and the question mark feature as well as a combination of NE-2/6, the rhetorical lexicon and the question mark feature improve the score.
+Interestingly, combining the features does not have an additive effect; some features work better in combination with others than on their own and vice versa.
+Both the question mark feature on its own as well as together with NE-2 and the rhetorical lexicon score highest (63.59\%), but the scores of individual runs with the multi-feature model are more stable.
+Further combinations of features are omitted from the table, but lead to results in the same range as the presented features and score lower than the base model set-up.
+
+
+The propaganda technique we paid the most attention to while building the system, both during pre- and post-processing, is \textsc{repetition}.
+This allows our team to achieve the best development phase result among all teams for \textsc{repetition} predictions (73.3\%).
+The repetition post-processing steps
+helps to boost model performance by almost 3 F1 percentage points beyond the base model, allowing our system to reach an overall F1 score of 66.40\%.
+
+
+\subsection{Model performance by propaganda technique}
+
+\begin{table}[t]
+\centering
+\input{tables/class-breakdown}
+\caption{
+Technique-level breakdown of model performances for both subtasks.
+The proportions, recall values and F1-scores are percentages.
+The change of the F1-score
+
+is given in percentage points.
+}
+\label{tab:class-breakdown}
+\end{table}
+
+Our models do not perform equally well for each propaganda technique.
+The scoreboard for the TC subtask includes F1-scores for each technique, and
+with the help of the gold-standard labels for the development data for the TC subtask, we can calculate the recall score for each propaganda technique.
+Table~\ref{tab:class-breakdown} shows this technique-level breakdown for both subtasks.
+
+In the SI subtask,
+the largest classes all have high recall scores (at least 63\%), likely due to their being well-represented in the data and because they tend to be very short text fragments (making it more probable to retrieve (nearly) complete spans).
+
+The results for the smaller classes are mixed.
+The recall score for \textsc{whataboutism, straw men, red herring} is relatively low,
+and our technique classification system does not produce any predictions for the this class.
+This might be due to the fact that such derailment techniques tend to be based on the discourse structure rather than more local syntactic or semantic patterns.
+
+
+Our technique classification system also demonstrates a clear tendency towards better predictions for the classes representing large proportions of the training data,
+which is expected because these classes are weighted more heavily in the micro-averaged F1 metric.
+Each of three most frequent classes (\textsc{loaded language}, \textsc{name calling, labeling} and \textsc{repetition}) reaches an F1-score of above 70\% during the development phase (Table~\ref{tab:class-breakdown}). 
+
+Most moderately frequent classes (\textsc{doubt}, \textsc{exaggeration, minimisation}, \textsc{flag-waving}, and \textsc{slogans}) score at least 50\% F1 in each category.
+The only exception is for predictions on \textsc{appeal to fear/prejudice}.
+
+Despite being a frequent class, predictions here top out at an F1 score of 30.6\% (on the development set).
+As mentioned above, there are no predictions for \textsc{whataboutism, straw men, red herring}, but 
+the five least frequent classes reach F1-scores of $20\pm3$\% during the development phase.
+
+The confusion matrix of the development set predictions for the TC subtask can be found in the appendix (Figure~\ref{fig:task2-confusion-matrix}).
+Quite often, the model misclassifies instances of other classes as \textsc{loaded language}, the most frequent class in the data.
+For example, 36\% of \textsc{appeal to fear/prejudice} instances were classified as \textsc{loaded language}.
+
+
+The model performs worse on test data, presumably due to having been overtuned on the development set or due to different label distributions in the development and test sets.
+Only four classes manage to achieve better results in the test phase.
+The most significant improvement is achieved in the \textsc{appeal to fear/prejudice} class, with an F1-score increase of more than 9 percentage points.
+The most frequent class, \textsc{loaded language}, remains stable in test runs;
+its F1-score decreases only by 1.9 percentage points.
+The individual F1-score of 5 classes drop by more than 10 percentage points.
+All those classes are quite frequent and represent almost half (49.1\%) of the instances of the development data.
+As a result, the overall F1-score on test data drops by 9 percentage points.
+
+The most significant decrease occurs in the \textsc{repetition} class with a drop of over 25 percentage points.
+All teams demonstrate significantly worse test phase results for this technique compared to the development phase.
+Only two teams out of 31 manage to score at least 50\% for this class, while only five more teams manage results above 30\%.
+
+
+\section{Conclusion}
+
+
+
+While fair results on propaganda detection can be achieved with BERT embeddings alone, we further improve the performance on this task through the addition of linguistic features and pre- and post-processing techniques.
+Our error analysis indicates that majority voting across several runs additionally increases the F1-score and stability of the model.
+
+Future work can proceed in different directions.
+In our experiments for the SI subtask, we applied majority voting across different runs of the same model,
+but it could be beneficial 
+to use majority voting
+to combine predictions from the high-recall GloVe-based model with the high-precision BERT-based model.
+Another potential source of improvement for either subtask is retraining the BERT model, similarly to \newcite{mapes-etal-2019-divisive} and \newcite{yoosuf2019fine}.
+Finally, training a joint system for both subtasks, 
+as \newcite{EMNLP19DaSanMartino} have done, 
+may result in more accurate predictions.
+
+
+\section*{Acknowledgments}
+
+
+We thank Dr. \c{C}a\u{g}r\i{} \c{C}{\"o}ltekin for useful discussions and his guidance throughout this project.
+
+
+\bibliographystyle{coling}
+\bibliography{semeval2020}
+
+\newpage
+
+
+\begin{appendices}
+
+\section{Supplemental Material}
+\label{sec:supplemental}
+
+
+
+
+\begin{table}[h]
+    \centering
+    \input{tables/task2-ablation}
+    \caption{Different embeddings, feature combinations and models for the development set of the TC task.
+    Where the tokens for the BERT embeddings are not specified, all token embeddings are used as input to the linear classifier, whose pre-softmax layer of the linear classifier is referred to as
+    `pre-softmax.'
+    The results are mean values across five runs.
+    The configuration for our final model is in italics.}
+    \label{tab:task2-ablation}
+\end{table}
+
+\begin{figure}[h]
+  \centering
+    \includestandalone[width=0.9\textwidth]{figures/confusion-matrix}
+  \caption{
+  Confusion matrix for technique classification predictions on the development set.
+  Rows represent true labels and columns predicted labels.
+  The numbers in the matrix are absolute instance counts.
+  The colour scale indicates each classification's frequency relative to its row (true label).
+  }
+   \label{fig:task2-confusion-matrix}
+\end{figure}
+\end{appendices}
+
+\end{document}

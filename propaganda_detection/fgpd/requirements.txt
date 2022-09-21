@@ -1,0 +1,4 @@
+torch
+numpy
+scikit-learn
+pytorch-pretrained-bert==0.4
