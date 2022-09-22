@@ -28,17 +28,17 @@ python prompt_gpt_j.py \
 
 # Dev
 
-python prompt_gpt_j.py \
-    --task output_explagraph \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib \
-    --output_file tmp/explagraph/dev.tsv
+# python prompt_gpt_j.py \
+#     --task output_explagraph \
+#     --input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib \
+#     --output_file tmp/explagraph/dev.tsv
 
-# Test
+# # Test
 
-python prompt_gpt_j.py \
-    --task output_explagraph \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib \
-    --output_file tmp/explagraph/test.tsv
+# python prompt_gpt_j.py \
+#     --task output_explagraph \
+#     --input_file tmp/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib \
+#     --output_file tmp/explagraph/test.tsv
 
 
 

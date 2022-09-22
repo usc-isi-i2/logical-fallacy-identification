@@ -1,0 +1,154 @@
+  0%|          | 0/300 [00:00<?, ?it/s]                                       Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 84, in __load
+    root = nltk.data.find(f"{self.subdir}/{zip_name}")
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/data.py", line 583, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4.zip/omw-1.4/[0m
+
+  Searched in:
+    - '/cluster/raid/home/zhivar.sourati/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/share/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wordnet_augmentation.py", line 195, in <module>
+    if check_if_words_are_synonyms(node1_label, node2_label):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wordnet_augmentation.py", line 119, in check_if_words_are_synonyms
+    word1_syns = find_synsets(word1)
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wordnet_augmentation.py", line 71, in find_synsets
+    for syn in wn.synsets(word):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 121, in __getattr__
+    self.__load()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 89, in __load
+    corpus = self.__reader_cls(root, *self.__args, **self.__kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/reader/wordnet.py", line 1176, in __init__
+    self.provenances = self.omw_prov()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/reader/wordnet.py", line 1285, in omw_prov
+    fileids = self._omw_reader.fileids()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 121, in __getattr__
+    self.__load()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 86, in __load
+    raise e
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 81, in __load
+    root = nltk.data.find(f"{self.subdir}/{self.__name}")
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/data.py", line 583, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4[0m
+
+  Searched in:
+    - '/cluster/raid/home/zhivar.sourati/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/share/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+  0%|          | 0/300 [00:00<?, ?it/s]                                       Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 84, in __load
+    root = nltk.data.find(f"{self.subdir}/{zip_name}")
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/data.py", line 583, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4.zip/omw-1.4/[0m
+
+  Searched in:
+    - '/cluster/raid/home/zhivar.sourati/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/share/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wordnet_augmentation.py", line 195, in <module>
+    if check_if_words_are_synonyms(node1_label, node2_label):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wordnet_augmentation.py", line 119, in check_if_words_are_synonyms
+    word1_syns = find_synsets(word1)
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wordnet_augmentation.py", line 71, in find_synsets
+    for syn in wn.synsets(word):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 121, in __getattr__
+    self.__load()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 89, in __load
+    corpus = self.__reader_cls(root, *self.__args, **self.__kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/reader/wordnet.py", line 1176, in __init__
+    self.provenances = self.omw_prov()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/reader/wordnet.py", line 1285, in omw_prov
+    fileids = self._omw_reader.fileids()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 121, in __getattr__
+    self.__load()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 86, in __load
+    raise e
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/corpus/util.py", line 81, in __load
+    root = nltk.data.find(f"{self.subdir}/{self.__name}")
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/nltk/data.py", line 583, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93momw-1.4[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('omw-1.4')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mcorpora/omw-1.4[0m
+
+  Searched in:
+    - '/cluster/raid/home/zhivar.sourati/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/share/nltk_data'
+    - '/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+

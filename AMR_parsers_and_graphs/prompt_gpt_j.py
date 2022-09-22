@@ -199,7 +199,11 @@ if __name__ == "__main__":
         with open(args.output_file, 'w') as f:
             for index, obj in enumerate(sentences_with_amr_objects):
                 belief_arguments = obj[1].belief_argument
-                if belief_arguments is not None and not is_empty(belief_arguments[0]) and not is_empty(belief_arguments[1]):
+                if belief_arguments is not None and not is_empty(belief_arguments[0]) and not is_empty(belief_arguments[1]) and \
+                    len(belief_arguments[0].split()) < 50 and len(belief_arguments[1].split()) < 50 and \
+                        len(belief_arguments[0].split()) > 5 and len(belief_arguments[1].split()) > 5:
+                    belief_arguments = (belief_arguments[0].replace(
+                        '\n', '; '), belief_arguments[1].replace('\n', '; '))
                     if index == len(sentences_with_amr_objects) - 1:
                         f.write(
                             f"{belief_arguments[0]}\t{belief_arguments[1]}\tsupport\t(marriage; capable of; deceiving)"
@@ -214,7 +218,9 @@ if __name__ == "__main__":
         with open(args.output_file, 'w') as f:
             for index, obj in enumerate(sentences_with_amr_objects):
                 belief_arguments = obj[1].belief_argument
-                if belief_arguments is not None and not is_empty(belief_arguments[0]) and not is_empty(belief_arguments[1]):
+                if belief_arguments is not None and not is_empty(belief_arguments[0]) and not is_empty(belief_arguments[1]) and \
+                    len(belief_arguments[0].split()) < 50 and len(belief_arguments[1].split()) < 50 and \
+                        len(belief_arguments[0].split()) > 5 and len(belief_arguments[1].split()) > 5:
                     keywords = kw_model.extract_keywords(obj[0], keyphrase_ngram_range=(
                         1, 2), use_mmr=True, diversity=0.7, stop_words='english', top_n=5)
                     keywords = [keyword[0] for keyword in keywords]

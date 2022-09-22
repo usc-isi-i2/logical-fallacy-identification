@@ -1,0 +1,25 @@
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x14763bc4ff06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x14763bc478e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x14763bb6ce09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14763bc50a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x14763bb6a948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14763bc50a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x14763bb25b46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x14763b58a46a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x1477407078a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x147740707a60]
+python(+0x28db18) [0x5593e4f72b18]
+python(+0x28db4b) [0x5593e4f72b4b]
+python(+0x28db90) [0x5593e4f72b90]
+python(_PyRun_SimpleFileObject+0x1e6) [0x5593e4f763e6]
+python(_PyRun_AnyFileObject+0x44) [0x5593e4f764c4]
+python(Py_RunMain+0x35d) [0x5593e4f775bd]
+python(Py_BytesMain+0x39) [0x5593e4f777d9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x1477406e5083]
+python(+0x2125d4) [0x5593e4ef75d4]
+/var/spool/slurm/slurmd/job06103/slurm_script: line 36: 969882 Aborted                 (core dumped) python train.py --experiment train --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib --input_type amr --augments wordnet

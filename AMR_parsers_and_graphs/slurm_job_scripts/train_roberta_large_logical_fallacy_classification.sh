@@ -19,21 +19,28 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
+# python train.py \
+#     --experiment train \
+#     --train_input_file data/edu_train.csv \
+#     --dev_input_file data/edu_dev.csv \
+#     --test_input_file data/edu_test.csv \
+#     --input_type csv
+
+
+# python train.py \
+#     --experiment train \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib \
+#     --input_type amr \
+#     --augments wordnet
+
+
 python train.py \
     --experiment train \
     --train_input_file data/edu_train.csv \
     --dev_input_file data/edu_dev.csv \
     --test_input_file data/edu_test.csv \
     --input_type csv
-
-
-python train.py \
-    --experiment train \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib \
-    --input_type amr \
-    --augments wordnet
-
 
 conda deactivate

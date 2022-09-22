@@ -32,7 +32,7 @@ conda activate explagraph
 # FIXME: Check the bug here for the test set
 
 # for split in "train" "dev" "test"
-for split in "test"
+for split in "train"
 do
 
 rm -rf ./data/dev.tsv ./data/test.tsv
@@ -80,7 +80,7 @@ python ./structured_model/run_joint_model.py \
     --do_eval_edge \
     --do_lower_case \
     --data_dir ./data \
-    --per_gpu_eval_batch_size 8 \
+    --per_gpu_eval_batch_size 1 \
     --per_gpu_train_batch_size 8 \
     --learning_rate 1e-5 \
     --num_train_epochs 10 \

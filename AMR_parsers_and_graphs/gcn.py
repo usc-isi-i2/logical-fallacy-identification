@@ -4,7 +4,7 @@ from embeddings import get_bert_embeddings
 import re
 from torch_geometric.loader import DataLoader
 from torch import nn
-from torch_geometric.nn import global_mean_pool, SAGEConv, RGCNConv, HEATConv
+from torch_geometric.nn import global_mean_pool, GATv2Conv, TransformerConv
 import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from torch_geometric.utils.convert import from_networkx
@@ -16,30 +16,40 @@ from IPython import embed
 import joblib
 from tqdm import tqdm
 
+BATCH_SIZE = 16
+NUM_EPOCHS = 80
+MID_LAYER_DROPOUT = 0.2
+LAYERS_EMBEDDINGS = [128, 64, 32]
+LEARNING_RATE = 1e-4
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-# device = torch.device('cpu')
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device("cpu")
 print(device)
 
 
 class NormalNet(torch.nn.Module):
-    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, num_relations):
+    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, heads=8):
         super(NormalNet, self).__init__()
+        self.mid_layer_dropout = mid_layer_dropout
 
-        self.conv1 = HEATConv(
+        self.conv1 = TransformerConv(
             num_input_features,
-            mid_layer_embeddings[0]
-        )
-        self.conv2 = HEATConv(
             mid_layer_embeddings[0],
-            mid_layer_embeddings[1]
+            dropout=0.1,
+            edge_dim=1,
+            heads=heads
         )
-
-        self.dropout = nn.Dropout(mid_layer_dropout)
-
-        self.conv3 = HEATConv(
+        self.conv2 = TransformerConv(
+            heads * mid_layer_embeddings[0],
             mid_layer_embeddings[1],
-            mid_layer_embeddings[2]
+            dropout=0.1,
+            edge_dim=1,
+            heads=heads // 2
+        )
+        self.conv3 = TransformerConv(
+            heads // 2 * mid_layer_embeddings[1],
+            mid_layer_embeddings[2],
+            edge_dim=1,
         )
 
         self.lin = nn.Linear(mid_layer_embeddings[2], num_output_features)
@@ -47,22 +57,23 @@ class NormalNet(torch.nn.Module):
     def forward(self, data, batch):
         try:
             x, edge_index, edge_attr = data.x, data.edge_index, data.edge_attr
+            edge_attr = edge_attr.float()
 
             x = self.conv1(x, edge_index, edge_attr)
 
             x = F.relu(x)
-            x = self.dropout(x)
+            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
             x = self.conv2(x, edge_index, edge_attr)
 
             x = F.relu(x)
-            x = self.dropout(x)
+            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
             x = self.conv3(x, edge_index, edge_attr)
 
             x = global_mean_pool(x, batch)
 
-            x = F.dropout(x, training=self.training)
+            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
             x = self.lin(x)
         except Exception as e:
             print(e)
@@ -85,9 +96,9 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
     def processed_file_names(self):
         return ['data.pt']
 
-    @property
-    def num_relations(self) -> int:
-        return int(self.data.edge_type.max()) + 1
+    # @property
+    # def num_relations(self) -> int:
+    #     return int(self.data.edge_type.max()) + 1
 
     def _download(self):
         return
@@ -202,14 +213,7 @@ if __name__ == "__main__":
     dataset = Logical_Fallacy_Dataset(root='.')
     dataset = dataset.shuffle()
 
-    embed()
-
     last_train_index = int(len(dataset) * .8)
-    BATCH_SIZE = 16
-    NUM_EPOCHS = 120
-    MID_LAYER_DROPOUT = 0.2
-    LAYERS_EMBEDDINGS = [128, 64, 32]
-    LEARNING_RATE = 1e-4
 
     wandb.init(
         project="Logical Fallacy Detection GCN",
@@ -220,7 +224,8 @@ if __name__ == "__main__":
             "mid_layer_dropout": MID_LAYER_DROPOUT,
             "layers_embeddings": LAYERS_EMBEDDINGS,
             "batch_size": BATCH_SIZE,
-            "edge_type": True
+            "edge_attr": True,
+            "model": "TransformerConv"
         }
     )
 
@@ -239,8 +244,7 @@ if __name__ == "__main__":
         num_input_features=dataset.num_features,
         num_output_features=len(dataset.label2index),
         mid_layer_dropout=MID_LAYER_DROPOUT,
-        mid_layer_embeddings=LAYERS_EMBEDDINGS,
-        num_relations=dataset.num_relations
+        mid_layer_embeddings=LAYERS_EMBEDDINGS
     )
 
     model = model.to(device)

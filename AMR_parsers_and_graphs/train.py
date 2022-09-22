@@ -15,6 +15,13 @@ from datasets import Dataset, DatasetDict
 import argparse
 import networkx as nx
 
+
+NUM_LABELS = 13
+BATCH_SIZE = 16
+NUM_TRAINING_EPOCHS = 7
+DROPOUT_PROB = 0.1
+
+
 parser = argparse.ArgumentParser(
     description='Train a Classification Model for Logical Fallacy Detection')
 parser.add_argument(
@@ -130,9 +137,7 @@ def augment_records_with_similar_records(data_df: pd.DataFrame, num_cases: int =
     })
 
 
-NUM_LABELS = 13
-BATCH_SIZE = 16
-NUM_TRAINING_EPOCHS = 10
+# READING THE DATA
 
 if args.input_type == "csv":
     train_df = pd.read_csv(args.train_input_file)[
@@ -150,10 +155,7 @@ elif args.input_type == "amr":
     test_df = read_csv_from_amr(
         input_file=args.test_input_file, augments=args.augments.split('&'))
 
-embed()
-print(train_df.shape)
-print(train_df['masked_articles'].tolist()[:20])
-exit()
+# WHETHER TO AUGMENT THE DATA OR NOT
 
 if args.experiment == "case_augmented_training":
     train_df = augment_records_with_similar_records(train_df)
@@ -193,14 +195,17 @@ tokenized_dataset = dataset.map(
 
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 model = AutoModelForSequenceClassification.from_pretrained(
-    "roberta-large", num_labels=NUM_LABELS, hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1)
+    "roberta-large", num_labels=NUM_LABELS, hidden_dropout_prob=DROPOUT_PROB, attention_probs_dropout_prob=DROPOUT_PROB)
 
 print('Model loaded!')
 
 wandb.init(project="logical_fallacy_classification", entity="zhpinkman", config={
     "batch_size": BATCH_SIZE,
     "num_training_epochs": NUM_TRAINING_EPOCHS,
-    "experiment": args.experiment
+    "experiment": args.experiment,
+    "augments": args.augments,
+    'input_type': args.input_type,
+    "dropout_prob": DROPOUT_PROB
 })
 
 training_args = TrainingArguments(

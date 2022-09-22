@@ -1,0 +1,63 @@
+  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 14.11ba/s]100%|██████████| 2/2 [00:00<00:00, 14.09ba/s]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 57.58ba/s]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 57.55ba/s]
+Some weights of the model checkpoint at roberta-large were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'roberta.pooler.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-large and are newly initialized: ['classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight', 'classifier.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220922_001624-25htvwb8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run peachy-river-14
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/logical_fallacy_classification
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/logical_fallacy_classification/runs/25htvwb8
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+***** Running training *****
+  Num examples = 1849
+  Num Epochs = 10
+  Instantaneous batch size per device = 32
+  Total train batch size (w. parallel, distributed & accumulation) = 32
+  Gradient Accumulation steps = 1
+  Total optimization steps = 580
+Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/580 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  0%|          | 1/580 [00:00<06:57,  1.39it/s]  0%|          | 2/580 [00:00<04:08,  2.32it/s]  1%|          | 3/580 [00:01<03:53,  2.48it/s]  1%|          | 4/580 [00:01<03:34,  2.69it/s]  1%|          | 5/580 [00:01<03:17,  2.92it/s]  1%|          | 6/580 [00:02<03:00,  3.17it/s]  1%|          | 7/580 [00:02<02:45,  3.47it/s]Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 251, in <module>
+    trainer.train()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 1521, in train
+    return inner_training_loop(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 1763, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/trainer.py", line 2517, in training_step
+    loss.backward()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch/_tensor.py", line 363, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: CUDA out of memory. Tried to allocate 158.00 MiB (GPU 0; 39.59 GiB total capacity; 32.35 GiB already allocated; 36.19 MiB free; 37.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: \ 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: | 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: / 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: - 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: \ 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: | 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: / 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced peachy-river-14: https://wandb.ai/zhpinkman/logical_fallacy_classification/runs/25htvwb8
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220922_001624-25htvwb8/logs
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x148d24931f06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x148d249298e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x148d2484ee09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x148d24932a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x148d2484c948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x148d24932a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x148d24807b46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x148d2426c46a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x148e293ea8a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x148e293eaa60]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x148e293c808a]
+python(+0x2125d4) [0x559166bc15d4]
+/var/spool/slurm/slurmd/job06108/slurm_script: line 36: 971404 Aborted                 (core dumped) python train.py --experiment train --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib --input_type amr --augments wordnet

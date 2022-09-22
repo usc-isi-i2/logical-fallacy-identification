@@ -1,0 +1,31 @@
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220922_005159-2159jq89
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-sun-9
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/2159jq89
+  0%|          | 0/300 [00:00<?, ?it/s] 63%|██████▎   | 190/300 [00:00<00:00, 1897.76it/s]                                                   wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.002 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: | 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: | 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: | 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: | 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced chocolate-sun-9: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/2159jq89
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220922_005159-2159jq89/logs
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220922_005248-2vjns6sc
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run deft-energy-10
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/2vjns6sc
+  0%|          | 0/300 [00:00<?, ?it/s] 60%|██████    | 181/300 [00:00<00:00, 1809.55it/s]                                                   Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 133, in <module>
+    joblib.dump(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 518, in dump
+    raise ValueError(
+ValueError: Second argument should be a filename or a file-like object, None (type <class 'NoneType'>) was given.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: | 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: \ 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: | 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: / 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.007 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced deft-energy-10: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/2vjns6sc
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220922_005248-2vjns6sc/logs
+/var/spool/slurm/slurmd/job06115/slurm_script: line 39: --output_file: command not found

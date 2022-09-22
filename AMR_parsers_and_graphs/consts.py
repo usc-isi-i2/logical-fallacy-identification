@@ -34,6 +34,18 @@ PATH_TO_MASKED_SENTENCES_AMRS_DEV = ((Path(__file__).parent) /
 PATH_TO_MASKED_SENTENCES_AMRS_DEV_WITH_LABEL2WORD = ((Path(__file__).parent) /
                                                      "tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words.joblib").absolute()
 
+PATH_TO_MASKED_SENTENCES_AMRS_DEV_WITH_LABEL2WORD_WORDNET = ((Path(__file__).parent) /
+                                                             "tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib").absolute()
+
+PATH_TO_MASKED_SENTENCES_AMRS_TEST_WITH_LABEL2WORD_WORDNET = ((Path(__file__).parent) /
+                                                              "tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib").absolute()
+
+PATH_TO_MASKED_SENTENCES_AMRS_DEV_WITH_LABEL2WORD_WORDNET_CONCEPTNET = ((Path(__file__).parent) /
+                                                                        "tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet_conceptnet.joblib").absolute()
+
+PATH_TO_MASKED_SENTENCES_AMRS_TEST_WITH_LABEL2WORD_WORDNET_CONCEPTNET = ((Path(__file__).parent) /
+                                                                         "tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet_conceptnet.joblib").absolute()
+
 PATH_TO_MASKED_SENTENCES_AMRS_TEST = ((Path(__file__).parent) /
                                       "tmp/masked_sentences_with_AMR_container_objects_test.joblib").absolute()
 
@@ -49,6 +61,7 @@ PATH_TO_MASKED_SENTENCES_AMRS_WITH_LABEL2WORD_WORDNET = ((Path(__file__).parent)
 
 PATH_TO_MASKED_SENTENCES_AMRS_WITH_LABEL2WORD_WORDNET_CONCEPTNET = ((Path(__file__).parent) /
                                                                     "tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet_conceptnet.joblib").absolute()
+
 
 PATH_TO_MASKED_SENTENCES_AMRS_TMP = ((Path(__file__).parent) /
                                      "tmp/masked_sentences_with_AMR_container_objects.tmp.joblib").absolute()

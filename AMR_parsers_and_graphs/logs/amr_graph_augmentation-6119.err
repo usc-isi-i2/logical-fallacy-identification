@@ -1,0 +1,24 @@
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220922_014413-1pa42at4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run azure-durian-13
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1pa42at4
+  0%|          | 0/300 [00:00<?, ?it/s] 45%|████▌     | 135/300 [00:00<00:00, 1344.56it/s] 92%|█████████▏| 276/300 [00:00<00:00, 1378.98it/s]                                                   wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced azure-durian-13: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1pa42at4
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220922_014413-1pa42at4/logs
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220922_014501-26nbs4u7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run celestial-breeze-14
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/26nbs4u7
+  0%|          | 0/300 [00:00<?, ?it/s] 46%|████▌     | 137/300 [00:00<00:00, 1363.84it/s] 92%|█████████▏| 276/300 [00:00<00:00, 1375.26it/s]                                                   wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced celestial-breeze-14: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/26nbs4u7
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220922_014501-26nbs4u7/logs

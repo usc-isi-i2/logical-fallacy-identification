@@ -1,0 +1,19 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+No CUDA GPUs are available
+using CPU
+Number of edges added based on words being synonym: 0.8366666666666667
+Number of edges added based on words being antonyms: 0.05333333333333334
+Number of edges added based on words being entailed: 0.12
+Number of edges added based on words being part_of: 0.06666666666666667
+No CUDA GPUs are available
+using CPU
+Number of edges added based on words being synonym: 0.7766666666666666
+Number of edges added based on words being antonyms: 0.08666666666666667
+Number of edges added based on words being entailed: 0.15
+Number of edges added based on words being part_of: 0.06
+No CUDA GPUs are available
+using CPU
+Number of records 300
+No CUDA GPUs are available
+using CPU
+Number of records 300
