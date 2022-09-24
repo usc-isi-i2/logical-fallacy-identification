@@ -1,7 +1,9 @@
 import wandb
 from eval import get_random_predictions_for_pyg_metrics
 from embeddings import get_bert_embeddings
+import numpy as np
 import re
+from sklearn.preprocessing import OneHotEncoder
 from torch_geometric.loader import DataLoader
 from torch import nn
 from torch_geometric.nn import global_mean_pool, GATv2Conv, TransformerConv
@@ -15,44 +17,57 @@ from consts import *
 from IPython import embed
 import joblib
 from tqdm import tqdm
+import argparse
 
 BATCH_SIZE = 16
-NUM_EPOCHS = 80
-MID_LAYER_DROPOUT = 0.2
-LAYERS_EMBEDDINGS = [128, 64, 32]
-LEARNING_RATE = 1e-4
+NUM_EPOCHS = 40
+MID_LAYER_DROPOUT = 0.5
+LAYERS_EMBEDDINGS = [128]
+LEARNING_RATE = 1e-3
 
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-device = torch.device("cpu")
+
+parser = argparse.ArgumentParser(
+    description="Training and predicting the logical Fallacy types using Graph Neural Networks")
+parser.add_argument('--task', choices=['train', 'predict'],
+                    help="The task you want the model to accomplish")
+parser.add_argument(
+    '--model_path', help="The path from which we can find the pre-trained model")
+
+parser.add_argument('--train_input_file',
+                    help="The path to the dataset input file")
+
+args = parser.parse_args()
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# device = torch.device("cpu")
 print(device)
 
 
 class NormalNet(torch.nn.Module):
-    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, heads=8):
+    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, edge_dim, heads=8):
         super(NormalNet, self).__init__()
         self.mid_layer_dropout = mid_layer_dropout
 
-        self.conv1 = TransformerConv(
+        self.conv1 = GATv2Conv(
             num_input_features,
             mid_layer_embeddings[0],
-            dropout=0.1,
-            edge_dim=1,
-            heads=heads
+            edge_dim=edge_dim,
+            heads=1
         )
-        self.conv2 = TransformerConv(
-            heads * mid_layer_embeddings[0],
-            mid_layer_embeddings[1],
-            dropout=0.1,
-            edge_dim=1,
-            heads=heads // 2
-        )
-        self.conv3 = TransformerConv(
-            heads // 2 * mid_layer_embeddings[1],
-            mid_layer_embeddings[2],
-            edge_dim=1,
-        )
+        # self.conv2 = TransformerConv(
+        #     heads * mid_layer_embeddings[0],
+        #     mid_layer_embeddings[1],
+        #     dropout=0.1,
+        #     edge_dim=1,
+        #     heads=heads // 2
+        # )
+        # self.conv3 = TransformerConv(
+        #     heads // 2 * mid_layer_embeddings[1],
+        #     mid_layer_embeddings[2],
+        #     edge_dim=1,
+        # )
 
-        self.lin = nn.Linear(mid_layer_embeddings[2], num_output_features)
+        self.lin = nn.Linear(mid_layer_embeddings[-1], num_output_features)
 
     def forward(self, data, batch):
         try:
@@ -61,20 +76,22 @@ class NormalNet(torch.nn.Module):
 
             x = self.conv1(x, edge_index, edge_attr)
 
-            x = F.relu(x)
-            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+            # x = F.relu(x)
+            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
-            x = self.conv2(x, edge_index, edge_attr)
+            # x = self.conv2(x, edge_index, edge_attr)
 
-            x = F.relu(x)
-            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+            # x = F.relu(x)
+            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
-            x = self.conv3(x, edge_index, edge_attr)
+            # x = self.conv3(x, edge_index, edge_attr)
 
             x = global_mean_pool(x, batch)
 
             x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+
             x = self.lin(x)
+
         except Exception as e:
             print(e)
             embed()
@@ -84,12 +101,20 @@ class NormalNet(torch.nn.Module):
 
 
 class Logical_Fallacy_Dataset(InMemoryDataset):
-    def __init__(self, root, transform=None, pre_transform=None, pre_filter=None):
+    def __init__(self, path_to_dataset, ohe=None):
         self.amr_graphs_with_sentences = joblib.load(
-            PATH_TO_MASKED_SENTENCES_AMRS_WITH_LABEL2WORD)
+            path_to_dataset)
         self.edge_type2index = self.get_edge_mappings()
         self.label2index = self.get_label_mappings()
-        super().__init__(root, transform, pre_transform, pre_filter)
+        if ohe is None:
+            self.ohe = OneHotEncoder()
+            all_edge_types = np.array(
+                list(self.edge_type2index.keys())).reshape(-1, 1)
+            self.ohe.fit(all_edge_types)
+        else:
+            self.ohe = ohe
+
+        super().__init__(root='.')
         self.data, self.slices = torch.load(self.processed_paths[0])
 
     @property
@@ -148,8 +173,6 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
         return node2index
 
     def process(self):
-        # TODO add the embedding to the x property
-        # TODO add the edge_types to the edge_type property
         data_list = []
         for obj in tqdm(self.amr_graphs_with_sentences, leave=False):
             g = obj[1].graph_nx
@@ -161,15 +184,18 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 (
                     node2index[edge[0]],
                     node2index[edge[1]],
-                ): self.edge_type2index[edge[2]['label']]
+                ): edge[2]['label']
                 for edge in g.edges(data=True)
             }
-
             new_g.add_edges_from(list(all_edges.keys()))
             nx.set_node_attributes(new_g, index2embeddings, name='x')
             nx.set_edge_attributes(new_g, all_edges, 'edge_attr')
             pyg_graph = from_networkx(new_g)
-            pyg_graph.edge_attr = pyg_graph.edge_attr.reshape(-1, 1)
+
+            edge_attrs = np.array(pyg_graph.edge_attr).reshape(-1, 1)
+            pyg_graph.edge_attr = torch.from_numpy(
+                self.ohe.transform(edge_attrs).A)
+
             pyg_graph.y = torch.tensor([
                 self.label2index[obj[2]]
             ])
@@ -210,7 +236,7 @@ def test(model, loader):
 
 
 if __name__ == "__main__":
-    dataset = Logical_Fallacy_Dataset(root='.')
+    dataset = Logical_Fallacy_Dataset(path_to_dataset=args.train_input_file)
     dataset = dataset.shuffle()
 
     last_train_index = int(len(dataset) * .8)
@@ -225,7 +251,7 @@ if __name__ == "__main__":
             "layers_embeddings": LAYERS_EMBEDDINGS,
             "batch_size": BATCH_SIZE,
             "edge_attr": True,
-            "model": "TransformerConv"
+            "model": "GATv2Conv"
         }
     )
 
@@ -244,8 +270,11 @@ if __name__ == "__main__":
         num_input_features=dataset.num_features,
         num_output_features=len(dataset.label2index),
         mid_layer_dropout=MID_LAYER_DROPOUT,
-        mid_layer_embeddings=LAYERS_EMBEDDINGS
+        mid_layer_embeddings=LAYERS_EMBEDDINGS,
+        edge_dim=dataset.ohe.get_feature_names().shape[0]
     )
+    if args.task == "predict":
+        model.load_state_dict(torch.load(args.model_path))
 
     model = model.to(device)
     criterion = torch.nn.CrossEntropyLoss()
@@ -254,6 +283,7 @@ if __name__ == "__main__":
 
     for epoch in range(1, NUM_EPOCHS):
         train(model, train_data_loader, optimizer)
+
         train_acc, all_train_predictions, all_train_true_labels = test(
             model, train_data_loader)
         test_acc, all_test_predictions, all_test_true_labels = test(
@@ -285,3 +315,5 @@ if __name__ == "__main__":
                 y_pred=all_test_predictions,
                 y_true=all_test_true_labels
             ))
+    if args.task == "train":
+        torch.save(model.state_dict(), args.model_path)

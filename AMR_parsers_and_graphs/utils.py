@@ -13,10 +13,17 @@ from IPython import embed
 from custom_logger import get_logger
 import warnings
 warnings.filterwarnings("ignore")
+import argparse
+
+
+parser = argparse.ArgumentParser(description="The basic stuff to do with the sentences and their AMR graphs")
+parser.add_argument('--input_file', help="input file")
+parser.add_argument('--output_file', help = "output file")
+parser.add_argument('--task', help = "The task that should be done")
+args = parser.parse_args()
 
 
 from eval import compute_random_baseline, mean_average_precision
-
 
 
 logger = get_logger(
@@ -227,27 +234,14 @@ if __name__ == "__main__":
 
     # top_ns = [5, 10, 20]
     
+    if args.task == "amr_generation":
+        generate_amr_containers_from_csv_file(
+            input_data_path=args.input_file,
+            output_data_path=args.output_file
+        )
 
-    # generate_amr_containers_from_csv_file(
-    #     input_data_path=PATH_TO_ORIGINAL_DEV_DATA,
-    #     output_data_path=PATH_TO_MASKED_SENTENCES_AMRS_DEV
-    # )
-
-
-    # generate_amr_containers_from_csv_file(
-    #     input_data_path=PATH_TO_ORIGINAL_TEST_DATA,
-    #     output_data_path=PATH_TO_MASKED_SENTENCES_AMRS_TEST
-    # )
-
-
-    sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
-        sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS_DEV),
-        output_path=PATH_TO_MASKED_SENTENCES_AMRS_DEV_WITH_LABEL2WORD
-    )
-    
-
-    sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
-        sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS_TEST),
-        output_path=PATH_TO_MASKED_SENTENCES_AMRS_TEST_WITH_LABEL2WORD
-    )
-    
+        augment_amr_container_objects_with_clean_node_labels(
+            sentences_with_amr_container=joblib.load(args.output_file),
+            output_path=args.output_file
+        )
+        

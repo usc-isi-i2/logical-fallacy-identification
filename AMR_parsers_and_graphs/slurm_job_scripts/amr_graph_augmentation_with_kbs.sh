@@ -16,27 +16,28 @@ eval "$(conda shell.bash hook)"
 conda activate general
 
 # WORDNET
-# Dev split
-# python wordnet_augmentation.py \
-#     --input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words.joblib \
-#     --output_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib
 
-# # Test split
-# python wordnet_augmentation.py \
-#     --input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words.joblib \
-#     --output_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib
+for split in "train" "dev" "test"
+do
 
+python wordnet_augmentation.py \
+    --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_wordnet.joblib"
 
-# CONCEPTNET
-# Dev split
-python conceptnet_augmentation.py \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib \
-    --output_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet_conceptnet.joblib
+done
 
-# Test split
-python conceptnet_augmentation.py \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib \
-    --output_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet_conceptnet.joblib
+# # CONCEPTNET
+
+# for split in "train" "dev" "test"
+# do
+
+# python conceptnet_augmentation.py \
+#     --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+#     --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_conceptnet.joblib" \
+#     --rel_file data/conceptNet_relations.joblib \
+#     --label_file data/conceptNet_labels.joblib
+
+# done
 
 
 conda deactivate

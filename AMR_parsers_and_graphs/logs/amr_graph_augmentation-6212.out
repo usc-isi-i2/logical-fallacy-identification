@@ -1,0 +1,115 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+No CUDA GPUs are available
+using CPU
+Number of records 1849
+Number of edges added based on words being synonym: 30.717144402379663
+Number of edges added based on words being manner of: 0.7982693347755544
+Number of edges added based on words being related to: 35.47755543537047
+Number of edges added based on words being antonym: 1.756625202812331
+Number of edges added based on words being distinct from: 1.5494862087614927
+Number of edges added based on words being motivated by goal: 0.08112493239588967
+Number of edges added based on words being desires: 1.5321795565170362
+Number of edges added based on words being has a: 5.953488372093023
+Number of edges added based on words being not desires: 2.5067604110329906
+Number of edges added based on words being derived from: 0.0822065981611682
+Number of edges added based on words being causes: 0.2552731206057328
+Number of edges added based on words being has prerequisite: 0.24391563007030828
+Number of edges added based on words being etymologically related to: 0.0578691184424013
+Number of edges added based on words being is a: 1.7349918875067605
+Number of edges added based on words being at location: 0.3071930773391022
+Number of edges added based on words being similar to: 0.13196322336398053
+Number of edges added based on words being capable of: 0.2952947539210384
+Number of edges added based on words being entails: 0.029745808545159545
+Number of edges added based on words being has context: 0.6403461330448891
+Number of edges added based on words being used for: 0.1752298539751217
+Number of edges added based on words being receives action: 0.0027041644131963224
+Number of edges added based on words being part of: 0.37425635478637104
+Number of edges added based on words being has last subevent: 0.018929150892374257
+Number of edges added based on words being causes desire: 0.02163331530557058
+Number of edges added based on words being has first subevent: 0.0075716603569497025
+Number of edges added based on words being has subevent: 0.02650081124932396
+Number of edges added based on words being created by: 0.04434829637641969
+Number of edges added based on words being instance of: 0.005408328826392645
+Number of edges added based on words being form of: 0.01081665765278529
+Number of edges added based on words being has property: 0.0670632774472688
+Number of edges added based on words being not has property: 0.0075716603569497025
+Number of edges added based on words being made of: 0.009734991887506761
+Number of edges added based on words being language: 0.0005408328826392645
+Number of edges added based on words being influenced by: 0.003244997295835587
+Number of edges added based on words being product: 0.001081665765278529
+Number of edges added based on words being genre: 0.0016224986479177934
+Number of edges added based on words being defined as: 0.0016224986479177934
+Number of edges added based on words being located near: 0.0005408328826392645
+No CUDA GPUs are available
+using CPU
+Number of records 300
+Number of edges added based on words being synonym: 32.44
+Number of edges added based on words being related to: 36.62
+Number of edges added based on words being antonym: 1.6266666666666667
+Number of edges added based on words being distinct from: 1.5266666666666666
+Number of edges added based on words being part of: 0.29
+Number of edges added based on words being not desires: 2.3766666666666665
+Number of edges added based on words being has a: 6.03
+Number of edges added based on words being desires: 1.3066666666666666
+Number of edges added based on words being at location: 0.36333333333333334
+Number of edges added based on words being is a: 1.4633333333333334
+Number of edges added based on words being has last subevent: 0.023333333333333334
+Number of edges added based on words being causes: 0.2966666666666667
+Number of edges added based on words being manner of: 0.74
+Number of edges added based on words being capable of: 0.18333333333333332
+Number of edges added based on words being has context: 0.7133333333333334
+Number of edges added based on words being similar to: 0.16
+Number of edges added based on words being has property: 0.07
+Number of edges added based on words being has prerequisite: 0.18666666666666668
+Number of edges added based on words being entails: 0.01
+Number of edges added based on words being used for: 0.21666666666666667
+Number of edges added based on words being etymologically related to: 0.043333333333333335
+Number of edges added based on words being influenced by: 0.0033333333333333335
+Number of edges added based on words being motivated by goal: 0.04666666666666667
+Number of edges added based on words being causes desire: 0.02
+Number of edges added based on words being created by: 0.05333333333333334
+Number of edges added based on words being form of: 0.023333333333333334
+Number of edges added based on words being made of: 0.0033333333333333335
+Number of edges added based on words being derived from: 0.06333333333333334
+Number of edges added based on words being instance of: 0.006666666666666667
+Number of edges added based on words being has first subevent: 0.006666666666666667
+Number of edges added based on words being has subevent: 0.0033333333333333335
+Number of edges added based on words being genre: 0.0033333333333333335
+Number of edges added based on words being defined as: 0.006666666666666667
+Number of edges added based on words being not has property: 0.006666666666666667
+No CUDA GPUs are available
+using CPU
+Number of records 300
+Number of edges added based on words being synonym: 31.09
+Number of edges added based on words being desires: 1.6566666666666667
+Number of edges added based on words being related to: 34.89333333333333
+Number of edges added based on words being manner of: 0.7933333333333333
+Number of edges added based on words being used for: 0.22
+Number of edges added based on words being causes desire: 0.01
+Number of edges added based on words being causes: 0.22666666666666666
+Number of edges added based on words being has prerequisite: 0.25666666666666665
+Number of edges added based on words being has a: 5.626666666666667
+Number of edges added based on words being not desires: 2.68
+Number of edges added based on words being is a: 1.8266666666666667
+Number of edges added based on words being distinct from: 1.5733333333333333
+Number of edges added based on words being antonym: 1.7133333333333334
+Number of edges added based on words being not has property: 0.016666666666666666
+Number of edges added based on words being has context: 0.44666666666666666
+Number of edges added based on words being capable of: 0.29
+Number of edges added based on words being at location: 0.3233333333333333
+Number of edges added based on words being similar to: 0.21666666666666667
+Number of edges added based on words being derived from: 0.04
+Number of edges added based on words being motivated by goal: 0.05
+Number of edges added based on words being genre: 0.006666666666666667
+Number of edges added based on words being part of: 0.14333333333333334
+Number of edges added based on words being made of: 0.0033333333333333335
+Number of edges added based on words being has subevent: 0.013333333333333334
+Number of edges added based on words being etymologically related to: 0.043333333333333335
+Number of edges added based on words being has property: 0.05333333333333334
+Number of edges added based on words being entails: 0.03333333333333333
+Number of edges added based on words being created by: 0.043333333333333335
+Number of edges added based on words being defined as: 0.0033333333333333335
+Number of edges added based on words being form of: 0.01
+Number of edges added based on words being capital: 0.0033333333333333335
+Number of edges added based on words being has last subevent: 0.01
+Number of edges added based on words being has first subevent: 0.0033333333333333335

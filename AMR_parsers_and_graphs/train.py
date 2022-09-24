@@ -10,6 +10,7 @@ from transformers import TrainingArguments, Trainer, \
     AutoTokenizer, AutoModelForSequenceClassification
 from transformers import DataCollatorWithPadding
 from IPython import embed
+import re
 from sklearn.preprocessing import LabelEncoder
 from datasets import Dataset, DatasetDict
 import argparse
@@ -56,10 +57,10 @@ def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]
         "entails": " entails ",
         "part_of": " is part of "
     }
-    results = []
+    results = set()
     for edge in graph.edges(data=True):
         if edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
-            results.append(
+            results.add(
                 f"{node2label[edge[0]]}{template_dict[edge[2]['label']]}{node2label[edge[1]]}"
             )
 
@@ -67,8 +68,17 @@ def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]
 
 
 def get_conceptnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-    # TODO: implemented this
-    raise NotImplementedError()
+    def convert_camelCase_to_space(label):
+        label = re.sub(
+            r'((?<=[a-z])[A-Z]|(?<!\A)[A-Z](?=[a-z]))', r' \1', label)
+        return label
+    results = set()
+    for edge in graph.edges(data=True):
+        if not edge[2]['label'].startswith('"') and not edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
+            results.add(
+                f"{node2label[edge[0]]} {convert_camelCase_to_space(edge[2]['label'])} {node2label[edge[1]]}"
+            )
+    return results
 
 
 def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
@@ -90,17 +100,17 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
         augmented_sentences = []
         if "wordnet" in augments:
             augmented_sentences.extend(
-                get_wordnet_edges_in_sentences(
+                list(get_wordnet_edges_in_sentences(
                     graph,
                     obj[1].label2word
-                )
+                ))
             )
         if "conceptnet" in augments:
             augmented_sentences.extend(
-                get_conceptnet_edges_in_sentences(
+                list(get_conceptnet_edges_in_sentences(
                     graph,
                     obj[1].label2word
-                )
+                ))
             )
         sentences.append(
             "; ".join([masked_sentence, *augmented_sentences])

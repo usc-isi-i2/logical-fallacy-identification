@@ -19,6 +19,11 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
+
+# TODO: Should be revised based on the names of the files \
+#  augmenting wordnet and conceptNet to the main datastes
+
+
 # python train.py \
 #     --experiment train \
 #     --train_input_file data/edu_train.csv \
@@ -26,7 +31,7 @@ conda activate general
 #     --test_input_file data/edu_test.csv \
 #     --input_type csv
 
-
+    
 # python train.py \
 #     --experiment train \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib \
@@ -36,11 +41,27 @@ conda activate general
 #     --augments wordnet
 
 
-python train.py \
-    --experiment train \
-    --train_input_file data/edu_train.csv \
-    --dev_input_file data/edu_dev.csv \
-    --test_input_file data/edu_test.csv \
-    --input_type csv
+# python train.py \
+#     --experiment train \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet_conceptnet.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet_conceptnet.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet_conceptnet.joblib \
+#     --input_type amr \
+#     --augments wordnet\&conceptnet
+
+# python train.py \
+#     --experiment train \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet_conceptnet.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet_conceptnet.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet_conceptnet.joblib \
+#     --input_type amr \
+#     --augments conceptnet
+
+# python train.py \
+#     --experiment case_augmented_training \
+#     --train_input_file data/edu_train.csv \
+#     --dev_input_file data/edu_dev.csv \
+#     --test_input_file data/edu_test.csv \
+#     --input_type csv
 
 conda deactivate
