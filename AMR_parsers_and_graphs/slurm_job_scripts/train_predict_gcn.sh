@@ -21,7 +21,12 @@ conda activate general
 
 python gcn.py \
     --task train \
+    --all_data tmp/masked_sentences_with_AMR_container_objects_all.joblib \
     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
     --model_path gcn_model.pt
+
+
 
 conda deactivate

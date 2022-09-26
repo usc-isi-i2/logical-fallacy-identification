@@ -1,0 +1,23 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220926_022010-1k1xy73c
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run misty-grass-52
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN/runs/1k1xy73c
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 314, in <module>
+    dev_acc, _, _ = test(
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 245, in test
+    return correct / len(loader.dataset), all_predictions, all_true_labels
+ZeroDivisionError: division by zero
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced misty-grass-52: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN/runs/1k1xy73c
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220926_022010-1k1xy73c/logs

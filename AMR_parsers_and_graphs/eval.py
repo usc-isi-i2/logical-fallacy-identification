@@ -50,15 +50,14 @@ def compute_random_baseline(fallacy_types_counts: pd.Series, fallacy_type: str, 
     return mean_average_precision(np.array(results))
 
 
-def get_random_predictions_for_pyg_metrics(dataset: InMemoryDataset, all_test_true_labels, size: int):
-    label2index = dataset.label2index
+def get_random_predictions_for_pyg_metrics(dataset: InMemoryDataset, all_test_true_labels, size: int, label2index: Dict[str, int]):
 
     classes_counts = defaultdict(int)
     for data in dataset:
         classes_counts[data.y.item()] += 1
 
     classes_probs = {
-        key: value / dataset.len()
+        key: value / len(dataset)
         for key, value in classes_counts.items()
     }
 

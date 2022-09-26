@@ -1,0 +1,66 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+Mon Sep 26 02:03:01 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:27:00.0 Off |                    0 |
+| N/A   28C    P0    33W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+cuda
+using GPU
+Number of training graphs: 1849
+Number of dev graphs: 299
+Number of test graphs: 299
+Epoch: 001, Train Acc: 0.2304, Test Acc: 0.0502
+Epoch: 002, Train Acc: 0.2829, Test Acc: 0.1037
+Epoch: 003, Train Acc: 0.3640, Test Acc: 0.0635
+Epoch: 004, Train Acc: 0.3889, Test Acc: 0.1003
+Epoch: 005, Train Acc: 0.4062, Test Acc: 0.0736
+Epoch: 006, Train Acc: 0.4321, Test Acc: 0.1070
+Epoch: 007, Train Acc: 0.4602, Test Acc: 0.0970
+Epoch: 008, Train Acc: 0.4370, Test Acc: 0.1137
+Epoch: 009, Train Acc: 0.4565, Test Acc: 0.0870
+Epoch: 010, Train Acc: 0.5316, Test Acc: 0.0502
+Epoch: 011, Train Acc: 0.5241, Test Acc: 0.0903
+Epoch: 012, Train Acc: 0.5533, Test Acc: 0.0569
+Epoch: 013, Train Acc: 0.5435, Test Acc: 0.0702
+Epoch: 014, Train Acc: 0.5376, Test Acc: 0.0702
+Epoch: 015, Train Acc: 0.5868, Test Acc: 0.0435
+Epoch: 016, Train Acc: 0.5782, Test Acc: 0.0836
+Epoch: 017, Train Acc: 0.5960, Test Acc: 0.0736
+Epoch: 018, Train Acc: 0.6193, Test Acc: 0.0602
+Epoch: 019, Train Acc: 0.6252, Test Acc: 0.1003
+Epoch: 020, Train Acc: 0.6193, Test Acc: 0.0468
+Epoch: 021, Train Acc: 0.6641, Test Acc: 0.0870
+Epoch: 022, Train Acc: 0.6679, Test Acc: 0.0903
+Epoch: 023, Train Acc: 0.6696, Test Acc: 0.0936
+Epoch: 024, Train Acc: 0.6771, Test Acc: 0.0669
+Epoch: 025, Train Acc: 0.6879, Test Acc: 0.0903
+Epoch: 026, Train Acc: 0.7074, Test Acc: 0.0769
+Epoch: 027, Train Acc: 0.7128, Test Acc: 0.0836
+Epoch: 028, Train Acc: 0.7339, Test Acc: 0.0836
+Epoch: 029, Train Acc: 0.7463, Test Acc: 0.0836
+Epoch: 030, Train Acc: 0.7220, Test Acc: 0.0769
+Epoch: 031, Train Acc: 0.7458, Test Acc: 0.0903
+Epoch: 032, Train Acc: 0.7415, Test Acc: 0.0836
+Epoch: 033, Train Acc: 0.7377, Test Acc: 0.0836
+Epoch: 034, Train Acc: 0.7463, Test Acc: 0.0870
+Epoch: 035, Train Acc: 0.7572, Test Acc: 0.0903
+Epoch: 036, Train Acc: 0.7572, Test Acc: 0.0870
+Epoch: 037, Train Acc: 0.7739, Test Acc: 0.0970
+Epoch: 038, Train Acc: 0.7772, Test Acc: 0.0870
+Epoch: 039, Train Acc: 0.7772, Test Acc: 0.0903
