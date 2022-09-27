@@ -1,0 +1,168 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+Tue Sep 27 08:45:16 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:28:00.0 Off |                    0 |
+| N/A   38C    P0    39W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+cuda
+using GPU
+doing the case augmentation ...
+                        precision    recall  f1-score   support
+
+            ad hominem       0.99      0.99      0.99       225
+            ad populum       0.96      0.99      0.98       158
+     appeal to emotion       1.00      0.96      0.98       130
+    circular reasoning       0.99      0.99      0.99       134
+          equivocation       0.90      0.92      0.91        39
+fallacy of credibility       0.98      0.99      0.99       107
+  fallacy of extension       1.00      0.97      0.99       106
+      fallacy of logic       0.95      0.99      0.97       121
+  fallacy of relevance       1.00      0.99      1.00       114
+       false causality       1.00      0.95      0.98       174
+         false dilemma       0.99      1.00      1.00       110
+ faulty generalization       0.98      1.00      0.99       319
+           intentional       0.99      0.97      0.98       112
+
+              accuracy                           0.98      1849
+             macro avg       0.98      0.98      0.98      1849
+          weighted avg       0.98      0.98      0.98      1849
+
+Number of data points augmented with high confidence: 0.6652244456462953
+Error finding the predicted label for sentence: " Just like students are given a couple of MSK0 of MSK3 before taking exams , MSK1 should also be given few days or MSK0 to MSK3 MSK1 before an operation or MSK2 , after all MSK2 is not as easy task " Is an example of .... 
+Error finding the predicted label for sentence: You do n’t have to do this . MSK0 grandmother is in the hospital . MSK0 need MSK0 salary to support MSK1 medication . MSK1 ’s dying . 
+Error finding the predicted label for sentence: I know MSK0 . MSK0 are all MSK1 . Therefore , Kentuckians are MSK1 . 
+Error finding the predicted label for sentence: MSK1 : What are MSK2 ? Do you even know ? MSK3 of State : MSK4 're ... what MSK4 MSK5 to make MSK6 ! MSK1 : But why do MSK4 MSK5 MSK4 to make MSK6 ? MSK3 of Defense : [ raises hand after a pause ] Because MSK2 . 
+Error finding the predicted label for sentence: This is a fallacy of irrelevance that is based solely on someone 's or MSK0 history , origin , or source rather than MSK0 current meaning 
+Error finding the predicted label for sentence: MSK0 : MSK0 should not be MSK1 that ... it has been scientifically proven that MSK1 MSK3 are no good for MSK0 health . Hugh : MSK0 MSK1 MSK3 all the time so that ca n’t be true . 
+Error finding the predicted label for sentence: MSK0 : MSK1 MSK0 MSK2 that MSK3 is morally MSK4 . MSK1 MSK5 : MSK1 Of course MSK5 would say that , MSK5 ’re a MSK6 . MSK1 MSK0 : MSK1 What about the arguments MSK0 gave to support MSK0 position ? MSK1 MSK5 : MSK1 Those do n’t count . Like MSK0 said , MSK5 ’re a MSK6 , so MSK5 have to say that MSK3 is MSK4 . Further , MSK5 are just a lackey to the Pope , so MSK0 ca n’t MSK2 what MSK5 say . MSK1 
+Error finding the predicted label for sentence: " There MSK0 was in the MSK1 of MSK2 , and yet a perfect stranger ; without home and without friends , in the MSK1 of thousands of MSK0 own brethren — children of a common Father , and yet MSK0 dared not to unfold to any one of MSK2 MSK0 sad condition . " Check each literary term found in this quote : 
+                        precision    recall  f1-score   support
+
+            ad hominem       0.49      0.47      0.48        36
+            ad populum       0.61      0.52      0.56        44
+     appeal to emotion       0.25      0.15      0.19        13
+    circular reasoning       0.48      0.56      0.51        18
+          equivocation       0.33      0.60      0.43         5
+fallacy of credibility       0.06      0.12      0.08         8
+  fallacy of extension       0.60      0.21      0.32        14
+      fallacy of logic       0.43      0.35      0.39        17
+  fallacy of relevance       0.25      0.17      0.20        24
+       false causality       0.50      0.42      0.45        24
+         false dilemma       0.68      0.68      0.68        19
+ faulty generalization       0.43      0.61      0.50        61
+           intentional       0.42      0.31      0.36        16
+
+              accuracy                           0.45       299
+             macro avg       0.42      0.40      0.40       299
+          weighted avg       0.46      0.45      0.44       299
+
+Number of data points augmented with high confidence: 0.31666666666666665
+Error finding the predicted label for sentence: People who drive big cars probably hate the environment . 
+Error finding the predicted label for sentence: MSK0 ca n't jump . No , really , MSK0 ca n't ! 
+Error finding the predicted label for sentence: MSK0 call MSK1 yet MSK0 can not lend MSK2 money for MSK2 school project , murdering MSK2 chance for a higher grade . MSK0 are just like MSK1 . 
+                        precision    recall  f1-score   support
+
+            ad hominem       0.47      0.51      0.49        41
+            ad populum       0.64      0.47      0.54        30
+     appeal to emotion       0.54      0.30      0.39        23
+    circular reasoning       0.19      0.32      0.24        19
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.27      0.35      0.31        17
+  fallacy of extension       0.80      0.38      0.52        21
+      fallacy of logic       0.18      0.21      0.19        14
+  fallacy of relevance       0.33      0.30      0.32        23
+       false causality       0.40      0.11      0.17        18
+         false dilemma       0.41      0.92      0.56        12
+ faulty generalization       0.52      0.59      0.55        61
+           intentional       0.50      0.47      0.48        15
+
+              accuracy                           0.43       299
+             macro avg       0.40      0.38      0.37       299
+          weighted avg       0.46      0.43      0.42       299
+
+Number of data points augmented with high confidence: 0.28
+Model loaded!
+Start the training ...
+{'loss': 2.5231, 'learning_rate': 9.461206896551725e-06, 'epoch': 0.43}
+{'eval_loss': 2.5176262855529785, 'eval_accuracy': 0.2054794520547945, 'eval_f1': 0.07004981320049813, 'eval_precision': 0.0422218052167386, 'eval_recall': 0.2054794520547945, 'eval_runtime': 0.7889, 'eval_samples_per_second': 370.158, 'eval_steps_per_second': 24.086, 'epoch': 0.43}
+{'loss': 2.4392, 'learning_rate': 8.922413793103449e-06, 'epoch': 0.86}
+{'eval_loss': 2.4448788166046143, 'eval_accuracy': 0.24315068493150685, 'eval_f1': 0.11763985303883383, 'eval_precision': 0.07861512385830596, 'eval_recall': 0.24315068493150685, 'eval_runtime': 0.7882, 'eval_samples_per_second': 370.481, 'eval_steps_per_second': 24.107, 'epoch': 0.86}
+{'loss': 2.1312, 'learning_rate': 8.383620689655173e-06, 'epoch': 1.29}
+{'eval_loss': 2.1307990550994873, 'eval_accuracy': 0.3424657534246575, 'eval_f1': 0.2915579850465564, 'eval_precision': 0.3591697210673424, 'eval_recall': 0.3424657534246575, 'eval_runtime': 0.7942, 'eval_samples_per_second': 367.673, 'eval_steps_per_second': 23.924, 'epoch': 1.29}
+{'loss': 1.8025, 'learning_rate': 7.844827586206897e-06, 'epoch': 1.72}
+{'eval_loss': 1.9358744621276855, 'eval_accuracy': 0.4143835616438356, 'eval_f1': 0.39282502666240865, 'eval_precision': 0.40931706026918363, 'eval_recall': 0.4143835616438356, 'eval_runtime': 0.7919, 'eval_samples_per_second': 368.752, 'eval_steps_per_second': 23.994, 'epoch': 1.72}
+{'loss': 1.5218, 'learning_rate': 7.306034482758622e-06, 'epoch': 2.16}
+{'eval_loss': 1.9620816707611084, 'eval_accuracy': 0.4417808219178082, 'eval_f1': 0.41254435723745275, 'eval_precision': 0.43522147036955106, 'eval_recall': 0.4417808219178082, 'eval_runtime': 1.2598, 'eval_samples_per_second': 231.781, 'eval_steps_per_second': 15.082, 'epoch': 2.16}
+{'loss': 1.1714, 'learning_rate': 6.767241379310346e-06, 'epoch': 2.59}
+{'eval_loss': 1.7726783752441406, 'eval_accuracy': 0.4897260273972603, 'eval_f1': 0.46772972271187935, 'eval_precision': 0.4896186185534921, 'eval_recall': 0.4897260273972603, 'eval_runtime': 0.8005, 'eval_samples_per_second': 364.771, 'eval_steps_per_second': 23.735, 'epoch': 2.59}
+{'loss': 1.1359, 'learning_rate': 6.228448275862069e-06, 'epoch': 3.02}
+{'eval_loss': 1.620057463645935, 'eval_accuracy': 0.547945205479452, 'eval_f1': 0.532071876955605, 'eval_precision': 0.5533873668674019, 'eval_recall': 0.547945205479452, 'eval_runtime': 0.8011, 'eval_samples_per_second': 364.512, 'eval_steps_per_second': 23.718, 'epoch': 3.02}
+{'loss': 0.8185, 'learning_rate': 5.689655172413794e-06, 'epoch': 3.45}
+{'eval_loss': 1.6969612836837769, 'eval_accuracy': 0.5273972602739726, 'eval_f1': 0.5130926180471279, 'eval_precision': 0.5478041575572581, 'eval_recall': 0.5273972602739726, 'eval_runtime': 0.8033, 'eval_samples_per_second': 363.52, 'eval_steps_per_second': 23.654, 'epoch': 3.45}
+{'loss': 0.7943, 'learning_rate': 5.150862068965518e-06, 'epoch': 3.88}
+{'eval_loss': 1.7072969675064087, 'eval_accuracy': 0.547945205479452, 'eval_f1': 0.5402609707003531, 'eval_precision': 0.5606536312015764, 'eval_recall': 0.547945205479452, 'eval_runtime': 0.8025, 'eval_samples_per_second': 363.87, 'eval_steps_per_second': 23.676, 'epoch': 3.88}
+{'loss': 0.6204, 'learning_rate': 4.612068965517242e-06, 'epoch': 4.31}
+{'eval_loss': 1.6636686325073242, 'eval_accuracy': 0.5821917808219178, 'eval_f1': 0.571392289851194, 'eval_precision': 0.590164140934924, 'eval_recall': 0.5821917808219178, 'eval_runtime': 0.8054, 'eval_samples_per_second': 362.552, 'eval_steps_per_second': 23.591, 'epoch': 4.31}
+{'loss': 0.5524, 'learning_rate': 4.073275862068966e-06, 'epoch': 4.74}
+{'eval_loss': 1.7487446069717407, 'eval_accuracy': 0.571917808219178, 'eval_f1': 0.5575053210262612, 'eval_precision': 0.589414631752686, 'eval_recall': 0.571917808219178, 'eval_runtime': 0.7976, 'eval_samples_per_second': 366.08, 'eval_steps_per_second': 23.82, 'epoch': 4.74}
+{'loss': 0.4462, 'learning_rate': 3.5344827586206898e-06, 'epoch': 5.17}
+{'eval_loss': 1.612658143043518, 'eval_accuracy': 0.6061643835616438, 'eval_f1': 0.5959910793146529, 'eval_precision': 0.6067727940375943, 'eval_recall': 0.6061643835616438, 'eval_runtime': 0.8, 'eval_samples_per_second': 365.015, 'eval_steps_per_second': 23.751, 'epoch': 5.17}
+{'loss': 0.3841, 'learning_rate': 2.9956896551724142e-06, 'epoch': 5.6}
+{'eval_loss': 1.606898307800293, 'eval_accuracy': 0.613013698630137, 'eval_f1': 0.603931842136678, 'eval_precision': 0.6115196732491254, 'eval_recall': 0.613013698630137, 'eval_runtime': 0.8017, 'eval_samples_per_second': 364.203, 'eval_steps_per_second': 23.698, 'epoch': 5.6}
+{'loss': 0.3688, 'learning_rate': 2.4568965517241382e-06, 'epoch': 6.03}
+{'eval_loss': 1.681566596031189, 'eval_accuracy': 0.6095890410958904, 'eval_f1': 0.6040780790743617, 'eval_precision': 0.6211864811686134, 'eval_recall': 0.6095890410958904, 'eval_runtime': 0.8037, 'eval_samples_per_second': 363.305, 'eval_steps_per_second': 23.64, 'epoch': 6.03}
+{'loss': 0.2562, 'learning_rate': 1.9181034482758622e-06, 'epoch': 6.47}
+{'eval_loss': 1.7993707656860352, 'eval_accuracy': 0.6095890410958904, 'eval_f1': 0.6023973049439298, 'eval_precision': 0.6414717060479554, 'eval_recall': 0.6095890410958904, 'eval_runtime': 0.803, 'eval_samples_per_second': 363.65, 'eval_steps_per_second': 23.662, 'epoch': 6.47}
+{'loss': 0.2797, 'learning_rate': 1.3793103448275862e-06, 'epoch': 6.9}
+{'eval_loss': 1.7428244352340698, 'eval_accuracy': 0.6061643835616438, 'eval_f1': 0.6014138617008408, 'eval_precision': 0.6208016956384526, 'eval_recall': 0.6061643835616438, 'eval_runtime': 0.8065, 'eval_samples_per_second': 362.062, 'eval_steps_per_second': 23.559, 'epoch': 6.9}
+{'loss': 0.2188, 'learning_rate': 8.405172413793105e-07, 'epoch': 7.33}
+{'eval_loss': 1.8076918125152588, 'eval_accuracy': 0.6164383561643836, 'eval_f1': 0.6087346753112869, 'eval_precision': 0.634912656918615, 'eval_recall': 0.6164383561643836, 'eval_runtime': 0.8034, 'eval_samples_per_second': 363.47, 'eval_steps_per_second': 23.65, 'epoch': 7.33}
+{'loss': 0.19, 'learning_rate': 3.0172413793103453e-07, 'epoch': 7.76}
+{'eval_loss': 1.804765224456787, 'eval_accuracy': 0.5993150684931506, 'eval_f1': 0.5896403900090512, 'eval_precision': 0.5977637122479991, 'eval_recall': 0.5993150684931506, 'eval_runtime': 0.811, 'eval_samples_per_second': 360.06, 'eval_steps_per_second': 23.429, 'epoch': 7.76}
+{'train_runtime': 214.8984, 'train_samples_per_second': 68.833, 'train_steps_per_second': 4.318, 'train_loss': 0.9582897661061123, 'epoch': 8.0}
+PredictionOutput(predictions=array([[-1.208068  , -0.32490292, -1.2639232 , ..., -1.4244173 ,
+        -0.17141172,  0.41088846],
+       [-0.7409144 , -1.8876112 , -0.36753815, ..., -1.4445019 ,
+        -1.0576559 , -0.12427872],
+       [-0.20230778, -0.8733028 ,  0.12940781, ..., -0.6368476 ,
+         6.763848  ,  0.1691391 ],
+       ...,
+       [-0.45694926,  6.8858037 , -0.8826748 , ..., -0.5056232 ,
+        -0.37567067, -0.45960253],
+       [-1.2785306 ,  3.3244548 , -1.4848475 , ..., -1.2166662 ,
+         1.0223111 ,  0.10464615],
+       [-0.96876615,  3.1656935 , -0.9750713 , ..., -1.8503993 ,
+        -1.1259276 , -0.4269167 ]], dtype=float32), label_ids=array([ 7,  9, 11,  6,  6, 11,  5,  3,  9, 11,  0,  1, 11, 12,  1,  7,  0,
+       12,  3,  1,  8,  3,  6,  8,  0,  0, 11,  0, 11,  3,  3,  5,  2,  8,
+        9,  1, 11,  1,  5, 12,  0, 12,  1,  2, 12,  0,  5,  7,  3, 11,  2,
+        4,  8,  3, 12, 11, 11, 10,  7, 11,  0, 10, 12,  0,  1,  8, 12,  5,
+       10,  5,  1,  8,  0, 12,  1,  7, 10, 12,  7,  7,  2,  0,  2, 10, 11,
+        0,  6,  0, 10,  9,  5,  5,  0,  9,  1,  2,  9,  0,  2,  0,  7, 11,
+        9,  6,  6,  9,  3, 12,  7, 11, 11, 11, 10,  2,  8,  9,  0,  7,  3,
+       11, 11, 12,  8,  0,  4, 11,  5,  8, 11,  1,  5, 11,  7, 11,  0, 11,
+        0, 11,  6,  0, 11, 11,  8, 11,  1,  8,  6,  5,  0, 11,  9,  0,  1,
+        5,  0,  1,  8,  8,  0,  2, 11, 11,  0,  6,  5,  6, 11,  2,  2,  7,
+        9, 11,  1, 11,  1,  8,  9,  8,  6,  3,  8, 10,  1,  2,  0, 11, 11,
+        3,  8,  6,  2,  4,  1, 11, 11, 11, 11,  0, 11,  2,  1,  8,  1,  9,
+        0,  1, 11,  1,  5,  1,  6,  5,  0,  8,  0,  1, 10, 11,  9,  0, 11,
+       12,  2,  4,  0, 11,  2, 12,  2, 11,  7,  3,  2,  2,  8,  3,  0,  2,
+       11,  8,  8,  9,  3, 11,  6, 11,  0,  3,  2,  8, 10, 12, 11,  5, 10,
+        6,  9, 11,  6,  3,  1,  6,  3,  7, 11,  6,  2, 11,  4, 10,  9,  2,
+        0, 11,  5,  1, 11,  6, 11,  9, 11,  0,  0,  0, 11, 11,  0,  1, 11,
+        1,  0,  3,  1,  6,  1, 11,  3]), metrics={'test_loss': 1.9499778747558594, 'test_accuracy': 0.5454545454545454, 'test_f1': 0.5367989601835456, 'test_precision': 0.542089549915357, 'test_recall': 0.5454545454545454, 'test_runtime': 1.2042, 'test_samples_per_second': 246.643, 'test_steps_per_second': 15.778})

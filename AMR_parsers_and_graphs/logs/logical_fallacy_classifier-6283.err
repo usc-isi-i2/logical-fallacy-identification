@@ -1,0 +1,34 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/huggingface_hub/utils/_errors.py", line 131, in _raise_for_status
+    response.raise_for_status()
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/bert/resolve/main/tokenizer_config.json
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/utils/hub.py", line 408, in cached_file
+    resolved_file = hf_hub_download(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1099, in hf_hub_download
+    _raise_for_status(r)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/huggingface_hub/utils/_errors.py", line 169, in _raise_for_status
+    raise e
+huggingface_hub.utils._errors.RepositoryNotFoundError: 401 Client Error: Repository Not Found for url: https://huggingface.co/bert/resolve/main/tokenizer_config.json. If the repo is private, make sure you are authenticated. (Request ID: _6hNXVfcdPl-NcwdNg11-)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 319, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("bert")
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 549, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 401, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/utils/hub.py", line 423, in cached_file
+    raise EnvironmentError(
+OSError: bert is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo with `use_auth_token` or log in with `huggingface-cli login` and pass `use_auth_token=True`.

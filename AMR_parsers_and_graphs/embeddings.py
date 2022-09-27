@@ -4,8 +4,6 @@ from IPython import embed
 import joblib
 import re
 
-from consts import PATH_TO_MASKED_SENTENCES_AMRS
-
 model_name = 'bert-base-uncased'
 
 tokenizer = BertTokenizer.from_pretrained(model_name)

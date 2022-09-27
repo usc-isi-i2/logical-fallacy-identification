@@ -4,7 +4,7 @@ from torch_geometric.data import InMemoryDataset
 import numpy as np
 import pandas as pd
 from IPython import embed
-
+from typing import Dict
 
 def mean_reciprocal_rank(rs) -> float:
     rs = (np.asarray(r).nonzero()[0] for r in rs)

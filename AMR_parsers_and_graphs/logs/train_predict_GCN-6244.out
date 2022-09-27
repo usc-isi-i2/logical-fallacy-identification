@@ -1,0 +1,87 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+Tue Sep 27 00:35:33 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:27:00.0 Off |                    0 |
+| N/A   36C    P0    34W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+cuda
+using GPU
+Train split results
+                        precision    recall  f1-score   support
+
+            ad hominem       0.96      0.96      0.96       225
+            ad populum       0.98      0.93      0.95       158
+     appeal to emotion       0.97      0.89      0.93       130
+    circular reasoning       0.81      0.99      0.89       134
+          equivocation       1.00      0.62      0.76        39
+fallacy of credibility       0.97      0.86      0.91       107
+  fallacy of extension       0.99      0.98      0.99       106
+      fallacy of logic       0.78      0.99      0.88       121
+  fallacy of relevance       0.96      0.89      0.92       114
+       false causality       0.99      0.95      0.97       174
+         false dilemma       0.97      0.96      0.97       110
+ faulty generalization       0.95      0.95      0.95       319
+           intentional       0.92      0.96      0.94       112
+
+              accuracy                           0.94      1849
+             macro avg       0.94      0.92      0.92      1849
+          weighted avg       0.94      0.94      0.94      1849
+
+Dev split results
+                        precision    recall  f1-score   support
+
+            ad hominem       0.52      0.42      0.46        36
+            ad populum       0.67      0.50      0.57        44
+     appeal to emotion       0.44      0.31      0.36        13
+    circular reasoning       0.36      0.72      0.48        18
+          equivocation       0.75      0.60      0.67         5
+fallacy of credibility       0.10      0.12      0.11         8
+  fallacy of extension       0.50      0.29      0.36        14
+      fallacy of logic       0.29      0.53      0.38        17
+  fallacy of relevance       0.55      0.25      0.34        24
+       false causality       0.44      0.29      0.35        24
+         false dilemma       0.52      0.58      0.55        19
+ faulty generalization       0.46      0.54      0.50        61
+           intentional       0.30      0.38      0.33        16
+
+              accuracy                           0.45       299
+             macro avg       0.45      0.42      0.42       299
+          weighted avg       0.48      0.45      0.45       299
+
+Test split results
+                        precision    recall  f1-score   support
+
+            ad hominem       0.59      0.56      0.57        41
+            ad populum       0.68      0.50      0.58        30
+     appeal to emotion       0.38      0.22      0.28        23
+    circular reasoning       0.16      0.47      0.24        19
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.25      0.18      0.21        17
+  fallacy of extension       0.58      0.33      0.42        21
+      fallacy of logic       0.11      0.14      0.12        14
+  fallacy of relevance       0.35      0.26      0.30        23
+       false causality       0.64      0.50      0.56        18
+         false dilemma       0.50      0.67      0.57        12
+ faulty generalization       0.47      0.44      0.46        61
+           intentional       0.25      0.40      0.31        15
+
+              accuracy                           0.40       299
+             macro avg       0.38      0.36      0.36       299
+          weighted avg       0.44      0.40      0.41       299
+

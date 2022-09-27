@@ -1,5 +1,5 @@
 import wandb
-from eval import get_random_predictions_for_pyg_metrics
+from sklearn.metrics import f1_score
 from embeddings import get_bert_embeddings
 import numpy as np
 import os
@@ -7,25 +7,25 @@ import re
 from sklearn.preprocessing import OneHotEncoder
 from torch_geometric.loader import DataLoader
 from torch import nn
-from torch_geometric.nn import global_mean_pool, GATv2Conv, TransformerConv
+from torch_geometric.nn import global_mean_pool, global_max_pool, GATv2Conv, TransformerConv
 import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from torch_geometric.utils.convert import from_networkx
 import torch
 import networkx as nx
 from torch_geometric.data import InMemoryDataset
-from torch_geometric.data import Dataset, Data
 from consts import *
 from IPython import embed
 import joblib
 from tqdm import tqdm
 import argparse
 
-BATCH_SIZE = 16
+BATCH_SIZE = 32
 NUM_EPOCHS = 40
-MID_LAYER_DROPOUT = 0.5
-LAYERS_EMBEDDINGS = [128]
-LEARNING_RATE = 1e-4
+MID_LAYER_DROPOUT = 0.13
+LAYERS_EMBEDDINGS = [64, 64, 32]
+LEARNING_RATE = 5e-4
+NODE_EMBEDDING_SIZE = 768
 
 label2index = {
     'faulty generalization': 0,
@@ -43,56 +43,36 @@ label2index = {
     'fallacy of relevance': 12
 }
 
-
-parser = argparse.ArgumentParser(
-    description="Training and predicting the logical Fallacy types using Graph Neural Networks")
-parser.add_argument('--task', choices=['train', 'predict'],
-                    help="The task you want the model to accomplish")
-parser.add_argument(
-    '--model_path', help="The path from which we can find the pre-trained model")
-
-parser.add_argument('--all_data',
-                    help="The path to the whole dataset")
-
-parser.add_argument('--train_input_file',
-                    help="The path to the train dataset")
-
-parser.add_argument('--dev_input_file',
-                    help="The path to the dev dataset")
-
-parser.add_argument('--test_input_file',
-                    help="The path to the test data")
-
-args = parser.parse_args()
-
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
 
 
 class CBRetriever(torch.nn.Module):
-    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, edge_dim, heads=8):
+    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, heads=4):
         super(CBRetriever, self).__init__()
         self.mid_layer_dropout = mid_layer_dropout
 
         self.conv1 = GATv2Conv(
             num_input_features,
             mid_layer_embeddings[0],
+            dropout=0.1,
+            heads=heads
+        )
+        self.conv2 = GATv2Conv(
+            heads * mid_layer_embeddings[0],
+            mid_layer_embeddings[1],
+            dropout=0.1,
+            heads=heads // 2
+        )
+
+        self.conv3 = GATv2Conv(
+            heads // 2 * mid_layer_embeddings[1],
+            mid_layer_embeddings[2],
+            dropout=0.1,
             heads=1
         )
-        # self.conv2 = TransformerConv(
-        #     heads * mid_layer_embeddings[0],
-        #     mid_layer_embeddings[1],
-        #     dropout=0.1,
-        #     edge_dim=1,
-        #     heads=heads // 2
-        # )
-        # self.conv3 = TransformerConv(
-        #     heads // 2 * mid_layer_embeddings[1],
-        #     mid_layer_embeddings[2],
-        #     edge_dim=1,
-        # )
 
-        self.lin = nn.Linear(mid_layer_embeddings[-1], num_output_features)
+        self.lin = nn.Linear(2*mid_layer_embeddings[-1], num_output_features)
 
     def forward(self, data, batch):
         try:
@@ -101,17 +81,18 @@ class CBRetriever(torch.nn.Module):
 
             x = self.conv1(x, edge_index)
 
-            # x = F.relu(x)
-            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+            x = F.relu(x)
+            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
-            # x = self.conv2(x, edge_index, edge_attr)
+            x = self.conv2(x, edge_index)
 
-            # x = F.relu(x)
-            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+            x = F.relu(x)
+            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
-            # x = self.conv3(x, edge_index, edge_attr)
+            x = self.conv3(x, edge_index)
 
-            x = global_mean_pool(x, batch)
+            x = torch.cat([global_mean_pool(x, batch),
+                          global_max_pool(x, batch)], dim=1)
 
             x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
@@ -147,10 +128,6 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
     def processed_file_names(self):
         return [f'{os.path.splitext(os.path.basename(self.path_to_dataset))[0]}.pt']
 
-    # @property
-    # def num_relations(self) -> int:
-    #     return int(self.data.edge_type.max()) + 1
-
     def _download(self):
         return
 
@@ -181,6 +158,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
         data_list = []
         for obj in tqdm(self.amr_graphs_with_sentences, leave=False):
             try:
+                base_sentence = obj[1].sentence
                 g = obj[1].graph_nx
                 label2word = obj[1].label2word
                 node2index = self.get_node_mappings(g)
@@ -206,6 +184,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 pyg_graph.y = torch.tensor([
                     label2index[obj[2]]
                 ])
+                pyg_graph.base_sentence = base_sentence
 
                 data_list.append(pyg_graph)
             except Exception as e:
@@ -215,7 +194,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
         torch.save((data, slices), self.processed_paths[0])
 
 
-def train(model, loader, optimizer):
+def train_epoch(model, loader, optimizer, criterion):
     model.train()
 
     for data in loader:  # Iterate in batches over the training dataset.
@@ -227,33 +206,277 @@ def train(model, loader, optimizer):
         optimizer.zero_grad()  # Clear gradients.
 
 
-def test(model, loader):
+def test_on_loader(model, loader):
     model.eval()
 
     all_predictions = []
     all_true_labels = []
+    all_sentences = []
+    all_confs = []
 
     correct = 0
     for data in loader:  # Iterate in batches over the training/test dataset.
+        all_sentences.extend(data.base_sentence)
         data = data.to(device)
         out = model(data, data.batch)
+        probs = torch.nn.functional.softmax(out, dim=1)
+        confs = torch.max(probs, dim=1).values
+        all_confs.extend(confs.tolist())
         pred = out.argmax(dim=1)  # Use the class with highest probability.
         all_predictions.extend(pred.tolist())
         all_true_labels.extend(data.y.tolist())
         # Check against ground-truth labels.
         correct += int((pred == data.y).sum())
     # Derive ratio of correct predictions.
-    return correct / len(loader.dataset), all_predictions, all_true_labels
+    return {
+        'acc': correct / len(loader.dataset),
+        'predictions': all_predictions,
+        'all_sentences': all_sentences,
+        'true_labels': all_true_labels,
+        'confidence': all_confs
+    }
+
+
+def evaluate_on_loaders(model, train_data_loader, dev_data_loader, test_data_loader):
+    train_results = test_on_loader(
+        model, train_data_loader)
+    dev_results = test_on_loader(
+        model, dev_data_loader)
+    test_results = test_on_loader(
+        model, test_data_loader)
+
+    index2label = {v: k for k, v in label2index.items()}
+
+    all_train_predictions = [index2label[pred]
+                             for pred in train_results['predictions']]
+    all_dev_predictions = [index2label[pred]
+                           for pred in dev_results['predictions']]
+    all_test_predictions = [index2label[pred]
+                            for pred in test_results['predictions']]
+    all_train_true_labels = [index2label[true_label]
+                             for true_label in train_results['true_labels']]
+    all_dev_true_labels = [index2label[true_label]
+                           for true_label in dev_results['true_labels']]
+    all_test_true_labels = [index2label[true_label]
+                            for true_label in test_results['true_labels']]
+
+    print('Train split results')
+    print(classification_report(
+        y_pred=all_train_predictions,
+        y_true=all_train_true_labels
+    ))
+
+    print('Dev split results')
+    print(classification_report(
+        y_pred=all_dev_predictions,
+        y_true=all_dev_true_labels
+    ))
+
+    print('Test split results')
+    print(classification_report(
+        y_pred=all_test_predictions,
+        y_true=all_test_true_labels
+    ))
+
+
+def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader, learning_rate, num_epochs):
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = torch.optim.Adam(
+        model.parameters(), lr=learning_rate)
+
+    best_f1_score = -np.inf
+    for epoch in range(1, num_epochs):
+        train_epoch(model, train_data_loader, optimizer, criterion)
+
+        train_results = test_on_loader(
+            model, train_data_loader)
+        dev_results = test_on_loader(
+            model, dev_data_loader)
+
+        score = f1_score(
+            y_true=dev_results['true_labels'],
+            y_pred=dev_results['predictions'],
+            average="weighted"
+        )
+
+        wandb.log({
+            "Train Accuracy": train_results['acc'],
+            "Dev Accuracy": dev_results['acc'],
+            'dev_f1_score': score
+        }, step=epoch)
+
+        if score > best_f1_score:
+            print(score)
+            print('saving the model')
+            torch.save(model.state_dict(), args.model_path)
+            best_f1_score = score
+
+        print(
+            f"Epoch: {epoch:03d}, Train Acc: {train_results['acc']:.4f}, Dev Acc: {dev_results['acc']:.4f}")
+        if epoch == num_epochs - 1:
+            evaluate_on_loaders(model, train_data_loader,
+                                dev_data_loader, test_data_loader)
+
+
+def train_with_wandb(config=None):
+    with wandb.init(config=config):
+        # If called by wandb.agent, as below,
+        # this config will be set by Sweep Controller
+        config = wandb.config
+        model = CBRetriever(
+            num_input_features=NODE_EMBEDDING_SIZE,
+            num_output_features=len(label2index),
+            mid_layer_dropout=config.mid_layer_dropout,
+            mid_layer_embeddings=config.layers_embeddings,
+            heads=4
+        )
+
+        model = model.to(device)
+
+        train_dataset = Logical_Fallacy_Dataset(
+            path_to_dataset=args.train_input_file,
+            fit=True
+        )
+
+        dev_dataset = Logical_Fallacy_Dataset(
+            path_to_dataset=args.dev_input_file,
+            fit=False,
+            all_edge_types=train_dataset.all_edge_types,
+            ohe=train_dataset.ohe
+        )
+
+        test_dataset = Logical_Fallacy_Dataset(
+            path_to_dataset=args.test_input_file,
+            fit=False,
+            all_edge_types=train_dataset.all_edge_types,
+            ohe=train_dataset.ohe
+        )
+
+        train_data_loader = DataLoader(
+            train_dataset, batch_size=config.batch_size, shuffle=True)
+        dev_data_loader = DataLoader(
+            dev_dataset, batch_size=config.batch_size, shuffle=False)
+        test_data_loader = DataLoader(
+            test_dataset, batch_size=config.batch_size, shuffle=False)
+
+        do_train_process(
+            model=model,
+            train_data_loader=train_data_loader,
+            dev_data_loader=dev_data_loader,
+            test_data_loader=test_data_loader,
+            learning_rate=config.learning_rate,
+            num_epochs=int(config.num_epochs),
+        )
+
+
+def do_predict_process(model, loader):
+    index2label = {v: k for k, v in label2index.items()}
+    test_results = test_on_loader(model, loader)
+    all_sentences = test_results['all_sentences']
+    predictions = test_results['predictions']
+    predictions = [index2label[pred] for pred in predictions]
+    confidence = test_results['confidence']
+    return predictions, confidence, all_sentences
 
 
 if __name__ == "__main__":
-    print('train data')
+
+    parser = argparse.ArgumentParser(
+        description="Training and predicting the logical Fallacy types using Graph Neural Networks")
+    parser.add_argument('--task', choices=['train', 'predict', 'hptuning'],
+                        help="The task you want the model to accomplish")
+    parser.add_argument(
+        '--model_path', help="The path from which we can find the pre-trained model")
+
+    parser.add_argument('--all_data',
+                        help="The path to the whole dataset")
+
+    parser.add_argument('--train_input_file',
+                        help="The path to the train dataset")
+
+    parser.add_argument('--dev_input_file',
+                        help="The path to the dev dataset")
+
+    parser.add_argument('--test_input_file',
+                        help="The path to the test data")
+
+    args = parser.parse_args()
+
+    if args.task == "hptuning":
+
+        sweep_config = {
+            'method': 'random'
+        }
+        metric = {
+            'name': 'dev_f1_score',
+            'goal': 'maximize'
+        }
+
+        sweep_config['metric'] = metric
+
+        parameters_dict = {
+            'batch_size': {
+                'values': [4, 8, 16, 32]
+            },
+            'num_epochs': {
+                'distribution': 'uniform',
+                'min': 50,
+                'max': 100
+            },
+            'mid_layer_dropout': {
+                'distribution': 'uniform',
+                'min': 0.1,
+                'max': 0.7
+            },
+            'layers_embeddings': {
+                'values':
+                    [
+                        [128, 64],
+                        [64, 32],
+                        [32, 32],
+                        [64, 64],
+                        [128, 128]
+                    ]
+
+            },
+            'learning_rate': {
+                'values': [1e-4, 1e-5, 5e-4, 1e-3, 5e-5]
+            }
+        }
+
+        sweep_config['parameters'] = parameters_dict
+
+        sweep_id = wandb.sweep(
+            sweep_config, project="Logical Fallacy Detection GCN Hyper parameter tuning")
+
+        wandb.agent(sweep_id, train_with_wandb, count=30)
+        exit()
+
+    wandb.init(
+        project="Logical Fallacy Detection GCN",
+        entity='zhpinkman',
+        config={
+            "model": "GATv2Conv"
+        }
+    )
+
+    model = CBRetriever(
+        num_input_features=NODE_EMBEDDING_SIZE,
+        num_output_features=len(label2index),
+        mid_layer_dropout=MID_LAYER_DROPOUT,
+        mid_layer_embeddings=LAYERS_EMBEDDINGS,
+        heads=4
+    )
+    if args.task == "predict":
+        model.load_state_dict(torch.load(args.model_path))
+
+    model = model.to(device)
+
     train_dataset = Logical_Fallacy_Dataset(
         path_to_dataset=args.train_input_file,
         fit=True
     )
 
-    print('dev data')
     dev_dataset = Logical_Fallacy_Dataset(
         path_to_dataset=args.dev_input_file,
         fit=False,
@@ -261,61 +484,12 @@ if __name__ == "__main__":
         ohe=train_dataset.ohe
     )
 
-    print('test data')
     test_dataset = Logical_Fallacy_Dataset(
         path_to_dataset=args.test_input_file,
         fit=False,
         all_edge_types=train_dataset.all_edge_types,
         ohe=train_dataset.ohe
     )
-
-    # for i in range(299):
-    #     a = dataset[1849 + i]
-    #     b = dev_dataset[i]
-
-    #     if (not torch.all(torch.eq(a.x, b.x))) or (not torch.all(torch.eq(a.edge_index, b.edge_index))) or (not torch.all(torch.eq(a.y, b.y))):
-    #         embed()
-
-    # for i in range(299):
-    #     a = dataset[2149 + i]
-    #     b = test_dataset[i]
-
-    #     if (not torch.all(torch.eq(a.x, b.x))) or (not torch.all(torch.eq(a.edge_index, b.edge_index))) or (not torch.all(torch.eq(a.y, b.y))):
-    #         embed()
-    # exit()
-
-    # dev_dataset = Logical_Fallacy_Dataset(
-    #     path_to_dataset=args.dev_input_file,
-    #     ohe=train_dataset.ohe,
-    #     all_edge_types=train_dataset.all_edge_types,
-    # )
-    # test_dataset = Logical_Fallacy_Dataset(
-    #     path_to_dataset=args.test_input_file,
-    #     ohe=train_dataset.ohe,
-    #     all_edge_types=train_dataset.all_edge_types,
-    # )
-
-    # train_dataset = dataset[:1849]
-    # dev_dataset = dataset[1849:2149]
-    # test_dataset = dataset[2149:]
-
-    # wandb.init(
-    #     project="Logical Fallacy Detection GCN",
-    #     entity='zhpinkman',
-    #     config={
-    #         "learning_rate": LEARNING_RATE,
-    #         "epochs": NUM_EPOCHS,
-    #         "mid_layer_dropout": MID_LAYER_DROPOUT,
-    #         "layers_embeddings": LAYERS_EMBEDDINGS,
-    #         "batch_size": BATCH_SIZE,
-    #         "edge_attr": True,
-    #         "model": "GATv2Conv"
-    #     }
-    # )
-
-    print(f'Number of training graphs: {len(train_dataset)}')
-    print(f"Number of dev graphs: {len(dev_dataset)}")
-    print(f'Number of test graphs: {len(test_dataset)}')
 
     train_data_loader = DataLoader(
         train_dataset, batch_size=BATCH_SIZE, shuffle=True)
@@ -324,69 +498,22 @@ if __name__ == "__main__":
     test_data_loader = DataLoader(
         test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-    model = CBRetriever(
-        num_input_features=train_dataset.num_features,
-        num_output_features=len(label2index),
-        mid_layer_dropout=MID_LAYER_DROPOUT,
-        mid_layer_embeddings=LAYERS_EMBEDDINGS,
-        edge_dim=train_dataset.ohe.get_feature_names().shape[0]
-    )
-    if args.task == "predict":
-        model.load_state_dict(torch.load(args.model_path))
-
-    model = model.to(device)
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(
-        model.parameters(), lr=LEARNING_RATE)
-
-    for epoch in range(1, NUM_EPOCHS):
-        train(model, train_data_loader, optimizer)
-
-        train_acc, all_train_predictions, all_train_true_labels = test(
-            model, train_data_loader)
-        dev_acc, _, _ = test(
-            model, dev_data_loader)
-
-        # wandb.log({
-        #     "Train Accuracy": train_acc,
-        #     "Dev Accuracy": dev_acc
-        # }, step=epoch)
-
-        print(
-            f'Epoch: {epoch:03d}, Train Acc: {train_acc:.4f}, Test Acc: {dev_acc:.4f}')
-        if epoch == NUM_EPOCHS - 1:
-            train_acc, all_train_predictions, all_train_true_labels = test(
-                model, train_data_loader)
-            dev_acc, all_dev_predictions, all_dev_true_labels = test(
-                model, dev_data_loader)
-            test_acc, all_test_predictions, all_test_true_labels = test(
-                model, test_data_loader)
-
-            index2label = {v: k for k, v in label2index.items()}
-
-            all_train_predictions = [index2label[pred]
-                                     for pred in all_train_predictions]
-            all_dev_predictions = [index2label[pred]
-                                   for pred in all_dev_predictions]
-            all_test_predictions = [index2label[pred]
-                                    for pred in all_test_predictions]
-            all_train_true_labels = [index2label[true_label]
-                                     for true_label in all_train_true_labels]
-            all_dev_true_labels = [index2label[true_label]
-                                   for true_label in all_dev_true_labels]
-            all_test_true_labels = [index2label[true_label]
-                                    for true_label in all_test_true_labels]
-
-            print(classification_report(
-                y_pred=all_test_predictions,
-                y_true=all_test_true_labels
-            ))
-
-            print(get_random_predictions_for_pyg_metrics(
-                dataset=train_dataset,
-                all_test_true_labels=all_train_true_labels,
-                size=100,
-                label2index = label2index
-            ))
     if args.task == "train":
-        torch.save(model.state_dict(), args.model_path)
+        do_train_process(
+            model=model,
+            train_data_loader=train_data_loader,
+            dev_data_loader=dev_data_loader,
+            test_data_loader=test_data_loader,
+            learning_rate=LEARNING_RATE,
+            num_epochs=NUM_EPOCHS
+        )
+        exit()
+
+    elif args.task == "predict":
+        evaluate_on_loaders(model, train_data_loader,
+                            dev_data_loader, test_data_loader)
+        predictions, conf = do_predict_process(
+            model=model,
+            loader=test_data_loader
+        )
+        exit()

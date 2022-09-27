@@ -31,14 +31,22 @@ conda activate general
 #     --test_input_file data/edu_test.csv \
 #     --input_type csv
 
+
+python train.py \
+    --experiment train \
+    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --input_type amr
     
 # python train.py \
-#     --experiment train \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_with_label2words_wordnet.joblib \
+#     --experiment case_augmented_training \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
 #     --input_type amr \
-#     --augments wordnet
+#     --gcn_model_path gcn_model.pt \
+#     --num_cases 1
 
 
 # python train.py \
