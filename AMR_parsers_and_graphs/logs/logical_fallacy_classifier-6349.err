@@ -1,0 +1,70 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+usage: train.py [-h] [--experiment EXPERIMENT]
+                [--train_input_file TRAIN_INPUT_FILE]
+                [--dev_input_file DEV_INPUT_FILE]
+                [--test_input_file TEST_INPUT_FILE] [--input_type INPUT_TYPE]
+                [--augments AUGMENTS] [--gcn_model_path GCN_MODEL_PATH]
+                [--num_cases NUM_CASES]
+train.py: error: unrecognized arguments: --input_feature masked_articles
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x150d05b92f06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x150d05b8a8e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x150d05aafe09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x150d05b93a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x150d05aad948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x150d05b93a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x150d05a68b46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x150d054cd46a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x150e0a64d8a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x150e0a64da60]
+python(+0x28db18) [0x556cc1c2cb18]
+python(+0x28db4b) [0x556cc1c2cb4b]
+python(+0x28db90) [0x556cc1c2cb90]
+python(_PyRun_SimpleFileObject+0x1e6) [0x556cc1c303e6]
+python(_PyRun_AnyFileObject+0x44) [0x556cc1c304c4]
+python(Py_RunMain+0x35d) [0x556cc1c315bd]
+python(Py_BytesMain+0x39) [0x556cc1c317d9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x150e0a62b083]
+python(+0x2125d4) [0x556cc1bb15d4]
+/var/spool/slurm/slurmd/job06349/slurm_script: line 27: 1448510 Aborted                 (core dumped) python train.py --experiment train --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_feature masked_articles
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+usage: train.py [-h] [--experiment EXPERIMENT]
+                [--train_input_file TRAIN_INPUT_FILE]
+                [--dev_input_file DEV_INPUT_FILE]
+                [--test_input_file TEST_INPUT_FILE] [--input_type INPUT_TYPE]
+                [--augments AUGMENTS] [--gcn_model_path GCN_MODEL_PATH]
+                [--num_cases NUM_CASES]
+train.py: error: unrecognized arguments: --input_feature source_article
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x1542a7f45f06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x1542a7f3d8e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x1542a7e62e09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x1542a7f46a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x1542a7e60948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x1542a7f46a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x1542a7e1bb46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x1542a788046a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x1543aca008a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x1543aca00a60]
+python(+0x28db18) [0x555ebe303b18]
+python(+0x28db4b) [0x555ebe303b4b]
+python(+0x28db90) [0x555ebe303b90]
+python(_PyRun_SimpleFileObject+0x1e6) [0x555ebe3073e6]
+python(_PyRun_AnyFileObject+0x44) [0x555ebe3074c4]
+python(Py_RunMain+0x35d) [0x555ebe3085bd]
+python(Py_BytesMain+0x39) [0x555ebe3087d9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x1543ac9de083]
+python(+0x2125d4) [0x555ebe2885d4]
+/var/spool/slurm/slurmd/job06349/slurm_script: line 35: 1448630 Aborted                 (core dumped) python train.py --experiment train --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_feature source_article

@@ -1,18 +1,17 @@
 import torch
-from sklearn.metrics import precision_recall_fscore_support, accuracy_score
+from sklearn.metrics import precision_recall_fscore_support, accuracy_score, \
+    classification_report
 import numpy as np
 import joblib
 import pandas as pd
 import wandb
 import gcn
 from typing import List, Dict
-from pathlib import Path
 from transformers import TrainingArguments, Trainer, \
     AutoTokenizer, AutoModelForSequenceClassification
 from transformers import DataCollatorWithPadding
 from IPython import embed
 import re
-from sklearn.metrics import classification_report
 from sklearn.preprocessing import LabelEncoder
 from datasets import Dataset, DatasetDict
 import argparse
@@ -20,10 +19,11 @@ import networkx as nx
 
 
 NUM_LABELS = 13
-BATCH_SIZE = 16
-NUM_TRAINING_EPOCHS = 8
-DROPOUT_PROB = 0.1
-LEARNING_RATE = 1e-5
+CLASSIFIER_DROPOUT = 0.3
+BATCH_SIZE = 8
+LEARNING_RATE = 5e-5
+NUM_EPOCHS = 10
+WEIGHT_DECAY = 0.1
 
 # TODO: Check the comparison between the original and masked articles
 # TODO: Add similar sentences when training and see what happens
@@ -121,7 +121,7 @@ def augment_records_with_similar_records(
 
     prediction_table = dict()
     for sentence, prediction, confidence in zip(gcn_all_sentences, gcn_predictions, gcn_all_confidences):
-        prediction_table[sentence] = (prediction, confidence)
+        prediction_table[sentence.strip()] = (prediction, confidence)
 
     all_predictions = []
     all_true_labels = []
@@ -132,20 +132,23 @@ def augment_records_with_similar_records(
 
     for _, info in data_df.iterrows():
         try:
-            base_sentence = info['masked_articles']
+            base_sentence = info[args.input_feature].strip()
 
             predicted_label, conf = prediction_table[base_sentence]
             true_label = info['updated_label']
             all_predictions.append(predicted_label)
             all_true_labels.append(true_label)
-            if conf > 0.5:
+            if conf > 0.9:
                 num_with_high_confidence += 1
-                similar_cases = source_df[source_df['updated_label'] == true_label].sample(num_cases)[
-                    'masked_articles'].tolist()
+                similar_cases = source_df[source_df['updated_label'] == predicted_label].sample(num_cases)[
+                    args.input_feature].tolist()
+            else:
+                similar_cases = []
             new_sentence = ";".join([base_sentence, *similar_cases])
             new_sentences.append(new_sentence)
             new_labels.append(info['updated_label'])
         except Exception as e:
+            embed()
             print(
                 f"Error finding the predicted label for sentence: {base_sentence}")
             pass
@@ -156,7 +159,7 @@ def augment_records_with_similar_records(
     print(
         f'Number of data points augmented with high confidence: {num_with_high_confidence / len(data_df)}')
     return pd.DataFrame({
-        'masked_articles': new_sentences,
+        args.input_feature: new_sentences,
         'updated_label': new_labels
     })
 
@@ -193,15 +196,19 @@ if __name__ == "__main__":
         '--num_cases', help="Number of cases used in Case-based reasoning", type=int, default=0
     )
 
+    parser.add_argument(
+        '--input_feature', help="the feature used for training the classification model", type=str
+    )
+
     args = parser.parse_args()
 
     if args.input_type == "csv":
         train_df = pd.read_csv(args.train_input_file)[
-            ['masked_articles', 'updated_label']]
+            [args.input_feature, 'updated_label']]
         dev_df = pd.read_csv(args.dev_input_file)[
-            ['masked_articles', 'updated_label']]
+            [args.input_feature, 'updated_label']]
         test_df = pd.read_csv(args.test_input_file)[
-            ['masked_articles', 'updated_label']]
+            [args.input_feature, 'updated_label']]
 
     elif args.input_type == "amr":
         train_df = read_csv_from_amr(
@@ -225,7 +232,8 @@ if __name__ == "__main__":
         )
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        gcn_model.load_state_dict(torch.load(args.gcn_model_path))
+        gcn_model.load_state_dict(torch.load(
+            args.gcn_model_path, map_location=torch.device('cpu')))
         gcn_model = gcn_model.to(device)
 
         train_dataset = gcn.Logical_Fallacy_Dataset(
@@ -309,30 +317,31 @@ if __name__ == "__main__":
     })
 
     def process(batch):
-        texts = batch['masked_articles']
+        texts = batch[args.input_feature]
         inputs = tokenizer(texts, truncation=True)
         return {
             **inputs,
             'labels': batch['updated_label']
         }
 
-    tokenizer = AutoTokenizer.from_pretrained("roberta-large")
+    tokenizer = AutoTokenizer.from_pretrained("roberta-base")
     tokenized_dataset = dataset.map(
         process, batched=True, remove_columns=dataset['train'].column_names)
 
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
     model = AutoModelForSequenceClassification.from_pretrained(
-        "roberta-large", num_labels=NUM_LABELS)
+        "roberta-base", num_labels=NUM_LABELS, classifier_dropout=CLASSIFIER_DROPOUT)
 
     print('Model loaded!')
 
     wandb.init(project="logical_fallacy_classification", entity="zhpinkman", config={
         "batch_size": BATCH_SIZE,
-        "num_training_epochs": NUM_TRAINING_EPOCHS,
+        "num_training_epochs": NUM_EPOCHS,
         "experiment": args.experiment,
         "augments": args.augments,
         'input_type': args.input_type,
-        "dropout_prob": DROPOUT_PROB
+        "input_feature": args.input_feature,
+        "dropout_prob": CLASSIFIER_DROPOUT
     })
 
     training_args = TrainingArguments(
@@ -342,8 +351,8 @@ if __name__ == "__main__":
         learning_rate=LEARNING_RATE,
         per_device_train_batch_size=BATCH_SIZE,
         per_device_eval_batch_size=BATCH_SIZE,
-        num_train_epochs=NUM_TRAINING_EPOCHS,
-        weight_decay=0.01,
+        num_train_epochs=NUM_EPOCHS,
+        weight_decay=WEIGHT_DECAY,
         logging_steps=50,
         evaluation_strategy='steps',
         report_to="wandb"
@@ -352,6 +361,7 @@ if __name__ == "__main__":
     def compute_metrics(pred):
         labels = pred.label_ids
         preds = pred.predictions.argmax(-1)
+
         precision, recall, f1, _ = precision_recall_fscore_support(
             labels, preds, average='weighted')
         acc = accuracy_score(labels, preds)
@@ -374,5 +384,8 @@ if __name__ == "__main__":
 
     print('Start the training ...')
     trainer.train()
+    print('training finished!')
 
-    print(trainer.predict(tokenized_dataset['test']))
+    # train_predictions =
+    # dev_predictions = trainer.predict(tokenized_dataset['eval'])
+    # test_predictions = trainer.predict(tokenized_dataset['test'])

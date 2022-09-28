@@ -1,0 +1,60 @@
+usage: baselines.py [-h] [--train_input_file TRAIN_INPUT_FILE]
+                    [--dev_input_file DEV_INPUT_FILE]
+                    [--test_input_file TEST_INPUT_FILE]
+                    [--input_feature INPUT_FEATURE]
+baselines.py: error: unrecognized arguments: --experiment train
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x149ee011bf06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x149ee01138e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x149ee0038e09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x149ee011ca3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x149ee0036948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x149ee011ca3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x149edfff1b46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x149edfa5646a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x149f2bae78a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x149f2bae7a60]
+python(+0x28db18) [0x564886f24b18]
+python(+0x28db4b) [0x564886f24b4b]
+python(+0x28db90) [0x564886f24b90]
+python(_PyRun_SimpleFileObject+0x1e6) [0x564886f283e6]
+python(_PyRun_AnyFileObject+0x44) [0x564886f284c4]
+python(Py_RunMain+0x35d) [0x564886f295bd]
+python(Py_BytesMain+0x39) [0x564886f297d9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x149f2bac5083]
+python(+0x2125d4) [0x564886ea95d4]
+/var/spool/slurm/slurmd/job06351/slurm_script: line 27: 1448872 Aborted                 (core dumped) python baselines.py --experiment train --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_feature masked_articles
+usage: baselines.py [-h] [--train_input_file TRAIN_INPUT_FILE]
+                    [--dev_input_file DEV_INPUT_FILE]
+                    [--test_input_file TEST_INPUT_FILE]
+                    [--input_feature INPUT_FEATURE]
+baselines.py: error: unrecognized arguments: --experiment train
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x14b8b85a0f06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x14b8b85988e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x14b8b84bde09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14b8b85a1a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x14b8b84bb948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14b8b85a1a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x14b8b8476b46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x14b8b7edb46a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x14b903f6c8a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x14b903f6ca60]
+python(+0x28db18) [0x562bae857b18]
+python(+0x28db4b) [0x562bae857b4b]
+python(+0x28db90) [0x562bae857b90]
+python(_PyRun_SimpleFileObject+0x1e6) [0x562bae85b3e6]
+python(_PyRun_AnyFileObject+0x44) [0x562bae85b4c4]
+python(Py_RunMain+0x35d) [0x562bae85c5bd]
+python(Py_BytesMain+0x39) [0x562bae85c7d9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x14b903f4a083]
+python(+0x2125d4) [0x562bae7dc5d4]
+/var/spool/slurm/slurmd/job06351/slurm_script: line 35: 1448974 Aborted                 (core dumped) python baselines.py --experiment train --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_feature source_article

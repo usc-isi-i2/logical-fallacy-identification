@@ -24,22 +24,31 @@ conda activate general
 #  augmenting wordnet and conceptNet to the main datastes
 
 
-# python train.py \
-#     --experiment train \
-#     --train_input_file data/edu_train.csv \
-#     --dev_input_file data/edu_dev.csv \
-#     --test_input_file data/edu_test.csv \
-#     --input_type csv
-
-
-python train.py \
+python main_classifier.py \
     --experiment train \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-    --input_type amr
+    --train_input_file data/edu_train.csv \
+    --dev_input_file data/edu_dev.csv \
+    --test_input_file data/edu_test.csv \
+    --input_type csv \
+    --input_feature source_article
+
+python main_classifier.py \
+    --experiment train \
+    --train_input_file data/edu_train.csv \
+    --dev_input_file data/edu_dev.csv \
+    --test_input_file data/edu_test.csv \
+    --input_type csv \
+    --input_feature masked_articles
+
+
+# python main_classifier.py \
+#     --experiment train \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --input_type amr
     
-# python train.py \
+# python main_classifier.py \
 #     --experiment case_augmented_training \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
 #     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
@@ -49,7 +58,7 @@ python train.py \
 #     --num_cases 1
 
 
-# python train.py \
+# python main_classifier.py \
 #     --experiment train \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet_conceptnet.joblib \
 #     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet_conceptnet.joblib \
@@ -57,7 +66,7 @@ python train.py \
 #     --input_type amr \
 #     --augments wordnet\&conceptnet
 
-# python train.py \
+# python main_classifier.py \
 #     --experiment train \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_with_label2words_wordnet_conceptnet.joblib \
 #     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_label2words_wordnet_conceptnet.joblib \
@@ -65,7 +74,7 @@ python train.py \
 #     --input_type amr \
 #     --augments conceptnet
 
-# python train.py \
+# python main_classifier.py \
 #     --experiment case_augmented_training \
 #     --train_input_file data/edu_train.csv \
 #     --dev_input_file data/edu_dev.csv \

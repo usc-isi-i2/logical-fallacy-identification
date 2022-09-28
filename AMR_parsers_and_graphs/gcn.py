@@ -7,7 +7,7 @@ import re
 from sklearn.preprocessing import OneHotEncoder
 from torch_geometric.loader import DataLoader
 from torch import nn
-from torch_geometric.nn import global_mean_pool, global_max_pool, GATv2Conv, TransformerConv
+from torch_geometric.nn import global_mean_pool, global_max_pool, GATv2Conv
 import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from torch_geometric.utils.convert import from_networkx
@@ -20,11 +20,11 @@ import joblib
 from tqdm import tqdm
 import argparse
 
-BATCH_SIZE = 32
-NUM_EPOCHS = 40
-MID_LAYER_DROPOUT = 0.13
-LAYERS_EMBEDDINGS = [64, 64, 32]
-LEARNING_RATE = 5e-4
+BATCH_SIZE = 4
+NUM_EPOCHS = 220
+MID_LAYER_DROPOUT = 0.6
+LAYERS_EMBEDDINGS = [32, 32, 32]
+LEARNING_RATE = 0.00005
 NODE_EMBEDDING_SIZE = 768
 
 label2index = {
@@ -416,40 +416,35 @@ if __name__ == "__main__":
 
         parameters_dict = {
             'batch_size': {
-                'values': [4, 8, 16, 32]
+                'values': [4]
             },
             'num_epochs': {
-                'distribution': 'uniform',
-                'min': 50,
-                'max': 100
+                "value": 400
             },
             'mid_layer_dropout': {
-                'distribution': 'uniform',
-                'min': 0.1,
-                'max': 0.7
+                "values": [0.5, 0.6, 0.7, 0.8]
             },
             'layers_embeddings': {
                 'values':
                     [
-                        [128, 64],
-                        [64, 32],
-                        [32, 32],
-                        [64, 64],
-                        [128, 128]
+                        [32, 32, 32],
+                        [32, 32, 16],
+                        [16, 16, 16],
+                        [64, 32, 32]
                     ]
 
             },
             'learning_rate': {
-                'values': [1e-4, 1e-5, 5e-4, 1e-3, 5e-5]
+                'values': [1e-4, 1e-5, 5e-5]
             }
         }
 
         sweep_config['parameters'] = parameters_dict
 
         sweep_id = wandb.sweep(
-            sweep_config, project="Logical Fallacy Detection GCN Hyper parameter tuning")
+            sweep_config, project="Logical Fallacy Detection GCN Hyper parameter tuning V2")
 
-        wandb.agent(sweep_id, train_with_wandb, count=30)
+        wandb.agent(sweep_id, train_with_wandb)
         exit()
 
     wandb.init(
@@ -512,7 +507,7 @@ if __name__ == "__main__":
     elif args.task == "predict":
         evaluate_on_loaders(model, train_data_loader,
                             dev_data_loader, test_data_loader)
-        predictions, conf = do_predict_process(
+        _, _, _ = do_predict_process(
             model=model,
             loader=test_data_loader
         )
