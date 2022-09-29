@@ -17,27 +17,34 @@ conda activate general
 
 # WORDNET
 
-for split in "train" "dev" "test"
-do
-
-python wordnet_augmentation.py \
-    --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_wordnet.joblib"
-
-done
-
-# # CONCEPTNET
-
 # for split in "train" "dev" "test"
 # do
 
-# python conceptnet_augmentation.py \
+# python wordnet_augmentation.py \
 #     --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-#     --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_conceptnet.joblib" \
-#     --rel_file data/conceptNet_relations.joblib \
-#     --label_file data/conceptNet_labels.joblib
+#     --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_wordnet.joblib" \
 
 # done
+
+# # CONCEPTNET
+
+for split in "train" "dev" "test"
+do
+
+python conceptnet_augmentation.py \
+    --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_conceptnet_good_relations.joblib" \
+    --rel_file data/conceptNet_relations.joblib \
+    --label_file data/conceptNet_labels.joblib \
+    --good_relations
+
+python conceptnet_augmentation.py \
+    --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_conceptnet.joblib" \
+    --rel_file data/conceptNet_relations.joblib \
+    --label_file data/conceptNet_labels.joblib
+
+done
 
 
 conda deactivate

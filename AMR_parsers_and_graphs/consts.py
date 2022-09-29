@@ -64,3 +64,19 @@ PATH_TO_STATISTICS = ((Path(__file__).parent) /
 
 good_relations = ['/r/Causes', '/r/UsedFor', '/r/CapableOf', '/r/CausesDesire', '/r/IsA', '/r/SymbolOf', '/r/MadeOf',
                   '/r/LocatedNear', '/r/Desires', '/r/AtLocation', '/r/HasProperty', '/r/PartOf', '/r/HasFirstSubevent', '/r/HasLastSubevent']
+good_relations_labels = [
+    'at location',
+    'capable of',
+    'causes',
+    'causes desire',
+    'desires',
+    'has first subevent',
+    'has last subevent',
+    'has property',
+    'is a',
+    'located near',
+    'made of',
+    'part of',
+    'symbol of',
+    'used for'
+]

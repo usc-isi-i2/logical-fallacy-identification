@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/main_classifier.py", line 212, in <module>
+    torch.manual_seed(77)
+NameError: name 'torch' is not defined
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/main_classifier.py", line 212, in <module>
+    torch.manual_seed(77)
+NameError: name 'torch' is not defined

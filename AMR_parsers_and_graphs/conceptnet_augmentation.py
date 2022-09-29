@@ -2,6 +2,7 @@ from collections import defaultdict
 import requests
 from custom_logger import get_logger
 import nltk
+import consts
 import joblib
 import numpy as np
 import os
@@ -19,6 +20,7 @@ parser.add_argument('--output_file', help="The path to the output file")
 
 parser.add_argument('--rel_file', help="path of the relations inverted index")
 parser.add_argument('--label_file', help="path of the labels of the nodes")
+parser.add_argument('--good_relations', action=argparse.BooleanOptionalAction)
 
 args = parser.parse_args()
 
@@ -60,12 +62,21 @@ def get_relations_between_words_from_dump(word1, word2):
     edges = []
 
     for rel in rel_dict[(word1, word2)]:
-        edges.append({
-            'start': label_dict[word1],
-            'rel': rel[0],
-            'end': label_dict[word2],
-            'example': rel[1]
-        })
+        if args.good_relations:
+            if rel[0] in consts.good_relations_labels:
+                edges.append({
+                    'start': label_dict[word1],
+                    'rel': rel[0],
+                    'end': label_dict[word2],
+                    'example': rel[1]
+                })
+        else:
+            edges.append({
+                'start': label_dict[word1],
+                'rel': rel[0],
+                'end': label_dict[word2],
+                'example': rel[1]
+            })
     return edges
 
 

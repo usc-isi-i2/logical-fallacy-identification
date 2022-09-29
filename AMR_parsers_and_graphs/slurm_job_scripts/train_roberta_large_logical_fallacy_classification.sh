@@ -3,10 +3,10 @@
 #SBATCH --output=logs/%x-%j.out
 #SBATCH --error=logs/%x-%j.err
 #SBATCH --time=3-00:00:00
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=16
 #SBATCH --mem-per-cpu=10240
 #SBATCH --partition=nodes
-#SBATCH --gres=gpu:v100:1
+#SBATCH --gres=gpu:a100:1
 #SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
 # Verify working directory
 echo $(pwd)
@@ -25,10 +25,9 @@ conda activate general
 
 
 python main_classifier.py \
-    --train_input_file data/edu_train.csv \
-    --dev_input_file data/edu_dev.csv \
-    --test_input_file data/edu_test.csv \
-    --input_type csv \
+    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature source_article \
     --batch_size 8 \
     --learning_rate 2e-5 \
@@ -37,10 +36,9 @@ python main_classifier.py \
     --weight_decay 0.001
 
 python main_classifier.py \
-    --train_input_file data/edu_train.csv \
-    --dev_input_file data/edu_dev.csv \
-    --test_input_file data/edu_test.csv \
-    --input_type csv \
+    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature masked_articles \
     --batch_size 8 \
     --learning_rate 2e-5 \
