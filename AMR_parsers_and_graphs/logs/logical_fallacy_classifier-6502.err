@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/main_classifier.py", line 389, in <module>
+    **var(args)
+NameError: name 'var' is not defined. Did you mean: 'vars'?
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x14896edb3f06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x14896edab8e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x14896ecd0e09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14896edb4a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x14896ecce948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14896edb4a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x14896ec89b46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x14896e6ee46a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x1489ba77f8a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x1489ba77fa60]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x1489ba75d08a]
+python(+0x2125d4) [0x55e0101555d4]
+/var/spool/slurm/slurmd/job06502/slurm_script: line 37: 1549484 Aborted                 (core dumped) python main_classifier.py --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_type csv --input_feature source_article --batch_size 8 --learning_rate 1e-5 --num_epochs 10 --classifier_dropout 0.1 --weight_decay 0.001
+Traceback (most recent call last):
+  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/main_classifier.py", line 389, in <module>
+    **var(args)
+NameError: name 'var' is not defined. Did you mean: 'vars'?
+Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
+Exiting Application
+################################################################################
+Stack trace:
+################################################################################
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x148d20347f06]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x148d2033f8e5]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x148d20264e09]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x148d20348a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x148d20262948]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x148d20348a3d]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x148d2021db46]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x148d1fc8246a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x148d6bd138a7]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x148d6bd13a60]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x148d6bcf108a]
+python(+0x2125d4) [0x5649e33765d4]
+/var/spool/slurm/slurmd/job06502/slurm_script: line 49: 1549585 Aborted                 (core dumped) python main_classifier.py --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_type csv --input_feature masked_articles --batch_size 8 --learning_rate 1e-5 --num_epochs 10 --classifier_dropout 0.1 --weight_decay 0.01

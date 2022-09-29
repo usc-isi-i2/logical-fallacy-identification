@@ -1144,3 +1144,155 @@ wandb: Syncing run feasible-sweep-28
 wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2
 wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/sweeps/l7i15ksu
 wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/138sskkt
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: / 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: - 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: \ 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: | 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: / 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: - 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb: \ 0.033 MB of 0.033 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:   Dev Accuracy ▁▄▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇▇███▇▇▆▆▆▅▅▅▄▅▄
+wandb: Train Accuracy ▁▃▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▅▆▇██████▇▇█▇█▇
+wandb:   dev_f1_score ▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▃▄▅▆▅▅▅▆▆▆▆▇▆█▇
+wandb: 
+wandb: Run summary:
+wandb:   Dev Accuracy 0.16722
+wandb: Train Accuracy 0.2185
+wandb:   dev_f1_score 0.11318
+wandb: 
+wandb: Synced feasible-sweep-28: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/138sskkt
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220929_001122-138sskkt/logs
+wandb: Agent Starting Run: 32lg3gbx with config:
+wandb: 	batch_size: 4
+wandb: 	layers_embeddings: [32, 32, 32]
+wandb: 	learning_rate: 0.0001
+wandb: 	mid_layer_dropout: 0.6
+wandb: 	num_epochs: 400
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220929_004443-32lg3gbx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run whole-sweep-29
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2
+wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/sweeps/l7i15ksu
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/32lg3gbx
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: / 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: - 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: \ 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: / 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: - 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: \ 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:   Dev Accuracy ▁▂▃▅▅▆▆▆▆▇▇▇▇▇▇▇▇█▇▇▇▇▇█▇▇█▇█▇██▇▇██▇█▇▇
+wandb: Train Accuracy ▁▁▂▃▃▃▄▄▅▅▆▆▆▆▇▇▇▇▇▇▇▇██████████████████
+wandb:   dev_f1_score ▁▂▄▄▅▅▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇█▇▇███▇██▇███▇███
+wandb: 
+wandb: Run summary:
+wandb:   Dev Accuracy 0.45151
+wandb: Train Accuracy 0.9881
+wandb:   dev_f1_score 0.46342
+wandb: 
+wandb: Synced whole-sweep-29: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/32lg3gbx
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220929_004443-32lg3gbx/logs
+wandb: Agent Starting Run: ctd53twz with config:
+wandb: 	batch_size: 4
+wandb: 	layers_embeddings: [32, 32, 16]
+wandb: 	learning_rate: 0.0001
+wandb: 	mid_layer_dropout: 0.6
+wandb: 	num_epochs: 400
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220929_011803-ctd53twz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run crisp-sweep-30
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2
+wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/sweeps/l7i15ksu
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/ctd53twz
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.005 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: / 0.026 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: - 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: \ 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: / 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: - 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: \ 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: | 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb: / 0.031 MB of 0.031 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:   Dev Accuracy ▁▁▂▃▄▅▅▅▆▆▆▆▇▆▆▆▇▇▇▇▆▇▇█▇▇▇▇██▆▇█▇▇▇██▇█
+wandb: Train Accuracy ▁▁▂▂▃▃▄▄▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇████████████
+wandb:   dev_f1_score ▁▁▂▃▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇█▇▇▇▇██▇▇█▇█▇████
+wandb: 
+wandb: Run summary:
+wandb:   Dev Accuracy 0.46823
+wandb: Train Accuracy 0.97891
+wandb:   dev_f1_score 0.48496
+wandb: 
+wandb: Synced crisp-sweep-30: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/ctd53twz
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220929_011803-ctd53twz/logs
+wandb: Agent Starting Run: b8hmou70 with config:
+wandb: 	batch_size: 4
+wandb: 	layers_embeddings: [32, 32, 16]
+wandb: 	learning_rate: 5e-05
+wandb: 	mid_layer_dropout: 0.8
+wandb: 	num_epochs: 400
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220929_015125-b8hmou70
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run likely-sweep-31
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2
+wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/sweeps/l7i15ksu
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/b8hmou70
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: | 0.005 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: / 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: - 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: \ 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: | 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: / 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: - 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb: \ 0.034 MB of 0.034 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:   Dev Accuracy ▁███████████████▆▅▆▆▅▆▆▅▇▆▆▆▅▅▆▅▅▅▅▅▅▄▅▅
+wandb: Train Accuracy ▁▅▅▅▅▅▅▅▅▅▅▅▅▅▇▇▇▇▇▇▆▆▇▆▇▇▆▇▆▇▇▇▇▇█▇▇▇▇▇
+wandb:   dev_f1_score ▁▄▄▄▅▄▅▅▅▅▅▅▅▅▆▆▆▅▅▆▅▇▇▆██▇▇▇▇█▇▇▇▇▇▇▇▇▇
+wandb: 
+wandb: Run summary:
+wandb:   Dev Accuracy 0.16722
+wandb: Train Accuracy 0.23634
+wandb:   dev_f1_score 0.13563
+wandb: 
+wandb: Synced likely-sweep-31: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/b8hmou70
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220929_015125-b8hmou70/logs
+wandb: Agent Starting Run: 67f1mdd4 with config:
+wandb: 	batch_size: 4
+wandb: 	layers_embeddings: [16, 16, 16]
+wandb: 	learning_rate: 5e-05
+wandb: 	mid_layer_dropout: 0.6
+wandb: 	num_epochs: 400
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220929_022445-67f1mdd4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run spring-sweep-32
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2
+wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/sweeps/l7i15ksu
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN%20Hyper%20parameter%20tuning%20V2/runs/67f1mdd4

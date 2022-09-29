@@ -19,11 +19,11 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-# python baselines.py \
-#     --train_input_file data/edu_train.csv \
-#     --dev_input_file data/edu_dev.csv \
-#     --test_input_file data/edu_test.csv \
-#     --input_feature masked_articles
+python baselines.py \
+    --train_input_file data/edu_train.csv \
+    --dev_input_file data/edu_dev.csv \
+    --test_input_file data/edu_test.csv \
+    --input_feature masked_articles
 
 
 python baselines.py \

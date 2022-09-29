@@ -141,10 +141,10 @@ if __name__ == "__main__":
             "values": [args.input_feature]
         },
         "batch_size": {
-            "values": [8, 16, 32]
+            "values": [8]
         },
         "learning_rate": {
-            "values": [1e-5, 5e-5]
+            "values": [2e-5]
         },
         "num_epochs": {
             "values":[10]
@@ -159,7 +159,7 @@ if __name__ == "__main__":
 
     sweep_config['parameters'] = parameters_dict
     sweep_id = wandb.sweep(sweep_config, project="Baseline Finder")
-    wandb.agent(sweep_id, do_train_process)
+    wandb.agent(sweep_id, do_train_process, count=20)
 
 
     
