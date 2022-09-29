@@ -23,18 +23,19 @@ conda activate general
 # TODO: Should be revised based on the names of the files \
 #  augmenting wordnet and conceptNet to the main datastes
 
+# Using the original sentences
+# python main_classifier.py \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --input_feature source_article \
+#     --batch_size 8 \
+#     --learning_rate 2e-5 \
+#     --num_epochs 10 \
+#     --classifier_dropout 0.1 \
+#     --weight_decay 0.001
 
-python main_classifier.py \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-    --input_feature source_article \
-    --batch_size 8 \
-    --learning_rate 2e-5 \
-    --num_epochs 10 \
-    --classifier_dropout 0.1 \
-    --weight_decay 0.001
-
+# Using the masked sentences
 python main_classifier.py \
     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
@@ -45,6 +46,45 @@ python main_classifier.py \
     --num_epochs 10 \
     --classifier_dropout 0.1 \
     --weight_decay 0.01
+
+# ConceptNet
+# python main_classifier.py \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train_conceptnet_good_relations.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_conceptnet_good_relations.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_conceptnet_good_relations.joblib \
+#     --input_feature masked_articles \
+#     --batch_size 8 \
+#     --learning_rate 2e-5 \
+#     --num_epochs 10 \
+#     --classifier_dropout 0.1 \
+#     --weight_decay 0.01 \
+#     --augments conceptnet
+
+# WordNet
+# python main_classifier.py \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train_wordnet.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_wordnet.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_wordnet.joblib \
+#     --input_feature masked_articles \
+#     --batch_size 8 \
+#     --learning_rate 2e-5 \
+#     --num_epochs 10 \
+#     --classifier_dropout 0.1 \
+#     --weight_decay 0.01 \
+#     --augments wordnet
+
+# case based reasoning
+# python main_classifier.py \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --input_feature masked_articles \
+#     --batch_size 8 \
+#     --learning_rate 2e-5 \
+#     --num_epochs 10 \
+#     --classifier_dropout 0.1 \
+#     --weight_decay 0.01 \
+#     --cbr
 
 
 

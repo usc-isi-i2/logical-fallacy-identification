@@ -18,38 +18,6 @@
 # import networkx as nx
 
 
-# def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-#     template_dict = {
-#         "syn": " is synonym of ",
-#         "ant": " is antonym of ",
-#         "entails": " entails ",
-#         "part_of": " is part of "
-#     }
-#     results = set()
-#     for edge in graph.edges(data=True):
-#         if edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
-#             results.add(
-#                 f"{node2label[edge[0]]}{template_dict[edge[2]['label']]}{node2label[edge[1]]}"
-#             )
-
-#     return results
-
-
-# def get_conceptnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-#     def convert_camelCase_to_space(label):
-#         label = re.sub(
-#             r'((?<=[a-z])[A-Z]|(?<!\A)[A-Z](?=[a-z]))', r' \1', label)
-#         return label
-#     results = set()
-#     for edge in graph.edges(data=True):
-#         if not edge[2]['label'].startswith('"') and not edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
-#             results.add(
-#                 f"{node2label[edge[0]]} {convert_camelCase_to_space(edge[2]['label'])} {node2label[edge[1]]}"
-#             )
-#     return results
-
-
-
 # def augment_records_with_similar_records(
 #     data_df: pd.DataFrame,
 #     source_df: pd.DataFrame,
@@ -201,6 +169,9 @@ import joblib
 import wandb
 import random
 import numpy as np
+import re
+from typing import List
+import gcn
 from IPython import embed
 from pathlib import Path
 from transformers import TrainingArguments, Trainer, \
@@ -215,6 +186,39 @@ random.seed(77)
 np.random.seed(77)
 
 NUM_LABELS = 13
+
+
+
+
+def get_wordnet_edges_in_sentences(graph, node2label) -> List[str]:
+    template_dict = {
+        "syn": "is synonym of",
+        "ant": "is antonym of",
+        "entails": "entails",
+        "part_of": "is part of"
+    }
+    results = set()
+    for edge in graph.edges(data=True):
+        if edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
+            results.add(
+                f"{node2label[edge[0]]} {template_dict[edge[2]['label']]} {node2label[edge[1]]}"
+            )
+
+    return results
+
+
+def get_conceptnet_edges_in_sentences(graph, node2label) -> List[str]:
+    results = set()
+    for edge in graph.edges(data=True):
+        # Edges not from AMR which all of them are in form of "":arg"" and also not from WordNet augmentation
+        if not edge[2]['label'].startswith('"') and not edge[2]['label'] in ["syn", "ant", "entails", 'part_of']:
+            if edge[2]['example'] and type(edge[2]['example']) == str:
+                results.add(str(edge[2]['example']).replace('[[', '').replace(']]', ''))
+            else:
+                results.add(
+                    f"{node2label[edge[0]]} {edge[2]['label']} {node2label[edge[1]]}"
+                )
+    return results
 
 
 def compute_metrics(pred):
@@ -250,22 +254,22 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
             base_sentence = obj[0]
         else:
             raise NotImplementedError()
-        # graph = obj[1].graph_nx
+        graph = obj[1].graph_nx
         augmented_sentences = []
-        # if "wordnet" in augments:
-        #     augmented_sentences.extend(
-        #         list(get_wordnet_edges_in_sentences(
-        #             graph,
-        #             obj[1].label2word
-        #         ))
-        #     )
-        # if "conceptnet" in augments:
-        #     augmented_sentences.extend(
-        #         list(get_conceptnet_edges_in_sentences(
-        #             graph,
-        #             obj[1].label2word
-        #         ))
-        #     )
+        if "wordnet" in augments:
+            augmented_sentences.extend(
+                list(get_wordnet_edges_in_sentences(
+                    graph,
+                    obj[1].label2word
+                ))
+            )
+        if "conceptnet" in augments:
+            augmented_sentences.extend(
+                list(get_conceptnet_edges_in_sentences(
+                    graph,
+                    obj[1].label2word
+                ))
+            )
         sentences.append(
             "; ".join([base_sentence, *augmented_sentences])
         )
@@ -276,12 +280,103 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
         "updated_label": labels
     })
 
+def augment_with_cases(train_df, dev_df, test_df, args):
+    print('doing the case augmentation ...')
+    gcn_model = gcn.CBRetriever(
+        num_input_features=gcn.NODE_EMBEDDING_SIZE,
+        num_output_features=len(gcn.label2index),
+        mid_layer_dropout=gcn.MID_LAYERS_DROPOUT,
+        mid_layer_embeddings=[int(x)
+                              for x in gcn.MID_LAYERS_EMBEDDINGS.split('&')],
+        heads=4
+    )
+
+    device_cuda = torch.cuda.is_available()
+    device = torch.device("cuda" if device_cuda else "cpu")
+    
+    if not device_cuda:
+        gcn_model.load_state_dict(torch.load(
+            args.gcn_model_path, map_location=torch.device('cpu')))
+    else:
+        gcn_model.load_state_dict(torch.load(args.gcn_model_path))
+    gcn_model = gcn_model.to(device)
+
+    train_dataset = gcn.Logical_Fallacy_Dataset(
+        path_to_dataset=args.train_input_file,
+        fit=True
+    )
+    dev_dataset = gcn.Logical_Fallacy_Dataset(
+        path_to_dataset=args.dev_input_file,
+        fit=False,
+        all_edge_types=train_dataset.all_edge_types,
+        ohe=train_dataset.ohe
+    )
+
+    test_dataset = gcn.Logical_Fallacy_Dataset(
+        path_to_dataset=args.test_input_file,
+        fit=False,
+        all_edge_types=train_dataset.all_edge_types,
+        ohe=train_dataset.ohe
+    )
+
+    train_data_loader = gcn.DataLoader(
+        train_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
+    dev_data_loader = gcn.DataLoader(
+        dev_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
+    test_data_loader = gcn.DataLoader(
+        test_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
+
+    train_results = gcn.test_on_loader(
+        gcn_model, train_data_loader)
+    dev_results = gcn.test_on_loader(
+        gcn_model, dev_data_loader)
+    test_results = gcn.test_on_loader(
+        gcn_model, test_data_loader)
+
+    index2label = {v: k for k, v in gcn.label2index.items()}
+
+    all_train_predictions = [index2label[pred]
+                             for pred in train_results['predictions']]
+    all_dev_predictions = [index2label[pred]
+                           for pred in dev_results['predictions']]
+    all_test_predictions = [index2label[pred]
+                            for pred in test_results['predictions']]
+    all_train_true_labels = [index2label[true_label]
+                             for true_label in train_results['true_labels']]
+    all_dev_true_labels = [index2label[true_label]
+                           for true_label in dev_results['true_labels']]
+    all_test_true_labels = [index2label[true_label]
+                            for true_label in test_results['true_labels']]
+
+    print('Train split results')
+    print(classification_report(
+        y_pred=all_train_predictions,
+        y_true=all_train_true_labels
+    ))
+
+    print('Dev split results')
+    print(classification_report(
+        y_pred=all_dev_predictions,
+        y_true=all_dev_true_labels
+    ))
+
+    print('Test split results')
+    print(classification_report(
+        y_pred=all_test_predictions,
+        y_true=all_test_true_labels
+    ))
+    exit()
+
+
 
 def do_train_process(args):
 
-    train_df = read_csv_from_amr(args.train_input_file)
-    dev_df = read_csv_from_amr(args.dev_input_file)
-    test_df = read_csv_from_amr(args.test_input_file)
+    train_df = read_csv_from_amr(args.train_input_file, augments=args.augments.split('&'))
+    dev_df = read_csv_from_amr(args.dev_input_file, augments=args.augments.split('&'))
+    test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
+
+    if args.cbr:
+        train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
 
 
     label_encoder = LabelEncoder()
@@ -292,6 +387,7 @@ def do_train_process(args):
     dev_df['updated_label'] = label_encoder.transform(dev_df['updated_label'])
     test_df['updated_label'] = label_encoder.transform(
         test_df['updated_label'])
+
 
     dataset = DatasetDict({
         'train': Dataset.from_pandas(train_df),
@@ -415,6 +511,12 @@ if __name__ == "__main__":
 
     parser.add_argument(
         '--weight_decay', type = float, default = 0.01
+    )
+    parser.add_argument(
+        '--augments', type = str, default = ""
+    )
+    parser.add_argument(
+        '--cbr', action=argparse.BooleanOptionalAction
     )
 
 

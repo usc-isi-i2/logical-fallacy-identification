@@ -117,7 +117,7 @@ if __name__ == "__main__":
                     node1_label = label2word[node1].lower()
                     node2_label = label2word[node2].lower()
 
-                    if node1_label.startswith('msk') or node2_label.startswith('msk') and node1_label == node2_label:
+                    if node1_label.startswith('msk') or node2_label.startswith('msk') or node1_label == node2_label:
                         continue
                     # print(node1_label, node2_label)
                     for new_edge in get_relations_between_words_from_dump(node1_label, node2_label):

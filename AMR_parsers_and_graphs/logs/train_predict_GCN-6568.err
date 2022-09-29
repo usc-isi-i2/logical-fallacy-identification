@@ -1,0 +1,44 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220929_205457-k7nkput7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run resilient-snow-100
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN/runs/k7nkput7
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: \ 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: | 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: / 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: - 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: \ 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: | 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: / 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb: - 0.019 MB of 0.019 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:   Dev Accuracy ▁▂▄▅▅▅▆▅▇▆▇▆▆▆▆▇▇▆▇███▇▆▇▇█▇▇███▇▇▇▇▇▆▇█
+wandb: Train Accuracy ▁▁▂▂▂▃▃▃▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▆▇▇▇▇▇▇▇██▇▇▇██▇█
+wandb:   dev_f1_score ▁▁▄▅▅▅▆▅▇▆▇▆▇▇▆▇▇▇▇████▇████▇████▇███▇▇█
+wandb: 
+wandb: Run summary:
+wandb:   Dev Accuracy 0.40468
+wandb: Train Accuracy 0.88967
+wandb:   dev_f1_score 0.40664
+wandb: 
+wandb: Synced resilient-snow-100: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN/runs/k7nkput7
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20220929_205457-k7nkput7/logs

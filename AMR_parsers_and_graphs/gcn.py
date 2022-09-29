@@ -12,6 +12,7 @@ import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from torch_geometric.utils.convert import from_networkx
 import torch
+import random
 import networkx as nx
 from torch_geometric.data import InMemoryDataset
 from consts import *
@@ -20,12 +21,17 @@ import joblib
 from tqdm import tqdm
 import argparse
 
-BATCH_SIZE = 4
-NUM_EPOCHS = 220
-MID_LAYER_DROPOUT = 0.6
-LAYERS_EMBEDDINGS = [32, 32, 32]
-LEARNING_RATE = 0.00005
 NODE_EMBEDDING_SIZE = 768
+BATCH_SIZE = 4
+NUM_EPOCHS = 70
+MID_LAYERS_DROPOUT = 0.1
+MID_LAYERS_EMBEDDINGS = "32&32&16"
+LEARNING_RATE = 1e-4
+
+torch.manual_seed(77)
+random.seed(77)
+np.random.seed(77)
+
 
 label2index = {
     'faulty generalization': 0,
@@ -58,6 +64,7 @@ class CBRetriever(torch.nn.Module):
             dropout=0.1,
             heads=heads
         )
+
         self.conv2 = GATv2Conv(
             heads * mid_layer_embeddings[0],
             mid_layer_embeddings[1],
@@ -388,9 +395,6 @@ if __name__ == "__main__":
     parser.add_argument(
         '--model_path', help="The path from which we can find the pre-trained model")
 
-    parser.add_argument('--all_data',
-                        help="The path to the whole dataset")
-
     parser.add_argument('--train_input_file',
                         help="The path to the train dataset")
 
@@ -399,6 +403,14 @@ if __name__ == "__main__":
 
     parser.add_argument('--test_input_file',
                         help="The path to the test data")
+
+    parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
+    parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
+    parser.add_argument('--mid_layers_dropout', type=float,
+                        default=MID_LAYERS_DROPOUT)
+    parser.add_argument('--mid_layers_embeddings',
+                        type=str, default=MID_LAYERS_EMBEDDINGS)
+    parser.add_argument('--learning_rate', type=float, default=LEARNING_RATE)
 
     args = parser.parse_args()
 
@@ -458,8 +470,9 @@ if __name__ == "__main__":
     model = CBRetriever(
         num_input_features=NODE_EMBEDDING_SIZE,
         num_output_features=len(label2index),
-        mid_layer_dropout=MID_LAYER_DROPOUT,
-        mid_layer_embeddings=LAYERS_EMBEDDINGS,
+        mid_layer_dropout=args.mid_layers_dropout,
+        mid_layer_embeddings=[int(x)
+                              for x in args.mid_layers_embeddings.split('&')],
         heads=4
     )
     if args.task == "predict":
@@ -487,11 +500,11 @@ if __name__ == "__main__":
     )
 
     train_data_loader = DataLoader(
-        train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+        train_dataset, batch_size=args.batch_size, shuffle=True)
     dev_data_loader = DataLoader(
-        dev_dataset, batch_size=BATCH_SIZE, shuffle=False)
+        dev_dataset, batch_size=args.batch_size, shuffle=False)
     test_data_loader = DataLoader(
-        test_dataset, batch_size=BATCH_SIZE, shuffle=False)
+        test_dataset, batch_size=args.batch_size, shuffle=False)
 
     if args.task == "train":
         do_train_process(
@@ -499,8 +512,8 @@ if __name__ == "__main__":
             train_data_loader=train_data_loader,
             dev_data_loader=dev_data_loader,
             test_data_loader=test_data_loader,
-            learning_rate=LEARNING_RATE,
-            num_epochs=NUM_EPOCHS
+            learning_rate=args.learning_rate,
+            num_epochs=args.num_epochs
         )
         exit()
 
