@@ -163,6 +163,7 @@
 
 from sklearn.metrics import precision_recall_fscore_support, accuracy_score, \
     classification_report
+import consts
 import pandas as pd
 import torch
 import joblib
@@ -367,6 +368,101 @@ def augment_with_cases(train_df, dev_df, test_df, args):
     ))
     exit()
 
+def do_predict_process(args):
+    train_df = read_csv_from_amr(args.train_input_file, augments=args.augments.split('&'))
+    dev_df = read_csv_from_amr(args.dev_input_file, augments=args.augments.split('&'))
+    test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
+
+    if args.cbr:
+        train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
+
+
+    label_encoder = lambda x: consts.label2index[x]
+    label_encoder_inverse = lambda x: consts.index2label[x]
+
+    train_df['updated_label'] = list(map(label_encoder, train_df['updated_label']))
+    dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
+    test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
+
+
+    dataset = DatasetDict({
+        'train': Dataset.from_pandas(train_df),
+        'eval': Dataset.from_pandas(dev_df),
+        'test': Dataset.from_pandas(test_df)
+    })
+
+    def process(batch):
+        texts = batch[args.input_feature]
+        inputs = tokenizer(texts, truncation=True)
+        return {
+            **inputs,
+            'labels': batch['updated_label']
+        }
+
+    tokenizer = AutoTokenizer.from_pretrained(args.model_path)
+    tokenized_dataset = dataset.map(
+        process, batched=True, remove_columns=dataset['train'].column_names)
+
+    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
+    model = AutoModelForSequenceClassification.from_pretrained(
+        args.model_path, num_labels=NUM_LABELS, classifier_dropout = args.classifier_dropout)
+
+    print('Model loaded!')
+
+    training_args = TrainingArguments(
+        do_eval=True,
+        do_train=False,
+        output_dir="./xlm_roberta_logical_fallacy_classification",
+        learning_rate=args.learning_rate,
+        per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=args.batch_size,
+        num_train_epochs=args.num_epochs,
+        weight_decay=args.weight_decay,
+        logging_steps=50,
+        evaluation_strategy='steps',
+        report_to="wandb"
+    )
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=tokenized_dataset['train'],
+        eval_dataset=tokenized_dataset['eval'],
+        tokenizer=tokenizer,
+        data_collator=data_collator,
+        compute_metrics=compute_metrics
+    )
+
+    train_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['train']).predictions, axis = -1)))
+    train_true_labels = list(map(label_encoder_inverse, tokenized_dataset['train']['labels']))
+
+    print('performance on train data')
+    print(classification_report(
+        y_pred = train_predictions, 
+        y_true = train_true_labels
+    ))
+
+    eval_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1)))
+    eval_true_labels = list(map(label_encoder_inverse, tokenized_dataset['eval']['labels']))
+
+    print('performance on eval data')
+    print(classification_report(
+        y_pred = eval_predictions,
+        y_true = eval_true_labels
+    ))
+
+    test_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['test']).predictions, axis = -1)))
+    test_true_labels = list(map(label_encoder_inverse, tokenized_dataset['test']['labels']))
+
+    print('performance on test data')
+    print(classification_report(
+        y_pred = test_predictions, 
+        y_true = test_true_labels
+    ))
+
+
+
 
 
 def do_train_process(args):
@@ -379,14 +475,13 @@ def do_train_process(args):
         train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
 
 
-    label_encoder = LabelEncoder()
-    label_encoder.fit(train_df['updated_label'])
+    label_encoder = lambda x: consts.label2index[x]
+    label_encoder_inverse = lambda x: consts.index2label[x]
 
-    train_df['updated_label'] = label_encoder.transform(
-        train_df['updated_label'])
-    dev_df['updated_label'] = label_encoder.transform(dev_df['updated_label'])
-    test_df['updated_label'] = label_encoder.transform(
-        test_df['updated_label'])
+
+    train_df['updated_label'] = list(map(label_encoder, train_df['updated_label']))
+    dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
+    test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
 
 
     dataset = DatasetDict({
@@ -408,8 +503,6 @@ def do_train_process(args):
         process, batched=True, remove_columns=dataset['train'].column_names)
 
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
-
 
     model = AutoModelForSequenceClassification.from_pretrained(
         "roberta-base", num_labels=NUM_LABELS, classifier_dropout = args.classifier_dropout)
@@ -443,8 +536,8 @@ def do_train_process(args):
     print('Start the training ...')
     trainer.train()
 
-    train_predictions = label_encoder.inverse_transform(np.argmax(trainer.predict(tokenized_dataset['train']).predictions, axis = -1))
-    train_true_labels = label_encoder.inverse_transform(tokenized_dataset['train']['labels'])
+    train_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['train']).predictions, axis = -1)))
+    train_true_labels = list(map(label_encoder_inverse, tokenized_dataset['train']['labels']))
 
     print('performance on train data')
     print(classification_report(
@@ -452,8 +545,8 @@ def do_train_process(args):
         y_true = train_true_labels
     ))
 
-    eval_predictions = label_encoder.inverse_transform(np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1))
-    eval_true_labels = label_encoder.inverse_transform(tokenized_dataset['eval']['labels'])
+    eval_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1)))
+    eval_true_labels = list(map(label_encoder_inverse, tokenized_dataset['eval']['labels']))
 
     print('performance on eval data')
     print(classification_report(
@@ -461,8 +554,8 @@ def do_train_process(args):
         y_true = eval_true_labels
     ))
 
-    test_predictions = label_encoder.inverse_transform(np.argmax(trainer.predict(tokenized_dataset['test']).predictions, axis = -1))
-    test_true_labels = label_encoder.inverse_transform(tokenized_dataset['test']['labels'])
+    test_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['test']).predictions, axis = -1)))
+    test_true_labels = list(map(label_encoder_inverse, tokenized_dataset['test']['labels']))
 
     print('performance on test data')
     print(classification_report(
@@ -474,12 +567,16 @@ def do_train_process(args):
 
 
 
-
 # READING THE DATA
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Train a Classification Model for Logical Fallacy Detection and having a baseline')
+
+
+    parser.add_argument(
+        '--task', type = str, default="train", choices=['train', 'predict']
+    )
 
     parser.add_argument(
         '--train_input_file', help="Train input file path", type=str
@@ -495,6 +592,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         '--batch_size', type = int, default = 8
+    )
+
+    parser.add_argument(
+        '--gcn_model_path', type = str
+    )
+    parser.add_argument(
+        '--model_path'
     )
 
     parser.add_argument(
@@ -518,6 +622,9 @@ if __name__ == "__main__":
     parser.add_argument(
         '--cbr', action=argparse.BooleanOptionalAction
     )
+    parser.add_argument(
+        '--predictions_path', type = str
+    )
 
 
     args = parser.parse_args()
@@ -530,7 +637,10 @@ if __name__ == "__main__":
         }
     )
 
-    do_train_process(args)
+    if args.task == "train":
+        do_train_process(args)
+    elif args.task == "predict":
+        do_predict_process(args)
 
 
     

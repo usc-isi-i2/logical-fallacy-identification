@@ -1,0 +1,12 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220930_013041-33f0qts4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run vibrant-elevator-109
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Detection%20GCN/runs/33f0qts4
+Processing...
+  0%|          | 0/1849 [00:00<?, ?it/s]  0%|          | 1/1849 [00:00<18:18,  1.68it/s]  0%|          | 2/1849 [00:01<29:14,  1.05it/s]  0%|          | 3/1849 [00:02<23:09,  1.33it/s]  0%|          | 4/1849 [00:03<34:23,  1.12s/it]  0%|          | 5/1849 [00:05<37:51,  1.23s/it]  0%|          | 6/1849 [00:06<36:32,  1.19s/it]  0%|          | 7/1849 [00:08<45:46,  1.49s/it]  0%|          | 8/1849 [00:09<43:27,  1.42s/it]  0%|          | 9/1849 [00:10<38:52,  1.27s/it]  1%|          | 10/1849 [00:12<43:37,  1.42s/it]  1%|          | 11/1849 [00:13<41:09,  1.34s/it]  1%|          | 12/1849 [00:15<47:57,  1.57s/it]  1%|          | 13/1849 [00:18<55:31,  1.81s/it]  1%|          | 14/1849 [00:21<1:04:16,  2.10s/it]  1%|          | 15/1849 [00:21<53:56,  1.76s/it]    1%|          | 16/1849 [00:23<48:47,  1.60s/it]  1%|          | 17/1849 [00:24<41:48,  1.37s/it]slurmstepd: error: *** JOB 6579 ON node01 CANCELLED AT 2022-09-30T01:31:42 ***

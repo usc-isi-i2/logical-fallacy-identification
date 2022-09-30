@@ -80,3 +80,23 @@ good_relations_labels = [
     'symbol of',
     'used for'
 ]
+
+
+label2index = {
+    'ad hominem': 0,
+    'ad populum': 1,
+    'appeal to emotion': 2,
+    'circular reasoning': 3,
+    'equivocation': 4,
+    'fallacy of credibility': 5,
+    'fallacy of extension': 6,
+    'fallacy of logic': 7,
+    'fallacy of relevance': 8,
+    'false causality': 9,
+    'false dilemma': 10,
+    'faulty generalization': 11,
+    'intentional': 12
+}
+
+
+index2label = {v: k for k, v in label2index.items()}

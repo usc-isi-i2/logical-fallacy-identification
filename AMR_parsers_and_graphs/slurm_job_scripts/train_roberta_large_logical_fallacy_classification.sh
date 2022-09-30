@@ -47,6 +47,22 @@ python main_classifier.py \
     --classifier_dropout 0.1 \
     --weight_decay 0.01
 
+# Using the masked sentences
+# predict
+# python main_classifier.py \
+#     --task predict \
+#     --predictions_path main_classifier_results \
+#     --model_path xlm_roberta_logical_fallacy_classification/checkpoint-3500 \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --input_feature masked_articles \
+#     --batch_size 8 \
+#     --learning_rate 2e-5 \
+#     --num_epochs 10 \
+#     --classifier_dropout 0.1 \
+#     --weight_decay 0.01
+
 # ConceptNet
 # python main_classifier.py \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train_conceptnet_good_relations.joblib \

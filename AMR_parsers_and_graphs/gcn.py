@@ -1,4 +1,5 @@
 import wandb
+import pandas as pd
 from sklearn.metrics import f1_score
 from embeddings import get_bert_embeddings
 import numpy as np
@@ -15,7 +16,7 @@ import torch
 import random
 import networkx as nx
 from torch_geometric.data import InMemoryDataset
-from consts import *
+import consts
 from IPython import embed
 import joblib
 from tqdm import tqdm
@@ -31,23 +32,6 @@ LEARNING_RATE = 1e-4
 torch.manual_seed(77)
 random.seed(77)
 np.random.seed(77)
-
-
-label2index = {
-    'faulty generalization': 0,
-    'false dilemma': 1,
-    'false causality': 2,
-    'appeal to emotion': 3,
-    'ad hominem': 4,
-    'fallacy of logic': 5,
-    'intentional': 6,
-    'equivocation': 7,
-    'fallacy of extension': 8,
-    'fallacy of credibility': 9,
-    'ad populum': 10,
-    'circular reasoning': 11,
-    'fallacy of relevance': 12
-}
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
@@ -189,7 +173,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 )
 
                 pyg_graph.y = torch.tensor([
-                    label2index[obj[2]]
+                    consts.label2index[obj[2]]
                 ])
                 pyg_graph.base_sentence = base_sentence
 
@@ -252,19 +236,17 @@ def evaluate_on_loaders(model, train_data_loader, dev_data_loader, test_data_loa
     test_results = test_on_loader(
         model, test_data_loader)
 
-    index2label = {v: k for k, v in label2index.items()}
-
-    all_train_predictions = [index2label[pred]
+    all_train_predictions = [consts.index2label[pred]
                              for pred in train_results['predictions']]
-    all_dev_predictions = [index2label[pred]
+    all_dev_predictions = [consts.index2label[pred]
                            for pred in dev_results['predictions']]
-    all_test_predictions = [index2label[pred]
+    all_test_predictions = [consts.index2label[pred]
                             for pred in test_results['predictions']]
-    all_train_true_labels = [index2label[true_label]
+    all_train_true_labels = [consts.index2label[true_label]
                              for true_label in train_results['true_labels']]
-    all_dev_true_labels = [index2label[true_label]
+    all_dev_true_labels = [consts.index2label[true_label]
                            for true_label in dev_results['true_labels']]
-    all_test_true_labels = [index2label[true_label]
+    all_test_true_labels = [consts.index2label[true_label]
                             for true_label in test_results['true_labels']]
 
     print('Train split results')
@@ -332,7 +314,7 @@ def train_with_wandb(config=None):
         config = wandb.config
         model = CBRetriever(
             num_input_features=NODE_EMBEDDING_SIZE,
-            num_output_features=len(label2index),
+            num_output_features=len(consts.label2index),
             mid_layer_dropout=config.mid_layer_dropout,
             mid_layer_embeddings=config.layers_embeddings,
             heads=4
@@ -376,16 +358,6 @@ def train_with_wandb(config=None):
         )
 
 
-def do_predict_process(model, loader):
-    index2label = {v: k for k, v in label2index.items()}
-    test_results = test_on_loader(model, loader)
-    all_sentences = test_results['all_sentences']
-    predictions = test_results['predictions']
-    predictions = [index2label[pred] for pred in predictions]
-    confidence = test_results['confidence']
-    return predictions, confidence, all_sentences
-
-
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
@@ -404,6 +376,9 @@ if __name__ == "__main__":
     parser.add_argument('--test_input_file',
                         help="The path to the test data")
 
+    parser.add_argument(
+        '--predictions_path', type=str
+    )
     parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
     parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
     parser.add_argument('--mid_layers_dropout', type=float,
@@ -469,7 +444,7 @@ if __name__ == "__main__":
 
     model = CBRetriever(
         num_input_features=NODE_EMBEDDING_SIZE,
-        num_output_features=len(label2index),
+        num_output_features=len(consts.label2index),
         mid_layer_dropout=args.mid_layers_dropout,
         mid_layer_embeddings=[int(x)
                               for x in args.mid_layers_embeddings.split('&')],
@@ -520,8 +495,17 @@ if __name__ == "__main__":
     elif args.task == "predict":
         evaluate_on_loaders(model, train_data_loader,
                             dev_data_loader, test_data_loader)
-        _, _, _ = do_predict_process(
-            model=model,
-            loader=test_data_loader
-        )
-        exit()
+        # FIXME: rewrite based on the test_on_loader
+        test_results = test_on_loader(model=model, loader=test_data_loader)
+        test_predictions = [consts.index2label[pred]
+                            for pred in test_results['predictions']]
+        test_true_labels = [consts.index2label[true_label]
+                            for true_label in test_results['true_labels']]
+
+        df = pd.DataFrame({
+            "sentence": test_results['all_sentences'],
+            "prediction": test_predictions,
+            "true_label": test_true_labels
+        })
+        df.to_csv(os.path.join(args.predictions_path,
+                  "gcn_predictions_test.csv"), index=False)
