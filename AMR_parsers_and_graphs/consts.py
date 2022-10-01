@@ -61,6 +61,15 @@ PATH_TO_MOST_SIMILAR_GRAPHS = (
 PATH_TO_STATISTICS = ((Path(__file__).parent) /
                       "tmp/statistics.csv").absolute()
 
+PATH_TO_SIMCSE_SIMILARITIES_TRAIN = ((Path(__file__).parent) /
+                                     "tmp/simcse_similarities_train.joblib").absolute()
+
+PATH_TO_SIMCSE_SIMILARITIES_DEV = ((Path(__file__).parent) /
+                                   "tmp/simcse_similarities_dev.joblib").absolute()
+
+PATH_TO_SIMCSE_SIMILARITIES_TEST = ((Path(__file__).parent) /
+                                    "tmp/simcse_similarities_test.joblib").absolute()
+
 
 good_relations = ['/r/Causes', '/r/UsedFor', '/r/CapableOf', '/r/CausesDesire', '/r/IsA', '/r/SymbolOf', '/r/MadeOf',
                   '/r/LocatedNear', '/r/Desires', '/r/AtLocation', '/r/HasProperty', '/r/PartOf', '/r/HasFirstSubevent', '/r/HasLastSubevent']

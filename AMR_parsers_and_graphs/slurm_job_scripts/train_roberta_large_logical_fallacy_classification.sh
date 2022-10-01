@@ -31,7 +31,7 @@ conda activate general
 #     --input_feature source_article \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
-#     --num_epochs 10 \
+#     --num_epochs 5 \
 #     --classifier_dropout 0.1 \
 #     --weight_decay 0.001
 
@@ -43,7 +43,7 @@ python main_classifier.py \
     --input_feature masked_articles \
     --batch_size 8 \
     --learning_rate 2e-5 \
-    --num_epochs 10 \
+    --num_epochs 5 \
     --classifier_dropout 0.1 \
     --weight_decay 0.01
 
@@ -52,14 +52,14 @@ python main_classifier.py \
 # python main_classifier.py \
 #     --task predict \
 #     --predictions_path main_classifier_results \
-#     --model_path xlm_roberta_logical_fallacy_classification/checkpoint-3500 \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
 #     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
 #     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
 #     --input_feature masked_articles \
 #     --batch_size 8 \
+#     --model_path xlm_roberta_logical_fallacy_classification/checkpoint-2000 \
 #     --learning_rate 2e-5 \
-#     --num_epochs 10 \
+#     --num_epochs 5 \
 #     --classifier_dropout 0.1 \
 #     --weight_decay 0.01
 
@@ -71,7 +71,7 @@ python main_classifier.py \
 #     --input_feature masked_articles \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
-#     --num_epochs 10 \
+#     --num_epochs 5 \
 #     --classifier_dropout 0.1 \
 #     --weight_decay 0.01 \
 #     --augments conceptnet
@@ -84,24 +84,27 @@ python main_classifier.py \
 #     --input_feature masked_articles \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
-#     --num_epochs 10 \
+#     --num_epochs 5 \
 #     --classifier_dropout 0.1 \
 #     --weight_decay 0.01 \
 #     --augments wordnet
 
 # case based reasoning
-# python main_classifier.py \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-#     --input_feature masked_articles \
-#     --batch_size 8 \
-#     --learning_rate 2e-5 \
-#     --num_epochs 10 \
-#     --classifier_dropout 0.1 \
-#     --weight_decay 0.01 \
-#     --cbr
-
-
+for NUM_CASES in `seq 10`
+do
+echo "case based reasoning with ${NUM_CASES} cases"
+python main_classifier.py \
+    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --input_feature masked_articles \
+    --batch_size 8 \
+    --learning_rate 2e-5 \
+    --num_epochs 5 \
+    --classifier_dropout 0.1 \
+    --weight_decay 0.01 \
+    --num_cases ${NUM_CASES} \
+    --cbr
+done
 
 conda deactivate

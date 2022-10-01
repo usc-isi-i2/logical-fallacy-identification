@@ -495,7 +495,6 @@ if __name__ == "__main__":
     elif args.task == "predict":
         evaluate_on_loaders(model, train_data_loader,
                             dev_data_loader, test_data_loader)
-        # FIXME: rewrite based on the test_on_loader
         test_results = test_on_loader(model=model, loader=test_data_loader)
         test_predictions = [consts.index2label[pred]
                             for pred in test_results['predictions']]

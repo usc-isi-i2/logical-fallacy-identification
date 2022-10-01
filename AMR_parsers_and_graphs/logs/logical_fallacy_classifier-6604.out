@@ -1,0 +1,250 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+Sat Oct  1 03:11:09 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:27:00.0 Off |                    0 |
+| N/A   28C    P0    33W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+cuda
+using GPU
+Model loaded!
+Start the training ...
+{'loss': 2.5153, 'learning_rate': 1.913793103448276e-05, 'epoch': 0.22}
+{'eval_loss': 2.400555372238159, 'eval_accuracy': 0.20333333333333334, 'eval_f1': 0.06871652816251154, 'eval_precision': 0.04134444444444445, 'eval_recall': 0.20333333333333334, 'eval_runtime': 0.3436, 'eval_samples_per_second': 873.029, 'eval_steps_per_second': 110.584, 'epoch': 0.22}
+{'loss': 2.4411, 'learning_rate': 1.827586206896552e-05, 'epoch': 0.43}
+{'eval_loss': 2.2849819660186768, 'eval_accuracy': 0.20333333333333334, 'eval_f1': 0.06871652816251154, 'eval_precision': 0.04134444444444445, 'eval_recall': 0.20333333333333334, 'eval_runtime': 0.3397, 'eval_samples_per_second': 883.103, 'eval_steps_per_second': 111.86, 'epoch': 0.43}
+{'loss': 2.2531, 'learning_rate': 1.7413793103448276e-05, 'epoch': 0.65}
+{'eval_loss': 2.0181868076324463, 'eval_accuracy': 0.4066666666666667, 'eval_f1': 0.33602876193045167, 'eval_precision': 0.3664920052388407, 'eval_recall': 0.4066666666666667, 'eval_runtime': 0.3377, 'eval_samples_per_second': 888.423, 'eval_steps_per_second': 112.534, 'epoch': 0.65}
+{'loss': 2.1437, 'learning_rate': 1.6551724137931037e-05, 'epoch': 0.86}
+{'eval_loss': 1.875216007232666, 'eval_accuracy': 0.4533333333333333, 'eval_f1': 0.4158669083299366, 'eval_precision': 0.43440846255196114, 'eval_recall': 0.4533333333333333, 'eval_runtime': 0.3365, 'eval_samples_per_second': 891.467, 'eval_steps_per_second': 112.919, 'epoch': 0.86}
+{'loss': 1.8329, 'learning_rate': 1.5689655172413794e-05, 'epoch': 1.08}
+{'eval_loss': 1.6640876531600952, 'eval_accuracy': 0.5066666666666667, 'eval_f1': 0.46902043906676333, 'eval_precision': 0.48110404185817507, 'eval_recall': 0.5066666666666667, 'eval_runtime': 0.3377, 'eval_samples_per_second': 888.385, 'eval_steps_per_second': 112.529, 'epoch': 1.08}
+{'loss': 1.5928, 'learning_rate': 1.4827586206896554e-05, 'epoch': 1.29}
+{'eval_loss': 1.559807538986206, 'eval_accuracy': 0.5666666666666667, 'eval_f1': 0.5454062673936172, 'eval_precision': 0.5698631928957334, 'eval_recall': 0.5666666666666667, 'eval_runtime': 0.3364, 'eval_samples_per_second': 891.759, 'eval_steps_per_second': 112.956, 'epoch': 1.29}
+{'loss': 1.6196, 'learning_rate': 1.3965517241379311e-05, 'epoch': 1.51}
+{'eval_loss': 1.4991674423217773, 'eval_accuracy': 0.5566666666666666, 'eval_f1': 0.5407930726286383, 'eval_precision': 0.6072739413364413, 'eval_recall': 0.5566666666666666, 'eval_runtime': 0.3359, 'eval_samples_per_second': 892.995, 'eval_steps_per_second': 113.113, 'epoch': 1.51}
+{'loss': 1.4306, 'learning_rate': 1.310344827586207e-05, 'epoch': 1.72}
+{'eval_loss': 1.3811380863189697, 'eval_accuracy': 0.5766666666666667, 'eval_f1': 0.5647238805295949, 'eval_precision': 0.5826438482628954, 'eval_recall': 0.5766666666666667, 'eval_runtime': 0.3377, 'eval_samples_per_second': 888.402, 'eval_steps_per_second': 112.531, 'epoch': 1.72}
+{'loss': 1.4906, 'learning_rate': 1.2241379310344827e-05, 'epoch': 1.94}
+{'eval_loss': 1.3152860403060913, 'eval_accuracy': 0.6133333333333333, 'eval_f1': 0.5981545926160486, 'eval_precision': 0.6292105118380981, 'eval_recall': 0.6133333333333333, 'eval_runtime': 0.3372, 'eval_samples_per_second': 889.672, 'eval_steps_per_second': 112.692, 'epoch': 1.94}
+{'loss': 1.1651, 'learning_rate': 1.1379310344827587e-05, 'epoch': 2.16}
+{'eval_loss': 1.2276380062103271, 'eval_accuracy': 0.6533333333333333, 'eval_f1': 0.6465053206492934, 'eval_precision': 0.6754730410112764, 'eval_recall': 0.6533333333333333, 'eval_runtime': 0.3361, 'eval_samples_per_second': 892.508, 'eval_steps_per_second': 113.051, 'epoch': 2.16}
+{'loss': 0.9536, 'learning_rate': 1.0517241379310346e-05, 'epoch': 2.37}
+{'eval_loss': 1.2288340330123901, 'eval_accuracy': 0.65, 'eval_f1': 0.6434312973050113, 'eval_precision': 0.6598181045533986, 'eval_recall': 0.65, 'eval_runtime': 0.3367, 'eval_samples_per_second': 891.005, 'eval_steps_per_second': 112.861, 'epoch': 2.37}
+{'loss': 1.0257, 'learning_rate': 9.655172413793105e-06, 'epoch': 2.59}
+{'eval_loss': 1.2330020666122437, 'eval_accuracy': 0.66, 'eval_f1': 0.6481818053804264, 'eval_precision': 0.6805246630079546, 'eval_recall': 0.66, 'eval_runtime': 0.3366, 'eval_samples_per_second': 891.257, 'eval_steps_per_second': 112.893, 'epoch': 2.59}
+{'loss': 0.9763, 'learning_rate': 8.793103448275862e-06, 'epoch': 2.8}
+{'eval_loss': 1.2238515615463257, 'eval_accuracy': 0.6433333333333333, 'eval_f1': 0.637959767714305, 'eval_precision': 0.6573604778434499, 'eval_recall': 0.6433333333333333, 'eval_runtime': 0.3346, 'eval_samples_per_second': 896.707, 'eval_steps_per_second': 113.583, 'epoch': 2.8}
+{'loss': 1.0182, 'learning_rate': 7.93103448275862e-06, 'epoch': 3.02}
+{'eval_loss': 1.1894665956497192, 'eval_accuracy': 0.6466666666666666, 'eval_f1': 0.6478086775291672, 'eval_precision': 0.6663413364669993, 'eval_recall': 0.6466666666666666, 'eval_runtime': 0.3351, 'eval_samples_per_second': 895.197, 'eval_steps_per_second': 113.392, 'epoch': 3.02}
+{'loss': 0.7064, 'learning_rate': 7.0689655172413796e-06, 'epoch': 3.23}
+{'eval_loss': 1.1745740175247192, 'eval_accuracy': 0.6633333333333333, 'eval_f1': 0.6543417360725902, 'eval_precision': 0.6612635587926285, 'eval_recall': 0.6633333333333333, 'eval_runtime': 0.3342, 'eval_samples_per_second': 897.604, 'eval_steps_per_second': 113.697, 'epoch': 3.23}
+{'loss': 0.6922, 'learning_rate': 6.206896551724138e-06, 'epoch': 3.45}
+{'eval_loss': 1.174561619758606, 'eval_accuracy': 0.6466666666666666, 'eval_f1': 0.6453440566984916, 'eval_precision': 0.6635417560235102, 'eval_recall': 0.6466666666666666, 'eval_runtime': 0.3348, 'eval_samples_per_second': 896.123, 'eval_steps_per_second': 113.509, 'epoch': 3.45}
+{'loss': 0.6576, 'learning_rate': 5.344827586206896e-06, 'epoch': 3.66}
+{'eval_loss': 1.1447372436523438, 'eval_accuracy': 0.6833333333333333, 'eval_f1': 0.6753471478137661, 'eval_precision': 0.6851952026468155, 'eval_recall': 0.6833333333333333, 'eval_runtime': 0.3348, 'eval_samples_per_second': 896.124, 'eval_steps_per_second': 113.509, 'epoch': 3.66}
+{'loss': 0.6954, 'learning_rate': 4.482758620689656e-06, 'epoch': 3.88}
+{'eval_loss': 1.1486992835998535, 'eval_accuracy': 0.67, 'eval_f1': 0.6673527183901904, 'eval_precision': 0.6792406312219774, 'eval_recall': 0.67, 'eval_runtime': 0.3349, 'eval_samples_per_second': 895.714, 'eval_steps_per_second': 113.457, 'epoch': 3.88}
+{'loss': 0.6398, 'learning_rate': 3.620689655172414e-06, 'epoch': 4.09}
+{'eval_loss': 1.1301785707473755, 'eval_accuracy': 0.6833333333333333, 'eval_f1': 0.6762028739514018, 'eval_precision': 0.6835114175260646, 'eval_recall': 0.6833333333333333, 'eval_runtime': 0.3342, 'eval_samples_per_second': 897.573, 'eval_steps_per_second': 113.693, 'epoch': 4.09}
+{'loss': 0.5015, 'learning_rate': 2.7586206896551725e-06, 'epoch': 4.31}
+{'eval_loss': 1.1283621788024902, 'eval_accuracy': 0.68, 'eval_f1': 0.6735109922764436, 'eval_precision': 0.6749890301758125, 'eval_recall': 0.68, 'eval_runtime': 0.335, 'eval_samples_per_second': 895.413, 'eval_steps_per_second': 113.419, 'epoch': 4.31}
+{'loss': 0.4761, 'learning_rate': 1.896551724137931e-06, 'epoch': 4.53}
+{'eval_loss': 1.1479531526565552, 'eval_accuracy': 0.6766666666666666, 'eval_f1': 0.6708760990699267, 'eval_precision': 0.6761622795363204, 'eval_recall': 0.6766666666666666, 'eval_runtime': 0.3342, 'eval_samples_per_second': 897.706, 'eval_steps_per_second': 113.709, 'epoch': 4.53}
+{'loss': 0.5349, 'learning_rate': 1.0344827586206898e-06, 'epoch': 4.74}
+{'eval_loss': 1.1517821550369263, 'eval_accuracy': 0.7, 'eval_f1': 0.6940910969265519, 'eval_precision': 0.7025903527302394, 'eval_recall': 0.7, 'eval_runtime': 0.3339, 'eval_samples_per_second': 898.58, 'eval_steps_per_second': 113.82, 'epoch': 4.74}
+{'loss': 0.4836, 'learning_rate': 1.7241379310344828e-07, 'epoch': 4.96}
+{'eval_loss': 1.1542845964431763, 'eval_accuracy': 0.6866666666666666, 'eval_f1': 0.681085222795308, 'eval_precision': 0.6896828506595867, 'eval_recall': 0.6866666666666666, 'eval_runtime': 0.3367, 'eval_samples_per_second': 890.901, 'eval_steps_per_second': 112.847, 'epoch': 4.96}
+{'train_runtime': 91.5641, 'train_samples_per_second': 100.968, 'train_steps_per_second': 12.669, 'train_loss': 1.203372323513031, 'epoch': 5.0}
+performance on train data
+                        precision    recall  f1-score   support
+
+            ad hominem       0.96      0.98      0.97       225
+            ad populum       0.96      0.94      0.95       158
+     appeal to emotion       0.92      0.93      0.92       130
+    circular reasoning       0.86      0.93      0.89       134
+          equivocation       0.00      0.00      0.00        39
+fallacy of credibility       0.85      0.92      0.88       107
+  fallacy of extension       0.93      0.92      0.93       106
+      fallacy of logic       0.82      0.88      0.85       121
+  fallacy of relevance       0.89      0.86      0.88       114
+       false causality       0.94      0.97      0.95       174
+         false dilemma       0.93      0.96      0.95       110
+ faulty generalization       0.98      0.94      0.96       319
+           intentional       0.87      0.96      0.91       112
+
+              accuracy                           0.92      1849
+             macro avg       0.84      0.86      0.85      1849
+          weighted avg       0.90      0.92      0.91      1849
+
+performance on eval data
+                        precision    recall  f1-score   support
+
+            ad hominem       0.74      0.86      0.79        36
+            ad populum       0.73      0.82      0.77        44
+     appeal to emotion       0.67      0.71      0.69        14
+    circular reasoning       0.56      0.78      0.65        18
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.38      0.62      0.48         8
+  fallacy of extension       0.54      0.50      0.52        14
+      fallacy of logic       0.63      0.71      0.67        17
+  fallacy of relevance       0.73      0.46      0.56        24
+       false causality       0.73      0.67      0.70        24
+         false dilemma       0.88      0.79      0.83        19
+ faulty generalization       0.78      0.66      0.71        61
+           intentional       0.47      0.56      0.51        16
+
+              accuracy                           0.69       300
+             macro avg       0.60      0.63      0.61       300
+          weighted avg       0.69      0.69      0.68       300
+
+performance on test data
+                        precision    recall  f1-score   support
+
+            ad hominem       0.73      0.88      0.80        41
+            ad populum       0.65      0.80      0.72        30
+     appeal to emotion       0.73      0.48      0.58        23
+    circular reasoning       0.52      0.58      0.55        19
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.35      0.41      0.38        17
+  fallacy of extension       0.67      0.48      0.56        21
+      fallacy of logic       0.50      0.50      0.50        14
+  fallacy of relevance       0.73      0.33      0.46        24
+       false causality       0.53      0.56      0.54        18
+         false dilemma       0.73      0.92      0.81        12
+ faulty generalization       0.67      0.67      0.67        61
+           intentional       0.26      0.40      0.32        15
+
+              accuracy                           0.61       300
+             macro avg       0.54      0.54      0.53       300
+          weighted avg       0.61      0.61      0.60       300
+
+cuda
+using GPU
+Model loaded!
+Start the training ...
+{'loss': 2.5284, 'learning_rate': 1.913793103448276e-05, 'epoch': 0.22}
+{'eval_loss': 2.443943977355957, 'eval_accuracy': 0.20333333333333334, 'eval_f1': 0.06871652816251154, 'eval_precision': 0.04134444444444445, 'eval_recall': 0.20333333333333334, 'eval_runtime': 0.5536, 'eval_samples_per_second': 541.947, 'eval_steps_per_second': 68.647, 'epoch': 0.22}
+{'loss': 2.4412, 'learning_rate': 1.827586206896552e-05, 'epoch': 0.43}
+{'eval_loss': 2.267627000808716, 'eval_accuracy': 0.2633333333333333, 'eval_f1': 0.16029321638413316, 'eval_precision': 0.16196038529371862, 'eval_recall': 0.2633333333333333, 'eval_runtime': 0.5508, 'eval_samples_per_second': 544.626, 'eval_steps_per_second': 68.986, 'epoch': 0.43}
+{'loss': 2.2641, 'learning_rate': 1.7413793103448276e-05, 'epoch': 0.65}
+{'eval_loss': 2.099332332611084, 'eval_accuracy': 0.3466666666666667, 'eval_f1': 0.28761272107122693, 'eval_precision': 0.30241294862272833, 'eval_recall': 0.3466666666666667, 'eval_runtime': 0.551, 'eval_samples_per_second': 544.433, 'eval_steps_per_second': 68.962, 'epoch': 0.65}
+{'loss': 2.191, 'learning_rate': 1.6551724137931037e-05, 'epoch': 0.86}
+{'eval_loss': 1.9247065782546997, 'eval_accuracy': 0.4266666666666667, 'eval_f1': 0.37750883804394314, 'eval_precision': 0.4200059188000869, 'eval_recall': 0.4266666666666667, 'eval_runtime': 0.5515, 'eval_samples_per_second': 544.013, 'eval_steps_per_second': 68.908, 'epoch': 0.86}
+{'loss': 1.9574, 'learning_rate': 1.5689655172413794e-05, 'epoch': 1.08}
+{'eval_loss': 1.7597765922546387, 'eval_accuracy': 0.4633333333333333, 'eval_f1': 0.4219048169214362, 'eval_precision': 0.4667947869097377, 'eval_recall': 0.4633333333333333, 'eval_runtime': 0.5498, 'eval_samples_per_second': 545.655, 'eval_steps_per_second': 69.116, 'epoch': 1.08}
+{'loss': 1.6937, 'learning_rate': 1.4827586206896554e-05, 'epoch': 1.29}
+{'eval_loss': 1.6755187511444092, 'eval_accuracy': 0.5, 'eval_f1': 0.5017223103924303, 'eval_precision': 0.5581073947354781, 'eval_recall': 0.5, 'eval_runtime': 0.5517, 'eval_samples_per_second': 543.737, 'eval_steps_per_second': 68.873, 'epoch': 1.29}
+{'loss': 1.7335, 'learning_rate': 1.3965517241379311e-05, 'epoch': 1.51}
+{'eval_loss': 1.5911476612091064, 'eval_accuracy': 0.5366666666666666, 'eval_f1': 0.525503126894525, 'eval_precision': 0.5757868317033064, 'eval_recall': 0.5366666666666666, 'eval_runtime': 0.5516, 'eval_samples_per_second': 543.83, 'eval_steps_per_second': 68.885, 'epoch': 1.51}
+{'loss': 1.5352, 'learning_rate': 1.310344827586207e-05, 'epoch': 1.72}
+{'eval_loss': 1.4855244159698486, 'eval_accuracy': 0.5666666666666667, 'eval_f1': 0.5467698888908468, 'eval_precision': 0.5542194431006806, 'eval_recall': 0.5666666666666667, 'eval_runtime': 0.5515, 'eval_samples_per_second': 543.937, 'eval_steps_per_second': 68.899, 'epoch': 1.72}
+{'loss': 1.6418, 'learning_rate': 1.2241379310344827e-05, 'epoch': 1.94}
+{'eval_loss': 1.4187310934066772, 'eval_accuracy': 0.5766666666666667, 'eval_f1': 0.5672200507251899, 'eval_precision': 0.5713240897921349, 'eval_recall': 0.5766666666666667, 'eval_runtime': 0.5507, 'eval_samples_per_second': 544.758, 'eval_steps_per_second': 69.003, 'epoch': 1.94}
+{'loss': 1.3174, 'learning_rate': 1.1379310344827587e-05, 'epoch': 2.16}
+{'eval_loss': 1.3653560876846313, 'eval_accuracy': 0.6133333333333333, 'eval_f1': 0.6034539930006614, 'eval_precision': 0.6335172359939801, 'eval_recall': 0.6133333333333333, 'eval_runtime': 0.5531, 'eval_samples_per_second': 542.422, 'eval_steps_per_second': 68.707, 'epoch': 2.16}
+{'loss': 1.0748, 'learning_rate': 1.0517241379310346e-05, 'epoch': 2.37}
+{'eval_loss': 1.4103310108184814, 'eval_accuracy': 0.5733333333333334, 'eval_f1': 0.5667832569010244, 'eval_precision': 0.5927954838734251, 'eval_recall': 0.5733333333333334, 'eval_runtime': 0.5541, 'eval_samples_per_second': 541.395, 'eval_steps_per_second': 68.577, 'epoch': 2.37}
+{'loss': 1.1574, 'learning_rate': 9.655172413793105e-06, 'epoch': 2.59}
+{'eval_loss': 1.3601112365722656, 'eval_accuracy': 0.5966666666666667, 'eval_f1': 0.5878046002829614, 'eval_precision': 0.6171637305824949, 'eval_recall': 0.5966666666666667, 'eval_runtime': 0.554, 'eval_samples_per_second': 541.51, 'eval_steps_per_second': 68.591, 'epoch': 2.59}
+{'loss': 1.1254, 'learning_rate': 8.793103448275862e-06, 'epoch': 2.8}
+{'eval_loss': 1.3239130973815918, 'eval_accuracy': 0.6, 'eval_f1': 0.5906325722461443, 'eval_precision': 0.6011273317407771, 'eval_recall': 0.6, 'eval_runtime': 0.5559, 'eval_samples_per_second': 539.644, 'eval_steps_per_second': 68.355, 'epoch': 2.8}
+{'loss': 1.0792, 'learning_rate': 7.93103448275862e-06, 'epoch': 3.02}
+{'eval_loss': 1.2903099060058594, 'eval_accuracy': 0.61, 'eval_f1': 0.6063185945063853, 'eval_precision': 0.6219691669208476, 'eval_recall': 0.61, 'eval_runtime': 0.5553, 'eval_samples_per_second': 540.295, 'eval_steps_per_second': 68.437, 'epoch': 3.02}
+{'loss': 0.8471, 'learning_rate': 7.0689655172413796e-06, 'epoch': 3.23}
+{'eval_loss': 1.2613645792007446, 'eval_accuracy': 0.62, 'eval_f1': 0.6116062854584144, 'eval_precision': 0.629753256003256, 'eval_recall': 0.62, 'eval_runtime': 0.555, 'eval_samples_per_second': 540.553, 'eval_steps_per_second': 68.47, 'epoch': 3.23}
+{'loss': 0.7896, 'learning_rate': 6.206896551724138e-06, 'epoch': 3.45}
+{'eval_loss': 1.2702590227127075, 'eval_accuracy': 0.6433333333333333, 'eval_f1': 0.6417003737886289, 'eval_precision': 0.6512840445477452, 'eval_recall': 0.6433333333333333, 'eval_runtime': 0.553, 'eval_samples_per_second': 542.467, 'eval_steps_per_second': 68.713, 'epoch': 3.45}
+{'loss': 0.7834, 'learning_rate': 5.344827586206896e-06, 'epoch': 3.66}
+{'eval_loss': 1.2390997409820557, 'eval_accuracy': 0.65, 'eval_f1': 0.642836227839749, 'eval_precision': 0.6552561655065952, 'eval_recall': 0.65, 'eval_runtime': 0.5527, 'eval_samples_per_second': 542.796, 'eval_steps_per_second': 68.754, 'epoch': 3.66}
+{'loss': 0.825, 'learning_rate': 4.482758620689656e-06, 'epoch': 3.88}
+{'eval_loss': 1.233709692955017, 'eval_accuracy': 0.64, 'eval_f1': 0.6367353589911507, 'eval_precision': 0.6442775127542568, 'eval_recall': 0.64, 'eval_runtime': 0.5539, 'eval_samples_per_second': 541.604, 'eval_steps_per_second': 68.603, 'epoch': 3.88}
+{'loss': 0.7373, 'learning_rate': 3.620689655172414e-06, 'epoch': 4.09}
+{'eval_loss': 1.221815824508667, 'eval_accuracy': 0.65, 'eval_f1': 0.6458426596676711, 'eval_precision': 0.6571482462880339, 'eval_recall': 0.65, 'eval_runtime': 0.5528, 'eval_samples_per_second': 542.74, 'eval_steps_per_second': 68.747, 'epoch': 4.09}
+{'loss': 0.6353, 'learning_rate': 2.7586206896551725e-06, 'epoch': 4.31}
+{'eval_loss': 1.203485369682312, 'eval_accuracy': 0.6633333333333333, 'eval_f1': 0.65922449015965, 'eval_precision': 0.6616648352196205, 'eval_recall': 0.6633333333333333, 'eval_runtime': 0.5546, 'eval_samples_per_second': 540.914, 'eval_steps_per_second': 68.516, 'epoch': 4.31}
+{'loss': 0.5282, 'learning_rate': 1.896551724137931e-06, 'epoch': 4.53}
+{'eval_loss': 1.2237989902496338, 'eval_accuracy': 0.6666666666666666, 'eval_f1': 0.660106896955245, 'eval_precision': 0.6608755446623092, 'eval_recall': 0.6666666666666666, 'eval_runtime': 0.5515, 'eval_samples_per_second': 544.009, 'eval_steps_per_second': 68.908, 'epoch': 4.53}
+{'loss': 0.6553, 'learning_rate': 1.0344827586206898e-06, 'epoch': 4.74}
+{'eval_loss': 1.2233930826187134, 'eval_accuracy': 0.6533333333333333, 'eval_f1': 0.6490943797392543, 'eval_precision': 0.6574742162980667, 'eval_recall': 0.6533333333333333, 'eval_runtime': 0.5535, 'eval_samples_per_second': 541.993, 'eval_steps_per_second': 68.652, 'epoch': 4.74}
+{'loss': 0.5596, 'learning_rate': 1.7241379310344828e-07, 'epoch': 4.96}
+{'eval_loss': 1.2175567150115967, 'eval_accuracy': 0.67, 'eval_f1': 0.6658033154491789, 'eval_precision': 0.6694736035357496, 'eval_recall': 0.67, 'eval_runtime': 0.5558, 'eval_samples_per_second': 539.724, 'eval_steps_per_second': 68.365, 'epoch': 4.96}
+{'train_runtime': 114.9888, 'train_samples_per_second': 80.399, 'train_steps_per_second': 10.088, 'train_loss': 1.3012698925774673, 'epoch': 5.0}
+performance on train data
+                        precision    recall  f1-score   support
+
+            ad hominem       0.96      0.98      0.97       225
+            ad populum       0.94      0.92      0.93       158
+     appeal to emotion       0.90      0.91      0.90       130
+    circular reasoning       0.85      0.90      0.88       134
+          equivocation       0.00      0.00      0.00        39
+fallacy of credibility       0.78      0.88      0.82       107
+  fallacy of extension       0.93      0.92      0.93       106
+      fallacy of logic       0.82      0.88      0.84       121
+  fallacy of relevance       0.84      0.82      0.83       114
+       false causality       0.92      0.95      0.94       174
+         false dilemma       0.92      0.94      0.93       110
+ faulty generalization       0.95      0.93      0.94       319
+           intentional       0.82      0.88      0.85       112
+
+              accuracy                           0.90      1849
+             macro avg       0.82      0.84      0.83      1849
+          weighted avg       0.88      0.90      0.89      1849
+
+performance on eval data
+                        precision    recall  f1-score   support
+
+            ad hominem       0.76      0.86      0.81        36
+            ad populum       0.77      0.77      0.77        44
+     appeal to emotion       0.71      0.71      0.71        14
+    circular reasoning       0.63      0.67      0.65        18
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.33      0.62      0.43         8
+  fallacy of extension       0.50      0.50      0.50        14
+      fallacy of logic       0.67      0.71      0.69        17
+  fallacy of relevance       0.76      0.54      0.63        24
+       false causality       0.73      0.79      0.76        24
+         false dilemma       0.80      0.63      0.71        19
+ faulty generalization       0.63      0.62      0.63        61
+           intentional       0.47      0.50      0.48        16
+
+              accuracy                           0.67       300
+             macro avg       0.60      0.61      0.60       300
+          weighted avg       0.67      0.67      0.67       300
+
+performance on test data
+                        precision    recall  f1-score   support
+
+            ad hominem       0.69      0.80      0.74        41
+            ad populum       0.72      0.77      0.74        30
+     appeal to emotion       0.71      0.52      0.60        23
+    circular reasoning       0.53      0.47      0.50        19
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.38      0.47      0.42        17
+  fallacy of extension       0.59      0.48      0.53        21
+      fallacy of logic       0.55      0.43      0.48        14
+  fallacy of relevance       0.57      0.33      0.42        24
+       false causality       0.55      0.67      0.60        18
+         false dilemma       0.61      0.92      0.73        12
+ faulty generalization       0.63      0.67      0.65        61
+           intentional       0.22      0.27      0.24        15
+
+              accuracy                           0.59       300
+             macro avg       0.52      0.52      0.51       300
+          weighted avg       0.58      0.59      0.58       300
+

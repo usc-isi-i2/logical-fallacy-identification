@@ -1,0 +1,194 @@
+/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+Fri Sep 30 23:14:54 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:27:00.0 Off |                    0 |
+| N/A   28C    P0    32W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+cuda
+using GPU
+0.06913786696395391
+saving the model
+Epoch: 001, Train Acc: 0.1731, Dev Acc: 0.2040
+0.1052935680421622
+saving the model
+Epoch: 002, Train Acc: 0.2088, Dev Acc: 0.2174
+0.17735083410821456
+saving the model
+Epoch: 003, Train Acc: 0.2493, Dev Acc: 0.2676
+0.23154781297968033
+saving the model
+Epoch: 004, Train Acc: 0.2829, Dev Acc: 0.3010
+0.2703795946602587
+saving the model
+Epoch: 005, Train Acc: 0.3045, Dev Acc: 0.3311
+Epoch: 006, Train Acc: 0.3304, Dev Acc: 0.3010
+Epoch: 007, Train Acc: 0.3256, Dev Acc: 0.3144
+Epoch: 008, Train Acc: 0.2893, Dev Acc: 0.3110
+0.2982105865589784
+saving the model
+Epoch: 009, Train Acc: 0.3748, Dev Acc: 0.3478
+Epoch: 010, Train Acc: 0.3299, Dev Acc: 0.3378
+0.32519049445506937
+saving the model
+Epoch: 011, Train Acc: 0.3959, Dev Acc: 0.3712
+Epoch: 012, Train Acc: 0.4294, Dev Acc: 0.3478
+Epoch: 013, Train Acc: 0.4154, Dev Acc: 0.3512
+Epoch: 014, Train Acc: 0.4305, Dev Acc: 0.3478
+0.3486867934537715
+saving the model
+Epoch: 015, Train Acc: 0.4678, Dev Acc: 0.3746
+Epoch: 016, Train Acc: 0.4602, Dev Acc: 0.3645
+0.35059897618977154
+saving the model
+Epoch: 017, Train Acc: 0.4624, Dev Acc: 0.3846
+Epoch: 018, Train Acc: 0.4635, Dev Acc: 0.3679
+Epoch: 019, Train Acc: 0.5251, Dev Acc: 0.3779
+Epoch: 020, Train Acc: 0.5041, Dev Acc: 0.3645
+0.3695747458935056
+saving the model
+Epoch: 021, Train Acc: 0.5473, Dev Acc: 0.3913
+Epoch: 022, Train Acc: 0.5457, Dev Acc: 0.3846
+0.36982448523808126
+saving the model
+Epoch: 023, Train Acc: 0.5598, Dev Acc: 0.3880
+Epoch: 024, Train Acc: 0.5814, Dev Acc: 0.3880
+0.38400872924938667
+saving the model
+Epoch: 025, Train Acc: 0.6128, Dev Acc: 0.3980
+0.3934460685064849
+saving the model
+Epoch: 026, Train Acc: 0.6301, Dev Acc: 0.4080
+0.4041071954969658
+saving the model
+Epoch: 027, Train Acc: 0.6403, Dev Acc: 0.4181
+Epoch: 028, Train Acc: 0.6647, Dev Acc: 0.3980
+Epoch: 029, Train Acc: 0.6398, Dev Acc: 0.3779
+Epoch: 030, Train Acc: 0.6685, Dev Acc: 0.3913
+Epoch: 031, Train Acc: 0.6458, Dev Acc: 0.3779
+Epoch: 032, Train Acc: 0.6879, Dev Acc: 0.4047
+Epoch: 033, Train Acc: 0.6928, Dev Acc: 0.4013
+Epoch: 034, Train Acc: 0.6885, Dev Acc: 0.3946
+Epoch: 035, Train Acc: 0.6836, Dev Acc: 0.3913
+Epoch: 036, Train Acc: 0.6977, Dev Acc: 0.4013
+Epoch: 037, Train Acc: 0.7366, Dev Acc: 0.4047
+Epoch: 038, Train Acc: 0.7545, Dev Acc: 0.3946
+Epoch: 039, Train Acc: 0.7345, Dev Acc: 0.4013
+Epoch: 040, Train Acc: 0.7691, Dev Acc: 0.4080
+0.4154498362136503
+saving the model
+Epoch: 041, Train Acc: 0.7620, Dev Acc: 0.4247
+Epoch: 042, Train Acc: 0.7777, Dev Acc: 0.4114
+Epoch: 043, Train Acc: 0.7696, Dev Acc: 0.3980
+Epoch: 044, Train Acc: 0.7918, Dev Acc: 0.4181
+Epoch: 045, Train Acc: 0.7934, Dev Acc: 0.4047
+Epoch: 046, Train Acc: 0.7523, Dev Acc: 0.3880
+Epoch: 047, Train Acc: 0.7934, Dev Acc: 0.4181
+Epoch: 048, Train Acc: 0.7820, Dev Acc: 0.4047
+0.4293139072932509
+saving the model
+Epoch: 049, Train Acc: 0.8042, Dev Acc: 0.4381
+Epoch: 050, Train Acc: 0.8432, Dev Acc: 0.4247
+Epoch: 051, Train Acc: 0.8302, Dev Acc: 0.4314
+Epoch: 052, Train Acc: 0.8556, Dev Acc: 0.4114
+Epoch: 053, Train Acc: 0.8226, Dev Acc: 0.4147
+Epoch: 054, Train Acc: 0.8134, Dev Acc: 0.4114
+Epoch: 055, Train Acc: 0.8529, Dev Acc: 0.4247
+Epoch: 056, Train Acc: 0.8713, Dev Acc: 0.4247
+Epoch: 057, Train Acc: 0.8751, Dev Acc: 0.4080
+Epoch: 058, Train Acc: 0.8605, Dev Acc: 0.4214
+Epoch: 059, Train Acc: 0.8745, Dev Acc: 0.4214
+Epoch: 060, Train Acc: 0.8697, Dev Acc: 0.4114
+0.43226757355644324
+saving the model
+Epoch: 061, Train Acc: 0.8908, Dev Acc: 0.4348
+0.44024394536583544
+saving the model
+Epoch: 062, Train Acc: 0.8767, Dev Acc: 0.4415
+Epoch: 063, Train Acc: 0.8886, Dev Acc: 0.4247
+Epoch: 064, Train Acc: 0.9037, Dev Acc: 0.4147
+0.4457326335538991
+saving the model
+Epoch: 065, Train Acc: 0.9156, Dev Acc: 0.4381
+Epoch: 066, Train Acc: 0.9151, Dev Acc: 0.4314
+Epoch: 067, Train Acc: 0.9162, Dev Acc: 0.4281
+Epoch: 068, Train Acc: 0.9113, Dev Acc: 0.4415
+Epoch: 069, Train Acc: 0.9324, Dev Acc: 0.4348
+Train split results
+                        precision    recall  f1-score   support
+
+            ad hominem       0.97      0.94      0.95       225
+            ad populum       0.96      0.96      0.96       158
+     appeal to emotion       0.96      0.95      0.96       130
+    circular reasoning       0.91      0.90      0.90       134
+          equivocation       0.81      0.64      0.71        39
+fallacy of credibility       0.81      0.86      0.83       107
+  fallacy of extension       0.92      0.97      0.94       106
+      fallacy of logic       0.90      0.95      0.92       121
+  fallacy of relevance       0.96      0.81      0.88       114
+       false causality       0.95      0.97      0.96       174
+         false dilemma       0.91      0.98      0.94       110
+ faulty generalization       0.97      0.97      0.97       319
+           intentional       0.90      0.92      0.91       112
+
+              accuracy                           0.93      1849
+             macro avg       0.92      0.91      0.91      1849
+          weighted avg       0.93      0.93      0.93      1849
+
+Dev split results
+                        precision    recall  f1-score   support
+
+            ad hominem       0.54      0.42      0.47        36
+            ad populum       0.62      0.48      0.54        44
+     appeal to emotion       0.24      0.38      0.29        13
+    circular reasoning       0.46      0.33      0.39        18
+          equivocation       0.36      0.80      0.50         5
+fallacy of credibility       0.06      0.12      0.08         8
+  fallacy of extension       0.43      0.21      0.29        14
+      fallacy of logic       0.35      0.53      0.42        17
+  fallacy of relevance       0.38      0.25      0.30        24
+       false causality       0.41      0.50      0.45        24
+         false dilemma       0.68      0.68      0.68        19
+ faulty generalization       0.49      0.49      0.49        61
+           intentional       0.31      0.31      0.31        16
+
+              accuracy                           0.43       299
+             macro avg       0.41      0.42      0.40       299
+          weighted avg       0.46      0.43      0.44       299
+
+Test split results
+                        precision    recall  f1-score   support
+
+            ad hominem       0.58      0.44      0.50        41
+            ad populum       0.58      0.50      0.54        30
+     appeal to emotion       0.37      0.30      0.33        23
+    circular reasoning       0.25      0.42      0.31        19
+          equivocation       0.00      0.00      0.00         5
+fallacy of credibility       0.16      0.18      0.17        17
+  fallacy of extension       0.56      0.43      0.49        21
+      fallacy of logic       0.21      0.21      0.21        14
+  fallacy of relevance       0.39      0.30      0.34        23
+       false causality       0.32      0.33      0.32        18
+         false dilemma       0.41      0.75      0.53        12
+ faulty generalization       0.48      0.48      0.48        61
+           intentional       0.33      0.47      0.39        15
+
+              accuracy                           0.40       299
+             macro avg       0.36      0.37      0.35       299
+          weighted avg       0.42      0.40      0.41       299
+

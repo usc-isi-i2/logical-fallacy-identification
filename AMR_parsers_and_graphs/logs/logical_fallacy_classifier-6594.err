@@ -1,0 +1,39 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20221001_011955-fa6pfdmv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run colorful-surf-42
+wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
+wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/fa6pfdmv
+  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 20.46ba/s]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 106.34ba/s]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 106.83ba/s]
+***** Running Prediction *****
+  Num examples = 1849
+  Batch size = 8
+You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  0%|          | 0/232 [00:00<?, ?it/s]  5%|▌         | 12/232 [00:00<00:01, 110.28it/s] 10%|█         | 24/232 [00:00<00:01, 104.85it/s] 15%|█▌        | 35/232 [00:00<00:01, 100.85it/s] 20%|██        | 47/232 [00:00<00:01, 106.48it/s] 25%|██▌       | 59/232 [00:00<00:01, 110.10it/s] 31%|███       | 71/232 [00:00<00:01, 112.68it/s] 36%|███▌      | 83/232 [00:00<00:01, 114.11it/s] 41%|████      | 95/232 [00:00<00:01, 115.05it/s] 46%|████▌     | 107/232 [00:00<00:01, 114.88it/s] 51%|█████▏    | 119/232 [00:01<00:00, 114.85it/s] 56%|█████▋    | 131/232 [00:01<00:00, 115.01it/s] 62%|██████▏   | 143/232 [00:01<00:00, 115.52it/s] 67%|██████▋   | 155/232 [00:01<00:00, 115.08it/s] 72%|███████▏  | 167/232 [00:01<00:00, 115.64it/s] 77%|███████▋  | 179/232 [00:01<00:00, 115.76it/s] 82%|████████▏ | 191/232 [00:01<00:00, 116.00it/s] 88%|████████▊ | 203/232 [00:01<00:00, 116.13it/s] 93%|█████████▎| 215/232 [00:01<00:00, 114.46it/s] 98%|█████████▊| 227/232 [00:01<00:00, 115.33it/s]100%|██████████| 232/232 [00:02<00:00, 113.38it/s]
+***** Running Prediction *****
+  Num examples = 300
+  Batch size = 8
+  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 124.73it/s] 68%|██████▊   | 26/38 [00:00<00:00, 120.04it/s]100%|██████████| 38/38 [00:00<00:00, 118.55it/s]
+***** Running Prediction *****
+  Num examples = 300
+  Batch size = 8
+  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 127.58it/s] 68%|██████▊   | 26/38 [00:00<00:00, 114.74it/s]100%|██████████| 38/38 [00:00<00:00, 113.50it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+100%|██████████| 38/38 [00:00<00:00, 113.70it/s]
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: | 0.002 MB of 0.011 MB uploaded (0.000 MB deduped)wandb: / 0.002 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: - 0.007 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: \ 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: | 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: - 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: \ 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: | 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: Synced colorful-surf-42: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/fa6pfdmv
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20221001_011955-fa6pfdmv/logs

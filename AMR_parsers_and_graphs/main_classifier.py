@@ -1,166 +1,3 @@
-# import torch
-# from sklearn.metrics import precision_recall_fscore_support, accuracy_score, \
-#     classification_report
-# import numpy as np
-# import joblib
-# import pandas as pd
-# import wandb
-# import gcn
-# from typing import List, Dict
-# from transformers import TrainingArguments, Trainer, \
-#     AutoTokenizer, AutoModelForSequenceClassification
-# from transformers import DataCollatorWithPadding
-# from IPython import embed
-# import re
-# from sklearn.preprocessing import LabelEncoder
-# from datasets import Dataset, DatasetDict
-# import argparse
-# import networkx as nx
-
-
-# def augment_records_with_similar_records(
-#     data_df: pd.DataFrame,
-#     source_df: pd.DataFrame,
-#     gcn_predictions,
-#     gcn_all_sentences,
-#     gcn_all_confidences,
-#     num_cases: int = 3
-# ) -> pd.DataFrame:
-#     """Add similar sentences to each record
-
-#     Args:
-#         data_df (pd.DataFrame): input DataFrame
-
-#     Returns:
-#         pd.DataFrame: output DataFrame augmented with similar entries
-#     """
-
-#     prediction_table = dict()
-#     for sentence, prediction, confidence in zip(gcn_all_sentences, gcn_predictions, gcn_all_confidences):
-#         prediction_table[sentence.strip()] = (prediction, confidence)
-
-#     all_predictions = []
-#     all_true_labels = []
-
-#     new_sentences = []
-#     new_labels = []
-#     num_with_high_confidence = 0
-
-#     for _, info in data_df.iterrows():
-#         try:
-#             base_sentence = info[args.input_feature].strip()
-
-#             predicted_label, conf = prediction_table[base_sentence]
-#             true_label = info['updated_label']
-#             all_predictions.append(predicted_label)
-#             all_true_labels.append(true_label)
-#             if conf > 0.9:
-#                 num_with_high_confidence += 1
-#                 similar_cases = source_df[source_df['updated_label'] == predicted_label].sample(num_cases)[
-#                     args.input_feature].tolist()
-#             else:
-#                 similar_cases = []
-#             new_sentence = ";".join([base_sentence, *similar_cases])
-#             new_sentences.append(new_sentence)
-#             new_labels.append(info['updated_label'])
-#         except Exception as e:
-#             embed()
-#             print(
-#                 f"Error finding the predicted label for sentence: {base_sentence}")
-#             pass
-#     print(classification_report(
-#         y_pred=all_predictions,
-#         y_true=all_true_labels
-#     ))
-#     print(
-#         f'Number of data points augmented with high confidence: {num_with_high_confidence / len(data_df)}')
-#     return pd.DataFrame({
-#         args.input_feature: new_sentences,
-#         'updated_label': new_labels
-#     })
-
-
-# if args.experiment == "case_augmented_training":
-
-#     print('doing the case augmentation ...')
-#     gcn_model = gcn.CBRetriever(
-#         num_input_features=gcn.NODE_EMBEDDING_SIZE,
-#         num_output_features=len(gcn.label2index),
-#         mid_layer_dropout=gcn.MID_LAYER_DROPOUT,
-#         mid_layer_embeddings=gcn.LAYERS_EMBEDDINGS,
-#         heads=4
-#     )
-
-#     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-#     gcn_model.load_state_dict(torch.load(
-#         args.gcn_model_path, map_location=torch.device('cpu')))
-#     gcn_model = gcn_model.to(device)
-
-#     train_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args.train_input_file,
-#         fit=True
-#     )
-#     dev_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args.dev_input_file,
-#         fit=False,
-#         all_edge_types=train_dataset.all_edge_types,
-#         ohe=train_dataset.ohe
-#     )
-
-#     test_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args.test_input_file,
-#         fit=False,
-#         all_edge_types=train_dataset.all_edge_types,
-#         ohe=train_dataset.ohe
-#     )
-
-#     train_data_loader = gcn.DataLoader(
-#         train_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-#     dev_data_loader = gcn.DataLoader(
-#         dev_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-#     test_data_loader = gcn.DataLoader(
-#         test_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-
-#     train_predictions, train_confidence, all_train_sentences = gcn.do_predict_process(
-#         model=gcn_model,
-#         loader=train_data_loader
-#     )
-#     dev_predictions, dev_confidence, all_dev_sentences = gcn.do_predict_process(
-#         model=gcn_model,
-#         loader=dev_data_loader,
-#     )
-#     test_predictions, test_confidence, all_test_sentences = gcn.do_predict_process(
-#         model=gcn_model,
-#         loader=test_data_loader
-#     )
-
-#     del gcn_model
-
-#     train_df = augment_records_with_similar_records(
-#         data_df=train_df,
-#         source_df=train_df,
-#         num_cases=args.num_cases,
-#         gcn_predictions=train_predictions,
-#         gcn_all_confidences=train_confidence,
-#         gcn_all_sentences=all_train_sentences
-#     )
-#     dev_df = augment_records_with_similar_records(
-#         data_df=dev_df,
-#         source_df=train_df,
-#         num_cases=args.num_cases,
-#         gcn_predictions=dev_predictions,
-#         gcn_all_confidences=dev_confidence,
-#         gcn_all_sentences=all_dev_sentences
-#     )
-#     test_df = augment_records_with_similar_records(
-#         data_df=test_df,
-#         source_df=train_df,
-#         num_cases=args.num_cases,
-#         gcn_predictions=test_predictions,
-#         gcn_all_confidences=test_confidence,
-#         gcn_all_sentences=all_test_sentences
-#     )
-
 from sklearn.metrics import precision_recall_fscore_support, accuracy_score, \
     classification_report
 import consts
@@ -170,6 +7,7 @@ import joblib
 import wandb
 import random
 import numpy as np
+import os
 import re
 from typing import List
 import gcn
@@ -281,11 +119,39 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
         "updated_label": labels
     })
 
-def augment_with_cases(train_df, dev_df, test_df, args):
-    print('doing the case augmentation ...')
+def augment_with_cases_simcse(train_df, dev_df, test_df, args, sep_token):
+    simcse_train_similarities = joblib.load(consts.PATH_TO_SIMCSE_SIMILARITIES_TRAIN)
+    simcse_dev_similarities = joblib.load(consts.PATH_TO_SIMCSE_SIMILARITIES_DEV)
+    simcse_test_similarities = joblib.load(consts.PATH_TO_SIMCSE_SIMILARITIES_TEST)
+    
+    def augment_dataframe(df, simcse_similarities):
+        augmented_sentences = []
+        for sentence in df[args.input_feature]:
+            try:
+                sentences_and_similarities = simcse_similarities[sentence.strip()].items()
+                sentences_and_similarities_sorted = sorted(sentences_and_similarities, key = lambda x: x[1], reverse = True)
+                augs = [x[0] for x in sentences_and_similarities_sorted[1:args.num_cases + 1]]
+                result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(augs)}"
+                augmented_sentences.append(result_sentence)
+            except Exception as e:
+                embed()
+                
+        df[args.input_feature] = augmented_sentences
+        return df
+
+    train_df = augment_dataframe(train_df, simcse_train_similarities)
+    dev_df = augment_dataframe(dev_df, simcse_dev_similarities)
+    test_df = augment_dataframe(test_df, simcse_test_similarities)
+    
+    return train_df, dev_df, test_df
+
+    
+
+def augment_with_cases_gcn(train_df, dev_df, test_df, args):
+    print('doing the case augmentation using GCN ...')
     gcn_model = gcn.CBRetriever(
         num_input_features=gcn.NODE_EMBEDDING_SIZE,
-        num_output_features=len(gcn.label2index),
+        num_output_features=len(consts.label2index),
         mid_layer_dropout=gcn.MID_LAYERS_DROPOUT,
         mid_layer_embeddings=[int(x)
                               for x in gcn.MID_LAYERS_EMBEDDINGS.split('&')],
@@ -334,19 +200,17 @@ def augment_with_cases(train_df, dev_df, test_df, args):
     test_results = gcn.test_on_loader(
         gcn_model, test_data_loader)
 
-    index2label = {v: k for k, v in gcn.label2index.items()}
-
-    all_train_predictions = [index2label[pred]
+    all_train_predictions = [consts.index2label[pred]
                              for pred in train_results['predictions']]
-    all_dev_predictions = [index2label[pred]
+    all_dev_predictions = [consts.index2label[pred]
                            for pred in dev_results['predictions']]
-    all_test_predictions = [index2label[pred]
+    all_test_predictions = [consts.index2label[pred]
                             for pred in test_results['predictions']]
-    all_train_true_labels = [index2label[true_label]
+    all_train_true_labels = [consts.index2label[true_label]
                              for true_label in train_results['true_labels']]
-    all_dev_true_labels = [index2label[true_label]
+    all_dev_true_labels = [consts.index2label[true_label]
                            for true_label in dev_results['true_labels']]
-    all_test_true_labels = [index2label[true_label]
+    all_test_true_labels = [consts.index2label[true_label]
                             for true_label in test_results['true_labels']]
 
     print('Train split results')
@@ -366,15 +230,14 @@ def augment_with_cases(train_df, dev_df, test_df, args):
         y_pred=all_test_predictions,
         y_true=all_test_true_labels
     ))
-    exit()
 
 def do_predict_process(args):
     train_df = read_csv_from_amr(args.train_input_file, augments=args.augments.split('&'))
     dev_df = read_csv_from_amr(args.dev_input_file, augments=args.augments.split('&'))
     test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
 
-    if args.cbr:
-        train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
+    # if args.cbr:
+    #     train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
 
 
     label_encoder = lambda x: consts.label2index[x]
@@ -418,6 +281,7 @@ def do_predict_process(args):
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
         num_train_epochs=args.num_epochs,
+        overwrite_output_dir = 'True',
         weight_decay=args.weight_decay,
         logging_steps=50,
         evaluation_strategy='steps',
@@ -461,18 +325,29 @@ def do_predict_process(args):
         y_true = test_true_labels
     ))
 
+    df = pd.DataFrame({
+            "sentence": dataset['test'][args.input_feature],
+            "prediction": test_predictions,
+            "true_label": test_true_labels
+        })
+    df.to_csv(os.path.join(args.predictions_path,
+                  "main_classifier_predictions_test.csv"), index=False)
+
 
 
 
 
 def do_train_process(args):
+    tokenizer = AutoTokenizer.from_pretrained("roberta-base")
+    model = AutoModelForSequenceClassification.from_pretrained(
+        "roberta-base", num_labels=NUM_LABELS, classifier_dropout = args.classifier_dropout)
 
     train_df = read_csv_from_amr(args.train_input_file, augments=args.augments.split('&'))
     dev_df = read_csv_from_amr(args.dev_input_file, augments=args.augments.split('&'))
     test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
 
     if args.cbr:
-        train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
+        train_df, dev_df, test_df = augment_with_cases_simcse(train_df, dev_df, test_df, args, tokenizer.sep_token)
 
 
     label_encoder = lambda x: consts.label2index[x]
@@ -498,14 +373,14 @@ def do_train_process(args):
             'labels': batch['updated_label']
         }
 
-    tokenizer = AutoTokenizer.from_pretrained("roberta-base")
+    
+
+
     tokenized_dataset = dataset.map(
         process, batched=True, remove_columns=dataset['train'].column_names)
 
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-    model = AutoModelForSequenceClassification.from_pretrained(
-        "roberta-base", num_labels=NUM_LABELS, classifier_dropout = args.classifier_dropout)
 
     print('Model loaded!')
 
@@ -517,6 +392,7 @@ def do_train_process(args):
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
         num_train_epochs=args.num_epochs,
+        overwrite_output_dir = 'True',
         weight_decay=args.weight_decay,
         logging_steps=50,
         evaluation_strategy='steps',
@@ -606,7 +482,7 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        '--num_epochs', type = int, default = 10
+        '--num_epochs', type = int, default = 5
     )
 
     parser.add_argument(
@@ -624,6 +500,9 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         '--predictions_path', type = str
+    )
+    parser.add_argument(
+        '--num_cases', type = int, default = 3
     )
 
 

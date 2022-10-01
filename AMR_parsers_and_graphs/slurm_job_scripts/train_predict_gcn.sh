@@ -19,20 +19,20 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-python gcn.py \
-    --task train \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-    --model_path gcn_model.pt
-
 # python gcn.py \
-#     --task predict \
+#     --task train \
 #     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
 #     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
 #     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-#     --predictions_path gcn_results \
 #     --model_path gcn_model.pt
+
+python gcn.py \
+    --task predict \
+    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --predictions_path gcn_results \
+    --model_path gcn_model.pt
 
 
 # python gcn.py \
