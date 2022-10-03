@@ -36,6 +36,7 @@ conda activate general
 #     --weight_decay 0.001
 
 # Using the masked sentences
+echo "base model using the masked version of the sentences"
 python main_classifier.py \
     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
@@ -46,22 +47,6 @@ python main_classifier.py \
     --num_epochs 5 \
     --classifier_dropout 0.1 \
     --weight_decay 0.01
-
-# Using the masked sentences
-# predict
-# python main_classifier.py \
-#     --task predict \
-#     --predictions_path main_classifier_results \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-#     --input_feature masked_articles \
-#     --batch_size 8 \
-#     --model_path xlm_roberta_logical_fallacy_classification/checkpoint-2000 \
-#     --learning_rate 2e-5 \
-#     --num_epochs 5 \
-#     --classifier_dropout 0.1 \
-#     --weight_decay 0.01
 
 # ConceptNet
 # python main_classifier.py \
@@ -90,21 +75,47 @@ python main_classifier.py \
 #     --augments wordnet
 
 # case based reasoning
-for NUM_CASES in `seq 10`
+for NUM_CASES in `seq 1`
 do
-echo "case based reasoning with ${NUM_CASES} cases"
+echo "case based reasoning with ${NUM_CASES} cases and simcse similarity"
 python main_classifier.py \
     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature masked_articles \
+    --similarity_matrices_path_train tmp/simcse_similarities_train.joblib \
+    --similarity_matrices_path_dev tmp/simcse_similarities_dev.joblib \
+    --similarity_matrices_path_test tmp/simcse_similarities_test.joblib \
     --batch_size 8 \
     --learning_rate 2e-5 \
     --num_epochs 5 \
     --classifier_dropout 0.1 \
     --weight_decay 0.01 \
     --num_cases ${NUM_CASES} \
+    --useful_cases_output tmp/useful_cases.joblib \
+    --all_bad_cases tmp/predictions/all_bad_cases.joblib \
     --cbr
+
+# echo "case based reasoning with ${NUM_CASES} cases and simcse similarity filtering on useful cases"
+# python main_classifier.py \
+#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --input_feature masked_articles \
+#     --similarity_matrices_path_train tmp/simcse_similarities_train.joblib \
+#     --similarity_matrices_path_dev tmp/simcse_similarities_dev.joblib \
+#     --similarity_matrices_path_test tmp/simcse_similarities_test.joblib \
+#     --batch_size 8 \
+#     --learning_rate 2e-5 \
+#     --num_epochs 5 \
+#     --classifier_dropout 0.1 \
+#     --weight_decay 0.01 \
+#     --num_cases ${NUM_CASES} \
+#     --useful_cases_input tmp/useful_cases.joblib \
+#     --cbr
 done
+
+
+
 
 conda deactivate

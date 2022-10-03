@@ -1,3 +1,4 @@
+from collections import defaultdict
 from sklearn.metrics import precision_recall_fscore_support, accuracy_score, \
     classification_report
 import consts
@@ -119,24 +120,32 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
         "updated_label": labels
     })
 
-def augment_with_cases_simcse(train_df, dev_df, test_df, args, sep_token):
-    simcse_train_similarities = joblib.load(consts.PATH_TO_SIMCSE_SIMILARITIES_TRAIN)
-    simcse_dev_similarities = joblib.load(consts.PATH_TO_SIMCSE_SIMILARITIES_DEV)
-    simcse_test_similarities = joblib.load(consts.PATH_TO_SIMCSE_SIMILARITIES_TEST)
+def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_token):
+    if args.all_bad_cases:
+        all_bad_cases = joblib.load(args.all_bad_cases)
+    simcse_train_similarities = joblib.load(args.similarity_matrices_path_train)
+    simcse_dev_similarities = joblib.load(args.similarity_matrices_path_dev)
+    simcse_test_similarities = joblib.load(args.similarity_matrices_path_test)
+    
     
     def augment_dataframe(df, simcse_similarities):
         augmented_sentences = []
+        external_sentences = []
         for sentence in df[args.input_feature]:
             try:
                 sentences_and_similarities = simcse_similarities[sentence.strip()].items()
                 sentences_and_similarities_sorted = sorted(sentences_and_similarities, key = lambda x: x[1], reverse = True)
                 augs = [x[0] for x in sentences_and_similarities_sorted[1:args.num_cases + 1]]
+                if args.all_bad_cases:
+                    augs = [sent for sent in augs if sent not in all_bad_cases]
                 result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(augs)}"
+                external_sentences.append('</sep>'.join(augs))
                 augmented_sentences.append(result_sentence)
             except Exception as e:
                 embed()
                 
         df[args.input_feature] = augmented_sentences
+        df['cbr'] = external_sentences
         return df
 
     train_df = augment_dataframe(train_df, simcse_train_similarities)
@@ -147,195 +156,105 @@ def augment_with_cases_simcse(train_df, dev_df, test_df, args, sep_token):
 
     
 
-def augment_with_cases_gcn(train_df, dev_df, test_df, args):
-    print('doing the case augmentation using GCN ...')
-    gcn_model = gcn.CBRetriever(
-        num_input_features=gcn.NODE_EMBEDDING_SIZE,
-        num_output_features=len(consts.label2index),
-        mid_layer_dropout=gcn.MID_LAYERS_DROPOUT,
-        mid_layer_embeddings=[int(x)
-                              for x in gcn.MID_LAYERS_EMBEDDINGS.split('&')],
-        heads=4
-    )
+# def augment_with_cases_gcn(train_df, dev_df, test_df, args):
+#     print('doing the case augmentation using GCN ...')
+#     gcn_model = gcn.CBRetriever(
+#         num_input_features=gcn.NODE_EMBEDDING_SIZE,
+#         num_output_features=len(consts.label2index),
+#         mid_layer_dropout=gcn.MID_LAYERS_DROPOUT,
+#         mid_layer_embeddings=[int(x)
+#                               for x in gcn.MID_LAYERS_EMBEDDINGS.split('&')],
+#         heads=4
+#     )
 
-    device_cuda = torch.cuda.is_available()
-    device = torch.device("cuda" if device_cuda else "cpu")
+#     device_cuda = torch.cuda.is_available()
+#     device = torch.device("cuda" if device_cuda else "cpu")
     
-    if not device_cuda:
-        gcn_model.load_state_dict(torch.load(
-            args.gcn_model_path, map_location=torch.device('cpu')))
-    else:
-        gcn_model.load_state_dict(torch.load(args.gcn_model_path))
-    gcn_model = gcn_model.to(device)
+#     if not device_cuda:
+#         gcn_model.load_state_dict(torch.load(
+#             args.gcn_model_path, map_location=torch.device('cpu')))
+#     else:
+#         gcn_model.load_state_dict(torch.load(args.gcn_model_path))
+#     gcn_model = gcn_model.to(device)
 
-    train_dataset = gcn.Logical_Fallacy_Dataset(
-        path_to_dataset=args.train_input_file,
-        fit=True
-    )
-    dev_dataset = gcn.Logical_Fallacy_Dataset(
-        path_to_dataset=args.dev_input_file,
-        fit=False,
-        all_edge_types=train_dataset.all_edge_types,
-        ohe=train_dataset.ohe
-    )
+#     train_dataset = gcn.Logical_Fallacy_Dataset(
+#         path_to_dataset=args.train_input_file,
+#         fit=True
+#     )
+#     dev_dataset = gcn.Logical_Fallacy_Dataset(
+#         path_to_dataset=args.dev_input_file,
+#         fit=False,
+#         all_edge_types=train_dataset.all_edge_types,
+#         ohe=train_dataset.ohe
+#     )
 
-    test_dataset = gcn.Logical_Fallacy_Dataset(
-        path_to_dataset=args.test_input_file,
-        fit=False,
-        all_edge_types=train_dataset.all_edge_types,
-        ohe=train_dataset.ohe
-    )
+#     test_dataset = gcn.Logical_Fallacy_Dataset(
+#         path_to_dataset=args.test_input_file,
+#         fit=False,
+#         all_edge_types=train_dataset.all_edge_types,
+#         ohe=train_dataset.ohe
+#     )
 
-    train_data_loader = gcn.DataLoader(
-        train_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-    dev_data_loader = gcn.DataLoader(
-        dev_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-    test_data_loader = gcn.DataLoader(
-        test_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
+#     train_data_loader = gcn.DataLoader(
+#         train_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
+#     dev_data_loader = gcn.DataLoader(
+#         dev_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
+#     test_data_loader = gcn.DataLoader(
+#         test_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
 
-    train_results = gcn.test_on_loader(
-        gcn_model, train_data_loader)
-    dev_results = gcn.test_on_loader(
-        gcn_model, dev_data_loader)
-    test_results = gcn.test_on_loader(
-        gcn_model, test_data_loader)
+#     train_results = gcn.test_on_loader(
+#         gcn_model, train_data_loader)
+#     dev_results = gcn.test_on_loader(
+#         gcn_model, dev_data_loader)
+#     test_results = gcn.test_on_loader(
+#         gcn_model, test_data_loader)
 
-    all_train_predictions = [consts.index2label[pred]
-                             for pred in train_results['predictions']]
-    all_dev_predictions = [consts.index2label[pred]
-                           for pred in dev_results['predictions']]
-    all_test_predictions = [consts.index2label[pred]
-                            for pred in test_results['predictions']]
-    all_train_true_labels = [consts.index2label[true_label]
-                             for true_label in train_results['true_labels']]
-    all_dev_true_labels = [consts.index2label[true_label]
-                           for true_label in dev_results['true_labels']]
-    all_test_true_labels = [consts.index2label[true_label]
-                            for true_label in test_results['true_labels']]
+#     all_train_predictions = [consts.index2label[pred]
+#                              for pred in train_results['predictions']]
+#     all_dev_predictions = [consts.index2label[pred]
+#                            for pred in dev_results['predictions']]
+#     all_test_predictions = [consts.index2label[pred]
+#                             for pred in test_results['predictions']]
+#     all_train_true_labels = [consts.index2label[true_label]
+#                              for true_label in train_results['true_labels']]
+#     all_dev_true_labels = [consts.index2label[true_label]
+#                            for true_label in dev_results['true_labels']]
+#     all_test_true_labels = [consts.index2label[true_label]
+#                             for true_label in test_results['true_labels']]
 
-    print('Train split results')
-    print(classification_report(
-        y_pred=all_train_predictions,
-        y_true=all_train_true_labels
-    ))
+#     print('Train split results')
+#     print(classification_report(
+#         y_pred=all_train_predictions,
+#         y_true=all_train_true_labels
+#     ))
 
-    print('Dev split results')
-    print(classification_report(
-        y_pred=all_dev_predictions,
-        y_true=all_dev_true_labels
-    ))
+#     print('Dev split results')
+#     print(classification_report(
+#         y_pred=all_dev_predictions,
+#         y_true=all_dev_true_labels
+#     ))
 
-    print('Test split results')
-    print(classification_report(
-        y_pred=all_test_predictions,
-        y_true=all_test_true_labels
-    ))
-
-def do_predict_process(args):
-    train_df = read_csv_from_amr(args.train_input_file, augments=args.augments.split('&'))
-    dev_df = read_csv_from_amr(args.dev_input_file, augments=args.augments.split('&'))
-    test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
-
-    # if args.cbr:
-    #     train_df, dev_df, test_df = augment_with_cases(train_df, dev_df, test_df, args)
+#     print('Test split results')
+#     print(classification_report(
+#         y_pred=all_test_predictions,
+#         y_true=all_test_true_labels
+#     ))
 
 
-    label_encoder = lambda x: consts.label2index[x]
-    label_encoder_inverse = lambda x: consts.index2label[x]
-
-    train_df['updated_label'] = list(map(label_encoder, train_df['updated_label']))
-    dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
-    test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
-
-
-    dataset = DatasetDict({
-        'train': Dataset.from_pandas(train_df),
-        'eval': Dataset.from_pandas(dev_df),
-        'test': Dataset.from_pandas(test_df)
-    })
-
-    def process(batch):
-        texts = batch[args.input_feature]
-        inputs = tokenizer(texts, truncation=True)
-        return {
-            **inputs,
-            'labels': batch['updated_label']
-        }
-
-    tokenizer = AutoTokenizer.from_pretrained(args.model_path)
-    tokenized_dataset = dataset.map(
-        process, batched=True, remove_columns=dataset['train'].column_names)
-
-    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
-    model = AutoModelForSequenceClassification.from_pretrained(
-        args.model_path, num_labels=NUM_LABELS, classifier_dropout = args.classifier_dropout)
-
-    print('Model loaded!')
-
-    training_args = TrainingArguments(
-        do_eval=True,
-        do_train=False,
-        output_dir="./xlm_roberta_logical_fallacy_classification",
-        learning_rate=args.learning_rate,
-        per_device_train_batch_size=args.batch_size,
-        per_device_eval_batch_size=args.batch_size,
-        num_train_epochs=args.num_epochs,
-        overwrite_output_dir = 'True',
-        weight_decay=args.weight_decay,
-        logging_steps=50,
-        evaluation_strategy='steps',
-        report_to="wandb"
-    )
-
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=tokenized_dataset['train'],
-        eval_dataset=tokenized_dataset['eval'],
-        tokenizer=tokenizer,
-        data_collator=data_collator,
-        compute_metrics=compute_metrics
-    )
-
-    train_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['train']).predictions, axis = -1)))
-    train_true_labels = list(map(label_encoder_inverse, tokenized_dataset['train']['labels']))
+def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str):
+    split_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset[split]).predictions, axis = -1)))
+    split_true_labels = list(map(label_encoder_inverse, tokenized_dataset[split]['labels']))
 
     print('performance on train data')
     print(classification_report(
-        y_pred = train_predictions, 
-        y_true = train_true_labels
+        y_pred = split_predictions, 
+        y_true = split_true_labels
     ))
 
-    eval_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1)))
-    eval_true_labels = list(map(label_encoder_inverse, tokenized_dataset['eval']['labels']))
+        
+        
 
-    print('performance on eval data')
-    print(classification_report(
-        y_pred = eval_predictions,
-        y_true = eval_true_labels
-    ))
-
-    test_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['test']).predictions, axis = -1)))
-    test_true_labels = list(map(label_encoder_inverse, tokenized_dataset['test']['labels']))
-
-    print('performance on test data')
-    print(classification_report(
-        y_pred = test_predictions, 
-        y_true = test_true_labels
-    ))
-
-    df = pd.DataFrame({
-            "sentence": dataset['test'][args.input_feature],
-            "prediction": test_predictions,
-            "true_label": test_true_labels
-        })
-    df.to_csv(os.path.join(args.predictions_path,
-                  "main_classifier_predictions_test.csv"), index=False)
-
-
-
-
+    
 
 def do_train_process(args):
     tokenizer = AutoTokenizer.from_pretrained("roberta-base")
@@ -347,7 +266,7 @@ def do_train_process(args):
     test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
 
     if args.cbr:
-        train_df, dev_df, test_df = augment_with_cases_simcse(train_df, dev_df, test_df, args, tokenizer.sep_token)
+        train_df, dev_df, test_df = augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, tokenizer.sep_token)
 
 
     label_encoder = lambda x: consts.label2index[x]
@@ -373,11 +292,9 @@ def do_train_process(args):
             'labels': batch['updated_label']
         }
 
-    
-
 
     tokenized_dataset = dataset.map(
-        process, batched=True, remove_columns=dataset['train'].column_names)
+        process, batched=True)
 
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
@@ -412,34 +329,32 @@ def do_train_process(args):
     print('Start the training ...')
     trainer.train()
 
-    train_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['train']).predictions, axis = -1)))
-    train_true_labels = list(map(label_encoder_inverse, tokenized_dataset['train']['labels']))
-
-    print('performance on train data')
-    print(classification_report(
-        y_pred = train_predictions, 
-        y_true = train_true_labels
-    ))
-
-    eval_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1)))
-    eval_true_labels = list(map(label_encoder_inverse, tokenized_dataset['eval']['labels']))
-
-    print('performance on eval data')
-    print(classification_report(
-        y_pred = eval_predictions,
-        y_true = eval_true_labels
-    ))
-
-    test_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['test']).predictions, axis = -1)))
-    test_true_labels = list(map(label_encoder_inverse, tokenized_dataset['test']['labels']))
-
-    print('performance on test data')
-    print(classification_report(
-        y_pred = test_predictions, 
-        y_true = test_true_labels
-    ))
-
-
+    for split in ['train', 'eval', 'test']:
+        print_results(
+            label_encoder_inverse= label_encoder_inverse, 
+            trainer = trainer, 
+            tokenized_dataset = tokenized_dataset, 
+            split = split
+        )
+    if args.predictions_path:
+        eval_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1)))
+        eval_true_labels = list(map(label_encoder_inverse, tokenized_dataset['eval']['labels']))
+        
+        if args.cbr:
+            results_df = pd.DataFrame({
+                'predictions': eval_predictions,
+                'true_labels': eval_true_labels, 
+                'cbr': tokenized_dataset['eval']['cbr'],
+                args.input_feature: tokenized_dataset['eval'][args.input_feature]
+            })
+        else:
+            results_df = pd.DataFrame({
+                'predictions': eval_predictions,
+                'true_labels': eval_true_labels, 
+                args.input_feature: tokenized_dataset['eval'][args.input_feature]
+            })
+        results_df.to_csv(args.predictions_path, index = False)
+        
 
 
 
@@ -449,9 +364,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Train a Classification Model for Logical Fallacy Detection and having a baseline')
 
-
     parser.add_argument(
-        '--task', type = str, default="train", choices=['train', 'predict']
+        '--task', type = str, default="train", choices=['train']
     )
 
     parser.add_argument(
@@ -499,11 +413,31 @@ if __name__ == "__main__":
         '--cbr', action=argparse.BooleanOptionalAction
     )
     parser.add_argument(
+        '--similarity_matrices_path_train', type = str
+    )
+    
+    parser.add_argument(
+        '--similarity_matrices_path_dev', type = str
+    )
+    
+    parser.add_argument(
+        '--similarity_matrices_path_test', type = str
+    )
+    
+    parser.add_argument(
         '--predictions_path', type = str
     )
     parser.add_argument(
         '--num_cases', type = int, default = 3
     )
+    
+    parser.add_argument(
+        '--all_good_cases', type = str
+    )
+    parser.add_argument(
+        '--all_bad_cases', type = str
+    )
+    
 
 
     args = parser.parse_args()
@@ -518,8 +452,6 @@ if __name__ == "__main__":
 
     if args.task == "train":
         do_train_process(args)
-    elif args.task == "predict":
-        do_predict_process(args)
 
 
     

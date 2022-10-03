@@ -70,6 +70,14 @@ PATH_TO_SIMCSE_SIMILARITIES_DEV = ((Path(__file__).parent) /
 PATH_TO_SIMCSE_SIMILARITIES_TEST = ((Path(__file__).parent) /
                                     "tmp/simcse_similarities_test.joblib").absolute()
 
+PATH_TO_SENTENCE_TRANSFORMERS_SIMILARITIES_TRAIN = ((Path(__file__).parent) /
+                                                    "tmp/sentence_transformers_similarities_train.joblib").absolute()
+
+PATH_TO_SENTENCE_TRANSFORMERS_SIMILARITIES_DEV = ((Path(__file__).parent) /
+                                                  "tmp/sentence_transformers_similarities_dev.joblib").absolute()
+
+PATH_TO_SENTENCE_TRANSFORMERS_SIMILARITIES_TEST = ((Path(__file__).parent) /
+                                                   "tmp/sentence_transformers_similarities_test.joblib").absolute()
 
 good_relations = ['/r/Causes', '/r/UsedFor', '/r/CapableOf', '/r/CausesDesire', '/r/IsA', '/r/SymbolOf', '/r/MadeOf',
                   '/r/LocatedNear', '/r/Desires', '/r/AtLocation', '/r/HasProperty', '/r/PartOf', '/r/HasFirstSubevent', '/r/HasLastSubevent']
