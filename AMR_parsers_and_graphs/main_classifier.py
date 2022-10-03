@@ -123,6 +123,8 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
 def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_token):
     if args.all_bad_cases:
         all_bad_cases = joblib.load(args.all_bad_cases)
+    if args.all_good_cases:
+        all_good_cases = joblib.load(args.all_good_cases)
     simcse_train_similarities = joblib.load(args.similarity_matrices_path_train)
     simcse_dev_similarities = joblib.load(args.similarity_matrices_path_dev)
     simcse_test_similarities = joblib.load(args.similarity_matrices_path_test)
@@ -138,6 +140,8 @@ def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_
                 augs = [x[0] for x in sentences_and_similarities_sorted[1:args.num_cases + 1]]
                 if args.all_bad_cases:
                     augs = [sent for sent in augs if sent not in all_bad_cases]
+                if args.all_good_cases:
+                    augs = [sent for sent in augs if sent in all_good_cases]
                 result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(augs)}"
                 external_sentences.append('</sep>'.join(augs))
                 augmented_sentences.append(result_sentence)
@@ -241,15 +245,30 @@ def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_
 #     ))
 
 
-def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str):
+def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str, args):
     split_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset[split]).predictions, axis = -1)))
     split_true_labels = list(map(label_encoder_inverse, tokenized_dataset[split]['labels']))
 
-    print('performance on train data')
+    print(f'performance on {split} data')
     print(classification_report(
         y_pred = split_predictions, 
         y_true = split_true_labels
     ))
+    if args.predictions_path:
+        if args.cbr:
+            results_df = pd.DataFrame({
+                'predictions': split_predictions,
+                'true_labels': split_true_labels, 
+                'cbr': tokenized_dataset[split]['cbr'],
+                args.input_feature: tokenized_dataset[split][args.input_feature]
+            })
+        else:
+            results_df = pd.DataFrame({
+                'predictions': split_predictions,
+                'true_labels': split_true_labels, 
+                args.input_feature: tokenized_dataset[split][args.input_feature]
+            })
+        results_df.to_csv(os.path.join(args.predictions_path, f"{split}.csv"), index = False)
 
         
         
@@ -334,26 +353,9 @@ def do_train_process(args):
             label_encoder_inverse= label_encoder_inverse, 
             trainer = trainer, 
             tokenized_dataset = tokenized_dataset, 
-            split = split
+            split = split,
+            args = args
         )
-    if args.predictions_path:
-        eval_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset['eval']).predictions, axis = -1)))
-        eval_true_labels = list(map(label_encoder_inverse, tokenized_dataset['eval']['labels']))
-        
-        if args.cbr:
-            results_df = pd.DataFrame({
-                'predictions': eval_predictions,
-                'true_labels': eval_true_labels, 
-                'cbr': tokenized_dataset['eval']['cbr'],
-                args.input_feature: tokenized_dataset['eval'][args.input_feature]
-            })
-        else:
-            results_df = pd.DataFrame({
-                'predictions': eval_predictions,
-                'true_labels': eval_true_labels, 
-                args.input_feature: tokenized_dataset['eval'][args.input_feature]
-            })
-        results_df.to_csv(args.predictions_path, index = False)
         
 
 
