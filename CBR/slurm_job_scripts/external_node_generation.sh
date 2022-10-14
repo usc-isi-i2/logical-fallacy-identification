@@ -21,24 +21,24 @@ conda activate general
 
 # Train
 
-python prompt_gpt_j.py \
+python -m cbr_analyser.augmentations.prompt_gpt_j \
     --task external_node_generation \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_with_belief_argument.joblib \
-    --output_file tmp/explagraph/external_nodes_train.tsv
+    --input_file cache/masked_sentences_with_AMR_container_objects_with_belief_argument.joblib \
+    --output_file cache/explagraph/external_nodes_train.tsv
 
 # Dev
 
-# python prompt_gpt_j.py \
+# python -m cbr_analyser.augmentations.prompt_gpt_j \
 #     --task external_node_generation \
-#     --input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib \
-#     --output_file tmp/explagraph/external_nodes_dev.tsv
+#     --input_file cache/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib \
+#     --output_file cache/explagraph/external_nodes_dev.tsv
 
 # # Test
 
-# python prompt_gpt_j.py \
+# python -m cbr_analyser.augmentations.prompt_gpt_j \
 #     --task external_node_generation \
-#     --input_file tmp/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib \
-#     --output_file tmp/explagraph/external_nodes_test.tsv
+#     --input_file cache/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib \
+#     --output_file cache/explagraph/external_nodes_test.tsv
 
 
 

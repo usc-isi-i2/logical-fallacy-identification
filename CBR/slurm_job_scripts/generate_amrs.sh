@@ -22,9 +22,9 @@ conda activate general
 for split in "train" "dev" "test"
 do
 
-python utils.py \
+python -m cbr_analyser.amr.amr_extraction \
     --input_file "data/edu_$split.csv" \
-    --output_file "tmp/masked_sentences_with_AMR_container_objects_$split.joblib" \
+    --output_file "cache/masked_sentences_with_AMR_container_objects_$split.joblib" \
     --task amr_generation
 
 done

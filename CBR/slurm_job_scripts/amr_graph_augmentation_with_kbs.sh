@@ -31,14 +31,14 @@ conda activate general
 for split in "train" "dev" "test"
 do
 
-python conceptnet_augmentation.py \
+python -m cbr_analyser.augmentations.conceptnet_augmentation \
     --input_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
     --output_file "cache/masked_sentences_with_AMR_container_objects_${split}_conceptnet_good_relations.joblib" \
     --rel_file data/conceptNet_relations.joblib \
     --label_file data/conceptNet_labels.joblib \
     --good_relations
 
-python conceptnet_augmentation.py \
+python -m cbr_analyser.augmentations.conceptnet_augmentation \
     --input_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
     --output_file "cache/masked_sentences_with_AMR_container_objects_${split}_conceptnet.joblib" \
     --rel_file data/conceptNet_relations.joblib \

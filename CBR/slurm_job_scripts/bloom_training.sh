@@ -19,8 +19,7 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-python bloom_model.py
-
+python -m cbr_analyser.reasoner.bloom_model
 
 
 conda deactivate

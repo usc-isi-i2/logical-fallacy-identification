@@ -20,22 +20,22 @@ eval "$(conda shell.bash hook)"
 conda activate general
 
 
-python prompt_gpt_j.py \
+python -m cbr_analyser.augmentations.prompt_gpt_j \
     --task generate \
-    --input_file tmp/masked_sentences_with_AMR_container_objects.joblib \
-    --output_file tmp/masked_sentences_with_AMR_container_objects_with_belief_argument.joblib
+    --input_file cache/masked_sentences_with_AMR_container_objects.joblib \
+    --output_file cache/masked_sentences_with_AMR_container_objects_with_belief_argument.joblib
 
 
-python prompt_gpt_j.py \
+python -m cbr_analyser.augmentations.prompt_gpt_j \
     --task generate \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --output_file tmp/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib
+    --input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --output_file cache/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib
 
 
-python prompt_gpt_j.py \
+python -m cbr_analyser.augmentations.prompt_gpt_j \
     --task generate \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
-    --output_file tmp/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib
+    --input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
+    --output_file cache/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib
 
 
 

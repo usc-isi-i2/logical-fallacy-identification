@@ -19,14 +19,14 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-python baselines.py \
+python -m cbr_analyser.reasoner.baseline_classifier \
     --train_input_file data/edu_train.csv \
     --dev_input_file data/edu_dev.csv \
     --test_input_file data/edu_test.csv \
     --input_feature masked_articles
 
 
-python baselines.py \
+python -m cbr_analyser.reasoner.baseline_classifier \
     --train_input_file data/edu_train.csv \
     --dev_input_file data/edu_dev.csv \
     --test_input_file data/edu_test.csv \

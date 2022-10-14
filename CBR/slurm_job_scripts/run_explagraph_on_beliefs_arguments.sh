@@ -7,7 +7,7 @@
 #SBATCH --mem-per-cpu=10240
 #SBATCH --partition=nodes
 #SBATCH --gres=gpu:a100:1
-#SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/CBR/ExplaGraphs
+#SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/CBR/cbr_analyser/case_retriever/ExplaGraphs
 # Verify working directory
 echo $(pwd)
 # Print gpu configuration for this job
@@ -23,21 +23,21 @@ conda activate explagraph
 
 # STEP 1: PREPARE THE DATASET IN THE TSV FORMAT IN dev.tsv DATA DIRECTORY OF EXPLAGRAPH
 
-# all the datasets would be ../tmp/explagraph/
+# all the datasets would be ../../../cache/explagraph/
 #                                     -- dev.tsv
 #                                     -- internal_nodes
 #                                     -- external_nodes                                    
 
-# TODO: Check the bug here for the test set
-# FIXME: Check the bug here for the test set
 
 # for split in "train" "dev" "test"
 for split in "train"
 do
 
+# You should have the dev and test files in the cache/explagraph/ directory in the tsv format and right format.
+
 rm -rf ./data/dev.tsv ./data/test.tsv
-cp "../tmp/explagraph/$split.tsv" ./data/dev.tsv
-cp "../tmp/explagraph/$split.tsv" ./data/test.tsv
+cp "../../../cache/explagraph/$split.tsv" ./data/dev.tsv
+cp "../../../cache/explagraph/$split.tsv" ./data/test.tsv
 
 
 # STEP 2: RUN THE test_structured_model.sh SCRIPT WITHOUT THE do_eval_edge PARAMETER TO GET THE INTERNAL_NODES
@@ -62,7 +62,7 @@ python structured_model/run_joint_model.py \
 # STEP 3: copy the external nodes 
 
 rm -rf ./data/external_nodes_dev.txt
-cp "../tmp/explagraph/external_nodes_$split.tsv" ./data/external_nodes_dev.txt
+cp "../../../cache/explagraph/external_nodes_$split.tsv" ./data/external_nodes_dev.txt
 
 
 # STEP 4: COPY THE EXTRACTED INTERNAL NODES TO THE INTERNAL_NODES FILE IN THE DATA DIRECTORY
@@ -91,7 +91,7 @@ python ./structured_model/run_joint_model.py \
     --evaluate_during_training
 
 
-mv ./models/sp_model/prediction_edges_dev.lst "../tmp/explagraph/predicted_edges_$split.lst"
+mv ./models/sp_model/prediction_edges_dev.lst "../../../cache/explagraph/predicted_edges_$split.lst"
 
 done
 

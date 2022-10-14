@@ -19,28 +19,28 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-# python gcn.py \
+# python -m cbr_analyser.case_retriever.gcn.gcn \
 #     --task train \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
 #     --model_path gcn_model.pt
 
-python gcn.py \
+python -m cbr_analyser.case_retriever.gcn.gcn \
     --task predict \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --predictions_path gcn_results \
     --model_path gcn_model.pt
 
 
-# python gcn.py \
+# python -m cbr_analyser.case_retriever.gcn.gcn \
 #     --task hptuning \
-#     --all_data tmp/masked_sentences_with_AMR_container_objects_all.joblib \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --all_data cache/masked_sentences_with_AMR_container_objects_all.joblib \
+#     --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
 #     --model_path gcn_model.pt
 
 

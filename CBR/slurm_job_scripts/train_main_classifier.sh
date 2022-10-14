@@ -26,11 +26,11 @@ CHECKPOINT="bigscience/bloom-560m"
 
 # Using the original sentences
 echo "base model using the source articles usign ${CHECKPOINT}"
-python main_classifier.py \
+python -m cbr_analyser.reasoner.main_classifier \
     --checkpoint ${CHECKPOINT} \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature source_article \
     --batch_size 8 \
     --learning_rate 2e-5 \
@@ -40,11 +40,11 @@ python main_classifier.py \
 
 # Using the masked sentences
 echo "base model using the masked version of the sentences"
-python main_classifier.py \
+python -m cbr_analyser.reasoner.main_classifier \
     --checkpoint ${CHECKPOINT} \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature masked_articles \
     --batch_size 8 \
     --learning_rate 2e-5 \
@@ -53,11 +53,11 @@ python main_classifier.py \
     --weight_decay 0.01
 
 # ConceptNet
-# python main_classifier.py \
+# python -m cbr_analyser.reasoner.main_classifier \
 #     --checkpoint ${CHECKPOINT} \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train_conceptnet_good_relations.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_conceptnet_good_relations.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_conceptnet_good_relations.joblib \
+#     --train_input_file cache/masked_sentences_with_AMR_container_objects_train_conceptnet_good_relations.joblib \
+#     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev_conceptnet_good_relations.joblib \
+#     --test_input_file cache/masked_sentences_with_AMR_container_objects_test_conceptnet_good_relations.joblib \
 #     --input_feature masked_articles \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
@@ -67,11 +67,11 @@ python main_classifier.py \
 #     --augments conceptnet
 
 # WordNet
-# python main_classifier.py \
+# python -m cbr_analyser.reasoner.main_classifier \
 #     --checkpoint ${CHECKPOINT} \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train_wordnet.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_wordnet.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_wordnet.joblib \
+#     --train_input_file cache/masked_sentences_with_AMR_container_objects_train_wordnet.joblib \
+#     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev_wordnet.joblib \
+#     --test_input_file cache/masked_sentences_with_AMR_container_objects_test_wordnet.joblib \
 #     --input_feature masked_articles \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
@@ -86,15 +86,15 @@ do
 
 
 echo "case based reasoning with ${NUM_CASES} cases and simcse similarity with source articles"
-python main_classifier.py \
+python -m cbr_analyser.reasoner.main_classifier \
     --checkpoint ${CHECKPOINT} \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature source_article \
-    --similarity_matrices_path_train tmp/simcse_similarities_source_train.joblib \
-    --similarity_matrices_path_dev tmp/simcse_similarities_source_dev.joblib \
-    --similarity_matrices_path_test tmp/simcse_similarities_source_test.joblib \
+    --similarity_matrices_path_train cache/simcse_similarities_source_train.joblib \
+    --similarity_matrices_path_dev cache/simcse_similarities_source_dev.joblib \
+    --similarity_matrices_path_test cache/simcse_similarities_source_test.joblib \
     --batch_size 8 \
     --learning_rate 2e-5 \
     --num_epochs 5 \
@@ -104,15 +104,15 @@ python main_classifier.py \
     --cbr
 
 echo "case based reasoning with ${NUM_CASES} cases and simcse similarity with masked articles"
-python main_classifier.py \
+python -m cbr_analyser.reasoner.main_classifier \
     --checkpoint ${CHECKPOINT} \
-    --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-    --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-    --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+    --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+    --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+    --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature masked_articles \
-    --similarity_matrices_path_train tmp/simcse_similarities_masked_train.joblib \
-    --similarity_matrices_path_dev tmp/simcse_similarities_masked_dev.joblib \
-    --similarity_matrices_path_test tmp/simcse_similarities_masked_test.joblib \
+    --similarity_matrices_path_train cache/simcse_similarities_masked_train.joblib \
+    --similarity_matrices_path_dev cache/simcse_similarities_masked_dev.joblib \
+    --similarity_matrices_path_test cache/simcse_similarities_masked_test.joblib \
     --batch_size 8 \
     --learning_rate 2e-5 \
     --num_epochs 5 \
@@ -124,23 +124,23 @@ python main_classifier.py \
 
 
 # echo "case based reasoning with ${NUM_CASES} cases and simcse similarity using bad cases"
-# python main_classifier.py \
+# python -m cbr_analyser.reasoner.main_classifier \
 #     --checkpoint ${CHECKPOINT} \
-#     --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib \
-#     --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib \
-#     --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib \
+#     --train_input_file cache/masked_sentences_with_AMR_container_objects_train.joblib \
+#     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
+#     --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
 #     --input_feature masked_articles \
-#     --similarity_matrices_path_train tmp/simcse_similarities_train.joblib \
-#     --similarity_matrices_path_dev tmp/simcse_similarities_dev.joblib \
-#     --similarity_matrices_path_test tmp/simcse_similarities_test.joblib \
+#     --similarity_matrices_path_train cache/simcse_similarities_train.joblib \
+#     --similarity_matrices_path_dev cache/simcse_similarities_dev.joblib \
+#     --similarity_matrices_path_test cache/simcse_similarities_test.joblib \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
 #     --num_epochs 5 \
 #     --classifier_dropout 0.1 \
 #     --weight_decay 0.01 \
 #     --num_cases ${NUM_CASES} \
-#     --predictions_path tmp/predictions/cbr_filtered \
-#     --all_bad_cases tmp/predictions/all_bad_cases.joblib \
+#     --predictions_path cache/predictions/cbr_filtered \
+#     --all_bad_cases cache/predictions/all_bad_cases.joblib \
 #     --cbr
 
 done

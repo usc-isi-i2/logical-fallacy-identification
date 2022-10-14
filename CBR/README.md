@@ -8,3 +8,7 @@ The data I used which comes from the original logical fallacy [paper](https://ar
 
 All the logic contained in the project is contained in the `cbr_analyser`. 
 
+The order with which to run the experiments and run the whole pipeline:
+
+
+1. 

@@ -1,7 +1,7 @@
-from deepsegment import DeepSegment
-import joblib
 import argparse
 
+import joblib
+from deepsegment import DeepSegment
 
 segmenter = DeepSegment('en', tf_serving=False)
 

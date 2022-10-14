@@ -1,6 +1,6 @@
 import joblib
-from sentence_transformers import SentenceTransformer, util
 from IPython import embed
+from sentence_transformers import SentenceTransformer, util
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 

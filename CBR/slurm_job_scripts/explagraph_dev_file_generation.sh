@@ -21,24 +21,24 @@ conda activate general
 
 # Train
 
-python prompt_gpt_j.py \
+python -m cbr_analyser.augmentations.prompt_gpt_j \
     --task output_explagraph \
-    --input_file tmp/masked_sentences_with_AMR_container_objects_with_belief_argument.joblib \
-    --output_file tmp/explagraph/train.tsv
+    --input_file cache/masked_sentences_with_AMR_container_objects_with_belief_argument.joblib \
+    --output_file cache/explagraph/train.tsv
 
 # Dev
 
-# python prompt_gpt_j.py \
+# python -m cbr_analyser.augmentations.prompt_gpt_j \
 #     --task output_explagraph \
-#     --input_file tmp/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib \
-#     --output_file tmp/explagraph/dev.tsv
+#     --input_file cache/masked_sentences_with_AMR_container_objects_dev_with_belief_argument.joblib \
+#     --output_file cache/explagraph/dev.tsv
 
 # # Test
 
-# python prompt_gpt_j.py \
+# python -m cbr_analyser.augmentations.prompt_gpt_j \
 #     --task output_explagraph \
-#     --input_file tmp/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib \
-#     --output_file tmp/explagraph/test.tsv
+#     --input_file cache/masked_sentences_with_AMR_container_objects_test_with_belief_argument.joblib \
+#     --output_file cache/explagraph/test.tsv
 
 
 
