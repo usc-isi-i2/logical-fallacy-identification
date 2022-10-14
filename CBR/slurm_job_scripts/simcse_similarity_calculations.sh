@@ -7,7 +7,7 @@
 #SBATCH --mem-per-cpu=10240
 #SBATCH --partition=nodes
 #SBATCH --gres=gpu:a100:1
-#SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+#SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/CBR
 # Verify working directory
 echo $(pwd)
 # Print gpu configuration for this job
@@ -19,13 +19,21 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-python simcse_similarity_calculations.py \
-    --source "masked" \
-    --output_prefix "simcse_similarities_masked"
-
+for split in "train" "dev" "test"
+do
 
 python simcse_similarity_calculations.py \
-    --source "source" \
-    --output_prefix "simcse_similarities_source"
+    --source_feature "masked" \
+    --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
+    --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "cache/simcse_similarities_masked_${split}.joblib"
 
+
+python simcse_similarity_calculations.py \
+    --source_feature "source" \
+    --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
+    --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "cache/simcse_similarities_masked_${split}.joblib"
+
+done
 conda deactivate

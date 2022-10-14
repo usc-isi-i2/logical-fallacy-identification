@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=10240
 #SBATCH --partition=nodes
-#SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs
+#SBATCH --chdir=/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/CBR
 # Verify working directory
 echo $(pwd)
 
@@ -21,8 +21,8 @@ conda activate general
 # do
 
 # python wordnet_augmentation.py \
-#     --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-#     --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_wordnet.joblib" \
+#     --input_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+#     --output_file "cache/masked_sentences_with_AMR_container_objects_${split}_wordnet.joblib" \
 
 # done
 
@@ -32,15 +32,15 @@ for split in "train" "dev" "test"
 do
 
 python conceptnet_augmentation.py \
-    --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_conceptnet_good_relations.joblib" \
+    --input_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "cache/masked_sentences_with_AMR_container_objects_${split}_conceptnet_good_relations.joblib" \
     --rel_file data/conceptNet_relations.joblib \
     --label_file data/conceptNet_labels.joblib \
     --good_relations
 
 python conceptnet_augmentation.py \
-    --input_file "tmp/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "tmp/masked_sentences_with_AMR_container_objects_${split}_conceptnet.joblib" \
+    --input_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
+    --output_file "cache/masked_sentences_with_AMR_container_objects_${split}_conceptnet.joblib" \
     --rel_file data/conceptNet_relations.joblib \
     --label_file data/conceptNet_labels.joblib
 
