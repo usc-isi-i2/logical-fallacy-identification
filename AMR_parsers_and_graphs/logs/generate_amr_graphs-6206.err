@@ -1,2 +1,0 @@
-/var/spool/slurm/slurmd/job06206/slurm_script: line 24: syntax error near unexpected token `python'
-/var/spool/slurm/slurmd/job06206/slurm_script: line 24: `python utils.py \'

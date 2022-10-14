@@ -1,1013 +1,0 @@
-Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20221003_085403-3w0vxwqd
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run jolly-haze-99
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/3w0vxwqd
-Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['lm_head.dense.weight', 'lm_head.bias', 'roberta.pooler.dense.weight', 'lm_head.dense.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'roberta.pooler.dense.bias', 'lm_head.layer_norm.bias']
-- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.out_proj.bias', 'classifier.out_proj.weight', 'classifier.dense.weight', 'classifier.dense.bias']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 14.94ba/s]100%|██████████| 2/2 [00:00<00:00, 14.88ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 64.58ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 69.06ba/s]
-The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  warnings.warn(
-***** Running training *****
-  Num examples = 1849
-  Num Epochs = 5
-  Instantaneous batch size per device = 8
-  Total train batch size (w. parallel, distributed & accumulation) = 8
-  Gradient Accumulation steps = 1
-  Total optimization steps = 1160
-Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
-  0%|          | 0/1160 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 1/1160 [00:00<05:08,  3.75it/s]  0%|          | 3/1160 [00:00<02:15,  8.52it/s]  1%|          | 6/1160 [00:00<01:24, 13.65it/s]  1%|          | 8/1160 [00:00<01:14, 15.41it/s]  1%|          | 11/1160 [00:00<01:06, 17.28it/s]  1%|          | 13/1160 [00:00<01:06, 17.19it/s]  1%|▏         | 16/1160 [00:01<01:01, 18.50it/s]  2%|▏         | 19/1160 [00:01<00:58, 19.41it/s]  2%|▏         | 22/1160 [00:01<00:57, 19.80it/s]  2%|▏         | 25/1160 [00:01<00:56, 20.14it/s]  2%|▏         | 28/1160 [00:01<00:55, 20.44it/s]  3%|▎         | 31/1160 [00:01<00:54, 20.65it/s]  3%|▎         | 34/1160 [00:01<00:53, 20.94it/s]  3%|▎         | 37/1160 [00:02<00:53, 20.90it/s]  3%|▎         | 40/1160 [00:02<00:53, 20.90it/s]  4%|▎         | 43/1160 [00:02<00:52, 21.09it/s]  4%|▍         | 46/1160 [00:02<00:57, 19.35it/s]  4%|▍         | 49/1160 [00:02<00:55, 19.96it/s]                                                   4%|▍         | 50/1160 [00:02<00:55, 19.96it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.27it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.92it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.28it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A  4%|▍         | 50/1160 [00:03<00:55, 19.96it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.28it/s][A
-                                                [A  4%|▍         | 52/1160 [00:03<02:07,  8.72it/s]  5%|▍         | 55/1160 [00:03<01:44, 10.62it/s]  5%|▌         | 58/1160 [00:03<01:27, 12.53it/s]  5%|▌         | 61/1160 [00:03<01:19, 13.75it/s]  6%|▌         | 64/1160 [00:04<01:10, 15.45it/s]  6%|▌         | 67/1160 [00:04<01:05, 16.75it/s]  6%|▌         | 70/1160 [00:04<01:01, 17.87it/s]  6%|▋         | 73/1160 [00:04<00:58, 18.73it/s]  7%|▋         | 76/1160 [00:04<00:55, 19.47it/s]  7%|▋         | 79/1160 [00:04<00:54, 19.87it/s]  7%|▋         | 82/1160 [00:04<00:53, 19.99it/s]  7%|▋         | 85/1160 [00:05<00:53, 20.03it/s]  8%|▊         | 88/1160 [00:05<00:52, 20.41it/s]  8%|▊         | 91/1160 [00:05<00:52, 20.45it/s]  8%|▊         | 94/1160 [00:05<00:51, 20.56it/s]  8%|▊         | 97/1160 [00:05<00:52, 20.43it/s]  9%|▊         | 100/1160 [00:05<01:04, 16.55it/s]                                                    9%|▊         | 100/1160 [00:05<01:04, 16.55it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 110.92it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.42it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 107.83it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A  9%|▊         | 100/1160 [00:06<01:04, 16.55it/s]
-100%|██████████| 38/38 [00:00<00:00, 107.83it/s][A
-                                                [A  9%|▉         | 102/1160 [00:06<01:44, 10.09it/s]  9%|▉         | 105/1160 [00:06<01:27, 12.03it/s]  9%|▉         | 108/1160 [00:06<01:15, 13.84it/s] 10%|▉         | 111/1160 [00:06<01:07, 15.46it/s] 10%|▉         | 113/1160 [00:06<01:04, 16.16it/s] 10%|█         | 116/1160 [00:07<00:59, 17.57it/s] 10%|█         | 119/1160 [00:07<00:55, 18.61it/s] 11%|█         | 122/1160 [00:07<00:53, 19.41it/s] 11%|█         | 125/1160 [00:07<00:53, 19.36it/s] 11%|█         | 128/1160 [00:07<00:53, 19.16it/s] 11%|█▏        | 131/1160 [00:07<00:51, 19.85it/s] 12%|█▏        | 134/1160 [00:07<00:50, 20.43it/s] 12%|█▏        | 137/1160 [00:08<00:49, 20.61it/s] 12%|█▏        | 140/1160 [00:08<00:51, 19.82it/s] 12%|█▏        | 143/1160 [00:08<00:50, 20.12it/s] 13%|█▎        | 146/1160 [00:08<00:49, 20.61it/s] 13%|█▎        | 149/1160 [00:08<00:48, 20.76it/s]                                                   13%|█▎        | 150/1160 [00:08<00:48, 20.76it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.51it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.66it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.43it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 13%|█▎        | 150/1160 [00:09<00:48, 20.76it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.43it/s][A
-                                                [A 13%|█▎        | 152/1160 [00:09<01:25, 11.74it/s] 13%|█▎        | 155/1160 [00:09<01:14, 13.49it/s] 14%|█▎        | 158/1160 [00:09<01:06, 15.15it/s] 14%|█▍        | 161/1160 [00:09<01:01, 16.18it/s] 14%|█▍        | 164/1160 [00:09<00:56, 17.66it/s] 14%|█▍        | 166/1160 [00:09<00:54, 18.10it/s] 15%|█▍        | 169/1160 [00:09<00:51, 19.07it/s] 15%|█▍        | 172/1160 [00:10<00:50, 19.66it/s] 15%|█▌        | 175/1160 [00:10<00:48, 20.17it/s] 15%|█▌        | 178/1160 [00:10<00:47, 20.59it/s] 16%|█▌        | 181/1160 [00:10<00:47, 20.74it/s] 16%|█▌        | 184/1160 [00:10<00:46, 20.87it/s] 16%|█▌        | 187/1160 [00:10<00:45, 21.18it/s] 16%|█▋        | 190/1160 [00:10<00:44, 21.57it/s] 17%|█▋        | 193/1160 [00:11<00:45, 21.13it/s] 17%|█▋        | 196/1160 [00:11<00:45, 21.07it/s] 17%|█▋        | 199/1160 [00:11<00:46, 20.80it/s]                                                   17%|█▋        | 200/1160 [00:11<00:46, 20.80it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.30it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.56it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.36it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 17%|█▋        | 200/1160 [00:11<00:46, 20.80it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.36it/s][A
-                                                [A 17%|█▋        | 202/1160 [00:12<01:32, 10.35it/s] 18%|█▊        | 205/1160 [00:12<01:17, 12.27it/s] 18%|█▊        | 207/1160 [00:12<01:11, 13.31it/s] 18%|█▊        | 210/1160 [00:12<01:02, 15.27it/s] 18%|█▊        | 213/1160 [00:12<00:57, 16.51it/s] 19%|█▊        | 215/1160 [00:12<00:55, 16.88it/s] 19%|█▊        | 217/1160 [00:12<00:53, 17.56it/s] 19%|█▉        | 220/1160 [00:12<00:50, 18.65it/s] 19%|█▉        | 223/1160 [00:13<00:48, 19.48it/s] 19%|█▉        | 226/1160 [00:13<00:46, 20.13it/s] 20%|█▉        | 229/1160 [00:13<00:48, 19.18it/s] 20%|██        | 232/1160 [00:13<00:47, 19.63it/s] 20%|██        | 235/1160 [00:13<00:45, 20.16it/s] 21%|██        | 238/1160 [00:13<00:45, 20.05it/s] 21%|██        | 241/1160 [00:13<00:45, 20.22it/s] 21%|██        | 244/1160 [00:14<00:44, 20.67it/s] 21%|██▏       | 247/1160 [00:14<00:45, 19.95it/s] 22%|██▏       | 250/1160 [00:14<00:44, 20.39it/s]                                                   22%|██▏       | 250/1160 [00:14<00:44, 20.39it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.33it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.82it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.51it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 22%|██▏       | 250/1160 [00:14<00:44, 20.39it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.51it/s][A
-                                                [A 22%|██▏       | 253/1160 [00:14<01:17, 11.63it/s] 22%|██▏       | 255/1160 [00:14<01:11, 12.67it/s] 22%|██▏       | 258/1160 [00:15<01:02, 14.46it/s] 22%|██▎       | 261/1160 [00:15<00:56, 15.88it/s] 23%|██▎       | 264/1160 [00:15<00:51, 17.40it/s] 23%|██▎       | 266/1160 [00:15<00:50, 17.66it/s] 23%|██▎       | 269/1160 [00:15<00:47, 18.91it/s] 23%|██▎       | 272/1160 [00:15<00:45, 19.72it/s] 24%|██▎       | 275/1160 [00:15<00:43, 20.29it/s] 24%|██▍       | 278/1160 [00:16<00:42, 20.63it/s] 24%|██▍       | 281/1160 [00:16<00:42, 20.87it/s] 24%|██▍       | 284/1160 [00:16<00:41, 21.12it/s] 25%|██▍       | 287/1160 [00:16<00:41, 21.04it/s] 25%|██▌       | 290/1160 [00:16<00:40, 21.22it/s] 25%|██▌       | 293/1160 [00:16<00:40, 21.23it/s] 26%|██▌       | 296/1160 [00:16<00:40, 21.19it/s] 26%|██▌       | 299/1160 [00:17<00:44, 19.54it/s]                                                   26%|██▌       | 300/1160 [00:17<00:44, 19.54it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 110.63it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.87it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.66it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 26%|██▌       | 300/1160 [00:17<00:44, 19.54it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.66it/s][A
-                                                [A 26%|██▌       | 301/1160 [00:17<01:29,  9.56it/s] 26%|██▌       | 304/1160 [00:17<01:14, 11.54it/s] 26%|██▋       | 307/1160 [00:17<01:03, 13.40it/s] 27%|██▋       | 309/1160 [00:18<00:59, 14.34it/s] 27%|██▋       | 312/1160 [00:18<00:52, 16.02it/s] 27%|██▋       | 315/1160 [00:18<00:48, 17.51it/s] 27%|██▋       | 318/1160 [00:18<00:45, 18.39it/s] 28%|██▊       | 321/1160 [00:18<00:43, 19.37it/s] 28%|██▊       | 324/1160 [00:18<00:42, 19.81it/s] 28%|██▊       | 327/1160 [00:18<00:42, 19.65it/s] 28%|██▊       | 330/1160 [00:19<00:41, 19.91it/s] 29%|██▊       | 333/1160 [00:19<00:40, 20.39it/s] 29%|██▉       | 336/1160 [00:19<00:40, 20.12it/s] 29%|██▉       | 339/1160 [00:19<00:40, 20.21it/s] 29%|██▉       | 342/1160 [00:19<00:40, 20.21it/s] 30%|██▉       | 345/1160 [00:19<00:40, 20.33it/s] 30%|███       | 348/1160 [00:19<00:39, 20.57it/s]                                                   30%|███       | 350/1160 [00:20<00:39, 20.57it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.45it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.17it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.78it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 30%|███       | 350/1160 [00:20<00:39, 20.57it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.78it/s][A
-                                                [A 30%|███       | 351/1160 [00:20<01:09, 11.62it/s] 31%|███       | 354/1160 [00:20<00:59, 13.49it/s] 31%|███       | 357/1160 [00:20<00:53, 15.13it/s] 31%|███       | 359/1160 [00:20<00:50, 15.98it/s] 31%|███       | 362/1160 [00:21<00:45, 17.47it/s] 31%|███▏      | 365/1160 [00:21<00:42, 18.64it/s] 32%|███▏      | 368/1160 [00:21<00:40, 19.61it/s] 32%|███▏      | 371/1160 [00:21<00:39, 20.23it/s] 32%|███▏      | 374/1160 [00:21<00:37, 20.69it/s] 32%|███▎      | 377/1160 [00:21<00:37, 21.08it/s] 33%|███▎      | 380/1160 [00:21<00:36, 21.19it/s] 33%|███▎      | 383/1160 [00:21<00:38, 20.05it/s] 33%|███▎      | 386/1160 [00:22<00:38, 20.17it/s] 34%|███▎      | 389/1160 [00:22<00:37, 20.52it/s] 34%|███▍      | 392/1160 [00:22<00:36, 20.83it/s] 34%|███▍      | 395/1160 [00:22<00:36, 21.02it/s] 34%|███▍      | 398/1160 [00:22<00:36, 21.13it/s]                                                   34%|███▍      | 400/1160 [00:22<00:35, 21.13it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.15it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.96it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.71it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 34%|███▍      | 400/1160 [00:23<00:35, 21.13it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.71it/s][A
-                                                [A 35%|███▍      | 401/1160 [00:23<01:12, 10.40it/s] 35%|███▍      | 404/1160 [00:23<01:01, 12.25it/s] 35%|███▌      | 406/1160 [00:23<00:58, 12.98it/s] 35%|███▌      | 409/1160 [00:23<00:50, 14.90it/s] 36%|███▌      | 412/1160 [00:23<00:45, 16.52it/s] 36%|███▌      | 415/1160 [00:24<00:41, 17.80it/s] 36%|███▌      | 418/1160 [00:24<00:40, 18.19it/s] 36%|███▋      | 421/1160 [00:24<00:38, 19.18it/s] 37%|███▋      | 424/1160 [00:24<00:37, 19.79it/s] 37%|███▋      | 427/1160 [00:24<00:36, 20.05it/s] 37%|███▋      | 430/1160 [00:24<00:35, 20.28it/s] 37%|███▋      | 433/1160 [00:24<00:35, 20.29it/s] 38%|███▊      | 436/1160 [00:25<00:34, 20.73it/s] 38%|███▊      | 439/1160 [00:25<00:34, 21.20it/s] 38%|███▊      | 442/1160 [00:25<00:33, 21.37it/s] 38%|███▊      | 445/1160 [00:25<00:33, 21.03it/s] 39%|███▊      | 448/1160 [00:25<00:33, 20.96it/s]                                                   39%|███▉      | 450/1160 [00:25<00:33, 20.96it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.87it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.31it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.92it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 39%|███▉      | 450/1160 [00:26<00:33, 20.96it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.92it/s][A
-                                                [A 39%|███▉      | 451/1160 [00:26<01:00, 11.69it/s] 39%|███▉      | 454/1160 [00:26<00:52, 13.45it/s] 39%|███▉      | 457/1160 [00:26<00:46, 15.20it/s] 40%|███▉      | 460/1160 [00:26<00:42, 16.63it/s] 40%|███▉      | 463/1160 [00:26<00:38, 17.97it/s] 40%|████      | 466/1160 [00:26<00:36, 18.84it/s] 40%|████      | 469/1160 [00:26<00:35, 19.54it/s] 41%|████      | 472/1160 [00:27<00:34, 20.14it/s] 41%|████      | 475/1160 [00:27<00:33, 20.45it/s] 41%|████      | 478/1160 [00:27<00:32, 20.86it/s] 41%|████▏     | 481/1160 [00:27<00:32, 21.08it/s] 42%|████▏     | 484/1160 [00:27<00:31, 21.26it/s] 42%|████▏     | 487/1160 [00:27<00:32, 20.98it/s] 42%|████▏     | 490/1160 [00:27<00:31, 21.02it/s] 42%|████▎     | 493/1160 [00:28<00:31, 21.21it/s] 43%|████▎     | 496/1160 [00:28<00:30, 21.43it/s] 43%|████▎     | 499/1160 [00:28<00:31, 21.17it/s]                                                   43%|████▎     | 500/1160 [00:28<00:31, 21.17it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.27it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.11it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.80it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 43%|████▎     | 500/1160 [00:28<00:31, 21.17it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.80it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-500
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/special_tokens_map.json
- 43%|████▎     | 500/1160 [00:39<00:31, 21.17it/s] 43%|████▎     | 501/1160 [00:44<19:30,  1.78s/it] 43%|████▎     | 503/1160 [00:44<14:54,  1.36s/it] 44%|████▎     | 506/1160 [00:44<09:58,  1.09it/s] 44%|████▍     | 509/1160 [00:44<06:50,  1.59it/s] 44%|████▍     | 512/1160 [00:44<04:49,  2.24it/s] 44%|████▍     | 515/1160 [00:44<03:27,  3.12it/s] 45%|████▍     | 518/1160 [00:44<02:31,  4.23it/s] 45%|████▍     | 521/1160 [00:44<01:54,  5.59it/s] 45%|████▌     | 524/1160 [00:45<01:32,  6.89it/s] 45%|████▌     | 527/1160 [00:45<01:12,  8.68it/s] 46%|████▌     | 530/1160 [00:45<00:59, 10.63it/s] 46%|████▌     | 533/1160 [00:45<00:50, 12.52it/s] 46%|████▌     | 536/1160 [00:45<00:44, 13.96it/s] 46%|████▋     | 539/1160 [00:45<00:40, 15.24it/s] 47%|████▋     | 541/1160 [00:46<00:38, 16.05it/s] 47%|████▋     | 543/1160 [00:46<00:36, 16.74it/s] 47%|████▋     | 546/1160 [00:46<00:33, 18.10it/s] 47%|████▋     | 549/1160 [00:46<00:31, 19.11it/s]                                                   47%|████▋     | 550/1160 [00:46<00:31, 19.11it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.51it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.92it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.67it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 47%|████▋     | 550/1160 [00:46<00:31, 19.11it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.67it/s][A
-                                                [A 48%|████▊     | 552/1160 [00:46<00:56, 10.84it/s] 48%|████▊     | 555/1160 [00:47<00:47, 12.83it/s] 48%|████▊     | 558/1160 [00:47<00:41, 14.62it/s] 48%|████▊     | 560/1160 [00:47<00:39, 15.01it/s] 49%|████▊     | 563/1160 [00:47<00:35, 16.68it/s] 49%|████▉     | 566/1160 [00:47<00:32, 18.11it/s] 49%|████▉     | 569/1160 [00:47<00:31, 18.94it/s] 49%|████▉     | 572/1160 [00:47<00:29, 19.88it/s] 50%|████▉     | 575/1160 [00:48<00:29, 19.92it/s] 50%|████▉     | 578/1160 [00:48<00:28, 20.52it/s] 50%|█████     | 581/1160 [00:48<00:27, 20.83it/s] 50%|█████     | 584/1160 [00:48<00:27, 20.90it/s] 51%|█████     | 587/1160 [00:48<00:27, 21.07it/s] 51%|█████     | 590/1160 [00:48<00:26, 21.29it/s] 51%|█████     | 593/1160 [00:48<00:26, 21.46it/s] 51%|█████▏    | 596/1160 [00:49<00:26, 21.39it/s] 52%|█████▏    | 599/1160 [00:49<00:26, 21.41it/s]                                                   52%|█████▏    | 600/1160 [00:49<00:26, 21.41it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 110.89it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.77it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.56it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 52%|█████▏    | 600/1160 [00:49<00:26, 21.41it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.56it/s][A
-                                                [A 52%|█████▏    | 602/1160 [00:49<00:53, 10.45it/s] 52%|█████▏    | 605/1160 [00:49<00:45, 12.31it/s] 52%|█████▏    | 608/1160 [00:50<00:39, 14.13it/s] 53%|█████▎    | 611/1160 [00:50<00:34, 15.79it/s] 53%|█████▎    | 613/1160 [00:50<00:33, 16.56it/s] 53%|█████▎    | 616/1160 [00:50<00:30, 17.80it/s] 53%|█████▎    | 619/1160 [00:50<00:28, 18.88it/s] 54%|█████▎    | 622/1160 [00:50<00:27, 19.48it/s] 54%|█████▍    | 625/1160 [00:50<00:26, 20.09it/s] 54%|█████▍    | 628/1160 [00:50<00:25, 20.59it/s] 54%|█████▍    | 631/1160 [00:51<00:25, 20.63it/s] 55%|█████▍    | 634/1160 [00:51<00:25, 20.86it/s] 55%|█████▍    | 637/1160 [00:51<00:25, 20.56it/s] 55%|█████▌    | 640/1160 [00:51<00:24, 20.94it/s] 55%|█████▌    | 643/1160 [00:51<00:24, 20.68it/s] 56%|█████▌    | 646/1160 [00:51<00:24, 20.57it/s] 56%|█████▌    | 649/1160 [00:52<00:24, 20.60it/s]                                                   56%|█████▌    | 650/1160 [00:52<00:24, 20.60it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.72it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.11it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 107.86it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 56%|█████▌    | 650/1160 [00:52<00:24, 20.60it/s]
-100%|██████████| 38/38 [00:00<00:00, 107.86it/s][A
-                                                [A 56%|█████▌    | 652/1160 [00:52<00:43, 11.62it/s] 56%|█████▋    | 654/1160 [00:52<00:40, 12.43it/s] 57%|█████▋    | 657/1160 [00:52<00:35, 14.32it/s] 57%|█████▋    | 660/1160 [00:52<00:31, 16.04it/s] 57%|█████▋    | 663/1160 [00:53<00:28, 17.45it/s] 57%|█████▋    | 666/1160 [00:53<00:26, 18.54it/s] 58%|█████▊    | 669/1160 [00:53<00:25, 19.12it/s] 58%|█████▊    | 672/1160 [00:53<00:25, 19.43it/s] 58%|█████▊    | 675/1160 [00:53<00:24, 19.72it/s] 58%|█████▊    | 678/1160 [00:53<00:23, 20.37it/s] 59%|█████▊    | 681/1160 [00:53<00:23, 20.61it/s] 59%|█████▉    | 684/1160 [00:54<00:22, 21.01it/s] 59%|█████▉    | 687/1160 [00:54<00:22, 21.25it/s] 59%|█████▉    | 690/1160 [00:54<00:22, 21.20it/s] 60%|█████▉    | 693/1160 [00:54<00:21, 21.26it/s] 60%|██████    | 696/1160 [00:54<00:22, 20.65it/s] 60%|██████    | 699/1160 [00:54<00:22, 20.95it/s]                                                   60%|██████    | 700/1160 [00:54<00:21, 20.95it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.03it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 106.72it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.01it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 60%|██████    | 700/1160 [00:55<00:21, 20.95it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.01it/s][A
-                                                [A 61%|██████    | 702/1160 [00:55<00:44, 10.40it/s] 61%|██████    | 705/1160 [00:55<00:36, 12.34it/s] 61%|██████    | 708/1160 [00:55<00:32, 14.03it/s] 61%|██████▏   | 711/1160 [00:55<00:29, 15.46it/s] 62%|██████▏   | 714/1160 [00:55<00:26, 16.77it/s] 62%|██████▏   | 717/1160 [00:56<00:24, 17.81it/s] 62%|██████▏   | 720/1160 [00:56<00:23, 18.85it/s] 62%|██████▏   | 723/1160 [00:56<00:22, 19.62it/s] 63%|██████▎   | 726/1160 [00:56<00:21, 20.24it/s] 63%|██████▎   | 729/1160 [00:56<00:20, 20.61it/s] 63%|██████▎   | 732/1160 [00:56<00:20, 20.46it/s] 63%|██████▎   | 735/1160 [00:56<00:20, 20.74it/s] 64%|██████▎   | 738/1160 [00:57<00:20, 20.48it/s] 64%|██████▍   | 741/1160 [00:57<00:20, 20.84it/s] 64%|██████▍   | 744/1160 [00:57<00:20, 20.71it/s] 64%|██████▍   | 747/1160 [00:57<00:19, 21.08it/s] 65%|██████▍   | 750/1160 [00:57<00:19, 21.10it/s]                                                   65%|██████▍   | 750/1160 [00:57<00:19, 21.10it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.12it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.02it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.78it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 65%|██████▍   | 750/1160 [00:58<00:19, 21.10it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.78it/s][A
-                                                [A 65%|██████▍   | 753/1160 [00:58<00:34, 11.84it/s] 65%|██████▌   | 756/1160 [00:58<00:29, 13.75it/s] 65%|██████▌   | 759/1160 [00:58<00:26, 15.32it/s] 66%|██████▌   | 762/1160 [00:58<00:23, 16.68it/s] 66%|██████▌   | 765/1160 [00:58<00:23, 17.15it/s] 66%|██████▌   | 767/1160 [00:58<00:22, 17.41it/s] 66%|██████▋   | 770/1160 [00:59<00:21, 18.14it/s] 67%|██████▋   | 773/1160 [00:59<00:20, 18.98it/s] 67%|██████▋   | 776/1160 [00:59<00:19, 19.66it/s] 67%|██████▋   | 779/1160 [00:59<00:19, 20.00it/s] 67%|██████▋   | 782/1160 [00:59<00:18, 20.44it/s] 68%|██████▊   | 785/1160 [00:59<00:18, 20.34it/s] 68%|██████▊   | 788/1160 [00:59<00:19, 19.38it/s] 68%|██████▊   | 791/1160 [01:00<00:18, 19.86it/s] 68%|██████▊   | 794/1160 [01:00<00:17, 20.37it/s] 69%|██████▊   | 797/1160 [01:00<00:17, 20.44it/s] 69%|██████▉   | 800/1160 [01:00<00:21, 16.77it/s]                                                   69%|██████▉   | 800/1160 [01:00<00:21, 16.77it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 110.51it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.53it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.22it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 69%|██████▉   | 800/1160 [01:00<00:21, 16.77it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.22it/s][A
-                                                [A 69%|██████▉   | 802/1160 [01:01<00:35, 10.14it/s] 69%|██████▉   | 805/1160 [01:01<00:29, 12.22it/s] 70%|██████▉   | 808/1160 [01:01<00:24, 14.09it/s] 70%|██████▉   | 811/1160 [01:01<00:22, 15.64it/s] 70%|███████   | 814/1160 [01:01<00:20, 17.04it/s] 70%|███████   | 817/1160 [01:01<00:19, 18.01it/s] 71%|███████   | 820/1160 [01:01<00:17, 18.96it/s] 71%|███████   | 823/1160 [01:02<00:17, 19.22it/s] 71%|███████   | 826/1160 [01:02<00:16, 19.95it/s] 71%|███████▏  | 829/1160 [01:02<00:16, 20.60it/s] 72%|███████▏  | 832/1160 [01:02<00:15, 20.70it/s] 72%|███████▏  | 835/1160 [01:02<00:15, 20.70it/s] 72%|███████▏  | 838/1160 [01:02<00:15, 20.96it/s] 72%|███████▎  | 841/1160 [01:02<00:14, 21.28it/s] 73%|███████▎  | 844/1160 [01:03<00:14, 21.51it/s] 73%|███████▎  | 847/1160 [01:03<00:14, 21.30it/s] 73%|███████▎  | 850/1160 [01:03<00:14, 21.36it/s]                                                   73%|███████▎  | 850/1160 [01:03<00:14, 21.36it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.56it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.06it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.72it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 73%|███████▎  | 850/1160 [01:03<00:14, 21.36it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.72it/s][A
-                                                [A 74%|███████▎  | 853/1160 [01:03<00:25, 11.88it/s] 74%|███████▍  | 856/1160 [01:03<00:22, 13.77it/s] 74%|███████▍  | 859/1160 [01:04<00:19, 15.23it/s] 74%|███████▍  | 862/1160 [01:04<00:17, 16.67it/s] 75%|███████▍  | 865/1160 [01:04<00:17, 16.91it/s] 75%|███████▍  | 867/1160 [01:04<00:17, 17.12it/s] 75%|███████▌  | 870/1160 [01:04<00:16, 18.05it/s] 75%|███████▌  | 873/1160 [01:04<00:15, 19.06it/s] 76%|███████▌  | 876/1160 [01:04<00:14, 19.75it/s] 76%|███████▌  | 879/1160 [01:05<00:14, 19.60it/s] 76%|███████▌  | 882/1160 [01:05<00:13, 20.19it/s] 76%|███████▋  | 885/1160 [01:05<00:13, 20.73it/s] 77%|███████▋  | 888/1160 [01:05<00:12, 21.09it/s] 77%|███████▋  | 891/1160 [01:05<00:12, 20.84it/s] 77%|███████▋  | 894/1160 [01:05<00:13, 20.26it/s] 77%|███████▋  | 897/1160 [01:05<00:12, 20.55it/s] 78%|███████▊  | 900/1160 [01:06<00:15, 16.70it/s]                                                   78%|███████▊  | 900/1160 [01:06<00:15, 16.70it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 109.95it/s][A
- 61%|██████    | 23/38 [00:00<00:00, 107.19it/s][A
- 89%|████████▉ | 34/38 [00:00<00:00, 108.09it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 78%|███████▊  | 900/1160 [01:06<00:15, 16.70it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.09it/s][A
-                                                [A 78%|███████▊  | 902/1160 [01:06<00:25, 10.08it/s] 78%|███████▊  | 904/1160 [01:06<00:22, 11.15it/s] 78%|███████▊  | 907/1160 [01:06<00:19, 13.30it/s] 78%|███████▊  | 910/1160 [01:07<00:16, 15.26it/s] 79%|███████▊  | 913/1160 [01:07<00:14, 16.84it/s] 79%|███████▉  | 915/1160 [01:07<00:14, 17.46it/s] 79%|███████▉  | 918/1160 [01:07<00:12, 18.66it/s] 79%|███████▉  | 921/1160 [01:07<00:12, 18.99it/s] 80%|███████▉  | 924/1160 [01:07<00:11, 19.80it/s] 80%|███████▉  | 927/1160 [01:07<00:11, 20.50it/s] 80%|████████  | 930/1160 [01:08<00:11, 20.86it/s] 80%|████████  | 933/1160 [01:08<00:10, 20.72it/s] 81%|████████  | 936/1160 [01:08<00:10, 20.90it/s] 81%|████████  | 939/1160 [01:08<00:10, 21.07it/s] 81%|████████  | 942/1160 [01:08<00:10, 21.09it/s] 81%|████████▏ | 945/1160 [01:08<00:10, 21.36it/s] 82%|████████▏ | 948/1160 [01:08<00:10, 20.14it/s]                                                   82%|████████▏ | 950/1160 [01:09<00:10, 20.14it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.42it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.16it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.92it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 82%|████████▏ | 950/1160 [01:09<00:10, 20.14it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.92it/s][A
-                                                [A 82%|████████▏ | 951/1160 [01:09<00:18, 11.60it/s] 82%|████████▏ | 954/1160 [01:09<00:15, 13.49it/s] 82%|████████▎ | 957/1160 [01:09<00:13, 15.25it/s] 83%|████████▎ | 960/1160 [01:09<00:11, 16.75it/s] 83%|████████▎ | 963/1160 [01:10<00:10, 18.00it/s] 83%|████████▎ | 966/1160 [01:10<00:10, 19.06it/s] 84%|████████▎ | 969/1160 [01:10<00:09, 19.62it/s] 84%|████████▍ | 972/1160 [01:10<00:09, 20.22it/s] 84%|████████▍ | 975/1160 [01:10<00:09, 19.64it/s] 84%|████████▍ | 978/1160 [01:10<00:09, 20.19it/s] 85%|████████▍ | 981/1160 [01:10<00:08, 20.68it/s] 85%|████████▍ | 984/1160 [01:11<00:08, 20.80it/s] 85%|████████▌ | 987/1160 [01:11<00:08, 20.84it/s] 85%|████████▌ | 990/1160 [01:11<00:08, 21.13it/s] 86%|████████▌ | 993/1160 [01:11<00:07, 21.32it/s] 86%|████████▌ | 996/1160 [01:11<00:07, 20.98it/s] 86%|████████▌ | 999/1160 [01:11<00:07, 21.04it/s]                                                   86%|████████▌ | 1000/1160 [01:11<00:07, 21.04it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 110.84it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.50it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.28it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 86%|████████▌ | 1000/1160 [01:12<00:07, 21.04it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.28it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1000
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/special_tokens_map.json
- 86%|████████▋ | 1002/1160 [01:27<04:09,  1.58s/it] 87%|████████▋ | 1004/1160 [01:27<03:13,  1.24s/it] 87%|████████▋ | 1007/1160 [01:27<02:10,  1.17it/s] 87%|████████▋ | 1010/1160 [01:27<01:29,  1.67it/s] 87%|████████▋ | 1013/1160 [01:27<01:02,  2.33it/s] 88%|████████▊ | 1016/1160 [01:27<00:44,  3.21it/s] 88%|████████▊ | 1019/1160 [01:27<00:32,  4.33it/s] 88%|████████▊ | 1022/1160 [01:28<00:24,  5.62it/s] 88%|████████▊ | 1025/1160 [01:28<00:18,  7.23it/s] 89%|████████▊ | 1028/1160 [01:28<00:14,  9.04it/s] 89%|████████▉ | 1031/1160 [01:28<00:11, 10.83it/s] 89%|████████▉ | 1034/1160 [01:28<00:09, 12.74it/s] 89%|████████▉ | 1037/1160 [01:28<00:08, 14.61it/s] 90%|████████▉ | 1040/1160 [01:28<00:07, 16.03it/s] 90%|████████▉ | 1043/1160 [01:29<00:06, 17.23it/s] 90%|█████████ | 1046/1160 [01:29<00:06, 18.30it/s] 90%|█████████ | 1049/1160 [01:29<00:05, 18.99it/s]                                                    91%|█████████ | 1050/1160 [01:29<00:05, 18.99it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.74it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.11it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.82it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 91%|█████████ | 1050/1160 [01:29<00:05, 18.99it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.82it/s][A
-                                                [A 91%|█████████ | 1052/1160 [01:29<00:09, 11.25it/s] 91%|█████████ | 1055/1160 [01:30<00:08, 13.09it/s] 91%|█████████ | 1057/1160 [01:30<00:07, 14.06it/s] 91%|█████████▏| 1060/1160 [01:30<00:06, 15.85it/s] 92%|█████████▏| 1062/1160 [01:30<00:05, 16.45it/s] 92%|█████████▏| 1065/1160 [01:30<00:05, 17.75it/s] 92%|█████████▏| 1067/1160 [01:30<00:05, 17.97it/s] 92%|█████████▏| 1070/1160 [01:30<00:04, 19.25it/s] 92%|█████████▎| 1073/1160 [01:30<00:04, 19.72it/s] 93%|█████████▎| 1076/1160 [01:31<00:04, 20.35it/s] 93%|█████████▎| 1079/1160 [01:31<00:03, 20.64it/s] 93%|█████████▎| 1082/1160 [01:31<00:03, 20.84it/s] 94%|█████████▎| 1085/1160 [01:31<00:03, 21.11it/s] 94%|█████████▍| 1088/1160 [01:31<00:03, 21.37it/s] 94%|█████████▍| 1091/1160 [01:31<00:03, 21.03it/s] 94%|█████████▍| 1094/1160 [01:31<00:03, 19.73it/s] 94%|█████████▍| 1096/1160 [01:32<00:03, 19.32it/s] 95%|█████████▍| 1098/1160 [01:32<00:03, 19.16it/s] 95%|█████████▍| 1100/1160 [01:32<00:03, 15.08it/s]                                                    95%|█████████▍| 1100/1160 [01:32<00:03, 15.08it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.63it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 108.02it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.80it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 95%|█████████▍| 1100/1160 [01:32<00:03, 15.08it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.80it/s][A
-                                                [A 95%|█████████▌| 1102/1160 [01:32<00:06,  9.03it/s] 95%|█████████▌| 1104/1160 [01:32<00:05, 10.63it/s] 95%|█████████▌| 1107/1160 [01:33<00:04, 12.99it/s] 96%|█████████▌| 1109/1160 [01:33<00:03, 14.28it/s] 96%|█████████▌| 1112/1160 [01:33<00:02, 16.26it/s] 96%|█████████▌| 1115/1160 [01:33<00:02, 17.71it/s] 96%|█████████▋| 1117/1160 [01:33<00:02, 18.15it/s] 97%|█████████▋| 1120/1160 [01:33<00:02, 19.14it/s] 97%|█████████▋| 1123/1160 [01:33<00:01, 19.86it/s] 97%|█████████▋| 1126/1160 [01:34<00:01, 20.52it/s] 97%|█████████▋| 1129/1160 [01:34<00:01, 20.87it/s] 98%|█████████▊| 1132/1160 [01:34<00:01, 20.93it/s] 98%|█████████▊| 1135/1160 [01:34<00:01, 21.07it/s] 98%|█████████▊| 1138/1160 [01:34<00:01, 21.14it/s] 98%|█████████▊| 1141/1160 [01:34<00:00, 21.33it/s] 99%|█████████▊| 1144/1160 [01:34<00:00, 20.93it/s] 99%|█████████▉| 1147/1160 [01:34<00:00, 20.92it/s] 99%|█████████▉| 1150/1160 [01:35<00:00, 21.13it/s]                                                    99%|█████████▉| 1150/1160 [01:35<00:00, 21.13it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 111.53it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 107.91it/s][A
- 92%|█████████▏| 35/38 [00:00<00:00, 108.47it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 99%|█████████▉| 1150/1160 [01:35<00:00, 21.13it/s]
-100%|██████████| 38/38 [00:00<00:00, 108.47it/s][A
-                                                [A 99%|█████████▉| 1153/1160 [01:35<00:00, 11.68it/s]100%|█████████▉| 1156/1160 [01:35<00:00, 13.49it/s]100%|█████████▉| 1159/1160 [01:35<00:00, 15.05it/s]
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-                                                   100%|██████████| 1160/1160 [01:35<00:00, 15.05it/s]100%|██████████| 1160/1160 [01:35<00:00, 12.08it/s]
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 32%|███▏      | 12/38 [00:00<00:00, 110.88it/s] 63%|██████▎   | 24/38 [00:00<00:00, 107.65it/s] 92%|█████████▏| 35/38 [00:00<00:00, 108.39it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 107.21it/s]
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 1849
-  Batch size = 8
-  0%|          | 0/232 [00:00<?, ?it/s]  5%|▌         | 12/232 [00:00<00:01, 110.81it/s] 10%|█         | 24/232 [00:00<00:01, 105.95it/s] 15%|█▌        | 35/232 [00:00<00:02, 98.13it/s]  20%|██        | 47/232 [00:00<00:01, 102.71it/s] 25%|██▌       | 58/232 [00:00<00:01, 104.05it/s] 30%|██▉       | 69/232 [00:00<00:01, 104.80it/s] 34%|███▍      | 80/232 [00:00<00:01, 106.25it/s] 39%|███▉      | 91/232 [00:00<00:01, 102.49it/s] 44%|████▍     | 102/232 [00:00<00:01, 101.41it/s] 49%|████▉     | 114/232 [00:01<00:01, 103.58it/s] 54%|█████▍    | 125/232 [00:01<00:01, 102.22it/s] 59%|█████▊    | 136/232 [00:01<00:00, 104.06it/s] 63%|██████▎   | 147/232 [00:01<00:00, 105.45it/s] 68%|██████▊   | 158/232 [00:01<00:00, 102.02it/s] 73%|███████▎  | 169/232 [00:01<00:00, 103.79it/s] 78%|███████▊  | 180/232 [00:01<00:00, 101.44it/s] 82%|████████▏ | 191/232 [00:01<00:00, 102.74it/s] 87%|████████▋ | 202/232 [00:01<00:00, 103.25it/s] 92%|█████████▏| 213/232 [00:02<00:00, 101.05it/s] 97%|█████████▋| 225/232 [00:02<00:00, 103.80it/s]100%|██████████| 232/232 [00:02<00:00, 103.28it/s]
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 32%|███▏      | 12/38 [00:00<00:00, 111.65it/s] 63%|██████▎   | 24/38 [00:00<00:00, 108.18it/s] 92%|█████████▏| 35/38 [00:00<00:00, 108.92it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 107.66it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: masked_articles, updated_label, cbr. If masked_articles, updated_label, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 32%|███▏      | 12/38 [00:00<00:00, 111.54it/s] 63%|██████▎   | 24/38 [00:00<00:00, 102.37it/s] 92%|█████████▏| 35/38 [00:00<00:00, 100.84it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 102.41it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-wandb: Waiting for W&B process to finish... (success).
-wandb: - 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: | 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: / 0.002 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: - 0.002 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: | 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: / 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: - 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: \ 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: | 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: / 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: - 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: \ 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: | 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: / 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:                  eval/accuracy ▁▁▄▅▅▆▆▆▇▇▇▇█▇█████████
-wandb:                        eval/f1 ▁▁▄▅▅▇▇▇▇▇▇▇███████████
-wandb:                      eval/loss █▇▆▅▄▃▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁
-wandb:                 eval/precision ▁▂▄▆▆▇▇▇▇▇▇▇███████████
-wandb:                    eval/recall ▁▁▄▅▅▆▆▆▇▇▇▇█▇█████████
-wandb:                   eval/runtime █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:        eval/samples_per_second ▁██████████████████████
-wandb:          eval/steps_per_second ▁██████████████████████
-wandb:                    train/epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇████
-wandb:              train/global_step ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇████
-wandb:            train/learning_rate ██▇▇▇▆▆▆▅▅▅▄▄▄▄▃▃▃▂▂▂▁▁
-wandb:                     train/loss ██▇▇▆▅▅▄▅▃▃▃▃▃▂▂▂▂▂▁▁▁▁
-wandb:               train/total_flos ▁
-wandb:               train/train_loss ▁
-wandb:            train/train_runtime ▁
-wandb: train/train_samples_per_second ▁
-wandb:   train/train_steps_per_second ▁
-wandb: 
-wandb: Run summary:
-wandb:                  eval/accuracy 0.67
-wandb:                        eval/f1 0.66869
-wandb:                      eval/loss 1.23205
-wandb:                 eval/precision 0.68276
-wandb:                    eval/recall 0.67
-wandb:                   eval/runtime 0.3706
-wandb:        eval/samples_per_second 809.411
-wandb:          eval/steps_per_second 102.525
-wandb:                    train/epoch 5.0
-wandb:              train/global_step 1160
-wandb:            train/learning_rate 0.0
-wandb:                     train/loss 0.5129
-wandb:               train/total_flos 800075883494034.0
-wandb:               train/train_loss 1.23922
-wandb:            train/train_runtime 96.0014
-wandb: train/train_samples_per_second 96.301
-wandb:   train/train_steps_per_second 12.083
-wandb: 
-wandb: Synced jolly-haze-99: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/3w0vxwqd
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20221003_085403-3w0vxwqd/logs
-Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
-Exiting Application
-################################################################################
-Stack trace:
-################################################################################
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x148f61da3f06]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x148f61d9b8e5]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x148f61cc0e09]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x148f61da4a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x148f61cbe948]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x148f61da4a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x148f61c79b46]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x148f616de46a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x148fad76f8a7]
-/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x148fad76fa60]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x148fad74d08a]
-python(+0x2125d4) [0x5596b119c5d4]
-/var/spool/slurm/slurmd/job06624/slurm_script: line 93: 2418925 Aborted                 (core dumped) python main_classifier.py --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib --input_feature masked_articles --similarity_matrices_path_train tmp/simcse_similarities_train.joblib --similarity_matrices_path_dev tmp/simcse_similarities_dev.joblib --similarity_matrices_path_test tmp/simcse_similarities_test.joblib --batch_size 8 --learning_rate 2e-5 --num_epochs 5 --classifier_dropout 0.1 --weight_decay 0.01 --num_cases ${NUM_CASES} --useful_cases_output tmp/useful_cases.joblib --cbr
-Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20221003_085651-1h3attuk
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run worthy-snowflake-100
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/1h3attuk
-Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'roberta.pooler.dense.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
-- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight', 'classifier.dense.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 16.75ba/s]100%|██████████| 2/2 [00:00<00:00, 16.69ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 74.12ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 87.13ba/s]
-The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  warnings.warn(
-***** Running training *****
-  Num examples = 1849
-  Num Epochs = 5
-  Instantaneous batch size per device = 8
-  Total train batch size (w. parallel, distributed & accumulation) = 8
-  Gradient Accumulation steps = 1
-  Total optimization steps = 1160
-Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
-  0%|          | 0/1160 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 2/1160 [00:00<01:30, 12.78it/s]  0%|          | 5/1160 [00:00<01:06, 17.27it/s]  1%|          | 8/1160 [00:00<00:59, 19.27it/s]  1%|          | 11/1160 [00:00<00:57, 20.05it/s]  1%|          | 14/1160 [00:00<00:57, 19.77it/s]  1%|▏         | 17/1160 [00:00<00:55, 20.56it/s]  2%|▏         | 20/1160 [00:01<00:54, 21.01it/s]  2%|▏         | 23/1160 [00:01<00:53, 21.24it/s]  2%|▏         | 26/1160 [00:01<00:54, 20.92it/s]  2%|▎         | 29/1160 [00:01<00:53, 21.22it/s]  3%|▎         | 32/1160 [00:01<00:52, 21.47it/s]  3%|▎         | 35/1160 [00:01<00:51, 21.70it/s]  3%|▎         | 38/1160 [00:01<00:51, 21.72it/s]  4%|▎         | 41/1160 [00:01<00:51, 21.78it/s]  4%|▍         | 44/1160 [00:02<00:50, 21.90it/s]  4%|▍         | 47/1160 [00:02<00:55, 20.22it/s]  4%|▍         | 50/1160 [00:02<00:54, 20.54it/s]                                                   4%|▍         | 50/1160 [00:02<00:54, 20.54it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.83it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 114.24it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.39it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A  4%|▍         | 50/1160 [00:02<00:54, 20.54it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.39it/s][A
-                                                [A  5%|▍         | 53/1160 [00:02<01:32, 11.97it/s]  5%|▍         | 56/1160 [00:03<01:19, 13.87it/s]  5%|▌         | 58/1160 [00:03<01:15, 14.56it/s]  5%|▌         | 61/1160 [00:03<01:08, 16.04it/s]  6%|▌         | 64/1160 [00:03<01:02, 17.51it/s]  6%|▌         | 67/1160 [00:03<00:58, 18.61it/s]  6%|▌         | 70/1160 [00:03<00:55, 19.53it/s]  6%|▋         | 73/1160 [00:03<00:53, 20.16it/s]  7%|▋         | 76/1160 [00:04<00:52, 20.64it/s]  7%|▋         | 79/1160 [00:04<00:51, 20.89it/s]  7%|▋         | 82/1160 [00:04<00:51, 21.04it/s]  7%|▋         | 85/1160 [00:04<00:50, 21.32it/s]  8%|▊         | 88/1160 [00:04<00:49, 21.50it/s]  8%|▊         | 91/1160 [00:04<00:49, 21.61it/s]  8%|▊         | 94/1160 [00:04<00:49, 21.67it/s]  8%|▊         | 97/1160 [00:04<00:49, 21.60it/s]  9%|▊         | 100/1160 [00:05<01:01, 17.28it/s]                                                    9%|▊         | 100/1160 [00:05<01:01, 17.28it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.03it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.85it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.21it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A  9%|▊         | 100/1160 [00:05<01:01, 17.28it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.21it/s][A
-                                                [A  9%|▉         | 102/1160 [00:05<01:39, 10.59it/s]  9%|▉         | 105/1160 [00:05<01:22, 12.73it/s]  9%|▉         | 108/1160 [00:05<01:11, 14.68it/s] 10%|▉         | 111/1160 [00:06<01:04, 16.35it/s] 10%|▉         | 114/1160 [00:06<00:59, 17.65it/s] 10%|█         | 117/1160 [00:06<00:55, 18.81it/s] 10%|█         | 120/1160 [00:06<00:52, 19.66it/s] 11%|█         | 123/1160 [00:06<00:51, 20.33it/s] 11%|█         | 126/1160 [00:06<00:50, 20.34it/s] 11%|█         | 129/1160 [00:06<00:50, 20.62it/s] 11%|█▏        | 132/1160 [00:07<00:49, 20.91it/s] 12%|█▏        | 135/1160 [00:07<00:48, 21.26it/s] 12%|█▏        | 138/1160 [00:07<00:47, 21.46it/s] 12%|█▏        | 141/1160 [00:07<00:47, 21.54it/s] 12%|█▏        | 144/1160 [00:07<00:47, 21.56it/s] 13%|█▎        | 147/1160 [00:07<00:46, 21.75it/s] 13%|█▎        | 150/1160 [00:07<00:46, 21.84it/s]                                                   13%|█▎        | 150/1160 [00:07<00:46, 21.84it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 119.90it/s][A
- 66%|██████▌   | 25/38 [00:00<00:00, 113.13it/s][A
- 97%|█████████▋| 37/38 [00:00<00:00, 112.67it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 13%|█▎        | 150/1160 [00:08<00:46, 21.84it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.67it/s][A
-                                                [A 13%|█▎        | 153/1160 [00:08<01:21, 12.30it/s] 13%|█▎        | 156/1160 [00:08<01:11, 14.11it/s] 14%|█▎        | 159/1160 [00:08<01:03, 15.81it/s] 14%|█▍        | 162/1160 [00:08<00:58, 17.16it/s] 14%|█▍        | 165/1160 [00:08<00:54, 18.19it/s] 14%|█▍        | 168/1160 [00:09<00:51, 19.09it/s] 15%|█▍        | 171/1160 [00:09<00:49, 19.92it/s] 15%|█▌        | 174/1160 [00:09<00:48, 20.42it/s] 15%|█▌        | 177/1160 [00:09<00:47, 20.80it/s] 16%|█▌        | 180/1160 [00:09<00:46, 21.10it/s] 16%|█▌        | 183/1160 [00:09<00:45, 21.38it/s] 16%|█▌        | 186/1160 [00:09<00:45, 21.45it/s] 16%|█▋        | 189/1160 [00:10<00:45, 21.36it/s] 17%|█▋        | 192/1160 [00:10<00:45, 21.51it/s] 17%|█▋        | 195/1160 [00:10<00:44, 21.70it/s] 17%|█▋        | 198/1160 [00:10<00:44, 21.54it/s]                                                   17%|█▋        | 200/1160 [00:10<00:44, 21.54it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.41it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 114.14it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.54it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 17%|█▋        | 200/1160 [00:11<00:44, 21.54it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.54it/s][A
-                                                [A 17%|█▋        | 201/1160 [00:11<01:29, 10.75it/s] 18%|█▊        | 204/1160 [00:11<01:15, 12.72it/s] 18%|█▊        | 207/1160 [00:11<01:05, 14.59it/s] 18%|█▊        | 210/1160 [00:11<00:58, 16.30it/s] 18%|█▊        | 213/1160 [00:11<00:54, 17.43it/s] 19%|█▊        | 216/1160 [00:11<00:51, 18.44it/s] 19%|█▉        | 219/1160 [00:11<00:48, 19.31it/s] 19%|█▉        | 222/1160 [00:12<00:47, 19.77it/s] 19%|█▉        | 225/1160 [00:12<00:45, 20.34it/s] 20%|█▉        | 228/1160 [00:12<00:44, 20.81it/s] 20%|█▉        | 231/1160 [00:12<00:45, 20.35it/s] 20%|██        | 234/1160 [00:12<00:44, 20.75it/s] 20%|██        | 237/1160 [00:12<00:44, 20.97it/s] 21%|██        | 240/1160 [00:12<00:43, 21.05it/s] 21%|██        | 243/1160 [00:13<00:43, 21.25it/s] 21%|██        | 246/1160 [00:13<00:42, 21.38it/s] 21%|██▏       | 249/1160 [00:13<00:42, 21.46it/s]                                                   22%|██▏       | 250/1160 [00:13<00:42, 21.46it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.63it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.41it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.66it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 22%|██▏       | 250/1160 [00:13<00:42, 21.46it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.66it/s][A
-                                                [A 22%|██▏       | 252/1160 [00:13<01:14, 12.23it/s] 22%|██▏       | 254/1160 [00:13<01:07, 13.37it/s] 22%|██▏       | 257/1160 [00:14<00:59, 15.25it/s] 22%|██▏       | 260/1160 [00:14<00:53, 16.85it/s] 23%|██▎       | 263/1160 [00:14<00:49, 18.08it/s] 23%|██▎       | 266/1160 [00:14<00:47, 18.86it/s] 23%|██▎       | 269/1160 [00:14<00:45, 19.70it/s] 23%|██▎       | 272/1160 [00:14<00:43, 20.34it/s] 24%|██▎       | 275/1160 [00:14<00:42, 20.78it/s] 24%|██▍       | 278/1160 [00:14<00:42, 20.98it/s] 24%|██▍       | 281/1160 [00:15<00:41, 21.31it/s] 24%|██▍       | 284/1160 [00:15<00:40, 21.53it/s] 25%|██▍       | 287/1160 [00:15<00:40, 21.73it/s] 25%|██▌       | 290/1160 [00:15<00:39, 21.86it/s] 25%|██▌       | 293/1160 [00:15<00:39, 21.76it/s] 26%|██▌       | 296/1160 [00:15<00:40, 21.53it/s] 26%|██▌       | 299/1160 [00:15<00:41, 20.63it/s]                                                   26%|██▌       | 300/1160 [00:16<00:41, 20.63it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.57it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 114.20it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.42it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 26%|██▌       | 300/1160 [00:16<00:41, 20.63it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.42it/s][A
-                                                [A 26%|██▌       | 302/1160 [00:16<01:20, 10.59it/s] 26%|██▋       | 305/1160 [00:16<01:08, 12.51it/s] 27%|██▋       | 308/1160 [00:16<00:59, 14.29it/s] 27%|██▋       | 311/1160 [00:16<00:53, 15.97it/s] 27%|██▋       | 314/1160 [00:17<00:48, 17.37it/s] 27%|██▋       | 317/1160 [00:17<00:45, 18.50it/s] 28%|██▊       | 320/1160 [00:17<00:43, 19.46it/s] 28%|██▊       | 323/1160 [00:17<00:41, 20.17it/s] 28%|██▊       | 326/1160 [00:17<00:40, 20.69it/s] 28%|██▊       | 329/1160 [00:17<00:39, 20.94it/s] 29%|██▊       | 332/1160 [00:17<00:38, 21.26it/s] 29%|██▉       | 335/1160 [00:18<00:39, 21.13it/s] 29%|██▉       | 338/1160 [00:18<00:38, 21.36it/s] 29%|██▉       | 341/1160 [00:18<00:38, 21.51it/s] 30%|██▉       | 344/1160 [00:18<00:37, 21.52it/s] 30%|██▉       | 347/1160 [00:18<00:37, 21.69it/s] 30%|███       | 350/1160 [00:18<00:37, 21.57it/s]                                                   30%|███       | 350/1160 [00:18<00:37, 21.57it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.63it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 114.03it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.24it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 30%|███       | 350/1160 [00:19<00:37, 21.57it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.24it/s][A
-                                                [A 30%|███       | 353/1160 [00:19<01:05, 12.26it/s] 31%|███       | 356/1160 [00:19<00:56, 14.15it/s] 31%|███       | 359/1160 [00:19<00:50, 15.77it/s] 31%|███       | 362/1160 [00:19<00:46, 17.14it/s] 31%|███▏      | 365/1160 [00:19<00:43, 18.29it/s] 32%|███▏      | 368/1160 [00:19<00:40, 19.34it/s] 32%|███▏      | 371/1160 [00:20<00:39, 20.10it/s] 32%|███▏      | 374/1160 [00:20<00:38, 20.68it/s] 32%|███▎      | 377/1160 [00:20<00:37, 21.05it/s] 33%|███▎      | 380/1160 [00:20<00:36, 21.26it/s] 33%|███▎      | 383/1160 [00:20<00:37, 20.95it/s] 33%|███▎      | 386/1160 [00:20<00:36, 21.29it/s] 34%|███▎      | 389/1160 [00:20<00:35, 21.43it/s] 34%|███▍      | 392/1160 [00:21<00:35, 21.55it/s] 34%|███▍      | 395/1160 [00:21<00:35, 21.58it/s] 34%|███▍      | 398/1160 [00:21<00:35, 21.60it/s]                                                   34%|███▍      | 400/1160 [00:21<00:35, 21.60it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.94it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 112.88it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.72it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 34%|███▍      | 400/1160 [00:21<00:35, 21.60it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.72it/s][A
-                                                [A 35%|███▍      | 401/1160 [00:21<01:10, 10.74it/s] 35%|███▍      | 404/1160 [00:22<00:59, 12.67it/s] 35%|███▌      | 406/1160 [00:22<00:55, 13.65it/s] 35%|███▌      | 409/1160 [00:22<00:48, 15.54it/s] 36%|███▌      | 412/1160 [00:22<00:43, 17.03it/s] 36%|███▌      | 415/1160 [00:22<00:40, 18.38it/s] 36%|███▌      | 418/1160 [00:22<00:38, 19.38it/s] 36%|███▋      | 421/1160 [00:22<00:36, 20.20it/s] 37%|███▋      | 424/1160 [00:23<00:35, 20.77it/s] 37%|███▋      | 427/1160 [00:23<00:34, 21.17it/s] 37%|███▋      | 430/1160 [00:23<00:34, 21.28it/s] 37%|███▋      | 433/1160 [00:23<00:33, 21.45it/s] 38%|███▊      | 436/1160 [00:23<00:33, 21.57it/s] 38%|███▊      | 439/1160 [00:23<00:33, 21.61it/s] 38%|███▊      | 442/1160 [00:23<00:33, 21.67it/s] 38%|███▊      | 445/1160 [00:23<00:32, 21.67it/s] 39%|███▊      | 448/1160 [00:24<00:32, 21.82it/s]                                                   39%|███▉      | 450/1160 [00:24<00:32, 21.82it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.79it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 114.05it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.19it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 39%|███▉      | 450/1160 [00:24<00:32, 21.82it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.19it/s][A
-                                                [A 39%|███▉      | 451/1160 [00:24<00:58, 12.15it/s] 39%|███▉      | 454/1160 [00:24<00:50, 13.92it/s] 39%|███▉      | 457/1160 [00:24<00:45, 15.55it/s] 40%|███▉      | 460/1160 [00:25<00:41, 16.95it/s] 40%|███▉      | 463/1160 [00:25<00:38, 18.20it/s] 40%|████      | 466/1160 [00:25<00:36, 19.23it/s] 40%|████      | 469/1160 [00:25<00:34, 19.89it/s] 41%|████      | 472/1160 [00:25<00:33, 20.45it/s] 41%|████      | 475/1160 [00:25<00:32, 20.78it/s] 41%|████      | 478/1160 [00:25<00:32, 21.05it/s] 41%|████▏     | 481/1160 [00:25<00:31, 21.36it/s] 42%|████▏     | 484/1160 [00:26<00:31, 21.46it/s] 42%|████▏     | 487/1160 [00:26<00:31, 21.46it/s] 42%|████▏     | 490/1160 [00:26<00:31, 21.49it/s] 42%|████▎     | 493/1160 [00:26<00:31, 21.48it/s] 43%|████▎     | 496/1160 [00:26<00:30, 21.56it/s] 43%|████▎     | 499/1160 [00:26<00:30, 21.55it/s]                                                   43%|████▎     | 500/1160 [00:26<00:30, 21.55it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.40it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.49it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.76it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 43%|████▎     | 500/1160 [00:27<00:30, 21.55it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.76it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-500
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/special_tokens_map.json
- 43%|████▎     | 500/1160 [00:39<00:30, 21.55it/s] 43%|████▎     | 501/1160 [00:42<19:19,  1.76s/it] 43%|████▎     | 504/1160 [00:42<13:12,  1.21s/it] 44%|████▎     | 507/1160 [00:42<09:09,  1.19it/s] 44%|████▍     | 510/1160 [00:42<06:26,  1.68it/s] 44%|████▍     | 513/1160 [00:42<04:35,  2.35it/s] 44%|████▍     | 516/1160 [00:43<03:19,  3.23it/s] 45%|████▍     | 519/1160 [00:43<02:26,  4.36it/s] 45%|████▌     | 522/1160 [00:43<01:51,  5.72it/s] 45%|████▌     | 525/1160 [00:43<01:27,  7.25it/s] 46%|████▌     | 528/1160 [00:43<01:09,  9.07it/s] 46%|████▌     | 531/1160 [00:43<00:56, 11.04it/s] 46%|████▌     | 534/1160 [00:43<00:48, 13.00it/s] 46%|████▋     | 537/1160 [00:44<00:42, 14.73it/s] 47%|████▋     | 540/1160 [00:44<00:38, 16.28it/s] 47%|████▋     | 543/1160 [00:44<00:35, 17.59it/s] 47%|████▋     | 546/1160 [00:44<00:32, 18.66it/s] 47%|████▋     | 549/1160 [00:44<00:31, 19.54it/s]                                                   47%|████▋     | 550/1160 [00:44<00:31, 19.54it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.45it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 114.03it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.09it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 47%|████▋     | 550/1160 [00:44<00:31, 19.54it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.09it/s][A
-                                                [A 48%|████▊     | 552/1160 [00:45<00:52, 11.67it/s] 48%|████▊     | 555/1160 [00:45<00:44, 13.54it/s] 48%|████▊     | 558/1160 [00:45<00:39, 15.24it/s] 48%|████▊     | 560/1160 [00:45<00:37, 15.89it/s] 49%|████▊     | 563/1160 [00:45<00:34, 17.31it/s] 49%|████▉     | 566/1160 [00:45<00:31, 18.57it/s] 49%|████▉     | 569/1160 [00:45<00:30, 19.45it/s] 49%|████▉     | 572/1160 [00:46<00:29, 20.23it/s] 50%|████▉     | 575/1160 [00:46<00:28, 20.22it/s] 50%|████▉     | 578/1160 [00:46<00:28, 20.77it/s] 50%|█████     | 581/1160 [00:46<00:27, 21.16it/s] 50%|█████     | 584/1160 [00:46<00:26, 21.40it/s] 51%|█████     | 587/1160 [00:46<00:26, 21.64it/s] 51%|█████     | 590/1160 [00:46<00:26, 21.77it/s] 51%|█████     | 593/1160 [00:46<00:25, 21.89it/s] 51%|█████▏    | 596/1160 [00:47<00:25, 21.80it/s] 52%|█████▏    | 599/1160 [00:47<00:25, 21.72it/s]                                                   52%|█████▏    | 600/1160 [00:47<00:25, 21.72it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.38it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.57it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.91it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 52%|█████▏    | 600/1160 [00:47<00:25, 21.72it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.91it/s][A
-                                                [A 52%|█████▏    | 602/1160 [00:47<00:51, 10.75it/s] 52%|█████▏    | 605/1160 [00:47<00:43, 12.63it/s] 52%|█████▏    | 608/1160 [00:48<00:38, 14.47it/s] 53%|█████▎    | 611/1160 [00:48<00:34, 16.09it/s] 53%|█████▎    | 614/1160 [00:48<00:31, 17.50it/s] 53%|█████▎    | 617/1160 [00:48<00:29, 18.55it/s] 53%|█████▎    | 620/1160 [00:48<00:27, 19.40it/s] 54%|█████▎    | 623/1160 [00:48<00:26, 20.12it/s] 54%|█████▍    | 626/1160 [00:48<00:25, 20.58it/s] 54%|█████▍    | 629/1160 [00:49<00:25, 20.85it/s] 54%|█████▍    | 632/1160 [00:49<00:24, 21.21it/s] 55%|█████▍    | 635/1160 [00:49<00:24, 21.45it/s] 55%|█████▌    | 638/1160 [00:49<00:24, 21.36it/s] 55%|█████▌    | 641/1160 [00:49<00:24, 21.38it/s] 56%|█████▌    | 644/1160 [00:49<00:24, 21.48it/s] 56%|█████▌    | 647/1160 [00:49<00:24, 21.36it/s] 56%|█████▌    | 650/1160 [00:50<00:23, 21.28it/s]                                                   56%|█████▌    | 650/1160 [00:50<00:23, 21.28it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.25it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.99it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.18it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 56%|█████▌    | 650/1160 [00:50<00:23, 21.28it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.18it/s][A
-                                                [A 56%|█████▋    | 653/1160 [00:50<00:42, 12.03it/s] 57%|█████▋    | 656/1160 [00:50<00:36, 13.90it/s] 57%|█████▋    | 659/1160 [00:50<00:32, 15.63it/s] 57%|█████▋    | 662/1160 [00:50<00:29, 17.11it/s] 57%|█████▋    | 665/1160 [00:51<00:26, 18.35it/s] 58%|█████▊    | 668/1160 [00:51<00:25, 19.23it/s] 58%|█████▊    | 671/1160 [00:51<00:24, 19.87it/s] 58%|█████▊    | 674/1160 [00:51<00:23, 20.44it/s] 58%|█████▊    | 677/1160 [00:51<00:23, 20.89it/s] 59%|█████▊    | 680/1160 [00:51<00:22, 20.88it/s] 59%|█████▉    | 683/1160 [00:51<00:22, 21.09it/s] 59%|█████▉    | 686/1160 [00:52<00:22, 21.41it/s] 59%|█████▉    | 689/1160 [00:52<00:21, 21.44it/s] 60%|█████▉    | 692/1160 [00:52<00:21, 21.49it/s] 60%|█████▉    | 695/1160 [00:52<00:21, 21.62it/s] 60%|██████    | 698/1160 [00:52<00:21, 21.74it/s]                                                   60%|██████    | 700/1160 [00:52<00:21, 21.74it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.15it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.53it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.82it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 60%|██████    | 700/1160 [00:53<00:21, 21.74it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.82it/s][A
-                                                [A 60%|██████    | 701/1160 [00:53<00:44, 10.41it/s] 61%|██████    | 704/1160 [00:53<00:36, 12.34it/s] 61%|██████    | 707/1160 [00:53<00:31, 14.20it/s] 61%|██████    | 710/1160 [00:53<00:28, 15.84it/s] 61%|██████▏   | 713/1160 [00:53<00:26, 16.99it/s] 62%|██████▏   | 716/1160 [00:53<00:24, 18.06it/s] 62%|██████▏   | 719/1160 [00:54<00:23, 19.01it/s] 62%|██████▏   | 722/1160 [00:54<00:22, 19.76it/s] 62%|██████▎   | 725/1160 [00:54<00:21, 20.40it/s] 63%|██████▎   | 728/1160 [00:54<00:20, 20.89it/s] 63%|██████▎   | 731/1160 [00:54<00:20, 20.71it/s] 63%|██████▎   | 734/1160 [00:54<00:20, 21.01it/s] 64%|██████▎   | 737/1160 [00:54<00:20, 21.01it/s] 64%|██████▍   | 740/1160 [00:55<00:19, 21.24it/s] 64%|██████▍   | 743/1160 [00:55<00:19, 21.28it/s] 64%|██████▍   | 746/1160 [00:55<00:19, 21.49it/s] 65%|██████▍   | 749/1160 [00:55<00:18, 21.65it/s]                                                   65%|██████▍   | 750/1160 [00:55<00:18, 21.65it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.33it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.63it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.04it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 65%|██████▍   | 750/1160 [00:55<00:18, 21.65it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.04it/s][A
-                                                [A 65%|██████▍   | 752/1160 [00:56<00:33, 12.26it/s] 65%|██████▌   | 755/1160 [00:56<00:28, 14.13it/s] 65%|██████▌   | 758/1160 [00:56<00:25, 15.82it/s] 66%|██████▌   | 761/1160 [00:56<00:23, 17.20it/s] 66%|██████▌   | 764/1160 [00:56<00:21, 18.28it/s] 66%|██████▌   | 767/1160 [00:56<00:20, 19.12it/s] 66%|██████▋   | 770/1160 [00:56<00:19, 19.95it/s] 67%|██████▋   | 773/1160 [00:56<00:18, 20.41it/s] 67%|██████▋   | 776/1160 [00:57<00:18, 20.81it/s] 67%|██████▋   | 779/1160 [00:57<00:18, 21.13it/s] 67%|██████▋   | 782/1160 [00:57<00:17, 21.32it/s] 68%|██████▊   | 785/1160 [00:57<00:17, 21.47it/s] 68%|██████▊   | 788/1160 [00:57<00:17, 20.97it/s] 68%|██████▊   | 791/1160 [00:57<00:17, 21.24it/s] 68%|██████▊   | 794/1160 [00:57<00:17, 21.46it/s] 69%|██████▊   | 797/1160 [00:58<00:16, 21.67it/s] 69%|██████▉   | 800/1160 [00:58<00:20, 17.46it/s]                                                   69%|██████▉   | 800/1160 [00:58<00:20, 17.46it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.58it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.40it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.76it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 69%|██████▉   | 800/1160 [00:58<00:20, 17.46it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.76it/s][A
-                                                [A 69%|██████▉   | 802/1160 [00:58<00:35, 10.02it/s] 69%|██████▉   | 805/1160 [00:58<00:29, 12.13it/s] 70%|██████▉   | 808/1160 [00:59<00:25, 14.07it/s] 70%|██████▉   | 811/1160 [00:59<00:22, 15.81it/s] 70%|███████   | 814/1160 [00:59<00:20, 17.22it/s] 70%|███████   | 817/1160 [00:59<00:18, 18.47it/s] 71%|███████   | 820/1160 [00:59<00:17, 19.38it/s] 71%|███████   | 823/1160 [00:59<00:16, 19.98it/s] 71%|███████   | 826/1160 [00:59<00:16, 20.59it/s] 71%|███████▏  | 829/1160 [01:00<00:15, 20.90it/s] 72%|███████▏  | 832/1160 [01:00<00:15, 21.28it/s] 72%|███████▏  | 835/1160 [01:00<00:15, 21.36it/s] 72%|███████▏  | 838/1160 [01:00<00:14, 21.51it/s] 72%|███████▎  | 841/1160 [01:00<00:14, 21.66it/s] 73%|███████▎  | 844/1160 [01:00<00:14, 21.80it/s] 73%|███████▎  | 847/1160 [01:00<00:14, 21.83it/s] 73%|███████▎  | 850/1160 [01:01<00:14, 21.78it/s]                                                   73%|███████▎  | 850/1160 [01:01<00:14, 21.78it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.37it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.97it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.12it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 73%|███████▎  | 850/1160 [01:01<00:14, 21.78it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.12it/s][A
-                                                [A 74%|███████▎  | 853/1160 [01:01<00:25, 12.26it/s] 74%|███████▍  | 856/1160 [01:01<00:21, 14.12it/s] 74%|███████▍  | 859/1160 [01:01<00:19, 15.63it/s] 74%|███████▍  | 862/1160 [01:01<00:17, 17.12it/s] 75%|███████▍  | 865/1160 [01:02<00:16, 17.71it/s] 75%|███████▍  | 868/1160 [01:02<00:15, 18.65it/s] 75%|███████▌  | 871/1160 [01:02<00:14, 19.44it/s] 75%|███████▌  | 874/1160 [01:02<00:14, 20.14it/s] 76%|███████▌  | 877/1160 [01:02<00:13, 20.57it/s] 76%|███████▌  | 880/1160 [01:02<00:13, 20.77it/s] 76%|███████▌  | 883/1160 [01:02<00:13, 21.08it/s] 76%|███████▋  | 886/1160 [01:03<00:13, 21.03it/s] 77%|███████▋  | 889/1160 [01:03<00:12, 21.31it/s] 77%|███████▋  | 892/1160 [01:03<00:12, 21.45it/s] 77%|███████▋  | 895/1160 [01:03<00:12, 21.28it/s] 77%|███████▋  | 898/1160 [01:03<00:12, 21.44it/s]                                                   78%|███████▊  | 900/1160 [01:03<00:12, 21.44it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.34it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.46it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.83it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 78%|███████▊  | 900/1160 [01:04<00:12, 21.44it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.83it/s][A
-                                                [A 78%|███████▊  | 901/1160 [01:04<00:24, 10.67it/s] 78%|███████▊  | 903/1160 [01:04<00:21, 11.72it/s] 78%|███████▊  | 906/1160 [01:04<00:18, 13.77it/s] 78%|███████▊  | 909/1160 [01:04<00:16, 15.63it/s] 79%|███████▊  | 912/1160 [01:04<00:14, 17.21it/s] 79%|███████▉  | 915/1160 [01:04<00:13, 18.39it/s] 79%|███████▉  | 918/1160 [01:05<00:12, 19.28it/s] 79%|███████▉  | 921/1160 [01:05<00:12, 19.91it/s] 80%|███████▉  | 924/1160 [01:05<00:11, 20.56it/s] 80%|███████▉  | 927/1160 [01:05<00:11, 21.06it/s] 80%|████████  | 930/1160 [01:05<00:10, 21.35it/s] 80%|████████  | 933/1160 [01:05<00:10, 21.38it/s] 81%|████████  | 936/1160 [01:05<00:10, 21.41it/s] 81%|████████  | 939/1160 [01:05<00:10, 21.60it/s] 81%|████████  | 942/1160 [01:06<00:09, 21.81it/s] 81%|████████▏ | 945/1160 [01:06<00:09, 21.93it/s] 82%|████████▏ | 948/1160 [01:06<00:10, 21.11it/s]                                                   82%|████████▏ | 950/1160 [01:06<00:09, 21.11it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 118.41it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 112.30it/s][A
- 95%|█████████▍| 36/38 [00:00<00:00, 112.28it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 82%|████████▏ | 950/1160 [01:06<00:09, 21.11it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.28it/s][A
-                                                [A 82%|████████▏ | 951/1160 [01:06<00:17, 12.05it/s] 82%|████████▏ | 954/1160 [01:07<00:14, 13.89it/s] 82%|████████▎ | 957/1160 [01:07<00:13, 15.61it/s] 83%|████████▎ | 960/1160 [01:07<00:11, 17.11it/s] 83%|████████▎ | 963/1160 [01:07<00:10, 18.35it/s] 83%|████████▎ | 966/1160 [01:07<00:10, 19.29it/s] 84%|████████▎ | 969/1160 [01:07<00:09, 19.91it/s] 84%|████████▍ | 972/1160 [01:07<00:09, 20.49it/s] 84%|████████▍ | 975/1160 [01:08<00:08, 20.83it/s] 84%|████████▍ | 978/1160 [01:08<00:08, 21.22it/s] 85%|████████▍ | 981/1160 [01:08<00:08, 21.50it/s] 85%|████████▍ | 984/1160 [01:08<00:08, 21.64it/s] 85%|████████▌ | 987/1160 [01:08<00:07, 21.65it/s] 85%|████████▌ | 990/1160 [01:08<00:07, 21.84it/s] 86%|████████▌ | 993/1160 [01:08<00:07, 21.99it/s] 86%|████████▌ | 996/1160 [01:08<00:07, 21.92it/s] 86%|████████▌ | 999/1160 [01:09<00:07, 21.97it/s]                                                   86%|████████▌ | 1000/1160 [01:09<00:07, 21.97it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.14it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.96it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.20it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 86%|████████▌ | 1000/1160 [01:09<00:07, 21.97it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.20it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1000
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/special_tokens_map.json
- 86%|████████▌ | 1000/1160 [01:22<00:07, 21.97it/s] 86%|████████▋ | 1001/1160 [01:30<06:28,  2.44s/it] 86%|████████▋ | 1003/1160 [01:30<04:53,  1.87s/it] 87%|████████▋ | 1006/1160 [01:31<03:12,  1.25s/it] 87%|████████▋ | 1009/1160 [01:31<02:09,  1.17it/s] 87%|████████▋ | 1012/1160 [01:31<01:28,  1.68it/s] 88%|████████▊ | 1015/1160 [01:31<01:01,  2.36it/s] 88%|████████▊ | 1018/1160 [01:31<00:43,  3.25it/s] 88%|████████▊ | 1021/1160 [01:31<00:31,  4.40it/s] 88%|████████▊ | 1024/1160 [01:31<00:23,  5.78it/s] 89%|████████▊ | 1027/1160 [01:32<00:17,  7.42it/s] 89%|████████▉ | 1030/1160 [01:32<00:14,  9.26it/s] 89%|████████▉ | 1033/1160 [01:32<00:11, 11.20it/s] 89%|████████▉ | 1036/1160 [01:32<00:09, 13.12it/s] 90%|████████▉ | 1039/1160 [01:32<00:08, 14.89it/s] 90%|████████▉ | 1042/1160 [01:32<00:07, 16.35it/s] 90%|█████████ | 1045/1160 [01:32<00:06, 17.67it/s] 90%|█████████ | 1048/1160 [01:32<00:05, 18.75it/s]                                                    91%|█████████ | 1050/1160 [01:33<00:05, 18.75it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.04it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.86it/s][A
-100%|██████████| 38/38 [00:00<00:00, 113.07it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 91%|█████████ | 1050/1160 [01:33<00:05, 18.75it/s]
-100%|██████████| 38/38 [00:00<00:00, 113.07it/s][A
-                                                [A 91%|█████████ | 1051/1160 [01:33<00:09, 11.39it/s] 91%|█████████ | 1054/1160 [01:33<00:07, 13.28it/s] 91%|█████████ | 1057/1160 [01:33<00:06, 14.99it/s] 91%|█████████▏| 1060/1160 [01:33<00:06, 16.59it/s] 92%|█████████▏| 1063/1160 [01:34<00:05, 17.57it/s] 92%|█████████▏| 1066/1160 [01:34<00:05, 18.42it/s] 92%|█████████▏| 1069/1160 [01:34<00:04, 19.38it/s] 92%|█████████▏| 1072/1160 [01:34<00:04, 19.83it/s] 93%|█████████▎| 1075/1160 [01:34<00:04, 20.46it/s] 93%|█████████▎| 1078/1160 [01:34<00:03, 20.78it/s] 93%|█████████▎| 1081/1160 [01:34<00:03, 21.11it/s] 93%|█████████▎| 1084/1160 [01:35<00:03, 21.41it/s] 94%|█████████▎| 1087/1160 [01:35<00:03, 21.51it/s] 94%|█████████▍| 1090/1160 [01:35<00:03, 21.59it/s] 94%|█████████▍| 1093/1160 [01:35<00:03, 21.53it/s] 94%|█████████▍| 1096/1160 [01:35<00:03, 20.63it/s] 95%|█████████▍| 1099/1160 [01:35<00:02, 20.65it/s]                                                    95%|█████████▍| 1100/1160 [01:35<00:02, 20.65it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.75it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.54it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.76it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 95%|█████████▍| 1100/1160 [01:36<00:02, 20.65it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.76it/s][A
-                                                [A 95%|█████████▌| 1102/1160 [01:36<00:05, 10.56it/s] 95%|█████████▌| 1105/1160 [01:36<00:04, 12.43it/s] 96%|█████████▌| 1108/1160 [01:36<00:03, 14.18it/s] 96%|█████████▌| 1111/1160 [01:36<00:03, 15.90it/s] 96%|█████████▌| 1114/1160 [01:36<00:02, 17.32it/s] 96%|█████████▋| 1117/1160 [01:37<00:02, 18.50it/s] 97%|█████████▋| 1120/1160 [01:37<00:02, 19.42it/s] 97%|█████████▋| 1123/1160 [01:37<00:01, 20.13it/s] 97%|█████████▋| 1126/1160 [01:37<00:01, 20.64it/s] 97%|█████████▋| 1129/1160 [01:37<00:01, 20.98it/s] 98%|█████████▊| 1132/1160 [01:37<00:01, 21.31it/s] 98%|█████████▊| 1135/1160 [01:37<00:01, 21.43it/s] 98%|█████████▊| 1138/1160 [01:37<00:01, 21.56it/s] 98%|█████████▊| 1141/1160 [01:38<00:00, 21.67it/s] 99%|█████████▊| 1144/1160 [01:38<00:00, 21.63it/s] 99%|█████████▉| 1147/1160 [01:38<00:00, 21.66it/s] 99%|█████████▉| 1150/1160 [01:38<00:00, 21.72it/s]                                                    99%|█████████▉| 1150/1160 [01:38<00:00, 21.72it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.64it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 113.77it/s][A
-100%|██████████| 38/38 [00:00<00:00, 112.88it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 99%|█████████▉| 1150/1160 [01:38<00:00, 21.72it/s]
-100%|██████████| 38/38 [00:00<00:00, 112.88it/s][A
-                                                [A 99%|█████████▉| 1153/1160 [01:39<00:00, 12.25it/s]100%|█████████▉| 1156/1160 [01:39<00:00, 14.11it/s]100%|█████████▉| 1159/1160 [01:39<00:00, 15.64it/s]
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-                                                   100%|██████████| 1160/1160 [01:39<00:00, 15.64it/s]100%|██████████| 1160/1160 [01:39<00:00, 11.67it/s]
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 1849
-  Batch size = 8
-  0%|          | 0/232 [00:00<?, ?it/s]  6%|▌         | 13/232 [00:00<00:01, 123.75it/s] 11%|█         | 26/232 [00:00<00:01, 114.11it/s] 16%|█▋        | 38/232 [00:00<00:01, 111.70it/s] 22%|██▏       | 50/232 [00:00<00:01, 112.87it/s] 27%|██▋       | 62/232 [00:00<00:01, 113.93it/s] 32%|███▏      | 74/232 [00:00<00:01, 114.41it/s] 37%|███▋      | 86/232 [00:00<00:01, 114.46it/s] 42%|████▏     | 98/232 [00:00<00:01, 114.54it/s] 47%|████▋     | 110/232 [00:00<00:01, 112.50it/s] 53%|█████▎    | 122/232 [00:01<00:00, 112.06it/s] 58%|█████▊    | 134/232 [00:01<00:00, 112.36it/s] 63%|██████▎   | 146/232 [00:01<00:00, 112.93it/s] 68%|██████▊   | 158/232 [00:01<00:00, 111.88it/s] 73%|███████▎  | 170/232 [00:01<00:00, 112.78it/s] 78%|███████▊  | 182/232 [00:01<00:00, 112.94it/s] 84%|████████▎ | 194/232 [00:01<00:00, 113.66it/s] 89%|████████▉ | 206/232 [00:01<00:00, 113.62it/s] 94%|█████████▍| 218/232 [00:01<00:00, 113.19it/s] 99%|█████████▉| 230/232 [00:02<00:00, 113.06it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 232/232 [00:02<00:00, 113.18it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 121.85it/s] 68%|██████▊   | 26/38 [00:00<00:00, 113.93it/s]100%|██████████| 38/38 [00:00<00:00, 113.05it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 113.51it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: updated_label, masked_articles, cbr. If updated_label, masked_articles, cbr are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 121.34it/s] 68%|██████▊   | 26/38 [00:00<00:00, 111.28it/s]100%|██████████| 38/38 [00:00<00:00, 111.78it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 112.06it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-wandb: Waiting for W&B process to finish... (success).
-wandb: - 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: | 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: / 0.002 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: - 0.002 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: | 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: / 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: - 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: \ 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: | 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: / 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: - 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb: \ 0.485 MB of 0.485 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:                  eval/accuracy ▁▁▂▃▅▅▆▆▆▇▇▇▇▇▇▇▇█▇████
-wandb:                        eval/f1 ▁▁▃▄▅▆▆▆▇▇▇▇▇▇▇█▇██████
-wandb:                      eval/loss ██▇▆▄▄▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
-wandb:                 eval/precision ▁▁▄▅▆▇▆▆▇▇▇▇▇▇████▇████
-wandb:                    eval/recall ▁▁▂▃▅▅▆▆▆▇▇▇▇▇▇▇▇█▇████
-wandb:                   eval/runtime ▁▁▁▁▁▁▁▁▁▂▁▁▁▆▁█▁▁▂▇▁▁▁
-wandb:        eval/samples_per_second █████████▆███▃█▁██▇▂███
-wandb:          eval/steps_per_second █████████▆███▃█▁██▇▂███
-wandb:                    train/epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇████
-wandb:              train/global_step ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇████
-wandb:            train/learning_rate ██▇▇▇▆▆▆▅▅▅▄▄▄▄▃▃▃▂▂▂▁▁
-wandb:                     train/loss ███▇▆▅▅▅▅▄▃▃▃▃▂▂▂▂▂▁▁▁▁
-wandb:               train/total_flos ▁
-wandb:               train/train_loss ▁
-wandb:            train/train_runtime ▁
-wandb: train/train_samples_per_second ▁
-wandb:   train/train_steps_per_second ▁
-wandb: 
-wandb: Run summary:
-wandb:                  eval/accuracy 0.65333
-wandb:                        eval/f1 0.64957
-wandb:                      eval/loss 1.24923
-wandb:                 eval/precision 0.66383
-wandb:                    eval/recall 0.65333
-wandb:                   eval/runtime 0.3519
-wandb:        eval/samples_per_second 852.432
-wandb:          eval/steps_per_second 107.975
-wandb:                    train/epoch 5.0
-wandb:              train/global_step 1160
-wandb:            train/learning_rate 0.0
-wandb:                     train/loss 0.6128
-wandb:               train/total_flos 525490838966184.0
-wandb:               train/train_loss 1.33512
-wandb:            train/train_runtime 99.3677
-wandb: train/train_samples_per_second 93.038
-wandb:   train/train_steps_per_second 11.674
-wandb: 
-wandb: Synced worthy-snowflake-100: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/1h3attuk
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20221003_085651-1h3attuk/logs
-Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
-Exiting Application
-################################################################################
-Stack trace:
-################################################################################
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x14d995458f06]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x14d9954508e5]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x14d995375e09]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14d995459a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x14d995373948]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14d995459a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x14d99532eb46]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x14d994d9346a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x14d9e0e248a7]
-/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x14d9e0e24a60]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x14d9e0e0208a]
-python(+0x2125d4) [0x55be39da95d4]
-/var/spool/slurm/slurmd/job06624/slurm_script: line 93: 2419158 Aborted                 (core dumped) python main_classifier.py --train_input_file tmp/masked_sentences_with_AMR_container_objects_train.joblib --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev.joblib --test_input_file tmp/masked_sentences_with_AMR_container_objects_test.joblib --input_feature masked_articles --similarity_matrices_path_train tmp/simcse_similarities_train.joblib --similarity_matrices_path_dev tmp/simcse_similarities_dev.joblib --similarity_matrices_path_test tmp/simcse_similarities_test.joblib --batch_size 8 --learning_rate 2e-5 --num_epochs 5 --classifier_dropout 0.1 --weight_decay 0.01 --num_cases ${NUM_CASES} --useful_cases_input tmp/useful_cases.joblib --cbr
-Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20221003_085920-fille98g
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run clean-rain-101
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/fille98g
-Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'lm_head.layer_norm.bias', 'roberta.pooler.dense.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.weight']
-- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.weight', 'classifier.out_proj.weight', 'classifier.out_proj.bias', 'classifier.dense.bias']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:00<00:00,  6.09ba/s]100%|██████████| 2/2 [00:00<00:00,  9.13ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 48.59ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 48.84ba/s]
-The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  warnings.warn(
-***** Running training *****
-  Num examples = 1849
-  Num Epochs = 5
-  Instantaneous batch size per device = 8
-  Total train batch size (w. parallel, distributed & accumulation) = 8
-  Gradient Accumulation steps = 1
-  Total optimization steps = 1160
-Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
-  0%|          | 0/1160 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 1/1160 [00:00<02:47,  6.91it/s]  0%|          | 3/1160 [00:00<01:37, 11.85it/s]  0%|          | 5/1160 [00:00<01:17, 14.98it/s]  1%|          | 8/1160 [00:00<01:07, 17.05it/s]  1%|          | 10/1160 [00:00<01:06, 17.36it/s]  1%|          | 12/1160 [00:00<01:07, 17.07it/s]  1%|          | 14/1160 [00:00<01:06, 17.19it/s]  1%|▏         | 17/1160 [00:01<01:02, 18.39it/s]  2%|▏         | 20/1160 [00:01<00:59, 19.08it/s]  2%|▏         | 22/1160 [00:01<00:59, 19.19it/s]  2%|▏         | 24/1160 [00:01<01:01, 18.33it/s]  2%|▏         | 26/1160 [00:01<01:01, 18.49it/s]  2%|▎         | 29/1160 [00:01<00:58, 19.27it/s]  3%|▎         | 31/1160 [00:01<01:00, 18.81it/s]  3%|▎         | 34/1160 [00:01<00:58, 19.26it/s]  3%|▎         | 36/1160 [00:02<00:59, 18.82it/s]  3%|▎         | 38/1160 [00:02<01:00, 18.63it/s]  4%|▎         | 41/1160 [00:02<00:59, 18.89it/s]  4%|▍         | 44/1160 [00:02<00:57, 19.55it/s]  4%|▍         | 46/1160 [00:02<01:01, 18.20it/s]  4%|▍         | 48/1160 [00:02<01:00, 18.46it/s]  4%|▍         | 50/1160 [00:02<01:02, 17.79it/s]                                                   4%|▍         | 50/1160 [00:02<01:02, 17.79it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 106.57it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.14it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 90.61it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                               [A  4%|▍         | 50/1160 [00:03<01:02, 17.79it/s]
-100%|██████████| 38/38 [00:00<00:00, 90.61it/s][A
-                                               [A  4%|▍         | 52/1160 [00:03<02:14,  8.24it/s]  5%|▍         | 55/1160 [00:03<01:44, 10.61it/s]  5%|▌         | 58/1160 [00:03<01:25, 12.82it/s]  5%|▌         | 61/1160 [00:03<01:19, 13.79it/s]  6%|▌         | 64/1160 [00:03<01:10, 15.51it/s]  6%|▌         | 66/1160 [00:04<01:08, 16.06it/s]  6%|▌         | 68/1160 [00:04<01:04, 16.81it/s]  6%|▌         | 71/1160 [00:04<01:01, 17.83it/s]  6%|▋         | 73/1160 [00:04<01:01, 17.74it/s]  6%|▋         | 75/1160 [00:04<01:00, 17.87it/s]  7%|▋         | 78/1160 [00:04<00:57, 18.68it/s]  7%|▋         | 80/1160 [00:04<00:58, 18.32it/s]  7%|▋         | 82/1160 [00:04<00:57, 18.74it/s]  7%|▋         | 84/1160 [00:05<00:59, 18.23it/s]  8%|▊         | 87/1160 [00:05<00:56, 19.04it/s]  8%|▊         | 89/1160 [00:05<00:58, 18.22it/s]  8%|▊         | 92/1160 [00:05<00:59, 18.06it/s]  8%|▊         | 94/1160 [00:05<00:58, 18.31it/s]  8%|▊         | 96/1160 [00:05<00:58, 18.18it/s]  8%|▊         | 98/1160 [00:05<00:59, 17.96it/s]  9%|▊         | 100/1160 [00:06<01:14, 14.28it/s]                                                    9%|▊         | 100/1160 [00:06<01:14, 14.28it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 106.76it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.17it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 90.62it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                               [A  9%|▊         | 100/1160 [00:06<01:14, 14.28it/s]
-100%|██████████| 38/38 [00:00<00:00, 90.62it/s][A
-                                               [A  9%|▉         | 102/1160 [00:06<02:17,  7.70it/s]  9%|▉         | 104/1160 [00:06<01:52,  9.35it/s]  9%|▉         | 106/1160 [00:06<01:37, 10.78it/s]  9%|▉         | 108/1160 [00:06<01:26, 12.20it/s]  9%|▉         | 110/1160 [00:07<01:16, 13.66it/s] 10%|▉         | 112/1160 [00:07<01:12, 14.50it/s] 10%|▉         | 114/1160 [00:07<01:09, 15.15it/s] 10%|█         | 116/1160 [00:07<01:07, 15.44it/s] 10%|█         | 118/1160 [00:07<01:05, 15.86it/s] 10%|█         | 120/1160 [00:07<01:02, 16.53it/s] 11%|█         | 122/1160 [00:07<01:00, 17.21it/s] 11%|█         | 124/1160 [00:07<00:59, 17.32it/s] 11%|█         | 126/1160 [00:07<01:03, 16.40it/s] 11%|█         | 128/1160 [00:08<01:04, 16.04it/s] 11%|█         | 130/1160 [00:08<01:00, 16.98it/s] 11%|█▏        | 133/1160 [00:08<00:57, 17.99it/s] 12%|█▏        | 135/1160 [00:08<00:59, 17.36it/s] 12%|█▏        | 138/1160 [00:08<00:57, 17.91it/s] 12%|█▏        | 140/1160 [00:08<00:59, 17.21it/s] 12%|█▏        | 142/1160 [00:08<00:57, 17.64it/s] 12%|█▏        | 144/1160 [00:08<00:57, 17.76it/s] 13%|█▎        | 147/1160 [00:09<00:56, 17.93it/s] 13%|█▎        | 149/1160 [00:09<00:58, 17.17it/s]                                                   13%|█▎        | 150/1160 [00:09<00:58, 17.17it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 107.21it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.49it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 90.85it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                               [A 13%|█▎        | 150/1160 [00:09<00:58, 17.17it/s]
-100%|██████████| 38/38 [00:00<00:00, 90.85it/s][A
-                                               [A 13%|█▎        | 151/1160 [00:09<02:03,  8.18it/s] 13%|█▎        | 153/1160 [00:09<01:42,  9.79it/s] 13%|█▎        | 155/1160 [00:10<01:29, 11.22it/s] 14%|█▎        | 157/1160 [00:10<01:20, 12.39it/s] 14%|█▎        | 159/1160 [00:10<01:13, 13.63it/s] 14%|█▍        | 161/1160 [00:10<01:11, 14.02it/s] 14%|█▍        | 164/1160 [00:10<01:01, 16.10it/s] 14%|█▍        | 166/1160 [00:10<01:03, 15.64it/s] 14%|█▍        | 168/1160 [00:10<01:01, 16.10it/s] 15%|█▍        | 171/1160 [00:11<01:00, 16.46it/s] 15%|█▌        | 174/1160 [00:11<00:57, 17.10it/s] 15%|█▌        | 176/1160 [00:11<00:57, 17.24it/s] 15%|█▌        | 178/1160 [00:11<00:56, 17.33it/s] 16%|█▌        | 180/1160 [00:11<00:55, 17.70it/s] 16%|█▌        | 182/1160 [00:11<00:54, 17.95it/s] 16%|█▌        | 184/1160 [00:11<00:54, 17.94it/s] 16%|█▌        | 187/1160 [00:11<00:51, 18.77it/s] 16%|█▋        | 190/1160 [00:12<00:49, 19.57it/s] 17%|█▋        | 192/1160 [00:12<00:50, 19.08it/s] 17%|█▋        | 194/1160 [00:12<00:50, 19.16it/s] 17%|█▋        | 196/1160 [00:12<00:50, 18.99it/s] 17%|█▋        | 198/1160 [00:12<00:53, 18.12it/s] 17%|█▋        | 200/1160 [00:12<01:08, 14.00it/s]                                                   17%|█▋        | 200/1160 [00:12<01:08, 14.00it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 106.66it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.43it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 90.75it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                               [A 17%|█▋        | 200/1160 [00:13<01:08, 14.00it/s]
-100%|██████████| 38/38 [00:00<00:00, 90.75it/s][A
-                                               [A 17%|█▋        | 202/1160 [00:13<02:08,  7.48it/s] 18%|█▊        | 204/1160 [00:13<01:46,  8.99it/s] 18%|█▊        | 206/1160 [00:13<01:31, 10.39it/s] 18%|█▊        | 209/1160 [00:13<01:13, 12.86it/s] 18%|█▊        | 211/1160 [00:13<01:07, 14.09it/s] 18%|█▊        | 213/1160 [00:13<01:07, 13.98it/s] 19%|█▊        | 215/1160 [00:14<01:05, 14.51it/s] 19%|█▊        | 217/1160 [00:14<01:02, 15.03it/s] 19%|█▉        | 219/1160 [00:14<00:58, 16.20it/s] 19%|█▉        | 222/1160 [00:14<00:54, 17.09it/s] 19%|█▉        | 225/1160 [00:14<00:51, 18.14it/s] 20%|█▉        | 227/1160 [00:14<00:50, 18.45it/s] 20%|█▉        | 229/1160 [00:14<00:53, 17.36it/s] 20%|█▉        | 231/1160 [00:14<00:53, 17.47it/s] 20%|██        | 233/1160 [00:15<00:53, 17.45it/s] 20%|██        | 235/1160 [00:15<00:51, 18.07it/s] 20%|██        | 237/1160 [00:15<00:53, 17.36it/s] 21%|██        | 239/1160 [00:15<00:52, 17.49it/s] 21%|██        | 241/1160 [00:15<00:54, 16.98it/s] 21%|██        | 244/1160 [00:15<00:52, 17.45it/s] 21%|██        | 246/1160 [00:15<00:53, 16.96it/s] 21%|██▏       | 248/1160 [00:15<00:51, 17.54it/s]                                                   22%|██▏       | 250/1160 [00:15<00:51, 17.54it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 107.10it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.56it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 91.02it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                               [A 22%|██▏       | 250/1160 [00:16<00:51, 17.54it/s]
-100%|██████████| 38/38 [00:00<00:00, 91.02it/s][A
-                                               [A 22%|██▏       | 251/1160 [00:16<01:40,  9.00it/s] 22%|██▏       | 253/1160 [00:16<01:26, 10.47it/s] 22%|██▏       | 255/1160 [00:16<01:18, 11.48it/s] 22%|██▏       | 257/1160 [00:16<01:09, 12.91it/s] 22%|██▏       | 259/1160 [00:16<01:05, 13.84it/s] 22%|██▎       | 261/1160 [00:17<01:04, 13.98it/s] 23%|██▎       | 264/1160 [00:17<00:56, 15.97it/s] 23%|██▎       | 266/1160 [00:17<00:54, 16.41it/s] 23%|██▎       | 269/1160 [00:17<00:50, 17.74it/s] 23%|██▎       | 271/1160 [00:17<00:48, 18.22it/s] 24%|██▎       | 273/1160 [00:17<00:47, 18.50it/s] 24%|██▎       | 275/1160 [00:17<00:47, 18.76it/s] 24%|██▍       | 277/1160 [00:17<00:47, 18.60it/s] 24%|██▍       | 280/1160 [00:18<00:46, 19.00it/s] 24%|██▍       | 282/1160 [00:18<00:45, 19.19it/s] 25%|██▍       | 285/1160 [00:18<00:47, 18.41it/s] 25%|██▍       | 287/1160 [00:18<00:46, 18.71it/s] 25%|██▌       | 290/1160 [00:18<00:45, 19.20it/s] 25%|██▌       | 292/1160 [00:18<00:45, 18.99it/s] 25%|██▌       | 294/1160 [00:18<00:48, 17.95it/s] 26%|██▌       | 296/1160 [00:18<00:49, 17.62it/s] 26%|██▌       | 298/1160 [00:19<00:50, 16.97it/s] 26%|██▌       | 300/1160 [00:19<01:07, 12.78it/s]                                                   26%|██▌       | 300/1160 [00:19<01:07, 12.78it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 106.60it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.03it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 90.40it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                               [A 26%|██▌       | 300/1160 [00:19<01:07, 12.78it/s]
-100%|██████████| 38/38 [00:00<00:00, 90.40it/s][A
-                                               [A 26%|██▌       | 302/1160 [00:19<01:57,  7.28it/s] 26%|██▌       | 304/1160 [00:19<01:38,  8.66it/s] 26%|██▋       | 306/1160 [00:20<01:23, 10.27it/s] 27%|██▋       | 308/1160 [00:20<01:15, 11.27it/s] 27%|██▋       | 310/1160 [00:20<01:06, 12.71it/s] 27%|██▋       | 312/1160 [00:20<01:00, 14.02it/s] 27%|██▋       | 315/1160 [00:20<00:53, 15.83it/s] 27%|██▋       | 317/1160 [00:20<00:50, 16.55it/s] 28%|██▊       | 319/1160 [00:20<00:49, 17.03it/s] 28%|██▊       | 322/1160 [00:20<00:48, 17.40it/s] 28%|██▊       | 324/1160 [00:21<00:46, 17.84it/s] 28%|██▊       | 326/1160 [00:21<00:47, 17.39it/s] 28%|██▊       | 328/1160 [00:21<00:46, 17.74it/s] 28%|██▊       | 330/1160 [00:21<00:47, 17.56it/s] 29%|██▊       | 332/1160 [00:21<00:48, 16.91it/s] 29%|██▉       | 334/1160 [00:21<00:49, 16.75it/s] 29%|██▉       | 336/1160 [00:21<00:49, 16.58it/s] 29%|██▉       | 338/1160 [00:21<00:48, 17.09it/s] 29%|██▉       | 340/1160 [00:22<00:49, 16.53it/s] 29%|██▉       | 342/1160 [00:22<00:46, 17.41it/s] 30%|██▉       | 344/1160 [00:22<00:47, 17.10it/s] 30%|██▉       | 346/1160 [00:22<00:46, 17.56it/s] 30%|███       | 348/1160 [00:22<00:44, 18.13it/s] 30%|███       | 350/1160 [00:22<00:45, 17.72it/s]                                                   30%|███       | 350/1160 [00:22<00:45, 17.72it/s]The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: cbr, masked_articles, updated_label. If cbr, masked_articles, updated_label are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
-***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 29%|██▉       | 11/38 [00:00<00:00, 106.98it/s][A
- 58%|█████▊    | 22/38 [00:00<00:00, 90.25it/s] [A
- 84%|████████▍ | 32/38 [00:00<00:00, 90.54it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                               [A 30%|███       | 350/1160 [00:23<00:45, 17.72it/s]
-100%|██████████| 38/38 [00:00<00:00, 90.54it/s][A
-                                               [A 30%|███       | 352/1160 [00:23<01:39,  8.08it/s] 31%|███       | 354/1160 [00:23<01:24,  9.59it/s] 31%|███       | 357/1160 [00:23<01:06, 12.07it/s]slurmstepd: error: *** JOB 6624 ON node01 CANCELLED AT 2022-10-03T09:00:11 ***

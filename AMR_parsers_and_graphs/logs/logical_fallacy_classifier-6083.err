@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 146, in <module>
-    train_df = read_csv_from_amr(
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 86, in read_csv_from_amr
-    get_wordnet_edges_in_sentences(
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 56, in get_wordnet_edges_in_sentences
-    f"{node2label[edge[0]]}{template_dict[edge[2]['label']]}{node2label[edge[0]]}"
-KeyError: 'entails'

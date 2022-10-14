@@ -1,39 +1,0 @@
-Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20221001_003227-2omu7b87
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run hearty-bird-37
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/2omu7b87
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 21.67ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 109.75ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 108.75ba/s]
-***** Running Prediction *****
-  Num examples = 1849
-  Batch size = 8
-You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 0/232 [00:00<?, ?it/s]  5%|▌         | 12/232 [00:00<00:02, 109.63it/s] 10%|▉         | 23/232 [00:00<00:02, 101.18it/s] 15%|█▍        | 34/232 [00:00<00:01, 101.18it/s] 19%|█▉        | 45/232 [00:00<00:01, 104.08it/s] 25%|██▍       | 57/232 [00:00<00:01, 108.38it/s] 30%|██▉       | 69/232 [00:00<00:01, 111.37it/s] 35%|███▍      | 81/232 [00:00<00:01, 113.18it/s] 40%|████      | 93/232 [00:00<00:01, 114.44it/s] 45%|████▌     | 105/232 [00:00<00:01, 114.59it/s] 50%|█████     | 117/232 [00:01<00:01, 114.63it/s] 56%|█████▌    | 129/232 [00:01<00:00, 114.43it/s] 61%|██████    | 141/232 [00:01<00:00, 115.24it/s] 66%|██████▌   | 153/232 [00:01<00:00, 114.85it/s] 71%|███████   | 165/232 [00:01<00:00, 115.20it/s] 76%|███████▋  | 177/232 [00:01<00:00, 115.36it/s] 81%|████████▏ | 189/232 [00:01<00:00, 115.63it/s] 87%|████████▋ | 201/232 [00:01<00:00, 116.05it/s] 92%|█████████▏| 213/232 [00:01<00:00, 114.58it/s] 97%|█████████▋| 225/232 [00:01<00:00, 115.41it/s]100%|██████████| 232/232 [00:02<00:00, 112.90it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 124.89it/s] 68%|██████▊   | 26/38 [00:00<00:00, 119.69it/s]100%|██████████| 38/38 [00:00<00:00, 117.86it/s]100%|██████████| 38/38 [00:00<00:00, 118.37it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 126.92it/s] 68%|██████▊   | 26/38 [00:00<00:00, 114.04it/s]100%|██████████| 38/38 [00:00<00:00, 112.95it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 113.13it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-wandb: Waiting for W&B process to finish... (success).
-wandb: - 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: | 0.002 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.002 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: - 0.015 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: \ 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: | 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: - 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: \ 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: | 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced hearty-bird-37: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/2omu7b87
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20221001_003227-2omu7b87/logs

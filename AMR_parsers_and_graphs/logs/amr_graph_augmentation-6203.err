@@ -1,8 +1,0 @@
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220923_201350-1h05vrq7
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run wandering-tree-23
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1h05vrq7
-  0%|          | 0/1849 [00:00<?, ?it/s]  0%|          | 1/1849 [00:08<4:36:02,  8.96s/it]  0%|          | 2/1849 [00:35<9:50:46, 19.19s/it]  0%|          | 3/1849 [00:44<7:22:52, 14.39s/it]  0%|          | 4/1849 [00:59<7:38:43, 14.92s/it]  0%|          | 5/1849 [01:32<10:56:16, 21.35s/it]  0%|          | 6/1849 [02:14<14:26:27, 28.21s/it]  0%|          | 7/1849 [02:38<13:51:33, 27.09s/it]  0%|          | 8/1849 [02:52<11:36:04, 22.69s/it]slurmstepd: error: *** JOB 6203 ON node03 CANCELLED AT 2022-09-23T20:17:26 ***

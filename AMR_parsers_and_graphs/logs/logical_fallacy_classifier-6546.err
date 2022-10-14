@@ -1,637 +1,0 @@
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220929_091037-11veypek
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run silver-haze-18
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/11veypek
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 18.88ba/s]100%|██████████| 2/2 [00:00<00:00, 18.79ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 90.71ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 96.91ba/s]
-Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'roberta.pooler.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias']
-- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.out_proj.weight', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.dense.bias']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  warnings.warn(
-***** Running training *****
-  Num examples = 1849
-  Num Epochs = 10
-  Instantaneous batch size per device = 8
-  Total train batch size (w. parallel, distributed & accumulation) = 8
-  Gradient Accumulation steps = 1
-  Total optimization steps = 2320
-Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
-  0%|          | 0/2320 [00:00<?, ?it/s]You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 1/2320 [00:00<05:04,  7.62it/s]  0%|          | 3/2320 [00:00<03:12, 12.05it/s]  0%|          | 6/2320 [00:00<02:20, 16.44it/s]  0%|          | 9/2320 [00:00<02:02, 18.92it/s]  1%|          | 12/2320 [00:00<01:59, 19.28it/s]  1%|          | 15/2320 [00:00<01:52, 20.41it/s]  1%|          | 18/2320 [00:00<01:48, 21.13it/s]  1%|          | 21/2320 [00:01<01:46, 21.68it/s]  1%|          | 24/2320 [00:01<01:44, 21.94it/s]  1%|          | 27/2320 [00:01<01:43, 22.15it/s]  1%|▏         | 30/2320 [00:01<01:42, 22.39it/s]  1%|▏         | 33/2320 [00:01<01:41, 22.52it/s]  2%|▏         | 36/2320 [00:01<01:41, 22.54it/s]  2%|▏         | 39/2320 [00:01<01:41, 22.45it/s]  2%|▏         | 42/2320 [00:02<01:41, 22.54it/s]  2%|▏         | 45/2320 [00:02<01:40, 22.68it/s]  2%|▏         | 48/2320 [00:02<01:48, 20.86it/s]                                                   2%|▏         | 50/2320 [00:02<01:48, 20.86it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.35it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.67it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.70it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A  2%|▏         | 50/2320 [00:02<01:48, 20.86it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.70it/s][A
-                                                [A  2%|▏         | 51/2320 [00:02<03:05, 12.22it/s]  2%|▏         | 54/2320 [00:02<02:39, 14.19it/s]  2%|▏         | 57/2320 [00:03<02:21, 15.96it/s]  3%|▎         | 60/2320 [00:03<02:08, 17.59it/s]  3%|▎         | 63/2320 [00:03<02:05, 17.99it/s]  3%|▎         | 66/2320 [00:03<01:58, 19.07it/s]  3%|▎         | 69/2320 [00:03<01:52, 20.04it/s]  3%|▎         | 72/2320 [00:03<01:48, 20.79it/s]  3%|▎         | 75/2320 [00:03<01:45, 21.34it/s]  3%|▎         | 78/2320 [00:04<01:43, 21.65it/s]  3%|▎         | 81/2320 [00:04<01:42, 21.78it/s]  4%|▎         | 84/2320 [00:04<01:41, 22.05it/s]  4%|▍         | 87/2320 [00:04<01:40, 22.32it/s]  4%|▍         | 90/2320 [00:04<01:39, 22.44it/s]  4%|▍         | 93/2320 [00:04<01:39, 22.47it/s]  4%|▍         | 96/2320 [00:04<01:39, 22.43it/s]  4%|▍         | 99/2320 [00:04<01:41, 21.95it/s]                                                   4%|▍         | 100/2320 [00:05<01:41, 21.95it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.28it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 118.50it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.05it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A  4%|▍         | 100/2320 [00:05<01:41, 21.95it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.05it/s][A
-                                                [A  4%|▍         | 102/2320 [00:05<03:19, 11.11it/s]  5%|▍         | 105/2320 [00:05<02:49, 13.10it/s]  5%|▍         | 108/2320 [00:05<02:27, 15.03it/s]  5%|▍         | 111/2320 [00:05<02:11, 16.75it/s]  5%|▍         | 114/2320 [00:06<02:02, 18.04it/s]  5%|▌         | 117/2320 [00:06<01:54, 19.26it/s]  5%|▌         | 120/2320 [00:06<01:49, 20.04it/s]  5%|▌         | 123/2320 [00:06<01:46, 20.72it/s]  5%|▌         | 126/2320 [00:06<01:43, 21.11it/s]  6%|▌         | 129/2320 [00:06<01:42, 21.29it/s]  6%|▌         | 132/2320 [00:06<01:41, 21.66it/s]  6%|▌         | 135/2320 [00:07<01:39, 21.95it/s]  6%|▌         | 138/2320 [00:07<01:38, 22.14it/s]  6%|▌         | 141/2320 [00:07<01:38, 22.16it/s]  6%|▌         | 144/2320 [00:07<01:37, 22.23it/s]  6%|▋         | 147/2320 [00:07<01:37, 22.34it/s]  6%|▋         | 150/2320 [00:07<01:37, 22.30it/s]                                                    6%|▋         | 150/2320 [00:07<01:37, 22.30it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.87it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.40it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.57it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A  6%|▋         | 150/2320 [00:08<01:37, 22.30it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.57it/s][A
-                                                [A  7%|▋         | 153/2320 [00:08<02:49, 12.82it/s]  7%|▋         | 156/2320 [00:08<02:28, 14.59it/s]  7%|▋         | 159/2320 [00:08<02:12, 16.27it/s]  7%|▋         | 162/2320 [00:08<02:02, 17.57it/s]  7%|▋         | 165/2320 [00:08<01:54, 18.82it/s]  7%|▋         | 168/2320 [00:08<01:50, 19.54it/s]  7%|▋         | 171/2320 [00:08<01:45, 20.42it/s]  8%|▊         | 174/2320 [00:09<01:42, 20.98it/s]  8%|▊         | 177/2320 [00:09<01:39, 21.48it/s]  8%|▊         | 180/2320 [00:09<01:37, 21.84it/s]  8%|▊         | 183/2320 [00:09<01:36, 22.15it/s]  8%|▊         | 186/2320 [00:09<01:35, 22.32it/s]  8%|▊         | 189/2320 [00:09<01:35, 22.36it/s]  8%|▊         | 192/2320 [00:09<01:34, 22.41it/s]  8%|▊         | 195/2320 [00:10<01:34, 22.54it/s]  9%|▊         | 198/2320 [00:10<01:34, 22.51it/s]                                                    9%|▊         | 200/2320 [00:10<01:34, 22.51it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.06it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.58it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.83it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A  9%|▊         | 200/2320 [00:10<01:34, 22.51it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.83it/s][A
-                                                [A  9%|▊         | 201/2320 [00:10<03:09, 11.17it/s]  9%|▉         | 204/2320 [00:10<02:40, 13.20it/s]  9%|▉         | 207/2320 [00:10<02:20, 15.09it/s]  9%|▉         | 210/2320 [00:11<02:05, 16.82it/s]  9%|▉         | 213/2320 [00:11<01:57, 17.98it/s]  9%|▉         | 216/2320 [00:11<01:51, 18.85it/s]  9%|▉         | 219/2320 [00:11<01:46, 19.67it/s] 10%|▉         | 222/2320 [00:11<01:43, 20.34it/s] 10%|▉         | 225/2320 [00:11<01:39, 21.05it/s] 10%|▉         | 228/2320 [00:11<01:37, 21.45it/s] 10%|▉         | 231/2320 [00:12<01:39, 21.09it/s] 10%|█         | 234/2320 [00:12<01:37, 21.46it/s] 10%|█         | 237/2320 [00:12<01:36, 21.70it/s] 10%|█         | 240/2320 [00:12<01:34, 21.99it/s] 10%|█         | 243/2320 [00:12<01:33, 22.13it/s] 11%|█         | 246/2320 [00:12<01:34, 21.90it/s] 11%|█         | 249/2320 [00:12<01:33, 22.04it/s]                                                   11%|█         | 250/2320 [00:12<01:33, 22.04it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.61it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.85it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.91it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 11%|█         | 250/2320 [00:13<01:33, 22.04it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.91it/s][A
-                                                [A 11%|█         | 252/2320 [00:13<02:41, 12.80it/s] 11%|█         | 255/2320 [00:13<02:22, 14.54it/s] 11%|█         | 258/2320 [00:13<02:07, 16.15it/s] 11%|█▏        | 261/2320 [00:13<01:58, 17.34it/s] 11%|█▏        | 264/2320 [00:13<01:50, 18.63it/s] 12%|█▏        | 267/2320 [00:14<01:46, 19.26it/s] 12%|█▏        | 270/2320 [00:14<01:41, 20.23it/s] 12%|█▏        | 273/2320 [00:14<01:38, 20.87it/s] 12%|█▏        | 276/2320 [00:14<01:36, 21.22it/s] 12%|█▏        | 279/2320 [00:14<01:34, 21.71it/s] 12%|█▏        | 282/2320 [00:14<01:32, 21.95it/s] 12%|█▏        | 285/2320 [00:14<01:31, 22.22it/s] 12%|█▏        | 288/2320 [00:14<01:30, 22.47it/s] 13%|█▎        | 291/2320 [00:15<01:29, 22.59it/s] 13%|█▎        | 294/2320 [00:15<01:29, 22.51it/s] 13%|█▎        | 297/2320 [00:15<01:34, 21.46it/s] 13%|█▎        | 300/2320 [00:15<01:56, 17.36it/s]                                                   13%|█▎        | 300/2320 [00:15<01:56, 17.36it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.68it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.97it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 13%|█▎        | 300/2320 [00:15<01:56, 17.36it/s]
-100%|██████████| 38/38 [00:00<00:00, 119.97it/s][A
-                                                [A 13%|█▎        | 302/2320 [00:16<03:05, 10.89it/s] 13%|█▎        | 305/2320 [00:16<02:35, 12.99it/s] 13%|█▎        | 308/2320 [00:16<02:15, 14.89it/s] 13%|█▎        | 311/2320 [00:16<02:00, 16.65it/s] 14%|█▎        | 314/2320 [00:16<01:51, 17.96it/s] 14%|█▎        | 317/2320 [00:16<01:45, 19.00it/s] 14%|█▍        | 320/2320 [00:16<01:40, 19.99it/s] 14%|█▍        | 323/2320 [00:17<01:37, 20.54it/s] 14%|█▍        | 326/2320 [00:17<01:34, 21.16it/s] 14%|█▍        | 329/2320 [00:17<01:33, 21.39it/s] 14%|█▍        | 332/2320 [00:17<01:31, 21.70it/s] 14%|█▍        | 335/2320 [00:17<01:31, 21.78it/s] 15%|█▍        | 338/2320 [00:17<01:30, 21.96it/s] 15%|█▍        | 341/2320 [00:17<01:29, 22.18it/s] 15%|█▍        | 344/2320 [00:17<01:29, 22.08it/s] 15%|█▍        | 347/2320 [00:18<01:28, 22.30it/s] 15%|█▌        | 350/2320 [00:18<01:28, 22.18it/s]                                                   15%|█▌        | 350/2320 [00:18<01:28, 22.18it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.49it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 118.36it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.00it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 15%|█▌        | 350/2320 [00:18<01:28, 22.18it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.00it/s][A
-                                                [A 15%|█▌        | 353/2320 [00:18<02:33, 12.78it/s] 15%|█▌        | 356/2320 [00:18<02:13, 14.72it/s] 15%|█▌        | 359/2320 [00:18<01:59, 16.40it/s] 16%|█▌        | 362/2320 [00:19<01:49, 17.85it/s] 16%|█▌        | 365/2320 [00:19<01:42, 19.03it/s] 16%|█▌        | 368/2320 [00:19<01:37, 20.07it/s] 16%|█▌        | 371/2320 [00:19<01:33, 20.87it/s] 16%|█▌        | 374/2320 [00:19<01:31, 21.37it/s] 16%|█▋        | 377/2320 [00:19<01:29, 21.78it/s] 16%|█▋        | 380/2320 [00:19<01:27, 22.11it/s] 17%|█▋        | 383/2320 [00:20<01:31, 21.25it/s] 17%|█▋        | 386/2320 [00:20<01:29, 21.69it/s] 17%|█▋        | 389/2320 [00:20<01:27, 21.96it/s] 17%|█▋        | 392/2320 [00:20<01:27, 22.16it/s] 17%|█▋        | 395/2320 [00:20<01:26, 22.25it/s] 17%|█▋        | 398/2320 [00:20<01:26, 22.24it/s]                                                   17%|█▋        | 400/2320 [00:20<01:26, 22.24it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.89it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.12it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.44it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 17%|█▋        | 400/2320 [00:21<01:26, 22.24it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.44it/s][A
-                                                [A 17%|█▋        | 401/2320 [00:21<02:51, 11.19it/s] 17%|█▋        | 404/2320 [00:21<02:25, 13.20it/s] 18%|█▊        | 406/2320 [00:21<02:14, 14.23it/s] 18%|█▊        | 409/2320 [00:21<01:58, 16.16it/s] 18%|█▊        | 412/2320 [00:21<01:47, 17.69it/s] 18%|█▊        | 415/2320 [00:21<01:44, 18.21it/s] 18%|█▊        | 418/2320 [00:22<01:38, 19.36it/s] 18%|█▊        | 421/2320 [00:22<01:33, 20.29it/s] 18%|█▊        | 424/2320 [00:22<01:30, 20.95it/s] 18%|█▊        | 427/2320 [00:22<01:28, 21.35it/s] 19%|█▊        | 430/2320 [00:22<01:27, 21.68it/s] 19%|█▊        | 433/2320 [00:22<01:26, 21.77it/s] 19%|█▉        | 436/2320 [00:22<01:25, 22.11it/s] 19%|█▉        | 439/2320 [00:23<01:24, 22.28it/s] 19%|█▉        | 442/2320 [00:23<01:23, 22.44it/s] 19%|█▉        | 445/2320 [00:23<01:24, 22.15it/s] 19%|█▉        | 448/2320 [00:23<01:23, 22.31it/s]                                                   19%|█▉        | 450/2320 [00:23<01:23, 22.31it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.31it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.54it/s][A
-100%|██████████| 38/38 [00:00<00:00, 117.97it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 19%|█▉        | 450/2320 [00:23<01:23, 22.31it/s]
-100%|██████████| 38/38 [00:00<00:00, 117.97it/s][A
-                                                [A 19%|█▉        | 451/2320 [00:23<02:26, 12.76it/s] 20%|█▉        | 454/2320 [00:24<02:07, 14.58it/s] 20%|█▉        | 457/2320 [00:24<01:53, 16.35it/s] 20%|█▉        | 460/2320 [00:24<01:44, 17.78it/s] 20%|█▉        | 463/2320 [00:24<01:37, 19.09it/s] 20%|██        | 466/2320 [00:24<01:32, 20.07it/s] 20%|██        | 469/2320 [00:24<01:29, 20.80it/s] 20%|██        | 472/2320 [00:24<01:26, 21.27it/s] 20%|██        | 475/2320 [00:24<01:25, 21.56it/s] 21%|██        | 478/2320 [00:25<01:23, 21.93it/s] 21%|██        | 481/2320 [00:25<01:23, 22.07it/s] 21%|██        | 484/2320 [00:25<01:22, 22.19it/s] 21%|██        | 487/2320 [00:25<01:22, 22.09it/s] 21%|██        | 490/2320 [00:25<01:22, 22.22it/s] 21%|██▏       | 493/2320 [00:25<01:21, 22.38it/s] 21%|██▏       | 496/2320 [00:25<01:21, 22.41it/s] 22%|██▏       | 499/2320 [00:26<01:21, 22.40it/s]                                                   22%|██▏       | 500/2320 [00:26<01:21, 22.40it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.31it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.66it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.84it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 22%|██▏       | 500/2320 [00:26<01:21, 22.40it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.84it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-500
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/special_tokens_map.json
- 22%|██▏       | 502/2320 [00:41<46:34,  1.54s/it] 22%|██▏       | 505/2320 [00:41<33:00,  1.09s/it] 22%|██▏       | 508/2320 [00:41<23:28,  1.29it/s] 22%|██▏       | 511/2320 [00:41<16:48,  1.79it/s] 22%|██▏       | 514/2320 [00:41<12:08,  2.48it/s] 22%|██▏       | 517/2320 [00:41<08:52,  3.38it/s] 22%|██▏       | 520/2320 [00:41<06:36,  4.54it/s] 23%|██▎       | 523/2320 [00:42<05:06,  5.86it/s] 23%|██▎       | 526/2320 [00:42<03:59,  7.50it/s] 23%|██▎       | 529/2320 [00:42<03:10,  9.39it/s] 23%|██▎       | 532/2320 [00:42<02:37, 11.38it/s] 23%|██▎       | 535/2320 [00:42<02:13, 13.33it/s] 23%|██▎       | 538/2320 [00:42<01:57, 15.12it/s] 23%|██▎       | 541/2320 [00:42<01:45, 16.78it/s] 23%|██▎       | 544/2320 [00:43<01:37, 18.15it/s] 24%|██▎       | 547/2320 [00:43<01:31, 19.28it/s] 24%|██▎       | 550/2320 [00:43<01:28, 19.93it/s]                                                   24%|██▎       | 550/2320 [00:43<01:28, 19.93it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.13it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.28it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.33it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 24%|██▎       | 550/2320 [00:43<01:28, 19.93it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.33it/s][A
-                                                [A 24%|██▍       | 553/2320 [00:43<02:24, 12.20it/s] 24%|██▍       | 556/2320 [00:43<02:05, 14.09it/s] 24%|██▍       | 559/2320 [00:44<01:50, 15.89it/s] 24%|██▍       | 561/2320 [00:44<01:47, 16.38it/s] 24%|██▍       | 564/2320 [00:44<01:37, 17.97it/s] 24%|██▍       | 567/2320 [00:44<01:31, 19.23it/s] 25%|██▍       | 570/2320 [00:44<01:26, 20.19it/s] 25%|██▍       | 573/2320 [00:44<01:23, 20.85it/s] 25%|██▍       | 576/2320 [00:44<01:21, 21.31it/s] 25%|██▍       | 579/2320 [00:44<01:20, 21.70it/s] 25%|██▌       | 582/2320 [00:45<01:19, 22.00it/s] 25%|██▌       | 585/2320 [00:45<01:18, 22.18it/s] 25%|██▌       | 588/2320 [00:45<01:17, 22.39it/s] 25%|██▌       | 591/2320 [00:45<01:17, 22.45it/s] 26%|██▌       | 594/2320 [00:45<01:17, 22.37it/s] 26%|██▌       | 597/2320 [00:45<01:16, 22.47it/s] 26%|██▌       | 600/2320 [00:45<01:35, 17.94it/s]                                                   26%|██▌       | 600/2320 [00:45<01:35, 17.94it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.49it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.93it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.89it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 26%|██▌       | 600/2320 [00:46<01:35, 17.94it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.89it/s][A
-                                                [A 26%|██▌       | 602/2320 [00:46<02:35, 11.02it/s] 26%|██▌       | 605/2320 [00:46<02:10, 13.16it/s] 26%|██▌       | 608/2320 [00:46<01:53, 15.13it/s] 26%|██▋       | 611/2320 [00:46<01:41, 16.87it/s] 26%|██▋       | 614/2320 [00:46<01:33, 18.33it/s] 27%|██▋       | 617/2320 [00:47<01:28, 19.22it/s] 27%|██▋       | 620/2320 [00:47<01:25, 20.00it/s] 27%|██▋       | 623/2320 [00:47<01:21, 20.76it/s] 27%|██▋       | 626/2320 [00:47<01:19, 21.35it/s] 27%|██▋       | 629/2320 [00:47<01:19, 21.24it/s] 27%|██▋       | 632/2320 [00:47<01:17, 21.68it/s] 27%|██▋       | 635/2320 [00:47<01:16, 22.07it/s] 28%|██▊       | 638/2320 [00:48<01:16, 21.92it/s] 28%|██▊       | 641/2320 [00:48<01:15, 22.16it/s] 28%|██▊       | 644/2320 [00:48<01:16, 21.81it/s] 28%|██▊       | 647/2320 [00:48<01:17, 21.72it/s] 28%|██▊       | 650/2320 [00:48<01:16, 21.71it/s]                                                   28%|██▊       | 650/2320 [00:48<01:16, 21.71it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.55it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.17it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.37it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 28%|██▊       | 650/2320 [00:48<01:16, 21.71it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.37it/s][A
-                                                [A 28%|██▊       | 653/2320 [00:49<02:15, 12.31it/s] 28%|██▊       | 656/2320 [00:49<01:56, 14.25it/s] 28%|██▊       | 659/2320 [00:49<01:43, 16.07it/s] 29%|██▊       | 662/2320 [00:49<01:33, 17.64it/s] 29%|██▊       | 665/2320 [00:49<01:27, 18.94it/s] 29%|██▉       | 668/2320 [00:49<01:23, 19.77it/s] 29%|██▉       | 671/2320 [00:49<01:21, 20.32it/s] 29%|██▉       | 674/2320 [00:49<01:19, 20.69it/s] 29%|██▉       | 677/2320 [00:50<01:17, 21.15it/s] 29%|██▉       | 680/2320 [00:50<01:16, 21.31it/s] 29%|██▉       | 683/2320 [00:50<01:15, 21.72it/s] 30%|██▉       | 686/2320 [00:50<01:14, 22.05it/s] 30%|██▉       | 689/2320 [00:50<01:13, 22.17it/s] 30%|██▉       | 692/2320 [00:50<01:13, 22.13it/s] 30%|██▉       | 695/2320 [00:50<01:12, 22.40it/s] 30%|███       | 698/2320 [00:51<01:12, 22.48it/s]                                                   30%|███       | 700/2320 [00:51<01:12, 22.48it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.16it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.15it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.51it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 30%|███       | 700/2320 [00:51<01:12, 22.48it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.51it/s][A
-                                                [A 30%|███       | 701/2320 [00:51<02:24, 11.21it/s] 30%|███       | 704/2320 [00:51<02:02, 13.21it/s] 30%|███       | 707/2320 [00:51<01:47, 15.05it/s] 31%|███       | 710/2320 [00:52<01:36, 16.70it/s] 31%|███       | 713/2320 [00:52<01:29, 17.92it/s] 31%|███       | 716/2320 [00:52<01:23, 19.13it/s] 31%|███       | 719/2320 [00:52<01:19, 20.06it/s] 31%|███       | 722/2320 [00:52<01:17, 20.68it/s] 31%|███▏      | 725/2320 [00:52<01:15, 21.21it/s] 31%|███▏      | 728/2320 [00:52<01:13, 21.60it/s] 32%|███▏      | 731/2320 [00:52<01:13, 21.61it/s] 32%|███▏      | 734/2320 [00:53<01:12, 21.84it/s] 32%|███▏      | 737/2320 [00:53<01:12, 21.78it/s] 32%|███▏      | 740/2320 [00:53<01:11, 22.06it/s] 32%|███▏      | 743/2320 [00:53<01:11, 22.06it/s] 32%|███▏      | 746/2320 [00:53<01:10, 22.26it/s] 32%|███▏      | 749/2320 [00:53<01:10, 22.39it/s]                                                   32%|███▏      | 750/2320 [00:53<01:10, 22.39it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.98it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.34it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.34it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 32%|███▏      | 750/2320 [00:54<01:10, 22.39it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.34it/s][A
-                                                [A 32%|███▏      | 752/2320 [00:54<02:02, 12.80it/s] 33%|███▎      | 755/2320 [00:54<01:46, 14.64it/s] 33%|███▎      | 758/2320 [00:54<01:35, 16.36it/s] 33%|███▎      | 761/2320 [00:54<01:27, 17.76it/s] 33%|███▎      | 764/2320 [00:54<01:22, 18.76it/s] 33%|███▎      | 767/2320 [00:54<01:19, 19.54it/s] 33%|███▎      | 770/2320 [00:55<01:16, 20.39it/s] 33%|███▎      | 773/2320 [00:55<01:13, 21.00it/s] 33%|███▎      | 776/2320 [00:55<01:12, 21.30it/s] 34%|███▎      | 779/2320 [00:55<01:11, 21.63it/s] 34%|███▎      | 782/2320 [00:55<01:10, 21.93it/s] 34%|███▍      | 785/2320 [00:55<01:10, 21.81it/s] 34%|███▍      | 788/2320 [00:55<01:12, 21.00it/s] 34%|███▍      | 791/2320 [00:56<01:11, 21.26it/s] 34%|███▍      | 794/2320 [00:56<01:10, 21.66it/s] 34%|███▍      | 797/2320 [00:56<01:09, 21.79it/s] 34%|███▍      | 800/2320 [00:56<01:25, 17.73it/s]                                                   34%|███▍      | 800/2320 [00:56<01:25, 17.73it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.46it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.77it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.82it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 34%|███▍      | 800/2320 [00:56<01:25, 17.73it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.82it/s][A
-                                                [A 35%|███▍      | 802/2320 [00:56<02:17, 11.02it/s] 35%|███▍      | 805/2320 [00:57<01:54, 13.20it/s] 35%|███▍      | 808/2320 [00:57<01:39, 15.15it/s] 35%|███▍      | 811/2320 [00:57<01:30, 16.72it/s] 35%|███▌      | 814/2320 [00:57<01:22, 18.18it/s] 35%|███▌      | 817/2320 [00:57<01:17, 19.34it/s] 35%|███▌      | 820/2320 [00:57<01:14, 20.24it/s] 35%|███▌      | 823/2320 [00:57<01:12, 20.52it/s] 36%|███▌      | 826/2320 [00:58<01:10, 21.14it/s] 36%|███▌      | 829/2320 [00:58<01:09, 21.53it/s] 36%|███▌      | 832/2320 [00:58<01:08, 21.85it/s] 36%|███▌      | 835/2320 [00:58<01:07, 21.86it/s] 36%|███▌      | 838/2320 [00:58<01:06, 22.19it/s] 36%|███▋      | 841/2320 [00:58<01:06, 22.34it/s] 36%|███▋      | 844/2320 [00:58<01:05, 22.44it/s] 37%|███▋      | 847/2320 [00:58<01:05, 22.46it/s] 37%|███▋      | 850/2320 [00:59<01:05, 22.42it/s]                                                   37%|███▋      | 850/2320 [00:59<01:05, 22.42it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.08it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.02it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.31it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 37%|███▋      | 850/2320 [00:59<01:05, 22.42it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.31it/s][A
-                                                [A 37%|███▋      | 853/2320 [00:59<01:54, 12.78it/s] 37%|███▋      | 856/2320 [00:59<01:39, 14.69it/s] 37%|███▋      | 859/2320 [00:59<01:30, 16.22it/s] 37%|███▋      | 862/2320 [00:59<01:22, 17.67it/s] 37%|███▋      | 865/2320 [01:00<01:18, 18.42it/s] 37%|███▋      | 868/2320 [01:00<01:15, 19.31it/s] 38%|███▊      | 871/2320 [01:00<01:11, 20.20it/s] 38%|███▊      | 874/2320 [01:00<01:09, 20.94it/s] 38%|███▊      | 877/2320 [01:00<01:07, 21.36it/s] 38%|███▊      | 880/2320 [01:00<01:07, 21.44it/s] 38%|███▊      | 883/2320 [01:00<01:06, 21.72it/s] 38%|███▊      | 886/2320 [01:01<01:05, 21.98it/s] 38%|███▊      | 889/2320 [01:01<01:04, 22.24it/s] 38%|███▊      | 892/2320 [01:01<01:05, 21.80it/s] 39%|███▊      | 895/2320 [01:01<01:06, 21.49it/s] 39%|███▊      | 898/2320 [01:01<01:05, 21.83it/s]                                                   39%|███▉      | 900/2320 [01:01<01:05, 21.83it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.79it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 118.99it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.27it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 39%|███▉      | 900/2320 [01:02<01:05, 21.83it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.27it/s][A
-                                                [A 39%|███▉      | 901/2320 [01:02<02:08, 11.08it/s] 39%|███▉      | 903/2320 [01:02<01:57, 12.11it/s] 39%|███▉      | 906/2320 [01:02<01:39, 14.22it/s] 39%|███▉      | 909/2320 [01:02<01:27, 16.10it/s] 39%|███▉      | 912/2320 [01:02<01:19, 17.72it/s] 39%|███▉      | 915/2320 [01:02<01:14, 18.94it/s] 40%|███▉      | 918/2320 [01:02<01:10, 19.80it/s] 40%|███▉      | 921/2320 [01:03<01:08, 20.45it/s] 40%|███▉      | 924/2320 [01:03<01:06, 21.13it/s] 40%|███▉      | 927/2320 [01:03<01:04, 21.59it/s] 40%|████      | 930/2320 [01:03<01:03, 21.96it/s] 40%|████      | 933/2320 [01:03<01:03, 22.01it/s] 40%|████      | 936/2320 [01:03<01:02, 22.08it/s] 40%|████      | 939/2320 [01:03<01:01, 22.28it/s] 41%|████      | 942/2320 [01:04<01:01, 22.46it/s] 41%|████      | 945/2320 [01:04<01:01, 22.47it/s] 41%|████      | 948/2320 [01:04<01:03, 21.71it/s]                                                   41%|████      | 950/2320 [01:04<01:03, 21.71it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.18it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.52it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.67it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                  
-                                                [A 41%|████      | 950/2320 [01:04<01:03, 21.71it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.67it/s][A
-                                                [A 41%|████      | 951/2320 [01:04<01:48, 12.63it/s] 41%|████      | 954/2320 [01:04<01:33, 14.55it/s] 41%|████▏     | 957/2320 [01:05<01:23, 16.31it/s] 41%|████▏     | 960/2320 [01:05<01:16, 17.80it/s] 42%|████▏     | 963/2320 [01:05<01:11, 19.09it/s] 42%|████▏     | 966/2320 [01:05<01:07, 20.04it/s] 42%|████▏     | 969/2320 [01:05<01:05, 20.61it/s] 42%|████▏     | 972/2320 [01:05<01:03, 21.19it/s] 42%|████▏     | 975/2320 [01:05<01:02, 21.43it/s] 42%|████▏     | 978/2320 [01:06<01:01, 21.75it/s] 42%|████▏     | 981/2320 [01:06<01:00, 22.10it/s] 42%|████▏     | 984/2320 [01:06<01:00, 22.18it/s] 43%|████▎     | 987/2320 [01:06<01:00, 22.20it/s] 43%|████▎     | 990/2320 [01:06<00:59, 22.43it/s] 43%|████▎     | 993/2320 [01:06<00:59, 22.47it/s] 43%|████▎     | 996/2320 [01:06<00:58, 22.50it/s] 43%|████▎     | 999/2320 [01:06<00:58, 22.45it/s]                                                   43%|████▎     | 1000/2320 [01:07<00:58, 22.45it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.37it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.69it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.83it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 43%|████▎     | 1000/2320 [01:07<00:58, 22.45it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.83it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1000
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1000/special_tokens_map.json
- 43%|████▎     | 1002/2320 [01:21<33:21,  1.52s/it] 43%|████▎     | 1005/2320 [01:21<23:35,  1.08s/it] 43%|████▎     | 1008/2320 [01:22<16:45,  1.30it/s] 44%|████▎     | 1011/2320 [01:22<11:59,  1.82it/s] 44%|████▎     | 1014/2320 [01:22<08:39,  2.51it/s] 44%|████▍     | 1017/2320 [01:22<06:19,  3.43it/s] 44%|████▍     | 1020/2320 [01:22<04:42,  4.60it/s] 44%|████▍     | 1023/2320 [01:22<03:36,  5.98it/s] 44%|████▍     | 1026/2320 [01:22<02:48,  7.67it/s] 44%|████▍     | 1029/2320 [01:23<02:14,  9.59it/s] 44%|████▍     | 1032/2320 [01:23<01:50, 11.66it/s] 45%|████▍     | 1035/2320 [01:23<01:34, 13.65it/s] 45%|████▍     | 1038/2320 [01:23<01:22, 15.58it/s] 45%|████▍     | 1041/2320 [01:23<01:14, 17.12it/s] 45%|████▌     | 1044/2320 [01:23<01:08, 18.50it/s] 45%|████▌     | 1047/2320 [01:23<01:04, 19.73it/s] 45%|████▌     | 1050/2320 [01:23<01:01, 20.57it/s]                                                    45%|████▌     | 1050/2320 [01:23<01:01, 20.57it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.56it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.57it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.53it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 45%|████▌     | 1050/2320 [01:24<01:01, 20.57it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.53it/s][A
-                                                [A 45%|████▌     | 1053/2320 [01:24<01:41, 12.43it/s] 46%|████▌     | 1056/2320 [01:24<01:27, 14.42it/s] 46%|████▌     | 1059/2320 [01:24<01:18, 16.05it/s] 46%|████▌     | 1062/2320 [01:24<01:11, 17.49it/s] 46%|████▌     | 1065/2320 [01:24<01:06, 18.87it/s] 46%|████▌     | 1068/2320 [01:25<01:03, 19.77it/s] 46%|████▌     | 1071/2320 [01:25<01:00, 20.73it/s] 46%|████▋     | 1074/2320 [01:25<00:58, 21.33it/s] 46%|████▋     | 1077/2320 [01:25<00:57, 21.80it/s] 47%|████▋     | 1080/2320 [01:25<00:56, 22.09it/s] 47%|████▋     | 1083/2320 [01:25<00:55, 22.46it/s] 47%|████▋     | 1086/2320 [01:25<00:54, 22.63it/s] 47%|████▋     | 1089/2320 [01:25<00:54, 22.78it/s] 47%|████▋     | 1092/2320 [01:26<00:54, 22.71it/s] 47%|████▋     | 1095/2320 [01:26<00:56, 21.68it/s] 47%|████▋     | 1098/2320 [01:26<00:56, 21.71it/s]                                                    47%|████▋     | 1100/2320 [01:26<00:56, 21.71it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.16it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 117.01it/s][A
-100%|██████████| 38/38 [00:00<00:00, 116.95it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 47%|████▋     | 1100/2320 [01:26<00:56, 21.71it/s]
-100%|██████████| 38/38 [00:00<00:00, 116.95it/s][A
-                                                [A 47%|████▋     | 1101/2320 [01:26<01:50, 10.99it/s] 48%|████▊     | 1104/2320 [01:27<01:34, 12.85it/s] 48%|████▊     | 1107/2320 [01:27<01:21, 14.83it/s] 48%|████▊     | 1110/2320 [01:27<01:12, 16.59it/s] 48%|████▊     | 1113/2320 [01:27<01:06, 18.18it/s] 48%|████▊     | 1116/2320 [01:27<01:02, 19.26it/s] 48%|████▊     | 1119/2320 [01:27<00:59, 20.24it/s] 48%|████▊     | 1122/2320 [01:27<00:56, 21.09it/s] 48%|████▊     | 1125/2320 [01:28<00:55, 21.53it/s] 49%|████▊     | 1128/2320 [01:28<00:54, 21.98it/s] 49%|████▉     | 1131/2320 [01:28<00:53, 22.32it/s] 49%|████▉     | 1134/2320 [01:28<00:53, 22.34it/s] 49%|████▉     | 1137/2320 [01:28<00:52, 22.61it/s] 49%|████▉     | 1140/2320 [01:28<00:51, 22.74it/s] 49%|████▉     | 1143/2320 [01:28<00:52, 22.63it/s] 49%|████▉     | 1146/2320 [01:28<00:53, 22.10it/s] 50%|████▉     | 1149/2320 [01:29<00:52, 22.44it/s]                                                    50%|████▉     | 1150/2320 [01:29<00:52, 22.44it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.01it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.52it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.64it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 50%|████▉     | 1150/2320 [01:29<00:52, 22.44it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.64it/s][A
-                                                [A 50%|████▉     | 1152/2320 [01:29<01:30, 12.87it/s] 50%|████▉     | 1155/2320 [01:29<01:18, 14.87it/s] 50%|████▉     | 1158/2320 [01:29<01:09, 16.68it/s] 50%|█████     | 1161/2320 [01:29<01:03, 18.17it/s] 50%|█████     | 1164/2320 [01:30<01:00, 19.26it/s] 50%|█████     | 1167/2320 [01:30<00:57, 20.15it/s] 50%|█████     | 1170/2320 [01:30<00:54, 21.01it/s] 51%|█████     | 1173/2320 [01:30<00:52, 21.69it/s] 51%|█████     | 1176/2320 [01:30<00:51, 22.17it/s] 51%|█████     | 1179/2320 [01:30<00:54, 20.97it/s] 51%|█████     | 1182/2320 [01:30<00:52, 21.55it/s] 51%|█████     | 1185/2320 [01:31<00:51, 21.91it/s] 51%|█████     | 1188/2320 [01:31<00:51, 22.04it/s] 51%|█████▏    | 1191/2320 [01:31<00:50, 22.41it/s] 51%|█████▏    | 1194/2320 [01:31<00:50, 22.45it/s] 52%|█████▏    | 1197/2320 [01:31<00:49, 22.55it/s] 52%|█████▏    | 1200/2320 [01:31<01:01, 18.10it/s]                                                    52%|█████▏    | 1200/2320 [01:31<01:01, 18.10it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 121.59it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 118.73it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.07it/s][A                                                   
-                                                [A 52%|█████▏    | 1200/2320 [01:32<01:01, 18.10it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.07it/s][A
-                                                [A 52%|█████▏    | 1202/2320 [01:32<01:41, 11.01it/s] 52%|█████▏    | 1205/2320 [01:32<01:24, 13.19it/s] 52%|█████▏    | 1208/2320 [01:32<01:13, 15.18it/s] 52%|█████▏    | 1211/2320 [01:32<01:06, 16.77it/s] 52%|█████▏    | 1214/2320 [01:32<01:00, 18.28it/s] 52%|█████▏    | 1217/2320 [01:32<00:56, 19.37it/s] 53%|█████▎    | 1220/2320 [01:33<00:54, 20.21it/s] 53%|█████▎    | 1223/2320 [01:33<00:52, 20.89it/s] 53%|█████▎    | 1226/2320 [01:33<00:51, 21.26it/s] 53%|█████▎    | 1229/2320 [01:33<00:51, 21.20it/s] 53%|█████▎    | 1232/2320 [01:33<00:50, 21.61it/s] 53%|█████▎    | 1235/2320 [01:33<00:49, 22.01it/s] 53%|█████▎    | 1238/2320 [01:33<00:49, 22.05it/s] 53%|█████▎    | 1241/2320 [01:33<00:48, 22.17it/s] 54%|█████▎    | 1244/2320 [01:34<00:48, 22.02it/s] 54%|█████▍    | 1247/2320 [01:34<00:48, 22.24it/s] 54%|█████▍    | 1250/2320 [01:34<00:48, 22.21it/s]                                                    54%|█████▍    | 1250/2320 [01:34<00:48, 22.21it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.48it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.18it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.37it/s][A                                                   
-                                                [A 54%|█████▍    | 1250/2320 [01:34<00:48, 22.21it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.37it/s][A
-                                                [A 54%|█████▍    | 1253/2320 [01:34<01:23, 12.76it/s] 54%|█████▍    | 1256/2320 [01:34<01:12, 14.70it/s] 54%|█████▍    | 1259/2320 [01:35<01:04, 16.40it/s] 54%|█████▍    | 1262/2320 [01:35<00:59, 17.92it/s] 55%|█████▍    | 1265/2320 [01:35<00:55, 19.06it/s] 55%|█████▍    | 1268/2320 [01:35<00:52, 19.95it/s] 55%|█████▍    | 1271/2320 [01:35<00:50, 20.67it/s] 55%|█████▍    | 1274/2320 [01:35<00:49, 21.09it/s] 55%|█████▌    | 1277/2320 [01:35<00:49, 21.07it/s] 55%|█████▌    | 1280/2320 [01:36<00:48, 21.52it/s] 55%|█████▌    | 1283/2320 [01:36<00:47, 21.90it/s] 55%|█████▌    | 1286/2320 [01:36<00:47, 21.97it/s] 56%|█████▌    | 1289/2320 [01:36<00:46, 22.03it/s] 56%|█████▌    | 1292/2320 [01:36<00:46, 22.20it/s] 56%|█████▌    | 1295/2320 [01:36<00:45, 22.41it/s] 56%|█████▌    | 1298/2320 [01:36<00:45, 22.22it/s]                                                    56%|█████▌    | 1300/2320 [01:37<00:45, 22.22it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 32%|███▏      | 12/38 [00:00<00:00, 119.55it/s][A
- 63%|██████▎   | 24/38 [00:00<00:00, 117.36it/s][A
- 95%|█████████▍| 36/38 [00:00<00:00, 117.29it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 56%|█████▌    | 1300/2320 [01:37<00:45, 22.22it/s]
-100%|██████████| 38/38 [00:00<00:00, 117.29it/s][A
-                                                [A 56%|█████▌    | 1301/2320 [01:37<01:31, 11.16it/s] 56%|█████▌    | 1304/2320 [01:37<01:17, 13.17it/s] 56%|█████▋    | 1307/2320 [01:37<01:07, 15.03it/s] 56%|█████▋    | 1310/2320 [01:37<01:00, 16.75it/s] 57%|█████▋    | 1313/2320 [01:37<00:55, 18.06it/s] 57%|█████▋    | 1316/2320 [01:38<00:52, 19.07it/s] 57%|█████▋    | 1319/2320 [01:38<00:50, 19.90it/s] 57%|█████▋    | 1322/2320 [01:38<00:48, 20.61it/s] 57%|█████▋    | 1325/2320 [01:38<00:47, 21.11it/s] 57%|█████▋    | 1328/2320 [01:38<00:46, 21.55it/s] 57%|█████▋    | 1331/2320 [01:38<00:45, 21.76it/s] 57%|█████▊    | 1334/2320 [01:38<00:45, 21.78it/s] 58%|█████▊    | 1337/2320 [01:39<00:44, 21.98it/s] 58%|█████▊    | 1340/2320 [01:39<00:44, 21.92it/s] 58%|█████▊    | 1343/2320 [01:39<00:44, 22.19it/s] 58%|█████▊    | 1346/2320 [01:39<00:44, 21.80it/s] 58%|█████▊    | 1349/2320 [01:39<00:44, 22.00it/s]                                                    58%|█████▊    | 1350/2320 [01:39<00:44, 22.00it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.19it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.56it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.49it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 58%|█████▊    | 1350/2320 [01:39<00:44, 22.00it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.49it/s][A
-                                                [A 58%|█████▊    | 1352/2320 [01:40<01:16, 12.67it/s] 58%|█████▊    | 1355/2320 [01:40<01:06, 14.62it/s] 59%|█████▊    | 1358/2320 [01:40<00:58, 16.37it/s] 59%|█████▊    | 1361/2320 [01:40<00:54, 17.67it/s] 59%|█████▉    | 1364/2320 [01:40<00:50, 18.81it/s] 59%|█████▉    | 1367/2320 [01:40<00:48, 19.79it/s] 59%|█████▉    | 1370/2320 [01:40<00:46, 20.59it/s] 59%|█████▉    | 1373/2320 [01:40<00:44, 21.18it/s] 59%|█████▉    | 1376/2320 [01:41<00:43, 21.46it/s] 59%|█████▉    | 1379/2320 [01:41<00:43, 21.54it/s] 60%|█████▉    | 1382/2320 [01:41<00:43, 21.80it/s] 60%|█████▉    | 1385/2320 [01:41<00:42, 22.06it/s] 60%|█████▉    | 1388/2320 [01:41<00:41, 22.22it/s] 60%|█████▉    | 1391/2320 [01:41<00:44, 20.65it/s] 60%|██████    | 1394/2320 [01:41<00:43, 21.23it/s] 60%|██████    | 1397/2320 [01:42<00:42, 21.60it/s] 60%|██████    | 1400/2320 [01:42<00:52, 17.64it/s]                                                    60%|██████    | 1400/2320 [01:42<00:52, 17.64it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.57it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.76it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.82it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                   
-                                                [A 60%|██████    | 1400/2320 [01:42<00:52, 17.64it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.82it/s][A
-                                                [A 60%|██████    | 1402/2320 [01:42<01:23, 11.00it/s] 61%|██████    | 1405/2320 [01:42<01:09, 13.14it/s] 61%|██████    | 1408/2320 [01:43<01:00, 15.16it/s] 61%|██████    | 1411/2320 [01:43<00:54, 16.77it/s] 61%|██████    | 1413/2320 [01:43<00:52, 17.33it/s] 61%|██████    | 1416/2320 [01:43<00:48, 18.77it/s] 61%|██████    | 1419/2320 [01:43<00:45, 19.89it/s] 61%|██████▏   | 1422/2320 [01:43<00:43, 20.61it/s] 61%|██████▏   | 1425/2320 [01:43<00:42, 20.97it/s] 62%|██████▏   | 1428/2320 [01:43<00:41, 21.37it/s] 62%|██████▏   | 1431/2320 [01:44<00:40, 21.72it/s] 62%|██████▏   | 1434/2320 [01:44<00:40, 21.96it/s] 62%|██████▏   | 1437/2320 [01:44<00:39, 22.15it/s] 62%|██████▏   | 1440/2320 [01:44<00:39, 22.33it/s] 62%|██████▏   | 1443/2320 [01:44<00:41, 21.16it/s] 62%|██████▏   | 1446/2320 [01:44<00:40, 21.62it/s] 62%|██████▏   | 1449/2320 [01:44<00:39, 21.92it/s]                                                    62%|██████▎   | 1450/2320 [01:44<00:39, 21.92it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.12it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 118.30it/s][A
-100%|██████████| 38/38 [00:00<00:00, 117.85it/s][A                                                   
-                                                [A 62%|██████▎   | 1450/2320 [01:45<00:39, 21.92it/s]
-100%|██████████| 38/38 [00:00<00:00, 117.85it/s][A
-                                                [A 63%|██████▎   | 1452/2320 [01:45<01:08, 12.69it/s] 63%|██████▎   | 1455/2320 [01:45<00:59, 14.62it/s] 63%|██████▎   | 1458/2320 [01:45<00:52, 16.39it/s] 63%|██████▎   | 1461/2320 [01:45<00:48, 17.78it/s] 63%|██████▎   | 1464/2320 [01:45<00:45, 18.88it/s] 63%|██████▎   | 1467/2320 [01:46<00:43, 19.77it/s] 63%|██████▎   | 1470/2320 [01:46<00:41, 20.56it/s] 63%|██████▎   | 1473/2320 [01:46<00:39, 21.18it/s] 64%|██████▎   | 1476/2320 [01:46<00:39, 21.54it/s] 64%|██████▍   | 1479/2320 [01:46<00:38, 21.79it/s] 64%|██████▍   | 1482/2320 [01:46<00:37, 22.13it/s] 64%|██████▍   | 1485/2320 [01:46<00:38, 21.82it/s] 64%|██████▍   | 1488/2320 [01:46<00:37, 21.98it/s] 64%|██████▍   | 1491/2320 [01:47<00:37, 22.09it/s] 64%|██████▍   | 1494/2320 [01:47<00:37, 21.79it/s] 65%|██████▍   | 1497/2320 [01:47<00:37, 22.02it/s] 65%|██████▍   | 1500/2320 [01:47<00:46, 17.61it/s]                                                    65%|██████▍   | 1500/2320 [01:47<00:46, 17.61it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.32it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.41it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.51it/s][A                                                   
-                                                [A 65%|██████▍   | 1500/2320 [01:47<00:46, 17.61it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.51it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-1500
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-1500/special_tokens_map.json
- 65%|██████▍   | 1502/2320 [02:02<22:53,  1.68s/it] 65%|██████▍   | 1504/2320 [02:02<17:30,  1.29s/it] 65%|██████▍   | 1507/2320 [02:02<11:42,  1.16it/s] 65%|██████▌   | 1510/2320 [02:02<08:03,  1.68it/s] 65%|██████▌   | 1513/2320 [02:02<05:39,  2.37it/s] 65%|██████▌   | 1516/2320 [02:02<04:03,  3.30it/s] 65%|██████▌   | 1519/2320 [02:03<02:58,  4.49it/s] 66%|██████▌   | 1522/2320 [02:03<02:14,  5.94it/s] 66%|██████▌   | 1525/2320 [02:03<01:44,  7.63it/s] 66%|██████▌   | 1528/2320 [02:03<01:23,  9.53it/s] 66%|██████▌   | 1531/2320 [02:03<01:08, 11.55it/s] 66%|██████▌   | 1534/2320 [02:03<00:57, 13.56it/s] 66%|██████▋   | 1537/2320 [02:03<00:50, 15.43it/s] 66%|██████▋   | 1540/2320 [02:04<00:45, 17.02it/s] 67%|██████▋   | 1543/2320 [02:04<00:42, 18.41it/s] 67%|██████▋   | 1546/2320 [02:04<00:39, 19.52it/s] 67%|██████▋   | 1549/2320 [02:04<00:37, 20.32it/s]                                                    67%|██████▋   | 1550/2320 [02:04<00:37, 20.32it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.45it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.63it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.63it/s][A                                                   
-                                                [A 67%|██████▋   | 1550/2320 [02:04<00:37, 20.32it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.63it/s][A
-                                                [A 67%|██████▋   | 1552/2320 [02:04<01:02, 12.31it/s] 67%|██████▋   | 1555/2320 [02:05<00:53, 14.25it/s] 67%|██████▋   | 1558/2320 [02:05<00:47, 15.92it/s] 67%|██████▋   | 1561/2320 [02:05<00:44, 16.93it/s] 67%|██████▋   | 1563/2320 [02:05<00:44, 17.19it/s] 68%|██████▊   | 1566/2320 [02:05<00:40, 18.56it/s] 68%|██████▊   | 1569/2320 [02:05<00:38, 19.66it/s] 68%|██████▊   | 1572/2320 [02:05<00:36, 20.27it/s] 68%|██████▊   | 1575/2320 [02:05<00:35, 20.74it/s] 68%|██████▊   | 1578/2320 [02:06<00:35, 21.18it/s] 68%|██████▊   | 1581/2320 [02:06<00:34, 21.63it/s] 68%|██████▊   | 1584/2320 [02:06<00:33, 21.86it/s] 68%|██████▊   | 1587/2320 [02:06<00:33, 22.11it/s] 69%|██████▊   | 1590/2320 [02:06<00:32, 22.19it/s] 69%|██████▊   | 1593/2320 [02:06<00:32, 22.30it/s] 69%|██████▉   | 1596/2320 [02:06<00:32, 22.25it/s] 69%|██████▉   | 1599/2320 [02:07<00:32, 22.18it/s]                                                    69%|██████▉   | 1600/2320 [02:07<00:32, 22.18it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.33it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.67it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.76it/s][A                                                   
-                                                [A 69%|██████▉   | 1600/2320 [02:07<00:32, 22.18it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.76it/s][A
-                                                [A 69%|██████▉   | 1602/2320 [02:07<01:04, 11.19it/s] 69%|██████▉   | 1605/2320 [02:07<00:54, 13.17it/s] 69%|██████▉   | 1608/2320 [02:07<00:47, 14.98it/s] 69%|██████▉   | 1611/2320 [02:08<00:42, 16.59it/s] 70%|██████▉   | 1614/2320 [02:08<00:39, 18.02it/s] 70%|██████▉   | 1617/2320 [02:08<00:36, 19.27it/s] 70%|██████▉   | 1620/2320 [02:08<00:34, 20.04it/s] 70%|██████▉   | 1623/2320 [02:08<00:33, 20.77it/s] 70%|███████   | 1626/2320 [02:08<00:32, 21.07it/s] 70%|███████   | 1629/2320 [02:08<00:32, 21.51it/s] 70%|███████   | 1632/2320 [02:08<00:31, 21.84it/s] 70%|███████   | 1635/2320 [02:09<00:31, 22.01it/s] 71%|███████   | 1638/2320 [02:09<00:30, 22.11it/s] 71%|███████   | 1641/2320 [02:09<00:30, 21.93it/s] 71%|███████   | 1644/2320 [02:09<00:30, 21.94it/s] 71%|███████   | 1647/2320 [02:09<00:30, 22.14it/s] 71%|███████   | 1650/2320 [02:09<00:30, 22.13it/s]                                                    71%|███████   | 1650/2320 [02:09<00:30, 22.13it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.44it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.80it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.87it/s][A                                                   
-                                                [A 71%|███████   | 1650/2320 [02:10<00:30, 22.13it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.87it/s][A
-                                                [A 71%|███████▏  | 1653/2320 [02:10<00:52, 12.81it/s] 71%|███████▏  | 1656/2320 [02:10<00:45, 14.65it/s] 72%|███████▏  | 1659/2320 [02:10<00:40, 16.37it/s] 72%|███████▏  | 1662/2320 [02:10<00:37, 17.68it/s] 72%|███████▏  | 1665/2320 [02:10<00:34, 18.97it/s] 72%|███████▏  | 1668/2320 [02:10<00:32, 19.90it/s] 72%|███████▏  | 1671/2320 [02:11<00:31, 20.61it/s] 72%|███████▏  | 1674/2320 [02:11<00:31, 20.28it/s] 72%|███████▏  | 1677/2320 [02:11<00:30, 20.95it/s] 72%|███████▏  | 1680/2320 [02:11<00:30, 21.31it/s] 73%|███████▎  | 1683/2320 [02:11<00:30, 20.94it/s] 73%|███████▎  | 1686/2320 [02:11<00:29, 21.36it/s] 73%|███████▎  | 1689/2320 [02:11<00:28, 21.79it/s] 73%|███████▎  | 1692/2320 [02:12<00:28, 22.13it/s] 73%|███████▎  | 1695/2320 [02:12<00:28, 22.30it/s] 73%|███████▎  | 1698/2320 [02:12<00:28, 22.15it/s]                                                    73%|███████▎  | 1700/2320 [02:12<00:27, 22.15it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.67it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.29it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.36it/s][A                                                   
-                                                [A 73%|███████▎  | 1700/2320 [02:12<00:27, 22.15it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.36it/s][A
-                                                [A 73%|███████▎  | 1701/2320 [02:12<00:55, 11.13it/s] 73%|███████▎  | 1704/2320 [02:13<00:46, 13.15it/s] 74%|███████▎  | 1707/2320 [02:13<00:41, 14.93it/s] 74%|███████▎  | 1710/2320 [02:13<00:36, 16.65it/s] 74%|███████▍  | 1713/2320 [02:13<00:33, 18.05it/s] 74%|███████▍  | 1716/2320 [02:13<00:31, 19.17it/s] 74%|███████▍  | 1719/2320 [02:13<00:29, 20.05it/s] 74%|███████▍  | 1722/2320 [02:13<00:29, 20.55it/s] 74%|███████▍  | 1725/2320 [02:13<00:28, 21.08it/s] 74%|███████▍  | 1728/2320 [02:14<00:27, 21.49it/s] 75%|███████▍  | 1731/2320 [02:14<00:27, 21.69it/s] 75%|███████▍  | 1734/2320 [02:14<00:26, 21.81it/s] 75%|███████▍  | 1737/2320 [02:14<00:26, 22.09it/s] 75%|███████▌  | 1740/2320 [02:14<00:25, 22.35it/s] 75%|███████▌  | 1743/2320 [02:14<00:25, 22.30it/s] 75%|███████▌  | 1746/2320 [02:14<00:25, 22.31it/s] 75%|███████▌  | 1749/2320 [02:15<00:25, 22.39it/s]                                                    75%|███████▌  | 1750/2320 [02:15<00:25, 22.39it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.51it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.69it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.25it/s][A                                                   
-                                                [A 75%|███████▌  | 1750/2320 [02:15<00:25, 22.39it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.25it/s][A
-                                                [A 76%|███████▌  | 1752/2320 [02:15<00:44, 12.81it/s] 76%|███████▌  | 1755/2320 [02:15<00:38, 14.62it/s] 76%|███████▌  | 1758/2320 [02:15<00:34, 16.38it/s] 76%|███████▌  | 1761/2320 [02:15<00:31, 17.90it/s] 76%|███████▌  | 1764/2320 [02:16<00:29, 19.15it/s] 76%|███████▌  | 1767/2320 [02:16<00:27, 20.09it/s] 76%|███████▋  | 1770/2320 [02:16<00:26, 20.75it/s] 76%|███████▋  | 1773/2320 [02:16<00:25, 21.29it/s] 77%|███████▋  | 1776/2320 [02:16<00:25, 21.70it/s] 77%|███████▋  | 1779/2320 [02:16<00:24, 22.00it/s] 77%|███████▋  | 1782/2320 [02:16<00:24, 21.95it/s] 77%|███████▋  | 1785/2320 [02:16<00:24, 22.14it/s] 77%|███████▋  | 1788/2320 [02:17<00:24, 21.87it/s] 77%|███████▋  | 1791/2320 [02:17<00:23, 22.16it/s] 77%|███████▋  | 1794/2320 [02:17<00:23, 22.04it/s] 77%|███████▋  | 1797/2320 [02:17<00:23, 22.10it/s] 78%|███████▊  | 1800/2320 [02:17<00:29, 17.71it/s]                                                    78%|███████▊  | 1800/2320 [02:17<00:29, 17.71it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.22it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.61it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.68it/s][A                                                   
-                                                [A 78%|███████▊  | 1800/2320 [02:18<00:29, 17.71it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.68it/s][A
-                                                [A 78%|███████▊  | 1802/2320 [02:18<00:47, 10.96it/s] 78%|███████▊  | 1805/2320 [02:18<00:39, 13.11it/s] 78%|███████▊  | 1808/2320 [02:18<00:33, 15.08it/s] 78%|███████▊  | 1811/2320 [02:18<00:30, 16.84it/s] 78%|███████▊  | 1814/2320 [02:18<00:27, 18.20it/s] 78%|███████▊  | 1817/2320 [02:18<00:26, 19.27it/s] 78%|███████▊  | 1820/2320 [02:18<00:24, 20.02it/s] 79%|███████▊  | 1823/2320 [02:19<00:24, 20.70it/s] 79%|███████▊  | 1826/2320 [02:19<00:23, 21.26it/s] 79%|███████▉  | 1829/2320 [02:19<00:23, 20.88it/s] 79%|███████▉  | 1832/2320 [02:19<00:22, 21.34it/s] 79%|███████▉  | 1835/2320 [02:19<00:22, 21.78it/s] 79%|███████▉  | 1838/2320 [02:19<00:21, 22.07it/s] 79%|███████▉  | 1841/2320 [02:19<00:22, 21.05it/s] 79%|███████▉  | 1844/2320 [02:20<00:22, 21.46it/s] 80%|███████▉  | 1847/2320 [02:20<00:21, 21.51it/s] 80%|███████▉  | 1850/2320 [02:20<00:21, 21.80it/s]                                                    80%|███████▉  | 1850/2320 [02:20<00:21, 21.80it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.35it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.59it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.58it/s][A                                                   
-                                                [A 80%|███████▉  | 1850/2320 [02:20<00:21, 21.80it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.58it/s][A
-                                                [A 80%|███████▉  | 1853/2320 [02:20<00:36, 12.71it/s] 80%|████████  | 1856/2320 [02:20<00:31, 14.61it/s] 80%|████████  | 1859/2320 [02:21<00:28, 16.35it/s] 80%|████████  | 1861/2320 [02:21<00:27, 16.96it/s] 80%|████████  | 1864/2320 [02:21<00:24, 18.41it/s] 80%|████████  | 1867/2320 [02:21<00:23, 19.52it/s] 81%|████████  | 1870/2320 [02:21<00:22, 20.07it/s] 81%|████████  | 1873/2320 [02:21<00:21, 20.79it/s] 81%|████████  | 1876/2320 [02:21<00:20, 21.19it/s] 81%|████████  | 1879/2320 [02:22<00:20, 21.62it/s] 81%|████████  | 1882/2320 [02:22<00:19, 21.94it/s] 81%|████████▏ | 1885/2320 [02:22<00:19, 22.22it/s] 81%|████████▏ | 1888/2320 [02:22<00:19, 22.25it/s] 82%|████████▏ | 1891/2320 [02:22<00:19, 22.34it/s] 82%|████████▏ | 1894/2320 [02:22<00:19, 22.23it/s] 82%|████████▏ | 1897/2320 [02:22<00:18, 22.45it/s] 82%|████████▏ | 1900/2320 [02:23<00:23, 17.81it/s]                                                    82%|████████▏ | 1900/2320 [02:23<00:23, 17.81it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.26it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.45it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.62it/s][A                                                   
-                                                [A 82%|████████▏ | 1900/2320 [02:23<00:23, 17.81it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.62it/s][A
-                                                [A 82%|████████▏ | 1902/2320 [02:23<00:37, 11.04it/s] 82%|████████▏ | 1905/2320 [02:23<00:31, 13.19it/s] 82%|████████▏ | 1908/2320 [02:23<00:27, 15.10it/s] 82%|████████▏ | 1911/2320 [02:23<00:24, 16.80it/s] 82%|████████▎ | 1914/2320 [02:24<00:22, 18.04it/s] 83%|████████▎ | 1917/2320 [02:24<00:20, 19.31it/s] 83%|████████▎ | 1920/2320 [02:24<00:19, 20.18it/s] 83%|████████▎ | 1923/2320 [02:24<00:19, 20.79it/s] 83%|████████▎ | 1926/2320 [02:24<00:18, 21.31it/s] 83%|████████▎ | 1929/2320 [02:24<00:18, 20.78it/s] 83%|████████▎ | 1932/2320 [02:24<00:18, 21.21it/s] 83%|████████▎ | 1935/2320 [02:24<00:17, 21.66it/s] 84%|████████▎ | 1938/2320 [02:25<00:17, 21.93it/s] 84%|████████▎ | 1941/2320 [02:25<00:17, 21.87it/s] 84%|████████▍ | 1944/2320 [02:25<00:17, 22.08it/s] 84%|████████▍ | 1947/2320 [02:25<00:17, 21.87it/s] 84%|████████▍ | 1950/2320 [02:25<00:16, 22.21it/s]                                                    84%|████████▍ | 1950/2320 [02:25<00:16, 22.21it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.27it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 117.24it/s][A
-100%|██████████| 38/38 [00:00<00:00, 117.14it/s][A                                                   
-                                                [A 84%|████████▍ | 1950/2320 [02:25<00:16, 22.21it/s]
-100%|██████████| 38/38 [00:00<00:00, 117.14it/s][A
-                                                [A 84%|████████▍ | 1953/2320 [02:26<00:28, 12.74it/s] 84%|████████▍ | 1956/2320 [02:26<00:24, 14.69it/s] 84%|████████▍ | 1959/2320 [02:26<00:22, 16.22it/s] 85%|████████▍ | 1962/2320 [02:26<00:20, 17.69it/s] 85%|████████▍ | 1965/2320 [02:26<00:18, 18.87it/s] 85%|████████▍ | 1968/2320 [02:26<00:17, 19.79it/s] 85%|████████▍ | 1971/2320 [02:26<00:17, 19.62it/s] 85%|████████▌ | 1974/2320 [02:27<00:16, 20.44it/s] 85%|████████▌ | 1977/2320 [02:27<00:16, 21.07it/s] 85%|████████▌ | 1980/2320 [02:27<00:15, 21.44it/s] 85%|████████▌ | 1983/2320 [02:27<00:15, 21.80it/s] 86%|████████▌ | 1986/2320 [02:27<00:15, 22.07it/s] 86%|████████▌ | 1989/2320 [02:27<00:14, 22.18it/s] 86%|████████▌ | 1992/2320 [02:27<00:14, 22.10it/s] 86%|████████▌ | 1995/2320 [02:28<00:15, 21.53it/s] 86%|████████▌ | 1998/2320 [02:28<00:14, 21.87it/s]                                                    86%|████████▌ | 2000/2320 [02:28<00:14, 21.87it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.48it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.62it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.73it/s][A                                                   
-                                                [A 86%|████████▌ | 2000/2320 [02:28<00:14, 21.87it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.73it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-2000
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-2000/special_tokens_map.json
- 86%|████████▋ | 2001/2320 [02:43<08:05,  1.52s/it] 86%|████████▋ | 2003/2320 [02:43<06:18,  1.19s/it] 86%|████████▋ | 2006/2320 [02:43<04:19,  1.21it/s] 87%|████████▋ | 2009/2320 [02:43<02:59,  1.73it/s] 87%|████████▋ | 2012/2320 [02:43<02:07,  2.42it/s] 87%|████████▋ | 2015/2320 [02:43<01:31,  3.34it/s] 87%|████████▋ | 2018/2320 [02:43<01:06,  4.52it/s] 87%|████████▋ | 2021/2320 [02:43<00:50,  5.93it/s] 87%|████████▋ | 2024/2320 [02:44<00:38,  7.65it/s] 87%|████████▋ | 2027/2320 [02:44<00:30,  9.54it/s] 88%|████████▊ | 2030/2320 [02:44<00:25, 11.52it/s] 88%|████████▊ | 2033/2320 [02:44<00:21, 13.49it/s] 88%|████████▊ | 2036/2320 [02:44<00:18, 15.24it/s] 88%|████████▊ | 2039/2320 [02:44<00:16, 16.83it/s] 88%|████████▊ | 2042/2320 [02:44<00:15, 18.07it/s] 88%|████████▊ | 2045/2320 [02:45<00:14, 19.00it/s] 88%|████████▊ | 2048/2320 [02:45<00:13, 20.01it/s]                                                    88%|████████▊ | 2050/2320 [02:45<00:13, 20.01it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 120.41it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 118.25it/s][A
-100%|██████████| 38/38 [00:00<00:00, 117.83it/s][A                                                   
-                                                [A 88%|████████▊ | 2050/2320 [02:45<00:13, 20.01it/s]
-100%|██████████| 38/38 [00:00<00:00, 117.83it/s][A
-                                                [A 88%|████████▊ | 2051/2320 [02:45<00:22, 12.18it/s] 89%|████████▊ | 2054/2320 [02:45<00:18, 14.16it/s] 89%|████████▊ | 2057/2320 [02:45<00:16, 15.87it/s] 89%|████████▉ | 2060/2320 [02:46<00:14, 17.45it/s] 89%|████████▉ | 2063/2320 [02:46<00:13, 18.63it/s] 89%|████████▉ | 2066/2320 [02:46<00:13, 19.49it/s] 89%|████████▉ | 2069/2320 [02:46<00:12, 20.22it/s] 89%|████████▉ | 2072/2320 [02:46<00:11, 20.93it/s] 89%|████████▉ | 2075/2320 [02:46<00:11, 21.36it/s] 90%|████████▉ | 2078/2320 [02:46<00:11, 21.63it/s] 90%|████████▉ | 2081/2320 [02:46<00:10, 21.83it/s] 90%|████████▉ | 2084/2320 [02:47<00:10, 22.00it/s] 90%|████████▉ | 2087/2320 [02:47<00:10, 21.93it/s] 90%|█████████ | 2090/2320 [02:47<00:10, 21.61it/s] 90%|█████████ | 2093/2320 [02:47<00:10, 21.97it/s] 90%|█████████ | 2096/2320 [02:47<00:10, 22.08it/s] 90%|█████████ | 2099/2320 [02:47<00:09, 22.23it/s]                                                    91%|█████████ | 2100/2320 [02:47<00:09, 22.23it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.87it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.31it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.26it/s][A                                                   
-                                                [A 91%|█████████ | 2100/2320 [02:48<00:09, 22.23it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.26it/s][A
-                                                [A 91%|█████████ | 2102/2320 [02:48<00:19, 11.09it/s] 91%|█████████ | 2105/2320 [02:48<00:16, 13.09it/s] 91%|█████████ | 2108/2320 [02:48<00:14, 14.94it/s] 91%|█████████ | 2111/2320 [02:48<00:12, 16.52it/s] 91%|█████████ | 2114/2320 [02:48<00:11, 18.01it/s] 91%|█████████▏| 2117/2320 [02:49<00:10, 19.21it/s] 91%|█████████▏| 2120/2320 [02:49<00:09, 20.09it/s] 92%|█████████▏| 2123/2320 [02:49<00:09, 20.77it/s] 92%|█████████▏| 2126/2320 [02:49<00:09, 21.22it/s] 92%|█████████▏| 2129/2320 [02:49<00:08, 21.37it/s] 92%|█████████▏| 2132/2320 [02:49<00:08, 21.49it/s] 92%|█████████▏| 2135/2320 [02:49<00:08, 21.83it/s] 92%|█████████▏| 2138/2320 [02:49<00:08, 21.95it/s] 92%|█████████▏| 2141/2320 [02:50<00:08, 21.95it/s] 92%|█████████▏| 2144/2320 [02:50<00:08, 21.21it/s] 93%|█████████▎| 2147/2320 [02:50<00:08, 21.61it/s] 93%|█████████▎| 2150/2320 [02:50<00:07, 21.94it/s]                                                    93%|█████████▎| 2150/2320 [02:50<00:07, 21.94it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 123.12it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.42it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.36it/s][A                                                   
-                                                [A 93%|█████████▎| 2150/2320 [02:50<00:07, 21.94it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.36it/s][A
-                                                [A 93%|█████████▎| 2153/2320 [02:51<00:13, 12.69it/s] 93%|█████████▎| 2156/2320 [02:51<00:11, 14.62it/s] 93%|█████████▎| 2159/2320 [02:51<00:09, 16.30it/s] 93%|█████████▎| 2162/2320 [02:51<00:08, 17.64it/s] 93%|█████████▎| 2165/2320 [02:51<00:08, 18.86it/s] 93%|█████████▎| 2168/2320 [02:51<00:08, 18.98it/s] 94%|█████████▎| 2171/2320 [02:51<00:07, 19.92it/s] 94%|█████████▎| 2174/2320 [02:51<00:07, 20.58it/s] 94%|█████████▍| 2177/2320 [02:52<00:06, 21.10it/s] 94%|█████████▍| 2180/2320 [02:52<00:06, 21.38it/s] 94%|█████████▍| 2183/2320 [02:52<00:06, 21.66it/s] 94%|█████████▍| 2186/2320 [02:52<00:06, 21.87it/s] 94%|█████████▍| 2189/2320 [02:52<00:05, 22.01it/s] 94%|█████████▍| 2192/2320 [02:52<00:05, 22.01it/s] 95%|█████████▍| 2195/2320 [02:52<00:05, 22.12it/s] 95%|█████████▍| 2198/2320 [02:53<00:05, 22.05it/s]                                                    95%|█████████▍| 2200/2320 [02:53<00:05, 22.05it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.87it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.45it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.42it/s][A                                                   
-                                                [A 95%|█████████▍| 2200/2320 [02:53<00:05, 22.05it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.42it/s][A
-                                                [A 95%|█████████▍| 2201/2320 [02:53<00:10, 11.14it/s] 95%|█████████▌| 2204/2320 [02:53<00:08, 13.17it/s] 95%|█████████▌| 2207/2320 [02:53<00:07, 14.89it/s] 95%|█████████▌| 2209/2320 [02:54<00:07, 15.70it/s] 95%|█████████▌| 2212/2320 [02:54<00:06, 17.37it/s] 95%|█████████▌| 2215/2320 [02:54<00:05, 18.77it/s] 96%|█████████▌| 2218/2320 [02:54<00:05, 19.73it/s] 96%|█████████▌| 2221/2320 [02:54<00:04, 20.59it/s] 96%|█████████▌| 2224/2320 [02:54<00:04, 21.25it/s] 96%|█████████▌| 2227/2320 [02:54<00:04, 21.56it/s] 96%|█████████▌| 2230/2320 [02:54<00:04, 21.68it/s] 96%|█████████▋| 2233/2320 [02:55<00:03, 21.97it/s] 96%|█████████▋| 2236/2320 [02:55<00:03, 21.65it/s] 97%|█████████▋| 2239/2320 [02:55<00:03, 21.96it/s] 97%|█████████▋| 2242/2320 [02:55<00:03, 22.17it/s] 97%|█████████▋| 2245/2320 [02:55<00:03, 22.01it/s] 97%|█████████▋| 2248/2320 [02:55<00:03, 22.09it/s]                                                    97%|█████████▋| 2250/2320 [02:55<00:03, 22.09it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.83it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.36it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.35it/s][A                                                   
-                                                [A 97%|█████████▋| 2250/2320 [02:56<00:03, 22.09it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.35it/s][A
-                                                [A 97%|█████████▋| 2251/2320 [02:56<00:05, 12.76it/s] 97%|█████████▋| 2254/2320 [02:56<00:04, 14.65it/s] 97%|█████████▋| 2257/2320 [02:56<00:03, 16.37it/s] 97%|█████████▋| 2260/2320 [02:56<00:03, 17.85it/s] 98%|█████████▊| 2263/2320 [02:56<00:03, 18.83it/s] 98%|█████████▊| 2266/2320 [02:56<00:02, 19.81it/s] 98%|█████████▊| 2269/2320 [02:57<00:02, 20.42it/s] 98%|█████████▊| 2272/2320 [02:57<00:02, 20.99it/s] 98%|█████████▊| 2275/2320 [02:57<00:02, 21.43it/s] 98%|█████████▊| 2278/2320 [02:57<00:01, 21.50it/s] 98%|█████████▊| 2281/2320 [02:57<00:01, 21.65it/s] 98%|█████████▊| 2284/2320 [02:57<00:01, 21.95it/s] 99%|█████████▊| 2287/2320 [02:57<00:01, 22.09it/s] 99%|█████████▊| 2290/2320 [02:57<00:01, 22.12it/s] 99%|█████████▉| 2293/2320 [02:58<00:01, 22.20it/s] 99%|█████████▉| 2296/2320 [02:58<00:01, 22.06it/s] 99%|█████████▉| 2299/2320 [02:58<00:00, 22.26it/s]                                                    99%|█████████▉| 2300/2320 [02:58<00:00, 22.26it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 8
-
-  0%|          | 0/38 [00:00<?, ?it/s][A
- 34%|███▍      | 13/38 [00:00<00:00, 122.71it/s][A
- 68%|██████▊   | 26/38 [00:00<00:00, 119.24it/s][A
-100%|██████████| 38/38 [00:00<00:00, 118.36it/s][A                                                   
-                                                [A 99%|█████████▉| 2300/2320 [02:58<00:00, 22.26it/s]
-100%|██████████| 38/38 [00:00<00:00, 118.36it/s][A
-                                                [A 99%|█████████▉| 2302/2320 [02:58<00:01, 11.12it/s] 99%|█████████▉| 2305/2320 [02:59<00:01, 13.13it/s] 99%|█████████▉| 2308/2320 [02:59<00:00, 14.99it/s]100%|█████████▉| 2311/2320 [02:59<00:00, 16.63it/s]100%|█████████▉| 2314/2320 [02:59<00:00, 18.07it/s]100%|█████████▉| 2317/2320 [02:59<00:00, 19.24it/s]100%|██████████| 2320/2320 [02:59<00:00, 20.11it/s]
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-                                                   100%|██████████| 2320/2320 [02:59<00:00, 20.11it/s]100%|██████████| 2320/2320 [02:59<00:00, 12.91it/s]
-***** Running Prediction *****
-  Num examples = 1849
-  Batch size = 8
-  0%|          | 0/232 [00:00<?, ?it/s]  6%|▌         | 13/232 [00:00<00:01, 124.84it/s] 11%|█         | 26/232 [00:00<00:01, 114.70it/s] 16%|█▋        | 38/232 [00:00<00:01, 113.47it/s] 22%|██▏       | 50/232 [00:00<00:01, 114.72it/s] 27%|██▋       | 62/232 [00:00<00:01, 115.19it/s] 32%|███▏      | 74/232 [00:00<00:01, 115.94it/s] 37%|███▋      | 86/232 [00:00<00:01, 116.27it/s] 42%|████▏     | 98/232 [00:00<00:01, 116.04it/s] 47%|████▋     | 110/232 [00:00<00:01, 114.83it/s] 53%|█████▎    | 122/232 [00:01<00:00, 114.63it/s] 58%|█████▊    | 134/232 [00:01<00:00, 114.86it/s] 63%|██████▎   | 146/232 [00:01<00:00, 114.70it/s] 68%|██████▊   | 158/232 [00:01<00:00, 113.58it/s] 73%|███████▎  | 170/232 [00:01<00:00, 114.38it/s] 78%|███████▊  | 182/232 [00:01<00:00, 114.12it/s] 84%|████████▎ | 194/232 [00:01<00:00, 115.08it/s] 89%|████████▉ | 206/232 [00:01<00:00, 113.93it/s] 94%|█████████▍| 218/232 [00:01<00:00, 112.43it/s] 99%|█████████▉| 230/232 [00:02<00:00, 113.01it/s]100%|██████████| 232/232 [00:02<00:00, 114.44it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 123.03it/s] 68%|██████▊   | 26/38 [00:00<00:00, 119.29it/s]100%|██████████| 38/38 [00:00<00:00, 118.32it/s]100%|██████████| 38/38 [00:00<00:00, 118.46it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 126.62it/s] 68%|██████▊   | 26/38 [00:00<00:00, 114.82it/s]100%|██████████| 38/38 [00:00<00:00, 113.05it/s]100%|██████████| 38/38 [00:00<00:00, 114.15it/s]
-wandb: Waiting for W&B process to finish... (success).
-wandb: - 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: | 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: / 0.002 MB of 0.465 MB uploaded (0.000 MB deduped)wandb: - 0.002 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: | 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: / 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: - 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: \ 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: | 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: / 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb: - 0.527 MB of 0.527 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:                  eval/accuracy ▁▃▄▅▆▆▇▇▇▇▇▇████▇█▇██████████▇██████████
-wandb:                        eval/f1 ▁▃▄▅▆▆▇▇▇▇▇▇████▇███████████████████████
-wandb:                      eval/loss █▇▅▄▃▃▂▂▁▁▂▂▁▁▁▁▁▁▂▂▂▂▃▃▂▃▃▄▄▄▄▄▄▄▄▄▄▄▄▄
-wandb:                 eval/precision ▁▂▅▆▆▆▇▇▇▇█▇█▇▇▇▇▇▇██▇█▇█▇▇█▇▇██████████
-wandb:                    eval/recall ▁▃▄▅▆▆▇▇▇▇▇▇████▇█▇██████████▇██████████
-wandb:                   eval/runtime ▅▄▂▁▁▁▅▃▁▃▁▃▃▃▃▃▂▁▂██▃█▂▂▄▂▁▁▃▃▂▂▇▂▆▃▃▃▃
-wandb:        eval/samples_per_second ▄▅▇▇██▄▅█▆█▆▆▆▆▆▇█▇▁▁▆▁▇▇▅▇██▆▆▇▇▂▇▃▆▆▆▆
-wandb:          eval/steps_per_second ▄▅▇▇██▄▅█▆█▆▆▆▆▆▇█▇▁▁▆▁▇▇▅▇██▆▆▇▇▂▇▃▆▆▆▆
-wandb:                    train/epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:              train/global_step ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:            train/learning_rate ████▇▇▇▇▇▆▆▆▆▆▅▅▅▅▅▅▄▄▄▄▄▄▃▃▃▃▃▂▂▂▂▂▁▁▁▁
-wandb:                     train/loss ██▇▇▆▅▅▅▄▃▄▃▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:               train/total_flos ▁
-wandb:               train/train_loss ▁
-wandb:            train/train_runtime ▁
-wandb: train/train_samples_per_second ▁
-wandb:   train/train_steps_per_second ▁
-wandb: 
-wandb: Run summary:
-wandb:                  eval/accuracy 0.68
-wandb:                        eval/f1 0.68504
-wandb:                      eval/loss 1.73289
-wandb:                 eval/precision 0.69705
-wandb:                    eval/recall 0.68
-wandb:                   eval/runtime 0.3313
-wandb:        eval/samples_per_second 905.606
-wandb:          eval/steps_per_second 114.71
-wandb:                    train/epoch 10.0
-wandb:              train/global_step 2320
-wandb:            train/learning_rate 0.0
-wandb:                     train/loss 0.0741
-wandb:               train/total_flos 1084623131948940.0
-wandb:               train/train_loss 0.63401
-wandb:            train/train_runtime 179.777
-wandb: train/train_samples_per_second 102.85
-wandb:   train/train_steps_per_second 12.905
-wandb: 
-wandb: Synced silver-haze-18: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/11veypek
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220929_091037-11veypek/logs
-Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
-Exiting Application
-################################################################################
-Stack trace:
-################################################################################
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x15127e9a4f06]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x15127e99c8e5]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x15127e8c1e09]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x15127e9a5a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x15127e8bf948]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x15127e9a5a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x15127e87ab46]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x15127e2df46a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x1512ca3708a7]
-/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x1512ca370a60]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x1512ca34e08a]
-python(+0x2125d4) [0x55d2b879f5d4]
-/var/spool/slurm/slurmd/job06546/slurm_script: line 60: 1565224 Aborted                 (core dumped) python main_classifier.py --train_input_file tmp/masked_sentences_with_AMR_container_objects_train_conceptnet_good_relations.joblib --dev_input_file tmp/masked_sentences_with_AMR_container_objects_dev_conceptnet_good_relations.joblib --test_input_file tmp/masked_sentences_with_AMR_container_objects_test_conceptnet_good_relations.joblib --input_feature masked_articles --batch_size 8 --learning_rate 2e-5 --num_epochs 10 --classifier_dropout 0.1 --weight_decay 0.01 --augments conceptnet

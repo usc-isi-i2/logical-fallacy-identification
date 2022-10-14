@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 44, in <module>
-    def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-NameError: name 'nx' is not defined. Did you mean: 'np'?
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 44, in <module>
-    def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-NameError: name 'nx' is not defined. Did you mean: 'np'?
-/var/spool/slurm/slurmd/job06079/slurm_script: line 36: --augments: command not found

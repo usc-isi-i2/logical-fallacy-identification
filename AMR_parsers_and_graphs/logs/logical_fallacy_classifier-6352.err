@@ -1,267 +1,0 @@
-wandb: Agent Starting Run: 5jwwaeye with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.1
-wandb: 	input_feature: masked_articles
-wandb: 	learning_rate: 1e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.01
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_094808-5jwwaeye
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run radiant-sweep-1
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/e1obfknk
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/5jwwaeye
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 16.02ba/s]100%|██████████| 2/2 [00:00<00:00, 15.97ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 73.01ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 86.94ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced radiant-sweep-1: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/5jwwaeye
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_094808-5jwwaeye/logs
-Run 5jwwaeye errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run 5jwwaeye errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Agent Starting Run: i7p9cf7l with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.1
-wandb: 	input_feature: masked_articles
-wandb: 	learning_rate: 1e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.001
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_094824-i7p9cf7l
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cerulean-sweep-2
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/e1obfknk
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/i7p9cf7l
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 34.61ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 93.18ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 98.02ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced cerulean-sweep-2: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/i7p9cf7l
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_094824-i7p9cf7l/logs
-Run i7p9cf7l errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run i7p9cf7l errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Sweep Agent: Waiting for job.
-wandb: Job received.
-wandb: Agent Starting Run: c3g6asid with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.1
-wandb: 	input_feature: masked_articles
-wandb: 	learning_rate: 5e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.01
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_094845-c3g6asid
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run cosmic-sweep-3
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/e1obfknk
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/c3g6asid
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 35.10ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 92.40ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 93.19ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced cosmic-sweep-3: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/c3g6asid
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_094845-c3g6asid/logs
-Run c3g6asid errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run c3g6asid errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-Detected 3 failed runs in the first 60 seconds, killing sweep.
-wandb: ERROR Detected 3 failed runs in the first 60 seconds, killing sweep.
-wandb: To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true
-Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
-Exiting Application
-################################################################################
-Stack trace:
-################################################################################
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x147ef96e3f06]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x147ef96db8e5]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x147ef9600e09]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x147ef96e4a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x147ef95fe948]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x147ef96e4a3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x147ef95b9b46]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x147ef901e46a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x147f450af8a7]
-/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x147f450afa60]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x147f4508d08a]
-python(+0x2125d4) [0x55d0fecd05d4]
-/var/spool/slurm/slurmd/job06352/slurm_script: line 26: 1449177 Aborted                 (core dumped) python baselines.py --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_feature masked_articles
-wandb: Agent Starting Run: 7m2jzxfb with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.1
-wandb: 	input_feature: source_article
-wandb: 	learning_rate: 1e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.01
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_094902-7m2jzxfb
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run solar-sweep-1
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/0rpv40q4
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/7m2jzxfb
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 32.78ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 111.19ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 110.69ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced solar-sweep-1: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/7m2jzxfb
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_094902-7m2jzxfb/logs
-Run 7m2jzxfb errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run 7m2jzxfb errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Agent Starting Run: q925w6p4 with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.1
-wandb: 	input_feature: source_article
-wandb: 	learning_rate: 1e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.001
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_094918-q925w6p4
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run clear-sweep-2
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/0rpv40q4
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/q925w6p4
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 44.82ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 118.02ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 114.92ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced clear-sweep-2: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/q925w6p4
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_094918-q925w6p4/logs
-Run q925w6p4 errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run q925w6p4 errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Sweep Agent: Waiting for job.
-500 response executing GraphQL.
-{"errors":[{"message":"context deadline exceeded"}]}
-wandb: ERROR Error while calling W&B API: context deadline exceeded (<Response [500]>)
-wandb: Job received.
-wandb: Agent Starting Run: isk6fg04 with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.1
-wandb: 	input_feature: source_article
-wandb: 	learning_rate: 5e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.001
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_095043-isk6fg04
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run easy-sweep-3
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/0rpv40q4
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/isk6fg04
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 43.51ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 112.75ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 113.09ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.004 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.004 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced easy-sweep-3: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/isk6fg04
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_095043-isk6fg04/logs
-Run isk6fg04 errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run isk6fg04 errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Agent Starting Run: c9ljsbza with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.3
-wandb: 	input_feature: source_article
-wandb: 	learning_rate: 1e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.01
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_095058-c9ljsbza
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run sleek-sweep-4
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/0rpv40q4
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/c9ljsbza
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 43.49ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 106.72ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 110.32ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced sleek-sweep-4: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/c9ljsbza
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_095058-c9ljsbza/logs
-Run c9ljsbza errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run c9ljsbza errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Agent Starting Run: nto9c5b1 with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.3
-wandb: 	input_feature: source_article
-wandb: 	learning_rate: 1e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.001
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_095113-nto9c5b1
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run glad-sweep-5
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/0rpv40q4
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/nto9c5b1
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 44.22ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 112.35ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 114.48ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced glad-sweep-5: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/nto9c5b1
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_095113-nto9c5b1/logs
-Run nto9c5b1 errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run nto9c5b1 errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: Agent Starting Run: ywuzninw with config:
-wandb: 	batch_size: 8
-wandb: 	classifier_dropout: 0.3
-wandb: 	input_feature: source_article
-wandb: 	learning_rate: 5e-05
-wandb: 	num_epochs: 10
-wandb: 	weight_decay: 0.01
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220928_095130-ywuzninw
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run rosy-sweep-6
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Baseline%20Finder
-wandb: 🧹 View sweep at https://wandb.ai/zhpinkman/Baseline%20Finder/sweeps/0rpv40q4
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Baseline%20Finder/runs/ywuzninw
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 43.78ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 113.42ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 108.05ba/s]
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: \ 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: | 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: / 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb: - 0.009 MB of 0.009 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced rosy-sweep-6: https://wandb.ai/zhpinkman/Baseline%20Finder/runs/ywuzninw
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220928_095130-ywuzninw/logs
-Run ywuzninw errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-wandb: ERROR Run ywuzninw errored: AttributeError("'NoneType' object has no attribute 'classifier_dropout'")
-Detected 5 failed runs in a row at start, killing sweep.
-wandb: ERROR Detected 5 failed runs in a row at start, killing sweep.
-wandb: To change this value set WANDB_AGENT_MAX_INITIAL_FAILURES=val
-Fatal error condition occurred in /opt/vcpkg/buildtrees/aws-c-io/src/9e6648842a-364b708815.clean/source/event_loop.c:72: aws_thread_launch(&cleanup_thread, s_event_loop_destroy_async_thread_fn, el_group, &thread_options) == AWS_OP_SUCCESS
-Exiting Application
-################################################################################
-Stack trace:
-################################################################################
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200af06) [0x14d8c090cf06]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x20028e5) [0x14d8c09048e5]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f27e09) [0x14d8c0829e09]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14d8c090da3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1f25948) [0x14d8c0827948]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x200ba3d) [0x14d8c090da3d]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x1ee0b46) [0x14d8c07e2b46]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/pyarrow/libarrow.so.900(+0x194546a) [0x14d8c024746a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x468a7) [0x14d90c2d88a7]
-/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x14d90c2d8a60]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfa) [0x14d90c2b608a]
-python(+0x2125d4) [0x557a429765d4]
-/var/spool/slurm/slurmd/job06352/slurm_script: line 33: 1449528 Aborted                 (core dumped) python baselines.py --train_input_file data/edu_train.csv --dev_input_file data/edu_dev.csv --test_input_file data/edu_test.csv --input_feature source_article

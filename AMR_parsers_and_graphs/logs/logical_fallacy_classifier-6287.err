@@ -1,275 +1,0 @@
-Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Downloading:   0%|          | 0.00/28.0 [00:00<?, ?B/s]Downloading: 100%|██████████| 28.0/28.0 [00:00<00:00, 47.1kB/s]
-Downloading:   0%|          | 0.00/483 [00:00<?, ?B/s]Downloading: 100%|██████████| 483/483 [00:00<00:00, 843kB/s]
-Downloading:   0%|          | 0.00/232k [00:00<?, ?B/s]Downloading:  18%|█▊        | 42.0k/232k [00:00<00:00, 228kB/s]Downloading:  85%|████████▍ | 197k/232k [00:00<00:00, 586kB/s] Downloading: 100%|██████████| 232k/232k [00:00<00:00, 626kB/s]
-Downloading:   0%|          | 0.00/466k [00:00<?, ?B/s]Downloading:   7%|▋         | 32.8k/466k [00:00<00:02, 178kB/s]Downloading:  42%|████▏     | 197k/466k [00:00<00:00, 709kB/s] Downloading:  95%|█████████▍| 442k/466k [00:00<00:00, 1.15MB/s]Downloading: 100%|██████████| 466k/466k [00:00<00:00, 1.01MB/s]
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 22.30ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 112.80ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 120.26ba/s]
-Downloading:   0%|          | 0.00/268M [00:00<?, ?B/s]Downloading:   2%|▏         | 5.31M/268M [00:00<00:04, 53.1MB/s]Downloading:   5%|▍         | 12.8M/268M [00:00<00:03, 65.8MB/s]Downloading:   8%|▊         | 21.9M/268M [00:00<00:03, 77.5MB/s]Downloading:  12%|█▏        | 31.4M/268M [00:00<00:02, 84.5MB/s]Downloading:  15%|█▍        | 39.9M/268M [00:00<00:02, 84.5MB/s]Downloading:  18%|█▊        | 49.4M/268M [00:00<00:02, 88.2MB/s]Downloading:  22%|██▏       | 58.9M/268M [00:00<00:02, 90.4MB/s]Downloading:  25%|██▌       | 68.0M/268M [00:00<00:02, 88.2MB/s]Downloading:  29%|██▊       | 76.8M/268M [00:00<00:02, 86.9MB/s]Downloading:  32%|███▏      | 85.9M/268M [00:01<00:02, 88.1MB/s]Downloading:  36%|███▌      | 95.3M/268M [00:01<00:01, 89.9MB/s]Downloading:  39%|███▉      | 105M/268M [00:01<00:01, 91.1MB/s] Downloading:  42%|████▏     | 114M/268M [00:01<00:01, 87.5MB/s]Downloading:  46%|████▌     | 123M/268M [00:01<00:01, 87.2MB/s]Downloading:  49%|████▉     | 131M/268M [00:01<00:01, 85.7MB/s]Downloading:  52%|█████▏    | 140M/268M [00:01<00:01, 85.3MB/s]Downloading:  56%|█████▌    | 149M/268M [00:01<00:01, 87.0MB/s]Downloading:  59%|█████▉    | 158M/268M [00:01<00:01, 86.8MB/s]Downloading:  62%|██████▏   | 167M/268M [00:01<00:01, 87.7MB/s]Downloading:  66%|██████▌   | 176M/268M [00:02<00:01, 88.8MB/s]Downloading:  69%|██████▉   | 185M/268M [00:02<00:00, 88.4MB/s]Downloading:  72%|███████▏  | 194M/268M [00:02<00:00, 87.7MB/s]Downloading:  76%|███████▌  | 203M/268M [00:02<00:00, 89.7MB/s]Downloading:  79%|███████▉  | 212M/268M [00:02<00:00, 90.4MB/s]Downloading:  83%|████████▎ | 221M/268M [00:02<00:00, 87.1MB/s]Downloading:  86%|████████▌ | 230M/268M [00:02<00:00, 85.7MB/s]Downloading:  89%|████████▉ | 240M/268M [00:02<00:00, 88.6MB/s]Downloading:  93%|█████████▎| 249M/268M [00:02<00:00, 89.8MB/s]Downloading:  96%|█████████▋| 258M/268M [00:02<00:00, 84.5MB/s]Downloading: 100%|█████████▉| 267M/268M [00:03<00:00, 86.1MB/s]Downloading: 100%|██████████| 268M/268M [00:03<00:00, 86.7MB/s]
-Some weights of the model checkpoint at distilbert-base-uncased were not used when initializing DistilBertForSequenceClassification: ['vocab_projector.bias', 'vocab_transform.weight', 'vocab_projector.weight', 'vocab_layer_norm.weight', 'vocab_transform.bias', 'vocab_layer_norm.bias']
-- This IS expected if you are initializing DistilBertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing DistilBertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.weight', 'pre_classifier.bias', 'classifier.bias', 'pre_classifier.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220927_093651-u2k4jdqa
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run morning-cherry-79
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/logical_fallacy_classification
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/logical_fallacy_classification/runs/u2k4jdqa
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  warnings.warn(
-***** Running training *****
-  Num examples = 1849
-  Num Epochs = 8
-  Instantaneous batch size per device = 16
-  Total train batch size (w. parallel, distributed & accumulation) = 16
-  Gradient Accumulation steps = 1
-  Total optimization steps = 928
-Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
-  0%|          | 0/928 [00:00<?, ?it/s]You're using a DistilBertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 1/928 [00:00<02:55,  5.27it/s]  0%|          | 4/928 [00:00<00:58, 15.74it/s]  1%|          | 8/928 [00:00<00:39, 23.15it/s]  1%|▏         | 12/928 [00:00<00:32, 27.85it/s]  2%|▏         | 17/928 [00:00<00:28, 32.45it/s]  2%|▏         | 22/928 [00:00<00:25, 35.12it/s]  3%|▎         | 26/928 [00:00<00:28, 31.18it/s]  3%|▎         | 31/928 [00:01<00:27, 32.65it/s]  4%|▍         | 35/928 [00:01<00:26, 34.27it/s]  4%|▍         | 40/928 [00:01<00:24, 35.88it/s]  5%|▍         | 44/928 [00:01<00:23, 36.94it/s]  5%|▌         | 48/928 [00:01<00:23, 36.80it/s]                                                  5%|▌         | 50/928 [00:01<00:23, 36.80it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.06it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                
-                                                [A  5%|▌         | 50/928 [00:01<00:23, 36.80it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.06it/s][A
-                                                [A  6%|▌         | 52/928 [00:01<00:32, 27.17it/s]  6%|▌         | 56/928 [00:01<00:29, 29.80it/s]  6%|▋         | 60/928 [00:01<00:27, 31.57it/s]  7%|▋         | 64/928 [00:02<00:27, 31.89it/s]  7%|▋         | 68/928 [00:02<00:25, 33.86it/s]  8%|▊         | 72/928 [00:02<00:24, 34.52it/s]  8%|▊         | 76/928 [00:02<00:23, 35.79it/s]  9%|▊         | 80/928 [00:02<00:23, 36.03it/s]  9%|▉         | 84/928 [00:02<00:24, 34.99it/s]  9%|▉         | 88/928 [00:02<00:23, 35.98it/s] 10%|▉         | 92/928 [00:02<00:22, 36.51it/s] 10%|█         | 97/928 [00:02<00:21, 37.80it/s]                                                 11%|█         | 100/928 [00:03<00:21, 37.80it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.78it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 11%|█         | 100/928 [00:03<00:21, 37.80it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.78it/s][A
-                                                [A 11%|█         | 101/928 [00:03<00:33, 24.69it/s] 11%|█▏        | 105/928 [00:03<00:29, 27.71it/s] 12%|█▏        | 109/928 [00:03<00:28, 29.01it/s] 12%|█▏        | 113/928 [00:03<00:26, 31.35it/s] 13%|█▎        | 117/928 [00:03<00:25, 31.53it/s] 13%|█▎        | 121/928 [00:03<00:24, 32.77it/s] 13%|█▎        | 125/928 [00:03<00:23, 33.94it/s] 14%|█▍        | 129/928 [00:04<00:23, 34.25it/s] 14%|█▍        | 133/928 [00:04<00:23, 34.34it/s] 15%|█▍        | 138/928 [00:04<00:22, 35.87it/s] 15%|█▌        | 143/928 [00:04<00:21, 37.15it/s] 16%|█▌        | 147/928 [00:04<00:20, 37.42it/s]                                                  16%|█▌        | 150/928 [00:04<00:20, 37.42it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.01it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 16%|█▌        | 150/928 [00:04<00:20, 37.42it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.01it/s][A
-                                                [A 16%|█▋        | 151/928 [00:04<00:29, 26.05it/s] 17%|█▋        | 155/928 [00:04<00:27, 27.76it/s] 17%|█▋        | 159/928 [00:05<00:25, 29.85it/s] 18%|█▊        | 164/928 [00:05<00:23, 32.67it/s] 18%|█▊        | 168/928 [00:05<00:22, 33.34it/s] 19%|█▊        | 172/928 [00:05<00:21, 34.77it/s] 19%|█▉        | 176/928 [00:05<00:21, 35.14it/s] 19%|█▉        | 180/928 [00:05<00:20, 35.75it/s] 20%|█▉        | 184/928 [00:05<00:20, 36.90it/s] 20%|██        | 189/928 [00:05<00:19, 38.10it/s] 21%|██        | 193/928 [00:05<00:19, 36.79it/s] 21%|██        | 197/928 [00:06<00:19, 37.21it/s]                                                  22%|██▏       | 200/928 [00:06<00:19, 37.21it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 163.98it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 22%|██▏       | 200/928 [00:06<00:19, 37.21it/s]
-100%|██████████| 19/19 [00:00<00:00, 163.98it/s][A
-                                                [A 22%|██▏       | 201/928 [00:06<00:29, 24.58it/s] 22%|██▏       | 205/928 [00:06<00:27, 26.34it/s] 23%|██▎       | 209/928 [00:06<00:24, 29.06it/s] 23%|██▎       | 213/928 [00:06<00:22, 31.52it/s] 23%|██▎       | 217/928 [00:06<00:21, 32.91it/s] 24%|██▍       | 221/928 [00:06<00:20, 34.67it/s] 24%|██▍       | 225/928 [00:06<00:20, 35.11it/s] 25%|██▍       | 229/928 [00:07<00:19, 35.64it/s] 25%|██▌       | 233/928 [00:07<00:19, 36.30it/s] 26%|██▌       | 237/928 [00:07<00:18, 36.95it/s] 26%|██▌       | 241/928 [00:07<00:18, 37.75it/s] 26%|██▋       | 245/928 [00:07<00:18, 36.90it/s] 27%|██▋       | 249/928 [00:07<00:18, 37.37it/s]                                                  27%|██▋       | 250/928 [00:07<00:18, 37.37it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 165.16it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 27%|██▋       | 250/928 [00:07<00:18, 37.37it/s]
-100%|██████████| 19/19 [00:00<00:00, 165.16it/s][A
-                                                [A 27%|██▋       | 253/928 [00:07<00:24, 27.16it/s] 28%|██▊       | 257/928 [00:07<00:22, 29.90it/s] 28%|██▊       | 261/928 [00:08<00:21, 31.29it/s] 29%|██▊       | 265/928 [00:08<00:21, 31.03it/s] 29%|██▉       | 269/928 [00:08<00:20, 32.80it/s] 29%|██▉       | 273/928 [00:08<00:19, 33.98it/s] 30%|██▉       | 277/928 [00:08<00:19, 34.24it/s] 30%|███       | 281/928 [00:08<00:19, 32.53it/s] 31%|███       | 285/928 [00:08<00:18, 34.40it/s] 31%|███       | 289/928 [00:08<00:17, 35.59it/s] 32%|███▏      | 293/928 [00:08<00:17, 36.63it/s] 32%|███▏      | 297/928 [00:09<00:17, 36.92it/s]                                                  32%|███▏      | 300/928 [00:09<00:17, 36.92it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.88it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 32%|███▏      | 300/928 [00:09<00:17, 36.92it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.88it/s][A
-                                                [A 32%|███▏      | 301/928 [00:09<00:25, 24.41it/s] 33%|███▎      | 305/928 [00:09<00:22, 27.34it/s] 33%|███▎      | 309/928 [00:09<00:20, 29.90it/s] 34%|███▎      | 313/928 [00:09<00:19, 31.68it/s] 34%|███▍      | 317/928 [00:09<00:18, 33.40it/s] 35%|███▍      | 321/928 [00:09<00:17, 33.93it/s] 35%|███▌      | 325/928 [00:10<00:18, 33.40it/s] 35%|███▌      | 329/928 [00:10<00:17, 33.50it/s] 36%|███▌      | 333/928 [00:10<00:16, 35.15it/s] 36%|███▋      | 337/928 [00:10<00:16, 35.05it/s] 37%|███▋      | 341/928 [00:10<00:16, 35.97it/s] 37%|███▋      | 345/928 [00:10<00:15, 36.98it/s] 38%|███▊      | 349/928 [00:10<00:15, 37.57it/s]                                                  38%|███▊      | 350/928 [00:10<00:15, 37.57it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 162.05it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 38%|███▊      | 350/928 [00:10<00:15, 37.57it/s]
-100%|██████████| 19/19 [00:00<00:00, 162.05it/s][A
-                                                [A 38%|███▊      | 353/928 [00:10<00:20, 27.63it/s] 38%|███▊      | 357/928 [00:11<00:19, 29.69it/s] 39%|███▉      | 361/928 [00:11<00:17, 32.02it/s] 39%|███▉      | 365/928 [00:11<00:16, 33.87it/s] 40%|███▉      | 369/928 [00:11<00:16, 33.93it/s] 40%|████      | 373/928 [00:11<00:16, 34.61it/s] 41%|████      | 377/928 [00:11<00:15, 36.00it/s] 41%|████      | 381/928 [00:11<00:14, 36.65it/s] 41%|████▏     | 385/928 [00:11<00:15, 35.66it/s] 42%|████▏     | 389/928 [00:11<00:14, 36.48it/s] 42%|████▏     | 393/928 [00:11<00:14, 36.34it/s] 43%|████▎     | 397/928 [00:12<00:15, 34.81it/s]                                                  43%|████▎     | 400/928 [00:12<00:15, 34.81it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 165.28it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 43%|████▎     | 400/928 [00:12<00:15, 34.81it/s]
-100%|██████████| 19/19 [00:00<00:00, 165.28it/s][A
-                                                [A 43%|████▎     | 401/928 [00:12<00:21, 23.98it/s] 44%|████▎     | 405/928 [00:12<00:19, 26.69it/s] 44%|████▍     | 409/928 [00:12<00:17, 29.51it/s] 45%|████▍     | 413/928 [00:12<00:16, 31.31it/s] 45%|████▍     | 417/928 [00:12<00:15, 33.16it/s] 45%|████▌     | 422/928 [00:12<00:14, 35.27it/s] 46%|████▌     | 426/928 [00:13<00:13, 36.16it/s] 46%|████▋     | 430/928 [00:13<00:13, 35.81it/s] 47%|████▋     | 434/928 [00:13<00:14, 34.64it/s] 47%|████▋     | 438/928 [00:13<00:13, 35.71it/s] 48%|████▊     | 442/928 [00:13<00:13, 35.61it/s] 48%|████▊     | 446/928 [00:13<00:13, 36.39it/s] 48%|████▊     | 450/928 [00:13<00:13, 35.33it/s]                                                  48%|████▊     | 450/928 [00:13<00:13, 35.33it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.36it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 48%|████▊     | 450/928 [00:13<00:13, 35.33it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.36it/s][A
-                                                [A 49%|████▉     | 454/928 [00:14<00:18, 25.56it/s] 49%|████▉     | 458/928 [00:14<00:16, 28.22it/s] 50%|████▉     | 462/928 [00:14<00:15, 30.69it/s] 50%|█████     | 467/928 [00:14<00:14, 32.72it/s] 51%|█████     | 471/928 [00:14<00:13, 34.06it/s] 51%|█████     | 475/928 [00:14<00:13, 33.36it/s] 52%|█████▏    | 479/928 [00:14<00:12, 34.58it/s] 52%|█████▏    | 483/928 [00:14<00:12, 35.99it/s] 52%|█████▏    | 487/928 [00:14<00:12, 35.81it/s] 53%|█████▎    | 491/928 [00:14<00:11, 36.82it/s] 53%|█████▎    | 495/928 [00:15<00:11, 37.12it/s] 54%|█████▍    | 499/928 [00:15<00:11, 37.67it/s]                                                  54%|█████▍    | 500/928 [00:15<00:11, 37.67it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.68it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 54%|█████▍    | 500/928 [00:15<00:11, 37.67it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.68it/s][A
-                                                [ASaving model checkpoint to ./xlm_roberta_logical_fallacy_classification/checkpoint-500
-Configuration saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/config.json
-Model weights saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/pytorch_model.bin
-tokenizer config file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/tokenizer_config.json
-Special tokens file saved in ./xlm_roberta_logical_fallacy_classification/checkpoint-500/special_tokens_map.json
- 54%|█████▍    | 503/928 [00:23<04:24,  1.61it/s] 55%|█████▍    | 507/928 [00:23<03:07,  2.25it/s] 55%|█████▌    | 511/928 [00:23<02:13,  3.12it/s] 55%|█████▌    | 515/928 [00:23<01:36,  4.30it/s] 56%|█████▌    | 519/928 [00:23<01:09,  5.86it/s] 56%|█████▋    | 523/928 [00:23<00:51,  7.84it/s] 57%|█████▋    | 527/928 [00:23<00:38, 10.30it/s] 57%|█████▋    | 531/928 [00:24<00:30, 12.94it/s] 58%|█████▊    | 535/928 [00:24<00:24, 15.99it/s] 58%|█████▊    | 539/928 [00:24<00:20, 19.28it/s] 59%|█████▊    | 543/928 [00:24<00:16, 22.77it/s] 59%|█████▉    | 547/928 [00:24<00:15, 24.28it/s]                                                  59%|█████▉    | 550/928 [00:24<00:15, 24.28it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.69it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 59%|█████▉    | 550/928 [00:24<00:15, 24.28it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.69it/s][A
-                                                [A 59%|█████▉    | 551/928 [00:24<00:17, 20.95it/s] 60%|█████▉    | 555/928 [00:24<00:15, 23.69it/s] 60%|██████    | 559/928 [00:25<00:13, 26.60it/s] 61%|██████    | 563/928 [00:25<00:12, 29.13it/s] 61%|██████    | 567/928 [00:25<00:11, 31.36it/s] 62%|██████▏   | 571/928 [00:25<00:10, 33.33it/s] 62%|██████▏   | 575/928 [00:25<00:10, 34.50it/s] 62%|██████▏   | 579/928 [00:25<00:09, 35.72it/s] 63%|██████▎   | 583/928 [00:25<00:09, 36.80it/s] 63%|██████▎   | 587/928 [00:25<00:09, 37.68it/s] 64%|██████▎   | 591/928 [00:25<00:09, 35.27it/s] 64%|██████▍   | 595/928 [00:25<00:09, 35.80it/s] 65%|██████▍   | 599/928 [00:26<00:09, 35.55it/s]                                                  65%|██████▍   | 600/928 [00:26<00:09, 35.55it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 163.95it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 65%|██████▍   | 600/928 [00:26<00:09, 35.55it/s]
-100%|██████████| 19/19 [00:00<00:00, 163.95it/s][A
-                                                [A 65%|██████▍   | 603/928 [00:26<00:13, 24.12it/s] 65%|██████▌   | 607/928 [00:26<00:11, 26.86it/s] 66%|██████▌   | 611/928 [00:26<00:10, 29.42it/s] 66%|██████▋   | 615/928 [00:26<00:09, 31.43it/s] 67%|██████▋   | 619/928 [00:26<00:09, 32.75it/s] 67%|██████▋   | 623/928 [00:26<00:09, 33.74it/s] 68%|██████▊   | 627/928 [00:27<00:08, 34.12it/s] 68%|██████▊   | 631/928 [00:27<00:08, 35.43it/s] 68%|██████▊   | 635/928 [00:27<00:08, 36.23it/s] 69%|██████▉   | 639/928 [00:27<00:08, 35.87it/s] 69%|██████▉   | 643/928 [00:27<00:07, 36.40it/s] 70%|██████▉   | 647/928 [00:27<00:07, 37.07it/s]                                                  70%|███████   | 650/928 [00:27<00:07, 37.07it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 165.02it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 70%|███████   | 650/928 [00:27<00:07, 37.07it/s]
-100%|██████████| 19/19 [00:00<00:00, 165.02it/s][A
-                                                [A 70%|███████   | 651/928 [00:27<00:10, 27.05it/s] 71%|███████   | 655/928 [00:27<00:09, 29.76it/s] 71%|███████   | 659/928 [00:28<00:08, 31.54it/s] 71%|███████▏  | 663/928 [00:28<00:07, 33.49it/s] 72%|███████▏  | 667/928 [00:28<00:07, 33.84it/s] 72%|███████▏  | 671/928 [00:28<00:07, 35.03it/s] 73%|███████▎  | 675/928 [00:28<00:07, 35.39it/s] 73%|███████▎  | 679/928 [00:28<00:06, 36.37it/s] 74%|███████▎  | 683/928 [00:28<00:06, 35.94it/s] 74%|███████▍  | 687/928 [00:28<00:06, 36.81it/s] 74%|███████▍  | 691/928 [00:28<00:06, 37.34it/s] 75%|███████▍  | 695/928 [00:28<00:06, 35.46it/s] 75%|███████▌  | 699/928 [00:29<00:06, 35.56it/s]                                                  75%|███████▌  | 700/928 [00:29<00:06, 35.56it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.58it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 75%|███████▌  | 700/928 [00:29<00:06, 35.56it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.58it/s][A
-                                                [A 76%|███████▌  | 703/928 [00:29<00:09, 23.77it/s] 76%|███████▌  | 707/928 [00:29<00:08, 25.62it/s] 77%|███████▋  | 711/928 [00:29<00:07, 28.67it/s] 77%|███████▋  | 715/928 [00:29<00:06, 31.09it/s] 77%|███████▋  | 719/928 [00:29<00:06, 33.25it/s] 78%|███████▊  | 723/928 [00:29<00:06, 33.31it/s] 78%|███████▊  | 727/928 [00:30<00:05, 34.80it/s] 79%|███████▉  | 731/928 [00:30<00:05, 35.96it/s] 79%|███████▉  | 735/928 [00:30<00:05, 35.94it/s] 80%|███████▉  | 739/928 [00:30<00:05, 36.37it/s] 80%|████████  | 743/928 [00:30<00:05, 36.11it/s] 80%|████████  | 747/928 [00:30<00:05, 35.73it/s]                                                  81%|████████  | 750/928 [00:30<00:04, 35.73it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 162.76it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 81%|████████  | 750/928 [00:30<00:04, 35.73it/s]
-100%|██████████| 19/19 [00:00<00:00, 162.76it/s][A
-                                                [A 81%|████████  | 751/928 [00:30<00:06, 26.40it/s] 81%|████████▏ | 755/928 [00:30<00:05, 29.04it/s] 82%|████████▏ | 759/928 [00:31<00:05, 30.71it/s] 82%|████████▏ | 763/928 [00:31<00:05, 32.51it/s] 83%|████████▎ | 767/928 [00:31<00:04, 33.77it/s] 83%|████████▎ | 771/928 [00:31<00:04, 35.31it/s] 84%|████████▎ | 775/928 [00:31<00:04, 36.44it/s] 84%|████████▍ | 779/928 [00:31<00:04, 35.30it/s] 84%|████████▍ | 783/928 [00:31<00:04, 32.94it/s] 85%|████████▍ | 787/928 [00:31<00:04, 33.57it/s] 85%|████████▌ | 791/928 [00:31<00:03, 34.70it/s] 86%|████████▌ | 795/928 [00:32<00:03, 35.29it/s] 86%|████████▌ | 799/928 [00:32<00:03, 35.79it/s]                                                  86%|████████▌ | 800/928 [00:32<00:03, 35.79it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 163.79it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 86%|████████▌ | 800/928 [00:32<00:03, 35.79it/s]
-100%|██████████| 19/19 [00:00<00:00, 163.79it/s][A
-                                                [A 87%|████████▋ | 803/928 [00:32<00:05, 24.15it/s] 87%|████████▋ | 807/928 [00:32<00:04, 26.83it/s] 87%|████████▋ | 811/928 [00:32<00:03, 29.30it/s] 88%|████████▊ | 815/928 [00:32<00:03, 30.41it/s] 88%|████████▊ | 819/928 [00:32<00:03, 32.60it/s] 89%|████████▊ | 823/928 [00:33<00:03, 33.28it/s] 89%|████████▉ | 827/928 [00:33<00:02, 34.93it/s] 90%|████████▉ | 831/928 [00:33<00:02, 35.38it/s] 90%|████████▉ | 835/928 [00:33<00:02, 36.04it/s] 90%|█████████ | 839/928 [00:33<00:02, 35.34it/s] 91%|█████████ | 843/928 [00:33<00:02, 35.57it/s] 91%|█████████▏| 847/928 [00:33<00:02, 36.55it/s]                                                  92%|█████████▏| 850/928 [00:33<00:02, 36.55it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.12it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 92%|█████████▏| 850/928 [00:33<00:02, 36.55it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.12it/s][A
-                                                [A 92%|█████████▏| 851/928 [00:33<00:02, 26.83it/s] 92%|█████████▏| 855/928 [00:34<00:02, 29.04it/s] 93%|█████████▎| 859/928 [00:34<00:02, 31.57it/s] 93%|█████████▎| 863/928 [00:34<00:01, 32.68it/s] 93%|█████████▎| 867/928 [00:34<00:01, 33.65it/s] 94%|█████████▍| 871/928 [00:34<00:01, 35.12it/s] 94%|█████████▍| 875/928 [00:34<00:01, 35.34it/s] 95%|█████████▍| 879/928 [00:34<00:01, 35.75it/s] 95%|█████████▌| 883/928 [00:34<00:01, 36.85it/s] 96%|█████████▌| 887/928 [00:34<00:01, 36.98it/s] 96%|█████████▌| 891/928 [00:34<00:01, 36.54it/s] 96%|█████████▋| 895/928 [00:35<00:00, 35.97it/s] 97%|█████████▋| 899/928 [00:35<00:00, 36.21it/s]                                                  97%|█████████▋| 900/928 [00:35<00:00, 36.21it/s]***** Running Evaluation *****
-  Num examples = 300
-  Batch size = 16
-
-  0%|          | 0/19 [00:00<?, ?it/s][A
- 89%|████████▉ | 17/19 [00:00<00:00, 164.71it/s][A/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-                                                 
-                                                [A 97%|█████████▋| 900/928 [00:35<00:00, 36.21it/s]
-100%|██████████| 19/19 [00:00<00:00, 164.71it/s][A
-                                                [A 97%|█████████▋| 903/928 [00:35<00:01, 24.21it/s] 98%|█████████▊| 907/928 [00:35<00:00, 26.88it/s] 98%|█████████▊| 911/928 [00:35<00:00, 28.85it/s] 99%|█████████▊| 915/928 [00:35<00:00, 29.51it/s] 99%|█████████▉| 919/928 [00:35<00:00, 31.94it/s] 99%|█████████▉| 923/928 [00:36<00:00, 31.48it/s]100%|█████████▉| 927/928 [00:36<00:00, 33.44it/s]
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-                                                 100%|██████████| 928/928 [00:36<00:00, 33.44it/s]100%|██████████| 928/928 [00:36<00:00, 25.61it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 16
-  0%|          | 0/19 [00:00<?, ?it/s] 79%|███████▉  | 15/19 [00:00<00:00, 139.91it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 19/19 [00:00<00:00, 141.79it/s]
-wandb: Waiting for W&B process to finish... (success).
-wandb: - 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.238 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: | 0.043 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: / 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: - 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: \ 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: | 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: / 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: - 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: \ 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb: | 0.258 MB of 0.258 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:                  eval/accuracy ▁▁▃▃▄▅▅▇▇▇▇▇▇▇▇███
-wandb:                        eval/f1 ▁▂▃▃▄▅▆▇▇▇▇█▇▇▇███
-wandb:                      eval/loss █▇▆▆▅▅▄▃▃▂▂▂▂▁▁▁▁▁
-wandb:                 eval/precision ▁▃▃▃▅▇▇▇▆▇██▇▇▆▇▇▇
-wandb:                    eval/recall ▁▁▃▃▄▅▅▇▇▇▇▇▇▇▇███
-wandb:                   eval/runtime █▁▃▃▁▁▃▁▁▁▁▃▁▂▃▂▂▂
-wandb:        eval/samples_per_second ▁█▅▆██▆█▇██▆█▇▆▇▇▇
-wandb:          eval/steps_per_second ▁█▅▆██▆█▇██▆█▇▆▇▇▇
-wandb:                    train/epoch ▁▁▁▁▂▂▂▂▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇███
-wandb:              train/global_step ▁▁▁▁▂▂▂▂▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇███
-wandb:            train/learning_rate ██▇▇▆▆▆▅▅▄▄▃▃▃▂▂▁▁
-wandb:                     train/loss █▇▇▇▆▅▅▄▄▃▃▂▂▂▁▁▁▁
-wandb:               train/total_flos ▁
-wandb:               train/train_loss ▁
-wandb:            train/train_runtime ▁
-wandb: train/train_samples_per_second ▁
-wandb:   train/train_steps_per_second ▁
-wandb: 
-wandb: Run summary:
-wandb:                  eval/accuracy 0.49667
-wandb:                        eval/f1 0.45803
-wandb:                      eval/loss 1.70882
-wandb:                 eval/precision 0.48282
-wandb:                    eval/recall 0.49667
-wandb:                   eval/runtime 0.1259
-wandb:        eval/samples_per_second 2383.285
-wandb:          eval/steps_per_second 150.941
-wandb:                    train/epoch 8.0
-wandb:              train/global_step 928
-wandb:            train/learning_rate 0.0
-wandb:                     train/loss 1.5234
-wandb:               train/total_flos 431430548837832.0
-wandb:               train/train_loss 1.92813
-wandb:            train/train_runtime 36.235
-wandb: train/train_samples_per_second 408.224
-wandb:   train/train_steps_per_second 25.611
-wandb: 
-wandb: Synced morning-cherry-79: https://wandb.ai/zhpinkman/logical_fallacy_classification/runs/u2k4jdqa
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220927_093651-u2k4jdqa/logs

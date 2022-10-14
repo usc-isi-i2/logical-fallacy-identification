@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 45, in <module>
-    def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-NameError: name 'Dict' is not defined. Did you mean: 'dict'?
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 45, in <module>
-    def get_wordnet_edges_in_sentences(graph: nx.DiGraph, node2label: Dict[str, str]) -> List[str]:
-NameError: name 'Dict' is not defined. Did you mean: 'dict'?

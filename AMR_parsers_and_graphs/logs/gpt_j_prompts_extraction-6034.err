@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/prompt_gpt_j.py", line 183, in <module>
-    augment_sentences_with_amr_objects_with_belief_arguments(
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/prompt_gpt_j.py", line 155, in augment_sentences_with_amr_objects_with_belief_arguments
-    if os.path.exists(output_file_path):
-  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/genericpath.py", line 19, in exists
-    os.stat(path)
-TypeError: stat: path should be string, bytes, os.PathLike or integer, not NoneType
-/var/spool/slurm/slurmd/job06034/slurm_script: line 26: --output_file: command not found

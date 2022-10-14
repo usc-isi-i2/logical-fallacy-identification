@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/train.py", line 7, in <module>
-    import gcn
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/gcn.py", line 3, in <module>
-    from embeddings import get_bert_embeddings
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/embeddings.py", line 7, in <module>
-    from consts import PATH_TO_MASKED_SENTENCES_AMRS
-ImportError: cannot import name 'PATH_TO_MASKED_SENTENCES_AMRS' from 'consts' (/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/consts.py)

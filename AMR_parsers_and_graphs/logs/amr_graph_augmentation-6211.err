@@ -1,54 +1,0 @@
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220924_092100-2c7iedx2
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run efficient-butterfly-25
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/2c7iedx2
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 31, in <module>
-    rel_dict = joblib.load(args.rel_file)
-  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 650, in load
-    with open(filename, 'rb') as f:
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.000 MB of 0.000 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced efficient-butterfly-25: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/2c7iedx2
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220924_092100-2c7iedx2/logs
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220924_092116-1xexw4hr
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run trim-universe-26
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1xexw4hr
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 31, in <module>
-    rel_dict = joblib.load(args.rel_file)
-  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 650, in load
-    with open(filename, 'rb') as f:
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.000 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.004 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.004 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.004 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.004 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced trim-universe-26: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1xexw4hr
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220924_092116-1xexw4hr/logs
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20220924_092131-1d2c7edg
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run sage-universe-27
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/conceptnet_augmentation
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1d2c7edg
-Traceback (most recent call last):
-  File "/cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/conceptnet_augmentation.py", line 31, in <module>
-    rel_dict = joblib.load(args.rel_file)
-  File "/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 650, in load
-    with open(filename, 'rb') as f:
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-wandb: - 0.000 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: \ 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: | 0.001 MB of 0.001 MB uploaded (0.000 MB deduped)wandb: / 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.001 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced sage-universe-27: https://wandb.ai/zhpinkman/conceptnet_augmentation/runs/1d2c7edg
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20220924_092131-1d2c7edg/logs

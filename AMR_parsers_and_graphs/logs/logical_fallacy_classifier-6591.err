@@ -1,39 +1,0 @@
-Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-wandb: Currently logged in as: zhpinkman. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /cluster/raid/home/zhivar.sourati/logical-fallacy-identification/AMR_parsers_and_graphs/wandb/run-20221001_003510-1y17xrmj
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run iconic-jazz-38
-wandb: ⭐️ View project at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier
-wandb: 🚀 View run at https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/1y17xrmj
-  0%|          | 0/2 [00:00<?, ?ba/s]100%|██████████| 2/2 [00:00<00:00, 21.35ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 106.23ba/s]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:00<00:00, 105.99ba/s]
-***** Running Prediction *****
-  Num examples = 1849
-  Batch size = 8
-You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
-  0%|          | 0/232 [00:00<?, ?it/s]  5%|▍         | 11/232 [00:00<00:02, 109.18it/s]  9%|▉         | 22/232 [00:00<00:02, 99.84it/s]  14%|█▍        | 33/232 [00:00<00:02, 99.29it/s] 19%|█▉        | 44/232 [00:00<00:01, 102.95it/s] 24%|██▍       | 56/232 [00:00<00:01, 107.55it/s] 29%|██▉       | 68/232 [00:00<00:01, 110.87it/s] 34%|███▍      | 80/232 [00:00<00:01, 113.04it/s] 40%|███▉      | 92/232 [00:00<00:01, 114.23it/s] 45%|████▍     | 104/232 [00:00<00:01, 113.90it/s] 50%|█████     | 116/232 [00:01<00:01, 114.79it/s] 55%|█████▌    | 128/232 [00:01<00:00, 114.62it/s] 60%|██████    | 140/232 [00:01<00:00, 115.48it/s] 66%|██████▌   | 152/232 [00:01<00:00, 114.96it/s] 71%|███████   | 164/232 [00:01<00:00, 115.40it/s] 76%|███████▌  | 176/232 [00:01<00:00, 115.73it/s] 81%|████████  | 188/232 [00:01<00:00, 115.68it/s] 86%|████████▌ | 200/232 [00:01<00:00, 115.81it/s] 91%|█████████▏| 212/232 [00:01<00:00, 114.78it/s] 97%|█████████▋| 224/232 [00:01<00:00, 115.62it/s]100%|██████████| 232/232 [00:02<00:00, 112.78it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 124.83it/s] 68%|██████▊   | 26/38 [00:00<00:00, 120.26it/s]100%|██████████| 38/38 [00:00<00:00, 118.76it/s]
-***** Running Prediction *****
-  Num examples = 300
-  Batch size = 8
-  0%|          | 0/38 [00:00<?, ?it/s] 34%|███▍      | 13/38 [00:00<00:00, 127.11it/s] 68%|██████▊   | 26/38 [00:00<00:00, 113.51it/s]100%|██████████| 38/38 [00:00<00:00, 113.52it/s]/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-100%|██████████| 38/38 [00:00<00:00, 113.40it/s]
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/cluster/raid/home/zhivar.sourati/anaconda3/envs/general/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-wandb: Waiting for W&B process to finish... (success).
-wandb: - 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: \ 0.002 MB of 0.002 MB uploaded (0.000 MB deduped)wandb: | 0.002 MB of 0.011 MB uploaded (0.000 MB deduped)wandb: / 0.002 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: - 0.003 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: \ 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: | 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: - 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: \ 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: | 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb: / 0.016 MB of 0.016 MB uploaded (0.000 MB deduped)wandb:                                                                                
-wandb: Synced iconic-jazz-38: https://wandb.ai/zhpinkman/Logical%20Fallacy%20Main%20Classifier/runs/1y17xrmj
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20221001_003510-1y17xrmj/logs
