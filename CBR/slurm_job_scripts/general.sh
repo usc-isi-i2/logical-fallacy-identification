@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=generate_amr_graphs
+#SBATCH --job-name=general
 #SBATCH --output=logs/%x-%j.out
 #SBATCH --error=logs/%x-%j.err
 #SBATCH --time=3-00:00:00
@@ -19,9 +19,14 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-python cbr_analyser.amr.amr_extraction \
-    --input_file ${input_file} \
-    --output_file ${output_file} \
-    --task amr_generation
+
+python main.py \
+    --input_file ${input_file:=default} \
+    --output_file ${output_file:=default} \
+    --task ${task:=default} \
+    --target_file ${target_file:=default} \
+    --source_feature ${source_feature:=default} \
+    --source_file ${source_file:=default}
+
 
 conda deactivate

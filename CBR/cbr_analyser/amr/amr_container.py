@@ -1,10 +1,13 @@
 from typing import Dict
-import networkx
-import pydotplus
-import networkx as nx
+
 import amrlib
+import graphviz  # sudo apt install graphviz; pip3 install graphviz
+import joblib
+import networkx
+import networkx as nx
+import pydotplus
 from amrlib.graph_processing.amr_plot import *
-import graphviz    # sudo apt install graphviz; pip3 install graphviz
+from IPython import embed
 
 
 class AMR_Container:
@@ -82,12 +85,18 @@ class AMR_Container:
 
 
 if __name__ == "__main__":
-    sentence = "she is the best because everybody loves her."
-    amr1 = AMR_Container(
-        sentence=sentence
-    )
 
-    sentence = "she is the best because everybody loves her."
-    amr2 = AMR_Container(
-        sentence=sentence
-    )
+    x = joblib.load(
+        "../../cache/masked_sentences_with_AMR_container_objects_train.joblib")
+    embed()
+    exit()
+
+    # sentence = "she is the best because everybody loves her."
+    # amr1 = AMR_Container(
+    #     sentence=sentence
+    # )
+
+    # sentence = "she is the best because everybody loves her."
+    # amr2 = AMR_Container(
+    #     sentence=sentence
+    # )

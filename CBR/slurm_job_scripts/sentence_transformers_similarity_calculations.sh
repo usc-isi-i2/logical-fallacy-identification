@@ -27,14 +27,14 @@ python -m cbr_analyser.case_retriver.transformers.simcse_similarity_calculations
     --source_feature ${source_feature} \
     --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
     --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "cache/simcse_similarities_${source_feature}_${split}.joblib"
+    --output_file "cache/sentence_transformers_similarities_${source_feature}_${split}.joblib"
 
 source_feature="source"
 python -m cbr_analyser.case_retriver.transformers.simcse_similarity_calculations \
     --source_feature ${source_feature} \
     --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
     --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "cache/simcse_similarities_${source_feature}_${split}.joblib"
+    --output_file "cache/sentence_transformers_similarities_${source_feature}_${split}.joblib"
 
 done
 conda deactivate

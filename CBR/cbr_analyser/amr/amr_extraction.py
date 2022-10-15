@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import warnings
 from pathlib import Path
 from typing import List
@@ -12,21 +13,14 @@ from IPython import embed
 from tqdm import tqdm
 
 from cbr_analyser.amr.amr_container import AMR_Container
+
+this_dir = os.path.dirname(__file__) # Path to loader.py
+sys.path.append(os.path.join(this_dir, "./"))
 from cbr_analyser.logging.custom_logger import get_logger
 
 warnings.filterwarnings("ignore")
 import argparse
 
-parser = argparse.ArgumentParser(description="The basic stuff to do with the sentences and their AMR graphs")
-parser.add_argument('--input_file', help="input file")
-parser.add_argument('--output_file', help = "output file")
-parser.add_argument('--task', help = "The task that should be done")
-args = parser.parse_args()
-
-
-logger = get_logger(
-    logger_name=f"{__name__}.{os.path.basename(__file__)}"
-)
 
 def get_amr_sentences_from_amr_generated_lines(lines: List[str]):
     results = []
@@ -215,6 +209,16 @@ def augment_amr_container_objects_with_clean_node_labels(sentences_with_amr_cont
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="The basic stuff to do with the sentences and their AMR graphs")
+    parser.add_argument('--input_file', help="input file")
+    parser.add_argument('--output_file', help = "output file")
+    parser.add_argument('--task', help = "The task that should be done")
+    args = parser.parse_args()
+
+
+    logger = get_logger(
+        logger_name=f"{__name__}.{os.path.basename(__file__)}"
+    )
     # sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
     #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
     # )
@@ -242,4 +246,4 @@ if __name__ == "__main__":
             sentences_with_amr_container=joblib.load(args.output_file),
             output_path=args.output_file
         )
-        
+                
