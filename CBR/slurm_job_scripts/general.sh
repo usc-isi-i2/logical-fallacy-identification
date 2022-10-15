@@ -19,14 +19,33 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-
 python main.py \
-    --input_file ${input_file:=default} \
-    --output_file ${output_file:=default} \
-    --task ${task:=default} \
-    --target_file ${target_file:=default} \
-    --source_feature ${source_feature:=default} \
-    --source_file ${source_file:=default}
+    --input_file ${input_file:="default"} \
+    --output_file ${output_file:="default"} \
+    --task ${task:="default"} \
+    --target_file ${target_file:="default"} \
+    --source_feature ${source_feature:="masked_articles"} \
+    --source_file ${source_file:="default"} \
+    --train_input_file ${train_input_file:="default"} \
+    --dev_input_file ${dev_input_file:="default"} \
+    --test_input_file ${test_input_file:="default"} \
+    --batch_size ${batch_size:=8} \
+    --learning_rate ${learning_rate:=2e-5} \
+    --num_epochs ${num_epochs:=5} \
+    --classifier_dropout ${classifier_dropout:=0.3} \
+    --weight_decay ${weight_decay:=0.01} \
+    --augments ${augments:="none"} \
+    --cbr ${cbr:="false"} \
+    --similarity_matrices_path_train ${similarity_matrices_path_train:="default"} \
+    --similarity_matrices_path_dev ${similarity_matrices_path_dev:="default"} \
+    --similarity_matrices_path_test ${similarity_matrices_path_test:="default"} \
+    --num_cases ${num_cases:=3} \
+    --all_good_cases ${all_good_cases:="default"} \
+    --all_bad_cases ${all_bad_cases:="default"} \
+    --cbr_threshold ${cbr_threshold:="-100000000000"} \
+    --checkpoint ${checkpoint:="roberta-base"} \
+    --predictions_path ${predictions_path:="default"}
+
 
 
 conda deactivate

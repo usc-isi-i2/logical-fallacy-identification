@@ -6,17 +6,17 @@ from sentence_transformers import SentenceTransformer, util
 
 
 def get_source_feature_from_amr_objects(sentences_with_amr_objects, source_feature):
-    if source_feature == "source":
+    if source_feature == "source_article":
         return [obj[0].strip()
                 for obj in sentences_with_amr_objects]
-    elif source_feature == "masked":
+    elif source_feature == "masked_articles":
         return [obj[1].sentence.strip()
                 for obj in sentences_with_amr_objects]
 
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
-    parser.add_argument('--source_feature', choices=['masked', 'source'], type=str)
+    parser.add_argument('--source_feature', choices=['masked_articles', 'source_article'], type=str)
     parser.add_argument('--source_file', type=str)
     parser.add_argument('--target_file', type=str)
     parser.add_argument('--output_file', type=str)

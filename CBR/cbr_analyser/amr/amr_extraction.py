@@ -14,7 +14,7 @@ from tqdm import tqdm
 
 from cbr_analyser.amr.amr_container import AMR_Container
 
-this_dir = os.path.dirname(__file__) # Path to loader.py
+this_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(this_dir, "./"))
 from cbr_analyser.logging.custom_logger import get_logger
 

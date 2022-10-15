@@ -5,7 +5,7 @@ logs/
 cbr_analyser/case_retriever/ExplaGraphs/*/
 *.ipynb_checkpoints/**
 cbr_analyser/case_retriever/gcn/processed/
-cbr_analyser/reasoner/xlm_roberta_logical_fallacy_classification
+xlm_roberta_logical_fallacy_classification/
 data/conceptNet_labels.joblib
 data/conceptNet_relations.joblib
 kgtk_conceptnet.tsv

@@ -2,6 +2,7 @@ import argparse
 import os
 import random
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import List
@@ -21,6 +22,9 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
 import cbr_analyser.case_retriever.gcn as gcn
 import cbr_analyser.consts as consts
 import wandb
+
+this_dir = os.path.dirname(__file__)
+sys.path.append(os.path.join(this_dir, "../amr/"))
 
 torch.manual_seed(77)
 random.seed(77)
@@ -75,7 +79,7 @@ def compute_metrics(pred):
         'recall': recall
     }
 
-def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
+def read_csv_from_amr(input_file: str, source_feature: str, augments: List[str]=[]) -> pd.DataFrame:
     """Read the sentences alongside their corresponding AMR graphs and output a single DataFrame
 
     Args:
@@ -91,9 +95,9 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
     for obj in data:
         if obj[2] in ['equivocation']:
             continue
-        if args.input_feature == "masked_articles":
+        if source_feature == "masked_articles":
             base_sentence = obj[1].sentence
-        elif args.input_feature == "source_article":
+        elif source_feature == "source_article":
             base_sentence = obj[0]
         else:
             raise NotImplementedError()
@@ -119,31 +123,31 @@ def read_csv_from_amr(input_file: str, augments=[]) -> pd.DataFrame:
         labels.append(obj[2])
 
     return pd.DataFrame({
-        args.input_feature: sentences,
+        source_feature: sentences,
         "updated_label": labels
     })
 
 def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_token):
-    if args.all_bad_cases:
-        all_bad_cases = joblib.load(args.all_bad_cases)
-    if args.all_good_cases:
-        all_good_cases = joblib.load(args.all_good_cases)
-    simcse_train_similarities = joblib.load(args.similarity_matrices_path_train)
-    simcse_dev_similarities = joblib.load(args.similarity_matrices_path_dev)
-    simcse_test_similarities = joblib.load(args.similarity_matrices_path_test)
+    if args["all_bad_cases"]:
+        all_bad_cases = joblib.load(args["all_bad_cases"])
+    if args["all_good_cases"]:
+        all_good_cases = joblib.load(args["all_good_cases"])
+    simcse_train_similarities = joblib.load(args["similarity_matrices_path_train"])
+    simcse_dev_similarities = joblib.load(args["similarity_matrices_path_dev"])
+    simcse_test_similarities = joblib.load(args["similarity_matrices_path_test"])
     
     
     def augment_dataframe(df, simcse_similarities):
         augmented_sentences = []
         external_sentences = []
-        for sentence in df[args.input_feature]:
+        for sentence in df[args["source_feature"]]:
             try:
                 sentences_and_similarities = simcse_similarities[sentence.strip()].items()
                 sentences_and_similarities_sorted = sorted(sentences_and_similarities, key = lambda x: x[1], reverse = True)
-                augs = [x[0] for x in sentences_and_similarities_sorted[1:args.num_cases + 1] if x[1] > args.cbr_threshold]
-                if args.all_bad_cases:
+                augs = [x[0] for x in sentences_and_similarities_sorted[1:args["num_cases"] + 1] if x[1] > args["cbr_threshold"]]
+                if args["all_bad_cases"]:
                     augs = [sent for sent in augs if sent not in all_bad_cases]
-                if args.all_good_cases:
+                if args["all_good_cases"]:
                     augs = [sent for sent in augs if sent in all_good_cases]
                 result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(augs)}"
                 external_sentences.append('</sep>'.join(augs))
@@ -151,7 +155,7 @@ def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_
             except Exception as e:
                 embed()
                 
-        df[args.input_feature] = augmented_sentences
+        df[args["source_feature"]] = augmented_sentences
         df['cbr'] = external_sentences
         return df
 
@@ -179,24 +183,24 @@ def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_
     
 #     if not device_cuda:
 #         gcn_model.load_state_dict(torch.load(
-#             args.gcn_model_path, map_location=torch.device('cpu')))
+#             args["gcn_model_path"], map_location=torch.device('cpu')))
 #     else:
-#         gcn_model.load_state_dict(torch.load(args.gcn_model_path))
+#         gcn_model.load_state_dict(torch.load(args["gcn_model_path"]))
 #     gcn_model = gcn_model.to(device)
 
 #     train_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args.train_input_file,
+#         path_to_dataset=args["train_input_file"],
 #         fit=True
 #     )
 #     dev_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args.dev_input_file,
+#         path_to_dataset=args["dev_input_file"],
 #         fit=False,
 #         all_edge_types=train_dataset.all_edge_types,
 #         ohe=train_dataset.ohe
 #     )
 
 #     test_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args.test_input_file,
+#         path_to_dataset=args["test_input_file"],
 #         fit=False,
 #         all_edge_types=train_dataset.all_edge_types,
 #         ohe=train_dataset.ohe
@@ -257,21 +261,22 @@ def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str,
         y_pred = split_predictions, 
         y_true = split_true_labels
     ))
-    if args.predictions_path:
-        if args.cbr:
+    if args["predictions_path"]:
+        os.makedirs(args["predictions_path"], exist_ok=True)
+        if args["cbr"]:
             results_df = pd.DataFrame({
                 'predictions': split_predictions,
                 'true_labels': split_true_labels, 
                 'cbr': tokenized_dataset[split]['cbr'],
-                args.input_feature: tokenized_dataset[split][args.input_feature]
+                args["source_feature"]: tokenized_dataset[split][args["source_feature"]]
             })
         else:
             results_df = pd.DataFrame({
                 'predictions': split_predictions,
                 'true_labels': split_true_labels, 
-                args.input_feature: tokenized_dataset[split][args.input_feature]
+                args["source_feature"]: tokenized_dataset[split][args["source_feature"]]
             })
-        results_df.to_csv(os.path.join(args.predictions_path, f"{split}.csv"), index = False)
+        results_df.to_csv(os.path.join(args["predictions_path"], f"{split}.csv"), index = False)
 
         
         
@@ -279,19 +284,19 @@ def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str,
     
 
 def do_train_process(args):
-    tokenizer = AutoTokenizer.from_pretrained(args.checkpoint)
-    if args.checkpoint != "bigscience/bloom-560m":
+    tokenizer = AutoTokenizer.from_pretrained(args["checkpoint"])
+    if args["checkpoint"] != "bigscience/bloom-560m":
         model = AutoModelForSequenceClassification.from_pretrained(
-            args.checkpoint, num_labels=NUM_LABELS, classifier_dropout = args.classifier_dropout)
+            args["checkpoint"], num_labels=NUM_LABELS, classifier_dropout = args["classifier_dropout"])
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
-            args.checkpoint, num_labels=NUM_LABELS)
+            args["checkpoint"], num_labels=NUM_LABELS)
 
-    train_df = read_csv_from_amr(args.train_input_file, augments=args.augments.split('&'))
-    dev_df = read_csv_from_amr(args.dev_input_file, augments=args.augments.split('&'))
-    test_df = read_csv_from_amr(args.test_input_file, augments=args.augments.split('&'))
+    train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"].split('&'), source_feature=args["source_feature"])
+    dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"].split('&'), source_feature=args["source_feature"])
+    test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"].split('&'), source_feature=args["source_feature"])
 
-    if args.cbr:
+    if args["cbr"]:
         train_df, dev_df, test_df = augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, tokenizer.sep_token)
 
 
@@ -311,7 +316,7 @@ def do_train_process(args):
     })
 
     def process(batch):
-        texts = batch[args.input_feature]
+        texts = batch[args["source_feature"]]
         inputs = tokenizer(texts, truncation=True)
         return {
             **inputs,
@@ -331,12 +336,12 @@ def do_train_process(args):
         do_eval=True,
         do_train=True,
         output_dir="./xlm_roberta_logical_fallacy_classification",
-        learning_rate=args.learning_rate,
-        per_device_train_batch_size=args.batch_size,
-        per_device_eval_batch_size=args.batch_size,
-        num_train_epochs=args.num_epochs,
+        learning_rate=args["learning_rate"],
+        per_device_train_batch_size=args["batch_size"],
+        per_device_eval_batch_size=args["batch_size"],
+        num_train_epochs=args["num_epochs"],
         overwrite_output_dir = 'True',
-        weight_decay=args.weight_decay,
+        weight_decay=args["weight_decay"],
         logging_steps=50,
         evaluation_strategy='steps',
         report_to="wandb"
@@ -387,7 +392,7 @@ if __name__ == "__main__":
         '--test_input_file', help="Test input file path", type=str
     )
     parser.add_argument(
-        '--input_feature', help="the feature used for training the classification model", type=str
+        '--source_feature', help="the feature used for training the classification model", type=str
     )
     parser.add_argument(
         '--batch_size', type = int, default = 8
@@ -465,7 +470,7 @@ if __name__ == "__main__":
         }
     )
 
-    if args.task == "train":
+    if args["task"] == "train":
         do_train_process(args)
 
 

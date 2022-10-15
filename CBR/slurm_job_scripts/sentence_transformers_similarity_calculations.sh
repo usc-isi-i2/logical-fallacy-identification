@@ -22,14 +22,14 @@ conda activate general
 for split in "train" "dev" "test"
 do
 
-source_feature="masked"
+source_feature="masked_articles"
 python -m cbr_analyser.case_retriver.transformers.simcse_similarity_calculations \
     --source_feature ${source_feature} \
     --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
     --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
     --output_file "cache/sentence_transformers_similarities_${source_feature}_${split}.joblib"
 
-source_feature="source"
+source_feature="source_article"
 python -m cbr_analyser.case_retriver.transformers.simcse_similarity_calculations \
     --source_feature ${source_feature} \
     --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
