@@ -34,9 +34,6 @@ torch.manual_seed(77)
 random.seed(77)
 np.random.seed(77)
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(device)
-
 
 class CBRetriever(torch.nn.Module):
     def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, heads=4):
@@ -193,6 +190,7 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
 
 
 def train_epoch(model, loader, optimizer, criterion):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.train()
 
     for data in loader:  # Iterate in batches over the training dataset.
@@ -205,6 +203,7 @@ def train_epoch(model, loader, optimizer, criterion):
 
 
 def test_on_loader(model, loader):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.eval()
 
     all_predictions = []
@@ -315,6 +314,7 @@ def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader
 
 
 def train(config):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     wandb.init(
         project="Logical Fallacy Detection GCN",
@@ -509,6 +509,7 @@ if __name__ == "__main__":
     if args.task == "predict":
         model.load_state_dict(torch.load(args.gcn_model_path))
 
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = model.to(device)
 
     if args.task == "train":

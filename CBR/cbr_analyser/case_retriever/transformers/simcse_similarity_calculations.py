@@ -3,6 +3,7 @@ import os
 import sys
 
 import joblib
+from IPython import embed
 from simcse import SimCSE
 
 this_dir = os.path.dirname(__file__)  # Path to loader.py
@@ -16,6 +17,10 @@ def get_source_feature_from_amr_objects(sentences_with_amr_objects, source_featu
     elif source_feature == "masked_articles":
         return [obj[1].sentence.strip()
                 for obj in sentences_with_amr_objects]
+
+
+def get_embeddings_simcse(model, text: str):
+    return model.encode(text)
 
 
 def generate_the_simcse_similarities(source_file: str, source_feature: str, target_file: str, output_file: str):

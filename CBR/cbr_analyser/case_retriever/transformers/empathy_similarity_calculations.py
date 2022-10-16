@@ -18,9 +18,12 @@ def get_embeddings_empathy(tokenizer, model, texts):
     inputs = tokenizer(texts, return_tensors="pt",
                        truncation=True, padding=True)
 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    inputs = inputs.to(device)
+
     outputs = model(**inputs)
 
-    return outputs.pooler_output
+    return outputs.pooler_output.detach().cpu()
 
 
 def get_source_feature_from_amr_objects(sentences_with_amr_objects, source_feature):
@@ -38,7 +41,10 @@ def generate_the_empathy_similarities(source_file: str, source_feature: str, tar
 
     tokenizer = RobertaTokenizer.from_pretrained(checkpoint)
 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     model = RobertaModel.from_pretrained(checkpoint)
+    model = model.to(device)
 
     sentences_with_amr_objects = joblib.load(source_file)
 
@@ -50,12 +56,13 @@ def generate_the_empathy_similarities(source_file: str, source_feature: str, tar
         sentences_with_amr_objects, source_feature)
 
     similarities = np.zeros([len(all_sentences), len(train_sentences)])
+
     for i in tqdm(range(len(all_sentences)), leave=False):
-        for j in tqdm(range(len(train_sentences)), leave=False):
-            similarities[i, j] = pairwise_cosine_similarity(
-                get_embeddings_empathy(tokenizer, model, all_sentences[i]),
-                get_embeddings_empathy(tokenizer, model, train_sentences[j])
-            ).item()
+        for j in range(0, len(train_sentences), 100):
+            embeddings = get_embeddings_empathy(
+                tokenizer, model, all_sentences[i:i+1] + train_sentences[j:min(j+100, len(train_sentences))])
+            similarities[i, j:min(j+100, len(train_sentences))] = pairwise_cosine_similarity(
+                embeddings[0].reshape(1, -1), embeddings[1:]).numpy()
 
     similarities_dict = dict()
     for sentence, row in zip(all_sentences, similarities):
