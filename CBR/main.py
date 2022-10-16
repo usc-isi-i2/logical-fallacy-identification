@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+from typing import Any, Dict
 
 import joblib
 from IPython import embed
@@ -8,13 +9,16 @@ from IPython import embed
 from cbr_analyser.amr.amr_extraction import (
     augment_amr_container_objects_with_clean_node_labels,
     generate_amr_containers_from_csv_file)
-from cbr_analyser.case_retriever.transformers.simcse_similarity_calculations import \
-    generate_the_simcse_similarities
+from cbr_analyser.case_retriever.gcn import gcn
 from cbr_analyser.consts import *
 from cbr_analyser.reasoner.main_classifier import do_train_process
 
 this_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(this_dir, "cbr_analyser/amr/"))
+
+
+def train_gcn(args: Dict[str, Any]):
+    gcn.train(args)
 
 
 def generate_amr(input_file, output_file):
@@ -30,6 +34,8 @@ def generate_amr(input_file, output_file):
 
 
 def calculate_simcse_similarities(source_file, source_feature, target_file, output_file):
+    from cbr_analyser.case_retriever.transformers.simcse_similarity_calculations import \
+        generate_the_simcse_similarities
     generate_the_simcse_similarities(
         source_feature=source_feature,
         source_file=source_file,
@@ -38,23 +44,35 @@ def calculate_simcse_similarities(source_file, source_feature, target_file, outp
     )
 
 
-def train_main_classifier(args):
-    do_train_process(vars(args))
+def calculate_empathy_similarities(source_file, source_feature, target_file, output_file):
+    from cbr_analyser.case_retriever.transformers.empathy_similarity_calculations import \
+        generate_the_empathy_similarities
+    generate_the_empathy_similarities(
+        source_feature=source_feature,
+        source_file=source_file,
+        target_file=target_file,
+        output_file=output_file
+    )
+
+
+def train_main_classifier(args: Dict[str, Any]):
+    do_train_process(args)
 
 
 if __name__ == "__main__":
-    print('begin')
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_file', help="input file",
                         type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--output_file', help="output file",
                         type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument(
-        '--task', help="The task that should be done", type=lambda x: None if str(x) == "default" else str(x), choices=['amr_generation', 'simcse_similarity', 'train_main_classifier'])
-    parser.add_argument("--source_feature",
-                        help="The source feature that should be used")
+        '--task', help="The task that should be done", type=lambda x: None if str(x) == "default" else str(x), choices=['amr_generation', 'simcse_similarity', 'train_main_classifier', 'train_gcn', 'empathy_similarity'])
+    parser.add_argument("--source_feature", type=lambda x: None if str(x) == "default" else str(x),
+                        help="The source feature that should be used", choices=['masked_articles', 'source_article'])
 
     parser.add_argument('--source_file', help="The source file",
+                        type=lambda x: None if str(x) == "default" else str(x))
+    parser.add_argument('--g_type', help="The type of the graph",
                         type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--target_file', help="The target file",
                         type=lambda x: None if str(x) == "default" else str(x))
@@ -64,30 +82,40 @@ if __name__ == "__main__":
                         help="The dev input file", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--test_input_file',
                         help="The test input file", type=lambda x: None if str(x) == "default" else str(x))
-    parser.add_argument('--batch_size', help="The batch size", type=int)
+    parser.add_argument('--batch_size', help="The batch size",
+                        type=lambda x: None if str(x) == "default" else int(x))
     parser.add_argument('--learning_rate',
-                        help="The learning rate", type=float)
-    parser.add_argument('--num_epochs', help="The number of epochs", type=int)
+                        help="The learning rate", type=lambda x: None if str(x) == "default" else float(x))
+    parser.add_argument('--num_epochs', help="The number of epochs",
+                        type=lambda x: None if str(x) == "default" else int(x))
     parser.add_argument('--classifier_dropout',
-                        help="The classifier dropout", type=float)
-    parser.add_argument('--weight_decay', help="The weight decay", type=float)
-    parser.add_argument('--augments', help="The augments",
+                        help="The classifier dropout", type=lambda x: None if str(x) == "default" else float(x))
+    parser.add_argument('--mid_layer_dropout',
+                        help="The mid layer dropout", type=lambda x: None if str(x) == "default" else float(x))
+    parser.add_argument('--gcn_model_path', help="The gcn model path",
                         type=lambda x: None if str(x) == "default" else str(x))
+    parser.add_argument('--gcn_layers', help="The number of gcn neurons in each layer (separated by comma)",
+                        type=lambda x: [] if str(x) == "default" else [int(item) for item in x.split('&')])
+    parser.add_argument('--weight_decay', help="The weight decay",
+                        type=lambda x: None if str(x) == "default" else float(x))
+    parser.add_argument('--augments', help="The augments",
+                        type=lambda x: [] if str(x) == "default" else x.split('&'))
     parser.add_argument(
-        '--cbr', help="Whether the cbr is enabled or not", default=False, type=lambda x: (str(x).lower() == 'true'))
+        '--cbr', help="Whether the cbr is enabled or not", type=lambda x: (str(x).lower() == 'true'))
     parser.add_argument('--similarity_matrices_path_train',
                         help="The similarity matrices path train", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--similarity_matrices_path_dev',
                         help="The similarity matrices path dev", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--similarity_matrices_path_test',
                         help="The similarity matrices path test", type=lambda x: None if str(x) == "default" else str(x))
-    parser.add_argument('--num_cases', help="The number of cases", type=int)
+    parser.add_argument('--num_cases', help="The number of cases",
+                        type=lambda x: None if str(x) == "default" else int(x))
     parser.add_argument('--all_good_cases',
                         help="path to the good cases for case base", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--all_bad_cases',
                         help="path to the bad cases for case base", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--cbr_threshold',
-                        help="The cbr threshold", type=float)
+                        help="The cbr threshold", type=lambda x: None if str(x) == "default" else float(x))
     parser.add_argument(
         '--checkpoint', help="The checkpoint to load the model from", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument(
@@ -108,4 +136,15 @@ if __name__ == "__main__":
             output_file=args.output_file
         )
     elif args.task == "train_main_classifier":
-        train_main_classifier(args)
+        train_main_classifier(vars(args))
+
+    elif args.task == "train_gcn":
+        train_gcn(vars(args))
+
+    elif args.task == "empathy_similarity":
+        calculate_empathy_similarities(
+            source_file=args.source_file,
+            source_feature=args.source_feature,
+            target_file=args.target_file,
+            output_file=args.output_file
+        )

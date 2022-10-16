@@ -129,3 +129,4 @@ label2index = {
 
 
 index2label = {v: k for k, v in label2index.items()}
+num_edge_types = 111

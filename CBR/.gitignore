@@ -24,3 +24,5 @@ kgtk_conceptnet.tsv
 **/*.tgz
 **/*.tbz2
 **/*.txz
+processed/
+cache/gcn_model.pt

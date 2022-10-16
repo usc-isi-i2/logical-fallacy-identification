@@ -15,7 +15,7 @@ from sklearn.preprocessing import OneHotEncoder
 from torch import nn
 from torch_geometric.data import InMemoryDataset
 from torch_geometric.loader import DataLoader
-from torch_geometric.nn import GATv2Conv, global_max_pool, global_mean_pool
+from torch_geometric.nn import RGCNConv, global_max_pool, global_mean_pool
 from torch_geometric.utils.convert import from_networkx
 from tqdm import tqdm
 
@@ -27,7 +27,7 @@ NODE_EMBEDDING_SIZE = 768
 BATCH_SIZE = 4
 NUM_EPOCHS = 70
 MID_LAYERS_DROPOUT = 0.1
-MID_LAYERS_EMBEDDINGS = "32&32&16"
+GCN_LAYERS = "32,32,16"
 LEARNING_RATE = 1e-4
 
 torch.manual_seed(77)
@@ -43,45 +43,40 @@ class CBRetriever(torch.nn.Module):
         super(CBRetriever, self).__init__()
         self.mid_layer_dropout = mid_layer_dropout
 
-        self.conv1 = GATv2Conv(
+        self.conv1 = RGCNConv(
             num_input_features,
             mid_layer_embeddings[0],
-            dropout=0.1,
-            heads=heads
+            num_relations=consts.num_edge_types,
+            # dropout=0.1,
+            # heads=heads
         )
 
-        self.conv2 = GATv2Conv(
-            heads * mid_layer_embeddings[0],
+        self.conv2 = RGCNConv(
+            mid_layer_embeddings[0],
             mid_layer_embeddings[1],
-            dropout=0.1,
-            heads=heads // 2
-        )
-
-        self.conv3 = GATv2Conv(
-            heads // 2 * mid_layer_embeddings[1],
-            mid_layer_embeddings[2],
-            dropout=0.1,
-            heads=1
+            num_relations=consts.num_edge_types
+            # dropout=0.1,
+            # heads=1
         )
 
         self.lin = nn.Linear(2*mid_layer_embeddings[-1], num_output_features)
 
     def forward(self, data, batch):
         try:
-            x, edge_index, edge_attr = data.x, data.edge_index, data.edge_attr
-            edge_attr = edge_attr.float()
+            x, edge_index, edge_type = data.x, data.edge_index, data.edge_type
+            edge_type = edge_type.float()
 
-            x = self.conv1(x, edge_index)
+            x = self.conv1(x, edge_index, edge_type)
 
-            x = F.relu(x)
-            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+            x = x.relu()
+            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
-            x = self.conv2(x, edge_index)
+            x = self.conv2(x, edge_index, edge_type)
 
-            x = F.relu(x)
-            x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
+            # x = x.relu()
+            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
 
-            x = self.conv3(x, edge_index)
+            # x = self.conv3(x, edge_index, edge_type)
 
             x = torch.cat([global_mean_pool(x, batch),
                           global_max_pool(x, batch)], dim=1)
@@ -99,8 +94,9 @@ class CBRetriever(torch.nn.Module):
 
 
 class Logical_Fallacy_Dataset(InMemoryDataset):
-    def __init__(self, path_to_dataset, fit=False, **kwargs):
+    def __init__(self, path_to_dataset, g_type: str, fit=False, **kwargs):
         self.path_to_dataset = path_to_dataset
+        self.g_type = g_type
         self.amr_graphs_with_sentences = joblib.load(
             path_to_dataset)
         if fit:
@@ -113,12 +109,18 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
             self.all_edge_types = kwargs["all_edge_types"]
             self.ohe = kwargs["ohe"]
 
+        self.edge_mapping = {edge: i for i,
+                             edge in enumerate(self.all_edge_types)}
         super().__init__(root='.')
         self.data, self.slices = torch.load(self.processed_paths[0])
 
     @property
+    def num_relations(self):
+        return len(self.all_edge_types)
+
+    @ property
     def processed_file_names(self):
-        return [f'{os.path.splitext(os.path.basename(self.path_to_dataset))[0]}.pt']
+        return [f'{os.path.splitext(os.path.basename(self.path_to_dataset))[0]}_{self.g_type}.pt']
 
     def _download(self):
         return
@@ -155,27 +157,31 @@ class Logical_Fallacy_Dataset(InMemoryDataset):
                 label2word = obj[1].label2word
                 node2index = self.get_node_mappings(g)
                 index2embeddings = self.get_node_embeddings(g, label2word)
-                new_g = nx.Graph()
+                if self.g_type == "directed":
+                    new_g = nx.DiGraph()
+                else:
+                    new_g = nx.Graph()
                 all_edges = {
                     (
                         node2index[edge[0]],
                         node2index[edge[1]],
-                    ): edge[2]['label']
+                    ): self.edge_mapping[edge[2]['label']]
                     for edge in g.edges(data=True)
                 }
                 new_g.add_edges_from(list(all_edges.keys()))
                 nx.set_node_attributes(new_g, index2embeddings, name='x')
-                nx.set_edge_attributes(new_g, all_edges, 'edge_attr')
+                nx.set_edge_attributes(new_g, all_edges, 'edge_type')
                 pyg_graph = from_networkx(new_g)
 
-                edge_attrs = np.array(pyg_graph.edge_attr).reshape(-1, 1)
-                pyg_graph.edge_attr = torch.from_numpy(
-                    self.ohe.transform(edge_attrs).A
-                )
+                # edge_attrs = np.array(pyg_graph.edge_attr).reshape(-1, 1)
+                # pyg_graph.edge_attr = torch.from_numpy(
+                #     self.ohe.transform(edge_attrs).A
+                # )
 
                 pyg_graph.y = torch.tensor([
                     consts.label2index[obj[2]]
                 ])
+
                 pyg_graph.base_sentence = base_sentence
 
                 data_list.append(pyg_graph)
@@ -269,7 +275,7 @@ def evaluate_on_loaders(model, train_data_loader, dev_data_loader, test_data_loa
     ))
 
 
-def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader, learning_rate, num_epochs):
+def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader, learning_rate, num_epochs, gcn_model_path):
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(
         model.parameters(), lr=learning_rate)
@@ -298,7 +304,7 @@ def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader
         if score > best_f1_score:
             print(score)
             print('saving the model')
-            torch.save(model.state_dict(), args.model_path)
+            torch.save(model.state_dict(), gcn_model_path)
             best_f1_score = score
 
         print(
@@ -308,55 +314,73 @@ def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader
                                 dev_data_loader, test_data_loader)
 
 
+def train(config):
+
+    wandb.init(
+        project="Logical Fallacy Detection GCN",
+        entity='zhpinkman',
+        config={
+            **config,
+            "model": "GATv2Conv"
+        }
+    )
+
+    train_dataset = Logical_Fallacy_Dataset(
+        path_to_dataset=config["train_input_file"],
+        g_type=config["g_type"],
+        fit=True
+    )
+
+    dev_dataset = Logical_Fallacy_Dataset(
+        path_to_dataset=config["dev_input_file"],
+        g_type=config["g_type"],
+        fit=False,
+        all_edge_types=train_dataset.all_edge_types,
+        ohe=train_dataset.ohe
+    )
+
+    test_dataset = Logical_Fallacy_Dataset(
+        path_to_dataset=config["test_input_file"],
+        g_type=config["g_type"],
+        fit=False,
+        all_edge_types=train_dataset.all_edge_types,
+        ohe=train_dataset.ohe
+    )
+
+    train_data_loader = DataLoader(
+        train_dataset, batch_size=config["batch_size"], shuffle=True)
+    dev_data_loader = DataLoader(
+        dev_dataset, batch_size=config["batch_size"], shuffle=False)
+    test_data_loader = DataLoader(
+        test_dataset, batch_size=config["batch_size"], shuffle=False)
+
+    model = CBRetriever(
+        num_input_features=NODE_EMBEDDING_SIZE,
+        num_output_features=len(consts.label2index),
+        mid_layer_dropout=config["mid_layer_dropout"],
+        mid_layer_embeddings=config["gcn_layers"],
+        heads=4
+    )
+
+    model = model.to(device)
+
+    do_train_process(
+        model=model,
+        train_data_loader=train_data_loader,
+        dev_data_loader=dev_data_loader,
+        test_data_loader=test_data_loader,
+        learning_rate=config["learning_rate"],
+        num_epochs=config["num_epochs"],
+        gcn_model_path=config["gcn_model_path"]
+    )
+
+
 def train_with_wandb(config=None):
     with wandb.init(config=config):
         # If called by wandb.agent, as below,
         # this config will be set by Sweep Controller
         config = wandb.config
-        model = CBRetriever(
-            num_input_features=NODE_EMBEDDING_SIZE,
-            num_output_features=len(consts.label2index),
-            mid_layer_dropout=config.mid_layer_dropout,
-            mid_layer_embeddings=config.layers_embeddings,
-            heads=4
-        )
-
-        model = model.to(device)
-
-        train_dataset = Logical_Fallacy_Dataset(
-            path_to_dataset=args.train_input_file,
-            fit=True
-        )
-
-        dev_dataset = Logical_Fallacy_Dataset(
-            path_to_dataset=args.dev_input_file,
-            fit=False,
-            all_edge_types=train_dataset.all_edge_types,
-            ohe=train_dataset.ohe
-        )
-
-        test_dataset = Logical_Fallacy_Dataset(
-            path_to_dataset=args.test_input_file,
-            fit=False,
-            all_edge_types=train_dataset.all_edge_types,
-            ohe=train_dataset.ohe
-        )
-
-        train_data_loader = DataLoader(
-            train_dataset, batch_size=config.batch_size, shuffle=True)
-        dev_data_loader = DataLoader(
-            dev_dataset, batch_size=config.batch_size, shuffle=False)
-        test_data_loader = DataLoader(
-            test_dataset, batch_size=config.batch_size, shuffle=False)
-
-        do_train_process(
-            model=model,
-            train_data_loader=train_data_loader,
-            dev_data_loader=dev_data_loader,
-            test_data_loader=test_data_loader,
-            learning_rate=config.learning_rate,
-            num_epochs=int(config.num_epochs),
-        )
+        train(config)
 
 
 if __name__ == "__main__":
@@ -366,7 +390,7 @@ if __name__ == "__main__":
     parser.add_argument('--task', choices=['train', 'predict', 'hptuning'],
                         help="The task you want the model to accomplish")
     parser.add_argument(
-        '--model_path', help="The path from which we can find the pre-trained model")
+        '--gcn_model_path', help="The path from which we can find the pre-trained model")
 
     parser.add_argument('--train_input_file',
                         help="The path to the train dataset")
@@ -381,11 +405,13 @@ if __name__ == "__main__":
         '--predictions_path', type=str
     )
     parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
+    parser.add_argument('--g_type', help="The type of graph you want to use",
+                        choices=['directed', 'undirected'])
     parser.add_argument('--num_epochs', type=int, default=NUM_EPOCHS)
     parser.add_argument('--mid_layers_dropout', type=float,
                         default=MID_LAYERS_DROPOUT)
-    parser.add_argument('--mid_layers_embeddings',
-                        type=str, default=MID_LAYERS_EMBEDDINGS)
+    parser.add_argument('--gcn_layers',
+                        type=str, default=GCN_LAYERS)
     parser.add_argument('--learning_rate', type=float, default=LEARNING_RATE)
 
     args = parser.parse_args()
@@ -412,7 +438,7 @@ if __name__ == "__main__":
             'mid_layer_dropout': {
                 "values": [0.5, 0.6, 0.7, 0.8]
             },
-            'layers_embeddings': {
+            'gcn_layers': {
                 'values':
                     [
                         [32, 32, 32],
@@ -443,26 +469,15 @@ if __name__ == "__main__":
         }
     )
 
-    model = CBRetriever(
-        num_input_features=NODE_EMBEDDING_SIZE,
-        num_output_features=len(consts.label2index),
-        mid_layer_dropout=args.mid_layers_dropout,
-        mid_layer_embeddings=[int(x)
-                              for x in args.mid_layers_embeddings.split('&')],
-        heads=4
-    )
-    if args.task == "predict":
-        model.load_state_dict(torch.load(args.model_path))
-
-    model = model.to(device)
-
     train_dataset = Logical_Fallacy_Dataset(
         path_to_dataset=args.train_input_file,
+        g_type=args.g_type,
         fit=True
     )
 
     dev_dataset = Logical_Fallacy_Dataset(
         path_to_dataset=args.dev_input_file,
+        g_type=args.g_type,
         fit=False,
         all_edge_types=train_dataset.all_edge_types,
         ohe=train_dataset.ohe
@@ -470,6 +485,7 @@ if __name__ == "__main__":
 
     test_dataset = Logical_Fallacy_Dataset(
         path_to_dataset=args.test_input_file,
+        g_type=args.g_type,
         fit=False,
         all_edge_types=train_dataset.all_edge_types,
         ohe=train_dataset.ohe
@@ -482,6 +498,19 @@ if __name__ == "__main__":
     test_data_loader = DataLoader(
         test_dataset, batch_size=args.batch_size, shuffle=False)
 
+    model = CBRetriever(
+        num_input_features=NODE_EMBEDDING_SIZE,
+        num_output_features=len(consts.label2index),
+        mid_layer_dropout=args.mid_layers_dropout,
+        mid_layer_embeddings=[int(x)
+                              for x in args.gcn_layers.split(',')],
+        heads=4
+    )
+    if args.task == "predict":
+        model.load_state_dict(torch.load(args.gcn_model_path))
+
+    model = model.to(device)
+
     if args.task == "train":
         do_train_process(
             model=model,
@@ -489,7 +518,8 @@ if __name__ == "__main__":
             dev_data_loader=dev_data_loader,
             test_data_loader=test_data_loader,
             learning_rate=args.learning_rate,
-            num_epochs=args.num_epochs
+            num_epochs=args.num_epochs,
+            gcn_model_path=args.gcn_model_path
         )
         exit()
 

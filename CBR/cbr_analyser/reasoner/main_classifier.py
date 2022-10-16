@@ -292,9 +292,9 @@ def do_train_process(args):
         model = AutoModelForSequenceClassification.from_pretrained(
             args["checkpoint"], num_labels=NUM_LABELS)
 
-    train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"].split('&'), source_feature=args["source_feature"])
-    dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"].split('&'), source_feature=args["source_feature"])
-    test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"].split('&'), source_feature=args["source_feature"])
+    train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
 
     if args["cbr"]:
         train_df, dev_df, test_df = augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, tokenizer.sep_token)
@@ -421,7 +421,7 @@ if __name__ == "__main__":
         '--weight_decay', type = float, default = 0.01
     )
     parser.add_argument(
-        '--augments', type = str, default = ""
+        '--augments', type = lambda x: [] if x is None else x.split('&'), default = [], help = "augments to be used for training the model split by comma"
     )
     parser.add_argument(
         '--cbr', action=argparse.BooleanOptionalAction
