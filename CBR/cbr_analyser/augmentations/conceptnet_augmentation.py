@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 import cbr_analyser.consts as consts
 import wandb
-from cbr_analyser.logging.custom_logger import get_logger
+from cbr_analyser.custom_logging.custom_logger import get_logger
 
 parser = argparse.ArgumentParser(
     description='Augment the AMR graphs with different Knowledge Bases')

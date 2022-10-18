@@ -8,9 +8,30 @@ from IPython import embed
 
 import main
 from cbr_analyser.consts import *
-from cbr_analyser.logging.custom_logger import get_logger
+from cbr_analyser.custom_logging.custom_logger import get_logger
+
+this_dir = os.path.dirname(__file__)
+sys.path.append(os.path.join(this_dir, "cbr_analyser/amr/"))
+
 
 logger = get_logger(logger_name=f"{__name__}.{os.path.basename(__file__)}")
+
+
+def do_load_gcn(args):
+    config = {
+        "task": args.task
+    }
+    envs = "--export=ALL,"
+    for key, value in config.items():
+        envs += f"{key}={value},"
+    job_id = subprocess.check_output([
+        'sbatch',
+        envs,
+        'slurm_job_scripts/general.sh'
+    ]).decode()
+    print(f"Submitted job {job_id} for task {args.task} with args {args}")
+    logger.info(
+        f"Submitted job {job_id} for task {args.task}")
 
 
 def do_amr_generation(args, split, path):
@@ -84,20 +105,53 @@ def do_simcse_similarity(args, split, path):
         f"Submitted job {job_id} for task {args.task} for split {split}")
 
 
+def do_gcn_similarity(args):
+    config = {
+        "task": args.task,
+        "source_feature": args.source_feature,
+        "mid_layer_dropout": 0.3,
+        "train_input_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
+        "dev_input_file": "cache/masked_sentences_with_AMR_container_objects_dev.joblib",
+        "test_input_file": "cache/masked_sentences_with_AMR_container_objects_test.joblib",
+        "batch_size": 8,
+        "learning_rate": 5e-4,
+        "num_epochs": 60,
+        "g_type": "directed",
+        "gcn_model_path": "cache/gcn_model.pt",
+        "gcn_layers": [64, 64, 64]
+    }
+    if args.debug:
+        main.gcn_similarity(config)
+    envs = "--export=ALL,"
+    for key, value in config.items():
+        if type(value) == list:
+            value = "&".join([str(v) for v in value])
+        envs += f"{key}={value},"
+
+    job_id = subprocess.check_output([
+        'sbatch',
+        envs,
+        'slurm_job_scripts/general.sh'
+    ]).decode()
+    print(f"Submitted job {job_id} for task {args.task} with args {args}")
+    logger.info(
+        f"Submitted job {job_id} for task {args.task} with args {args}")
+
+
 def do_train_gcn(args):
     config = {
         "task": args.task,
         "source_feature": args.source_feature,
-        "mid_layer_dropout": 0.5,
+        "mid_layer_dropout": 0.3,
         "train_input_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
         "dev_input_file": "cache/masked_sentences_with_AMR_container_objects_dev.joblib",
         "test_input_file": "cache/masked_sentences_with_AMR_container_objects_test.joblib",
-        "batch_size": 4,
-        "learning_rate": 1e-4,
-        "num_epochs": 20,
+        "batch_size": 8,
+        "learning_rate": 5e-4,
+        "num_epochs": 60,
         "g_type": "directed",
         "gcn_model_path": "cache/gcn_model.pt",
-        "gcn_layers": [32, 32]
+        "gcn_layers": [64, 64, 64]
     }
     if args.debug:
         main.train_gcn(config)
@@ -127,6 +181,8 @@ def do_train_main_classifier(args, path):
         "batch_size": 8,
         "learning_rate": 2e-5,
         "num_epochs": 5,
+        "augments": [],
+        "retriever_type": args.retriever_type,
         "cbr": args.cbr,
         "num_cases": 1,
         "similarity_matrices_path_train": f"cache/simcse_similarities_{args.source_feature}_train.joblib",
@@ -138,6 +194,8 @@ def do_train_main_classifier(args, path):
         "checkpoint": "roberta-base",
         "predictions_path": path
     }
+    if args.debug:
+        main.train_main_classifier(config)
     envs = "--export=ALL,"
     for key, value in config.items():
         envs += f"{key}={value},"
@@ -203,13 +261,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--source_feature', choices=[
-                        'masked_articles', 'source_article'], type=str, default='masked_articles')
+                        'masked_articles', 'source_article', 'amr_str'], type=str, default='masked_articles')
 
-    # TODO: add all the choices for the tasks
-    parser.add_argument('--task', type=str, choices=['amr_generation', 'simcse_similarity',
-                        'train_main_classifier', "train_gcn", "empathy_similarity"], default='follow_the_usual_process')
+    parser.add_argument('--task', type=str, choices=['amr_generation', 'simcse_similarity', "load_gcn",
+                        'train_main_classifier', "train_gcn", "empathy_similarity", "reason", 'gcn_similarity'], default='follow_the_usual_process')
 
     parser.add_argument('--cbr', type=bool, default=False)
+    parser.add_argument('--retriever_type', type=str,
+                        choices=['simcse', 'empathy', 'gcn'], default="simcse")
     parser.add_argument('--predictions_path', type=str)
     parser.add_argument(
         '--debug', action=argparse.BooleanOptionalAction, default=False)
@@ -244,3 +303,12 @@ if __name__ == '__main__':
                     f"empathy similarities for the {split} split already exist")
             else:
                 do_empathy_similarity(args, split, path)
+
+    if args.task == "load_gcn":
+        do_load_gcn(args)
+
+    if args.task == "reason":
+        do_train_main_classifier(args, args.predictions_path)
+
+    if args.task == "gcn_similarity":
+        do_gcn_similarity(args)

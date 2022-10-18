@@ -2,6 +2,8 @@ import argparse
 import os
 import random
 import re
+from torchmetrics.functional import pairwise_cosine_similarity
+from typing import Dict, List, Tuple
 
 import joblib
 import networkx as nx
@@ -15,7 +17,8 @@ from sklearn.preprocessing import OneHotEncoder
 from torch import nn
 from torch_geometric.data import InMemoryDataset
 from torch_geometric.loader import DataLoader
-from torch_geometric.nn import RGCNConv, global_max_pool, global_mean_pool
+from torch_geometric.nn import (RGATConv, RGCNConv, global_max_pool,
+                                global_mean_pool)
 from torch_geometric.utils.convert import from_networkx
 from tqdm import tqdm
 
@@ -36,44 +39,67 @@ np.random.seed(77)
 
 
 class CBRetriever(torch.nn.Module):
-    def __init__(self, num_input_features, num_output_features, mid_layer_dropout, mid_layer_embeddings, heads=4):
+    def __init__(self, num_input_features: int, num_output_features: int, mid_layer_dropout: float, mid_layer_embeddings: List[int], heads=4):
         super(CBRetriever, self).__init__()
         self.mid_layer_dropout = mid_layer_dropout
 
-        self.conv1 = RGCNConv(
-            num_input_features,
-            mid_layer_embeddings[0],
-            num_relations=consts.num_edge_types,
-            # dropout=0.1,
-            # heads=heads
+        self.g_layers = nn.ModuleList()
+        self.g_layers.append(
+            RGATConv(
+                num_input_features,
+                mid_layer_embeddings[0],
+                num_relations=consts.num_edge_types
+            )
         )
 
-        self.conv2 = RGCNConv(
-            mid_layer_embeddings[0],
-            mid_layer_embeddings[1],
-            num_relations=consts.num_edge_types
-            # dropout=0.1,
-            # heads=1
-        )
+        for i in range(1, len(mid_layer_embeddings)):
+            self.g_layers.append(
+                RGATConv(
+                    mid_layer_embeddings[i - 1],
+                    mid_layer_embeddings[i],
+                    num_relations=consts.num_edge_types
+                )
+            )
 
         self.lin = nn.Linear(2*mid_layer_embeddings[-1], num_output_features)
+
+    def get_embedding(self, data, batch):
+        try:
+            x, edge_index, edge_type = data.x, data.edge_index, data.edge_type
+            edge_type = edge_type.long()
+            # x = F.dropout(x, p=0.1, training=self.training)
+
+            for i in range(len(self.g_layers)):
+                x = self.g_layers[i](x, edge_index, edge_type)
+                if i != len(self.g_layers) - 1:
+                    x = F.relu(x)
+                    x = F.dropout(x, p=self.mid_layer_dropout,
+                                  training=self.training)
+
+            x = torch.cat([global_mean_pool(x, batch),
+                          global_max_pool(x, batch)], dim=1)
+
+            return x.detach().cpu()
+
+        except Exception as e:
+            print(e)
+            embed()
+            exit()
+
+        return x
 
     def forward(self, data, batch):
         try:
             x, edge_index, edge_type = data.x, data.edge_index, data.edge_type
-            edge_type = edge_type.float()
+            edge_type = edge_type.long()
+            # x = F.dropout(x, p=0.1, training=self.training)
 
-            x = self.conv1(x, edge_index, edge_type)
-
-            x = x.relu()
-            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
-
-            x = self.conv2(x, edge_index, edge_type)
-
-            # x = x.relu()
-            # x = F.dropout(x, p=self.mid_layer_dropout, training=self.training)
-
-            # x = self.conv3(x, edge_index, edge_type)
+            for i in range(len(self.g_layers)):
+                x = self.g_layers[i](x, edge_index, edge_type)
+                if i != len(self.g_layers) - 1:
+                    x = F.relu(x)
+                    x = F.dropout(x, p=self.mid_layer_dropout,
+                                  training=self.training)
 
             x = torch.cat([global_mean_pool(x, batch),
                           global_max_pool(x, batch)], dim=1)
@@ -274,6 +300,87 @@ def evaluate_on_loaders(model, train_data_loader, dev_data_loader, test_data_loa
     ))
 
 
+def get_similarities(config):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    train_dataset = Logical_Fallacy_Dataset(
+        path_to_dataset=config["train_input_file"],
+        g_type=config["g_type"],
+        fit=True
+    )
+
+    dev_dataset = Logical_Fallacy_Dataset(
+        path_to_dataset=config["dev_input_file"],
+        g_type=config["g_type"],
+        fit=False,
+        all_edge_types=train_dataset.all_edge_types,
+        ohe=train_dataset.ohe
+    )
+
+    test_dataset = Logical_Fallacy_Dataset(
+        path_to_dataset=config["test_input_file"],
+        g_type=config["g_type"],
+        fit=False,
+        all_edge_types=train_dataset.all_edge_types,
+        ohe=train_dataset.ohe
+    )
+
+    batch_size = config["batch_size"]
+
+    train_data_loader = DataLoader(
+        train_dataset, batch_size=config["batch_size"], shuffle=False)
+    dev_data_loader = DataLoader(
+        dev_dataset, batch_size=config["batch_size"], shuffle=False)
+    test_data_loader = DataLoader(
+        test_dataset, batch_size=config["batch_size"], shuffle=False)
+
+    model = CBRetriever(
+        num_input_features=NODE_EMBEDDING_SIZE,
+        num_output_features=len(consts.label2index),
+        mid_layer_dropout=config["mid_layer_dropout"],
+        mid_layer_embeddings=config["gcn_layers"],
+        heads=4
+    )
+    model.load_state_dict(torch.load(config["gcn_model_path"]))
+    model = model.to(device)
+
+    model.eval()
+
+    model = model.to(device)
+    for source_data, data_name in zip([train_data_loader, dev_data_loader, test_data_loader], ['train', 'dev', 'test']):
+        similarities = np.zeros([len(source_data.dataset),
+                                len(train_data_loader.dataset)])
+        all_sentences = [data.base_sentence.strip()
+                         for data in source_data.dataset]
+        train_sentences = [
+            data.base_sentence.strip() for data in train_data_loader.dataset]
+        for source_index, source_batch in enumerate(source_data):
+            for train_index, train_batch in enumerate(train_data_loader):
+
+                source_batch = source_batch.to(device)
+                train_batch = train_batch.to(device)
+
+                source_embedding = model.get_embedding(
+                    source_batch, source_batch.batch)
+                train_embedding = model.get_embedding(
+                    train_batch, train_batch.batch)
+
+                similarities[
+                    source_index * batch_size:source_index * batch_size + len(source_batch),
+                    train_index * batch_size:train_index * batch_size + len(train_batch)
+                ] = pairwise_cosine_similarity(
+                    source_embedding,
+                    train_embedding
+                ).numpy()
+
+        similarities_dict = dict()
+        for sentence, row in zip(all_sentences, similarities):
+            similarities_dict[sentence] = dict(
+                zip(train_sentences, row.tolist()))
+        output_file = f"cache/gcn_similarities_{config['source_feature']}_{data_name}.joblib"
+        joblib.dump(similarities_dict, output_file)
+
+
 def do_train_process(model, train_data_loader, dev_data_loader, test_data_loader, learning_rate, num_epochs, gcn_model_path):
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(
@@ -321,7 +428,7 @@ def train(config):
         entity='zhpinkman',
         config={
             **config,
-            "model": "GATv2Conv"
+            "model": "RGATConv"
         }
     )
 

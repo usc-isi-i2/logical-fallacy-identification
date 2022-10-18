@@ -30,6 +30,7 @@ python main.py \
     --dev_input_file ${dev_input_file:="default"} \
     --test_input_file ${test_input_file:="default"} \
     --batch_size ${batch_size:="default"} \
+    --retriever_type ${retriever_type:="default"} \
     --learning_rate ${learning_rate:="default"} \
     --num_epochs ${num_epochs:="default"} \
     --classifier_dropout ${classifier_dropout:="default"} \

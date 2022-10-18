@@ -5,7 +5,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import List
+from typing import Any, Dict, List
 
 import joblib
 import numpy as np
@@ -22,6 +22,8 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
 import cbr_analyser.case_retriever.gcn as gcn
 import cbr_analyser.consts as consts
 import wandb
+from cbr_analyser.case_retriever.retriever import (Empathy_Retriever,
+                                                   Retriever, SimCSE_Retriever, GCN_Retriever)
 
 this_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(this_dir, "../amr/"))
@@ -99,6 +101,8 @@ def read_csv_from_amr(input_file: str, source_feature: str, augments: List[str]=
             base_sentence = obj[1].sentence
         elif source_feature == "source_article":
             base_sentence = obj[0]
+        elif source_feature == "amr_str":
+            base_sentence = obj[1].graph_str
         else:
             raise NotImplementedError()
         graph = obj[1].graph_nx
@@ -127,130 +131,30 @@ def read_csv_from_amr(input_file: str, source_feature: str, augments: List[str]=
         "updated_label": labels
     })
 
-def augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, sep_token):
-    if args["all_bad_cases"]:
-        all_bad_cases = joblib.load(args["all_bad_cases"])
-    if args["all_good_cases"]:
-        all_good_cases = joblib.load(args["all_good_cases"])
-    simcse_train_similarities = joblib.load(args["similarity_matrices_path_train"])
-    simcse_dev_similarities = joblib.load(args["similarity_matrices_path_dev"])
-    simcse_test_similarities = joblib.load(args["similarity_matrices_path_test"])
-    
-    
-    def augment_dataframe(df, simcse_similarities):
-        augmented_sentences = []
-        external_sentences = []
-        for sentence in df[args["source_feature"]]:
-            try:
-                sentences_and_similarities = simcse_similarities[sentence.strip()].items()
-                sentences_and_similarities_sorted = sorted(sentences_and_similarities, key = lambda x: x[1], reverse = True)
-                augs = [x[0] for x in sentences_and_similarities_sorted[1:args["num_cases"] + 1] if x[1] > args["cbr_threshold"]]
-                if args["all_bad_cases"]:
-                    augs = [sent for sent in augs if sent not in all_bad_cases]
-                if args["all_good_cases"]:
-                    augs = [sent for sent in augs if sent in all_good_cases]
-                result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(augs)}"
-                external_sentences.append('</sep>'.join(augs))
-                augmented_sentences.append(result_sentence)
-            except Exception as e:
-                embed()
-                
-        df[args["source_feature"]] = augmented_sentences
-        df['cbr'] = external_sentences
-        return df
+def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token):    
+    external_sentences = []
+    augmented_sentences = []
+    count_without_cases = 0
+    for sentence in df[args["source_feature"]]:
+        try:
+            similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
+            similar_sentences = [s[0] for s in similar_sentences_with_similarities]
+            result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
+            external_sentences.append('</sep>'.join(similar_sentences))
+            augmented_sentences.append(result_sentence)
+        except Exception as e:
+            print(e)
+            count_without_cases += 1
+            result_sentence = sentence
+            external_sentences.append('')
+            augmented_sentences.append(result_sentence)
 
-    train_df = augment_dataframe(train_df, simcse_train_similarities)
-    dev_df = augment_dataframe(dev_df, simcse_dev_similarities)
-    test_df = augment_dataframe(test_df, simcse_test_similarities)
-    
-    return train_df, dev_df, test_df
+            
+    df[args["source_feature"]] = augmented_sentences
+    df['cbr'] = external_sentences
+    return df
 
     
-
-# def augment_with_cases_gcn(train_df, dev_df, test_df, args):
-#     print('doing the case augmentation using GCN ...')
-#     gcn_model = gcn.CBRetriever(
-#         num_input_features=gcn.NODE_EMBEDDING_SIZE,
-#         num_output_features=len(consts.label2index),
-#         mid_layer_dropout=gcn.MID_LAYERS_DROPOUT,
-#         mid_layer_embeddings=[int(x)
-#                               for x in gcn.MID_LAYERS_EMBEDDINGS.split('&')],
-#         heads=4
-#     )
-
-#     device_cuda = torch.cuda.is_available()
-#     device = torch.device("cuda" if device_cuda else "cpu")
-    
-#     if not device_cuda:
-#         gcn_model.load_state_dict(torch.load(
-#             args["gcn_model_path"], map_location=torch.device('cpu')))
-#     else:
-#         gcn_model.load_state_dict(torch.load(args["gcn_model_path"]))
-#     gcn_model = gcn_model.to(device)
-
-#     train_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args["train_input_file"],
-#         fit=True
-#     )
-#     dev_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args["dev_input_file"],
-#         fit=False,
-#         all_edge_types=train_dataset.all_edge_types,
-#         ohe=train_dataset.ohe
-#     )
-
-#     test_dataset = gcn.Logical_Fallacy_Dataset(
-#         path_to_dataset=args["test_input_file"],
-#         fit=False,
-#         all_edge_types=train_dataset.all_edge_types,
-#         ohe=train_dataset.ohe
-#     )
-
-#     train_data_loader = gcn.DataLoader(
-#         train_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-#     dev_data_loader = gcn.DataLoader(
-#         dev_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-#     test_data_loader = gcn.DataLoader(
-#         test_dataset, batch_size=gcn.BATCH_SIZE, shuffle=False)
-
-#     train_results = gcn.test_on_loader(
-#         gcn_model, train_data_loader)
-#     dev_results = gcn.test_on_loader(
-#         gcn_model, dev_data_loader)
-#     test_results = gcn.test_on_loader(
-#         gcn_model, test_data_loader)
-
-#     all_train_predictions = [consts.index2label[pred]
-#                              for pred in train_results['predictions']]
-#     all_dev_predictions = [consts.index2label[pred]
-#                            for pred in dev_results['predictions']]
-#     all_test_predictions = [consts.index2label[pred]
-#                             for pred in test_results['predictions']]
-#     all_train_true_labels = [consts.index2label[true_label]
-#                              for true_label in train_results['true_labels']]
-#     all_dev_true_labels = [consts.index2label[true_label]
-#                            for true_label in dev_results['true_labels']]
-#     all_test_true_labels = [consts.index2label[true_label]
-#                             for true_label in test_results['true_labels']]
-
-#     print('Train split results')
-#     print(classification_report(
-#         y_pred=all_train_predictions,
-#         y_true=all_train_true_labels
-#     ))
-
-#     print('Dev split results')
-#     print(classification_report(
-#         y_pred=all_dev_predictions,
-#         y_true=all_dev_true_labels
-#     ))
-
-#     print('Test split results')
-#     print(classification_report(
-#         y_pred=all_test_predictions,
-#         y_true=all_test_true_labels
-#     ))
-
 
 def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str, args):
     split_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset[split]).predictions, axis = -1)))
@@ -279,11 +183,8 @@ def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str,
         results_df.to_csv(os.path.join(args["predictions_path"], f"{split}.csv"), index = False)
 
         
-        
 
-    
-
-def do_train_process(args):
+def do_train_process(args: Dict[str, Any]):
     tokenizer = AutoTokenizer.from_pretrained(args["checkpoint"])
     if args["checkpoint"] != "bigscience/bloom-560m":
         model = AutoModelForSequenceClassification.from_pretrained(
@@ -297,8 +198,15 @@ def do_train_process(args):
     test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
 
     if args["cbr"]:
-        train_df, dev_df, test_df = augment_with_cases_similarity_matrices(train_df, dev_df, test_df, args, tokenizer.sep_token)
-
+        if args["retriever_type"] == "simcse":
+            retriever = SimCSE_Retriever(config = {"source_feature": args["source_feature"]})
+        if args['retriever_type'] == "empathy":
+            retriever = Empathy_Retriever(config = {"source_feature": args["source_feature"]})
+        if args['retriever_type'] == "gcn":
+            retriever = GCN_Retriever(config = {"source_feature": args["source_feature"]})
+        
+        for df in [train_df, dev_df, test_df]:
+            df = augment_with_similar_cases(df, retriever, args, tokenizer.sep_token)
 
     label_encoder = lambda x: consts.label2index[x]
     label_encoder_inverse = lambda x: consts.index2label[x]
@@ -308,6 +216,7 @@ def do_train_process(args):
     dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
     test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
 
+    
 
     dataset = DatasetDict({
         'train': Dataset.from_pandas(train_df),

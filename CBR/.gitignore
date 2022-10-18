@@ -26,3 +26,4 @@ kgtk_conceptnet.tsv
 **/*.txz
 processed/
 cache/gcn_model.pt
+cache/graphs

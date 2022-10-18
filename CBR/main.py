@@ -10,6 +10,7 @@ from cbr_analyser.amr.amr_extraction import (
     augment_amr_container_objects_with_clean_node_labels,
     generate_amr_containers_from_csv_file)
 from cbr_analyser.case_retriever.gcn import gcn
+from cbr_analyser.case_retriever.retriever import GCN_Retriever
 from cbr_analyser.consts import *
 from cbr_analyser.reasoner.main_classifier import do_train_process
 
@@ -20,6 +21,9 @@ sys.path.append(os.path.join(this_dir, "cbr_analyser/amr/"))
 def train_gcn(args: Dict[str, Any]):
     gcn.train(args)
 
+
+def gcn_similarity(args: Dict[str, Any]):
+    gcn.get_similarities(args)
 
 def generate_amr(input_file, output_file):
     generate_amr_containers_from_csv_file(
@@ -59,6 +63,19 @@ def train_main_classifier(args: Dict[str, Any]):
     do_train_process(args)
 
 
+def load_gcn(args):
+    print('starting to load!!')
+    retriever = GCN_Retriever(
+        gcn_model_path="cache/gcn_model.pt",
+        config={
+            "gcn_layers": [128, 64, 32],
+            "mid_layer_dropout": 0.5
+        },
+        train_input_file="cache/masked_sentences_with_AMR_container_objects_train.joblib"
+    )
+    print('loaded!!')
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_file', help="input file",
@@ -66,9 +83,9 @@ if __name__ == "__main__":
     parser.add_argument('--output_file', help="output file",
                         type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument(
-        '--task', help="The task that should be done", type=lambda x: None if str(x) == "default" else str(x), choices=['amr_generation', 'simcse_similarity', 'train_main_classifier', 'train_gcn', 'empathy_similarity'])
-    parser.add_argument("--source_feature", type=lambda x: None if str(x) == "default" else str(x),
-                        help="The source feature that should be used", choices=['masked_articles', 'source_article'])
+        '--task', help="The task that should be done", type=lambda x: None if str(x) == "default" else str(x), choices=['amr_generation', 'simcse_similarity', 'train_gcn', 'empathy_similarity', "load_gcn", 'reason', 'gcn_similarity'])
+    parser.add_argument("--source_feature", type=lambda x: "masked_articles" if str(x) == "default" else str(x),
+                        help="The source feature that should be used", choices=['masked_articles', 'source_article', 'amr_str'])
 
     parser.add_argument('--source_file', help="The source file",
                         type=lambda x: None if str(x) == "default" else str(x))
@@ -97,7 +114,9 @@ if __name__ == "__main__":
     parser.add_argument('--gcn_layers', help="The number of gcn neurons in each layer (separated by comma)",
                         type=lambda x: [] if str(x) == "default" else [int(item) for item in x.split('&')])
     parser.add_argument('--weight_decay', help="The weight decay",
-                        type=lambda x: None if str(x) == "default" else float(x))
+                        type=lambda x: None if str(x) == "default" else float(x))   
+    
+    parser.add_argument('--retriever_type', help="The retriever type", type = lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--augments', help="The augments",
                         type=lambda x: [] if str(x) == "default" else x.split('&'))
     parser.add_argument(
@@ -135,7 +154,7 @@ if __name__ == "__main__":
             target_file=args.target_file,
             output_file=args.output_file
         )
-    elif args.task == "train_main_classifier":
+    elif args.task == "reason":
         train_main_classifier(vars(args))
 
     elif args.task == "train_gcn":
@@ -148,3 +167,9 @@ if __name__ == "__main__":
             target_file=args.target_file,
             output_file=args.output_file
         )
+
+    elif args.task == "load_gcn":
+        load_gcn(vars(args))
+        
+    elif args.task == "gcn_similarity":
+        gcn_similarity(vars(args))
