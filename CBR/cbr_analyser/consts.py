@@ -116,15 +116,14 @@ label2index = {
     'ad populum': 1,
     'appeal to emotion': 2,
     'circular reasoning': 3,
-    'equivocation': 4,
-    'fallacy of credibility': 5,
-    'fallacy of extension': 6,
-    'fallacy of logic': 7,
-    'fallacy of relevance': 8,
-    'false causality': 9,
-    'false dilemma': 10,
-    'faulty generalization': 11,
-    'intentional': 12
+    'fallacy of credibility': 4,
+    'fallacy of extension': 5,
+    'fallacy of logic': 6,
+    'fallacy of relevance': 7,
+    'false causality': 8,
+    'false dilemma': 9,
+    'faulty generalization': 10,
+    'intentional': 11
 }
 
 

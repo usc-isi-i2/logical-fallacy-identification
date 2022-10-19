@@ -15,15 +15,14 @@ from datasets import Dataset, DatasetDict
 from IPython import embed
 from sklearn.metrics import (accuracy_score, classification_report,
                              precision_recall_fscore_support)
-from sklearn.preprocessing import LabelEncoder
 from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
                           DataCollatorWithPadding, Trainer, TrainingArguments)
-
-import cbr_analyser.case_retriever.gcn as gcn
+from transformers import RobertaTokenizer, RobertaModel
 import cbr_analyser.consts as consts
 import wandb
 from cbr_analyser.case_retriever.retriever import (Empathy_Retriever,
                                                    Retriever, SimCSE_Retriever, GCN_Retriever)
+from torch import nn
 
 this_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(this_dir, "../amr/"))
@@ -32,8 +31,66 @@ torch.manual_seed(77)
 random.seed(77)
 np.random.seed(77)
 
-NUM_LABELS = 13
+ROBERTA_HIDDEN_SIZE = 768
+NUM_LABELS = 12
 
+class CBR_Classifier(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.num_labels = NUM_LABELS
+        
+        
+        self.roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
+        self.simcse_encoder = RobertaModel.from_pretrained("roberta-base")
+        self.dropout1 = nn.Dropout(0.3)
+        
+        self.normal_encoder = RobertaModel.from_pretrained("roberta-base")
+        self.dropout2 = nn.Dropout(0.3)
+        
+        self.empathy_encoder = RobertaModel.from_pretrained("roberta-base")
+        self.dropout3 = nn.Dropout(0.3)
+        
+        self.f1 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
+        self.f2 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
+        self.f3 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
+        
+        
+        self.f4 = nn.Linear(3 * 128, 64)
+        self.dropout4 = nn.Dropout(0.1)
+        self.f5 = nn.Linear(64, self.num_labels)
+        
+
+    def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2, input_ids3, attention_mask3):
+        x1 = self.normal_encoder(input_ids1, attention_mask=attention_mask1).pooler_output
+        x1 = nn.ReLU()(x1)
+        x1 = self.dropout1(x1)
+        
+        x2 = self.simcse_encoder(input_ids2, attention_mask=attention_mask2).pooler_output
+        x2 = nn.ReLU()(x2)
+        x2 = self.dropout2(x2)
+        
+        x3 = self.empathy_encoder(input_ids3, attention_mask=attention_mask3).pooler_output
+        x3 = nn.ReLU()(x3)
+        x3 = self.dropout3(x3)
+        
+        x1 = self.f1(x1)
+        x1 = nn.ReLU()(x1)
+        
+        x2 = self.f2(x2)
+        x2 = nn.ReLU()(x2)
+        
+        x3 = self.f3(x3)
+        x3 = nn.ReLU()(x3)
+        
+        x_combined = torch.cat([x1, x2, x3], dim=1)
+        
+        x_combined = self.f4(x_combined)
+        x_combined = nn.ReLU()(x_combined)
+        x_combined = self.dropout4(x_combined)
+        
+        x_combined = self.f5(x_combined)
+        
+        return x_combined 
 
 
 
@@ -131,14 +188,14 @@ def read_csv_from_amr(input_file: str, source_feature: str, augments: List[str]=
         "updated_label": labels
     })
 
-def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token):    
+def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token) -> pd.DataFrame:    
     external_sentences = []
     augmented_sentences = []
     count_without_cases = 0
     for sentence in df[args["source_feature"]]:
         try:
             similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
-            similar_sentences = [s[0] for s in similar_sentences_with_similarities]
+            similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
             result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
             external_sentences.append('</sep>'.join(similar_sentences))
             augmented_sentences.append(result_sentence)

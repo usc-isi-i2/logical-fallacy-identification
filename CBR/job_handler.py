@@ -189,7 +189,7 @@ def do_train_main_classifier(args, path):
         "similarity_matrices_path_dev": f"cache/simcse_similarities_{args.source_feature}_dev.joblib",
         "similarity_matrices_path_test": f"cache/simcse_similarities_{args.source_feature}_test.joblib",
         "classifier_dropout": 0.1,
-        "cbr_threshold": -1e9,
+        "cbr_threshold": args.cbr_threshold,
         "weight_decay": 0.01,
         "checkpoint": "roberta-base",
         "predictions_path": path
@@ -269,6 +269,9 @@ if __name__ == '__main__':
     parser.add_argument('--cbr', type=bool, default=False)
     parser.add_argument('--retriever_type', type=str,
                         choices=['simcse', 'empathy', 'gcn'], default="simcse")
+    parser.add_argument(
+        '--cbr_threshold', type=float, default=-1e9
+    )
     parser.add_argument('--predictions_path', type=str)
     parser.add_argument(
         '--debug', action=argparse.BooleanOptionalAction, default=False)

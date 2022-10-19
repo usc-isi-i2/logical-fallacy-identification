@@ -114,8 +114,7 @@ if __name__ == "__main__":
     parser.add_argument('--gcn_layers', help="The number of gcn neurons in each layer (separated by comma)",
                         type=lambda x: [] if str(x) == "default" else [int(item) for item in x.split('&')])
     parser.add_argument('--weight_decay', help="The weight decay",
-                        type=lambda x: None if str(x) == "default" else float(x))   
-    
+                        type=lambda x: None if str(x) == "default" else float(x))
     parser.add_argument('--retriever_type', help="The retriever type", type = lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--augments', help="The augments",
                         type=lambda x: [] if str(x) == "default" else x.split('&'))
@@ -170,6 +169,6 @@ if __name__ == "__main__":
 
     elif args.task == "load_gcn":
         load_gcn(vars(args))
-        
+
     elif args.task == "gcn_similarity":
         gcn_similarity(vars(args))

@@ -44,7 +44,7 @@ class GCN_Retriever(Retriever):
         sentences_and_similarities_sorted = sorted(
             sentences_and_similarities, key=lambda x: x[1], reverse=True)
         max_score = sentences_and_similarities_sorted[0][1]
-        return [(x[0], x[1] / max_score) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
+        return [(x[0], x[1]) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
 
 
 class SimCSE_Retriever(Retriever):
@@ -63,7 +63,7 @@ class SimCSE_Retriever(Retriever):
         sentences_and_similarities_sorted = sorted(
             sentences_and_similarities, key=lambda x: x[1], reverse=True)
         max_score = sentences_and_similarities_sorted[0][1]
-        return [(x[0], x[1] / max_score) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
+        return [(x[0], x[1]) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
 
 
 class Empathy_Retriever(Retriever):
@@ -82,7 +82,7 @@ class Empathy_Retriever(Retriever):
         sentences_and_similarities_sorted = sorted(
             sentences_and_similarities, key=lambda x: x[1], reverse=True)
         max_score = sentences_and_similarities_sorted[0][1]
-        return [(x[0], x[1]/max_score) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
+        return [(x[0], x[1]) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
 
 
 if __name__ == "__main__":
