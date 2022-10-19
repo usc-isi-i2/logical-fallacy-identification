@@ -277,11 +277,6 @@ def do_train_process(args: Dict[str, Any]):
             args = args
         )
         
-
-
-
-# READING THE DATA
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Train a Classification Model for Logical Fallacy Detection and having a baseline')
