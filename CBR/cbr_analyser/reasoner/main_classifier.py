@@ -1,7 +1,11 @@
 import argparse
+from tqdm.auto import tqdm
+from torch.optim import Adam
+from torch.nn import CrossEntropyLoss
 import os
 import random
 import re
+from sklearn.metrics import f1_score, accuracy_score
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -10,8 +14,10 @@ from typing import Any, Dict, List
 import joblib
 import numpy as np
 import pandas as pd
+from sklearn.utils import shuffle
 import torch
 from datasets import Dataset, DatasetDict
+from torch.utils.data import DataLoader
 from IPython import embed
 from sklearn.metrics import (accuracy_score, classification_report,
                              precision_recall_fscore_support)
@@ -22,7 +28,7 @@ import cbr_analyser.consts as consts
 import wandb
 from cbr_analyser.case_retriever.retriever import (Empathy_Retriever,
                                                    Retriever, SimCSE_Retriever, GCN_Retriever)
-from torch import nn
+from torch import nn, seed
 
 this_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(this_dir, "../amr/"))
@@ -41,14 +47,15 @@ class CBR_Classifier(nn.Module):
         
         
         self.roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
+        
         self.simcse_encoder = RobertaModel.from_pretrained("roberta-base")
-        self.dropout1 = nn.Dropout(0.3)
+        self.dropout1 = nn.Dropout(0.5)
         
         self.normal_encoder = RobertaModel.from_pretrained("roberta-base")
-        self.dropout2 = nn.Dropout(0.3)
+        self.dropout2 = nn.Dropout(0.5)
         
         self.empathy_encoder = RobertaModel.from_pretrained("roberta-base")
-        self.dropout3 = nn.Dropout(0.3)
+        self.dropout3 = nn.Dropout(0.5)
         
         self.f1 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
         self.f2 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
@@ -56,7 +63,7 @@ class CBR_Classifier(nn.Module):
         
         
         self.f4 = nn.Linear(3 * 128, 64)
-        self.dropout4 = nn.Dropout(0.1)
+        self.dropout4 = nn.Dropout(0.3)
         self.f5 = nn.Linear(64, self.num_labels)
         
 
@@ -188,7 +195,7 @@ def read_csv_from_amr(input_file: str, source_feature: str, augments: List[str]=
         "updated_label": labels
     })
 
-def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token) -> pd.DataFrame:    
+def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token, prefix: str) -> pd.DataFrame:    
     external_sentences = []
     augmented_sentences = []
     count_without_cases = 0
@@ -207,8 +214,8 @@ def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dic
             augmented_sentences.append(result_sentence)
 
             
-    df[args["source_feature"]] = augmented_sentences
-    df['cbr'] = external_sentences
+    df[f"{args['source_feature']}_{prefix}"] = augmented_sentences
+    df[f'cbr_{prefix}'] = external_sentences
     return df
 
     
@@ -239,6 +246,102 @@ def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str,
             })
         results_df.to_csv(os.path.join(args["predictions_path"], f"{split}.csv"), index = False)
 
+
+    
+def train(model, data_loader, data_loader_simcse, data_loader_empathy, optimizer, loss_fn, logger):
+    model.train()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    total_loss = 0
+
+    for index, (data, data_simcse, data_empathy) in enumerate(zip(data_loader, data_loader_simcse, data_loader_empathy)):
+        input_ids1 = data['input_ids'].to(device)
+        attention_mask1 = data['attention_mask'].to(device)
+        
+        input_ids2 = data_simcse['input_ids'].to(device)
+        attention_mask2 = data_simcse['attention_mask'].to(device)
+        
+        input_ids3 = data_empathy['input_ids'].to(device)
+        attention_mask3 = data_empathy['attention_mask'].to(device)
+
+        labels = data['labels'].to(device)
+
+        optimizer.zero_grad()
+
+
+        outputs = model(
+                input_ids1 = input_ids1, 
+                attention_mask1 = attention_mask1, 
+                input_ids2=input_ids2, 
+                attention_mask2=attention_mask2,
+                input_ids3 = input_ids3, 
+                attention_mask3 = attention_mask3
+            )
+        loss = loss_fn(outputs, labels)
+        total_loss += loss.item()
+
+        if (index + 1) % 100 == 0:
+            print(f'[{index + 1:3d}] loss: {total_loss / 100:.3f}')
+            total_loss = 0
+
+
+        loss.backward()
+        optimizer.step()
+
+        logger.update(1)    
+
+def evaluate(model, data_loader, data_loader_simcse, data_loader_empathy, loss_fn, data_type, label_encoder_inverse):
+
+    model.eval()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    total_loss = 0
+    total_size = 0
+    
+    all_predictions = []
+    all_labels = []
+
+
+    for data, data_simcse, data_empathy in zip(data_loader, data_loader_simcse, data_loader_empathy):
+        input_ids1 = data['input_ids'].to(device)
+        attention_mask1 = data['attention_mask'].to(device)
+        
+        input_ids2 = data_simcse['input_ids'].to(device)
+        attention_mask2 = data_simcse['attention_mask'].to(device)
+        
+        input_ids3 = data_empathy['input_ids'].to(device)
+        attention_mask3 = data_empathy['attention_mask'].to(device)
+        
+
+        labels = data['labels'].to(device)
+        total_size += labels.size(0)
+
+        with torch.no_grad():
+            outputs = model(
+                input_ids1 = input_ids1, 
+                attention_mask1 = attention_mask1, 
+                input_ids2=input_ids2, 
+                attention_mask2=attention_mask2,
+                input_ids3 = input_ids3, 
+                attention_mask3 = attention_mask3
+            )
+
+            loss = loss_fn(outputs, labels)
+            total_loss += loss.item()
+            predictions = torch.argmax(outputs, dim = -1)
+                        
+            labels = labels.detach().cpu().numpy().tolist()
+            predictions = predictions.detach().cpu().numpy().tolist()
+            
+            labels = list(map(label_encoder_inverse, labels))
+            all_labels.extend(labels)
+            predictions = list(map(label_encoder_inverse, predictions))
+            all_predictions.extend(predictions)
+
+    print(
+        f'{data_type} Loss: {total_loss / total_size: .3f} \
+        | {data_type} Accuracy: {accuracy_score(y_true = all_labels, y_pred = all_predictions) : .3f} \
+        | {data_type} F1: {f1_score(y_true = all_labels, y_pred = all_predictions, average = "weighted") : .3f}'
+    )
         
 
 def do_train_process(args: Dict[str, Any]):
@@ -255,15 +358,13 @@ def do_train_process(args: Dict[str, Any]):
     test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
 
     if args["cbr"]:
-        if args["retriever_type"] == "simcse":
-            retriever = SimCSE_Retriever(config = {"source_feature": args["source_feature"]})
-        if args['retriever_type'] == "empathy":
-            retriever = Empathy_Retriever(config = {"source_feature": args["source_feature"]})
-        if args['retriever_type'] == "gcn":
-            retriever = GCN_Retriever(config = {"source_feature": args["source_feature"]})
+        simcse_retriever = SimCSE_Retriever(config = {"source_feature": args["source_feature"]})
+        empathy_retriever = Empathy_Retriever(config = {"source_feature": args["source_feature"]})
+        
         
         for df in [train_df, dev_df, test_df]:
-            df = augment_with_similar_cases(df, retriever, args, tokenizer.sep_token)
+            for retriever, prefix in zip([simcse_retriever, empathy_retriever], ["simcse", "empathy"]):
+                df = augment_with_similar_cases(df, retriever, args, tokenizer.sep_token, prefix)
 
     label_encoder = lambda x: consts.label2index[x]
     label_encoder_inverse = lambda x: consts.index2label[x]
@@ -288,57 +389,154 @@ def do_train_process(args: Dict[str, Any]):
             **inputs,
             'labels': batch['updated_label']
         }
+    def process_1(batch):
+        texts = batch[f"{args['source_feature']}_simcse"]
+        inputs = tokenizer(texts, truncation=True)
+        return {
+            **inputs,
+            'labels': batch['updated_label']
+        }
+    def process_2(batch):
+        texts = batch[f"{args['source_feature']}_empathy"]
+        inputs = tokenizer(texts, truncation=True)
+        return {
+            **inputs,
+            'labels': batch['updated_label']
+        }
 
 
     tokenized_dataset = dataset.map(
-        process, batched=True)
+        process, batched=True, remove_columns=dataset['train'].column_names)
 
+    tokenized_dataset_simcse = dataset.map(
+        process_1, batched=True, remove_columns=dataset['train'].column_names)
+    
+    tokenized_dataset_empathy = dataset.map(
+        process_2, batched=True, remove_columns=dataset['train'].column_names)
+    
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
+    
+    train_data_loader = DataLoader(tokenized_dataset['train'], batch_size=args["batch_size"], shuffle=True, collate_fn=data_collator)
+    dev_data_loader = DataLoader(tokenized_dataset['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    test_data_loader = DataLoader(tokenized_dataset['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    
+    simcse_train_data_loader = DataLoader(tokenized_dataset_simcse['train'], batch_size=args["batch_size"], shuffle=True, collate_fn=data_collator)
+    simcse_dev_data_loader = DataLoader(tokenized_dataset_simcse['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    simcse_test_data_loader = DataLoader(tokenized_dataset_simcse['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    
+    empathy_train_data_loader = DataLoader(tokenized_dataset_empathy['train'], batch_size=args["batch_size"], shuffle=True, collate_fn=data_collator)
+    empathy_dev_data_loader = DataLoader(tokenized_dataset_empathy['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    empathy_test_data_loader = DataLoader(tokenized_dataset_empathy['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    
+    model = CBR_Classifier()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    model = model.to(device)
 
     print('Model loaded!')
+    
 
-    training_args = TrainingArguments(
-        do_eval=True,
-        do_train=True,
-        output_dir="./xlm_roberta_logical_fallacy_classification",
-        learning_rate=args["learning_rate"],
-        per_device_train_batch_size=args["batch_size"],
-        per_device_eval_batch_size=args["batch_size"],
-        num_train_epochs=args["num_epochs"],
-        overwrite_output_dir = 'True',
-        weight_decay=args["weight_decay"],
-        logging_steps=50,
-        evaluation_strategy='steps',
-        report_to="wandb"
+    loss_fn = CrossEntropyLoss().to(device)
+    optimizer = Adam(model.parameters(), lr = 1e-5, eps = 1e-08, weight_decay = 0.01)
+    
+    
+    evaluate(
+        model = model, 
+        data_loader = train_data_loader,
+        data_loader_simcse=simcse_train_data_loader,
+        data_loader_empathy=empathy_train_data_loader,
+        loss_fn = loss_fn,
+        data_type='Valid',
+        label_encoder_inverse = label_encoder_inverse   
     )
+            
 
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=tokenized_dataset['train'],
-        eval_dataset=tokenized_dataset['eval'],
-        tokenizer=tokenizer,
-        data_collator=data_collator,
-        compute_metrics=compute_metrics
-    )
+    num_epochs = 50
 
-    print('Start the training ...')
-    trainer.train()
+    logging_steps = num_epochs * len(train_data_loader)
+    logger = tqdm(range(logging_steps))
 
-    for split in ['train', 'eval', 'test']:
-        print_results(
-            label_encoder_inverse= label_encoder_inverse, 
-            trainer = trainer, 
-            tokenized_dataset = tokenized_dataset, 
-            split = split,
-            args = args
+    for epoch in range(num_epochs):
+        train(
+            model = model, 
+            data_loader = train_data_loader, 
+            data_loader_simcse = simcse_train_data_loader, 
+            data_loader_empathy = empathy_train_data_loader,
+            optimizer = optimizer, 
+            loss_fn = loss_fn, 
+            logger = logger
         )
+        evaluate(
+            model = model, 
+            data_loader = train_data_loader,
+            data_loader_simcse=simcse_train_data_loader,
+            data_loader_empathy=empathy_train_data_loader,
+            loss_fn = loss_fn,
+            data_type='Train',
+            label_encoder_inverse = label_encoder_inverse
+        )
+        evaluate(
+            model = model, 
+            data_loader = dev_data_loader,
+            data_loader_simcse=simcse_dev_data_loader,
+            data_loader_empathy=empathy_dev_data_loader,
+            loss_fn = loss_fn,
+            data_type='Valid',
+            label_encoder_inverse = label_encoder_inverse
+        )
+    evaluate(
+        model = model,
+        data_loader = test_data_loader,
+        data_loader_simcse = simcse_test_data_loader,
+        data_loader_empathy = empathy_test_data_loader,
+        loss_fn = loss_fn,
+        data_type='Test',
+        label_encoder_inverse = label_encoder_inverse
+    )
         
+        
+        
+        
+        # evaluate(model, train_data_loader, loss_fn, 'Train')
+        # evaluate(model, eval_data_loader, loss_fn, 'Valid')
+    
+    # training_args = TrainingArguments(
+    #     do_eval=True,
+    #     do_train=True,
+    #     output_dir="./xlm_roberta_logical_fallacy_classification",
+    #     learning_rate=args["learning_rate"],
+    #     per_device_train_batch_size=args["batch_size"],
+    #     per_device_eval_batch_size=args["batch_size"],
+    #     num_train_epochs=args["num_epochs"],
+    #     overwrite_output_dir = 'True',
+    #     weight_decay=args["weight_decay"],
+    #     logging_steps=50,
+    #     evaluation_strategy='steps',
+    #     report_to="wandb"
+    # )
 
+    # trainer = Trainer(
+    #     model=model,
+    #     args=training_args,
+    #     train_dataset=tokenized_dataset['train'],
+    #     eval_dataset=tokenized_dataset['eval'],
+    #     tokenizer=tokenizer,
+    #     data_collator=data_collator,
+    #     compute_metrics=compute_metrics
+    # )
 
+    # print('Start the training ...')
+    # trainer.train()
 
-# READING THE DATA
+    # for split in ['train', 'eval', 'test']:
+    #     print_results(
+    #         label_encoder_inverse= label_encoder_inverse, 
+    #         trainer = trainer, 
+    #         tokenized_dataset = tokenized_dataset, 
+    #         split = split,
+    #         args = args
+    #     )
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
