@@ -34,64 +34,6 @@ np.random.seed(77)
 ROBERTA_HIDDEN_SIZE = 768
 NUM_LABELS = 12
 
-class CBR_Classifier(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.num_labels = NUM_LABELS
-        
-        
-        self.roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
-        self.simcse_encoder = RobertaModel.from_pretrained("roberta-base")
-        self.dropout1 = nn.Dropout(0.3)
-        
-        self.normal_encoder = RobertaModel.from_pretrained("roberta-base")
-        self.dropout2 = nn.Dropout(0.3)
-        
-        self.empathy_encoder = RobertaModel.from_pretrained("roberta-base")
-        self.dropout3 = nn.Dropout(0.3)
-        
-        self.f1 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
-        self.f2 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
-        self.f3 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
-        
-        
-        self.f4 = nn.Linear(3 * 128, 64)
-        self.dropout4 = nn.Dropout(0.1)
-        self.f5 = nn.Linear(64, self.num_labels)
-        
-
-    def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2, input_ids3, attention_mask3):
-        x1 = self.normal_encoder(input_ids1, attention_mask=attention_mask1).pooler_output
-        x1 = nn.ReLU()(x1)
-        x1 = self.dropout1(x1)
-        
-        x2 = self.simcse_encoder(input_ids2, attention_mask=attention_mask2).pooler_output
-        x2 = nn.ReLU()(x2)
-        x2 = self.dropout2(x2)
-        
-        x3 = self.empathy_encoder(input_ids3, attention_mask=attention_mask3).pooler_output
-        x3 = nn.ReLU()(x3)
-        x3 = self.dropout3(x3)
-        
-        x1 = self.f1(x1)
-        x1 = nn.ReLU()(x1)
-        
-        x2 = self.f2(x2)
-        x2 = nn.ReLU()(x2)
-        
-        x3 = self.f3(x3)
-        x3 = nn.ReLU()(x3)
-        
-        x_combined = torch.cat([x1, x2, x3], dim=1)
-        
-        x_combined = self.f4(x_combined)
-        x_combined = nn.ReLU()(x_combined)
-        x_combined = self.dropout4(x_combined)
-        
-        x_combined = self.f5(x_combined)
-        
-        return x_combined 
-
 
 
 def get_wordnet_edges_in_sentences(graph, node2label) -> List[str]:
