@@ -130,28 +130,50 @@ def read_csv_from_amr(input_file: str, source_feature: str, augments: List[str]=
         "updated_label": labels
     })
 
-def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token) -> pd.DataFrame:    
+def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dict[str, Any], sep_token, is_train: bool) -> pd.DataFrame:    
     external_sentences = []
     augmented_sentences = []
     count_without_cases = 0
-    for sentence in df[args["source_feature"]]:
-        try:
-            similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
-            similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
-            result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
-            external_sentences.append('</sep>'.join(similar_sentences))
+    all_labels = []
+    for _, row in df.iterrows():
+        sentence = row[args["source_feature"]]
+        label = row['updated_label']
+        
+        if is_train:
+            result_sentence = f"{sentence} {sep_token}{sep_token} {sentence}"
+            external_sentences.append('</sep>'.join([sentence]))
             augmented_sentences.append(result_sentence)
-        except Exception as e:
-            print(e)
-            count_without_cases += 1
-            result_sentence = sentence
-            external_sentences.append('')
-            augmented_sentences.append(result_sentence)
-
+            all_labels.append(label)
             
-    df[args["source_feature"]] = augmented_sentences
-    df['cbr'] = external_sentences
-    return df
+            random_df = df[df['updated_label'] != label].sample(5)
+            for index in range(1):
+                result_sentence = f"{sentence} {sep_token}{sep_token} {random_df.iloc[index][args['source_feature']]}"
+                external_sentences.append('</sep>'.join([random_df.iloc[index][args['source_feature']]]))
+                augmented_sentences.append(result_sentence)
+                all_labels.append(random_df.iloc[index]['updated_label'])
+            
+            
+        else:
+            try:
+                similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
+                similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
+                result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
+                external_sentences.append('</sep>'.join(similar_sentences))
+                augmented_sentences.append(result_sentence)
+                all_labels.append(label)
+            except Exception as e:
+                print(e)
+                count_without_cases += 1
+                result_sentence = sentence
+                external_sentences.append('')
+                augmented_sentences.append(result_sentence)
+                all_labels.append(label)
+
+    return pd.DataFrame({
+        args["source_feature"]: augmented_sentences,
+        'cbr': external_sentences,
+        'updated_label': all_labels
+    })
 
     
 
@@ -185,12 +207,12 @@ def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str,
 
 def do_train_process(args: Dict[str, Any]):
     tokenizer = AutoTokenizer.from_pretrained(args["checkpoint"])
-    if args["checkpoint"] != "bigscience/bloom-560m":
+    if args["checkpoint"] == "roberta-base":
         model = AutoModelForSequenceClassification.from_pretrained(
             args["checkpoint"], num_labels=NUM_LABELS, classifier_dropout = args["classifier_dropout"])
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
-            args["checkpoint"], num_labels=NUM_LABELS)
+            args["checkpoint"], num_labels=NUM_LABELS, ignore_mismatched_sizes = True)
 
     train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"], source_feature=args["source_feature"])
     dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"], source_feature=args["source_feature"])
@@ -204,8 +226,12 @@ def do_train_process(args: Dict[str, Any]):
         if args['retriever_type'] == "gcn":
             retriever = GCN_Retriever(config = {"source_feature": args["source_feature"]})
         
-        for df in [train_df, dev_df, test_df]:
-            df = augment_with_similar_cases(df, retriever, args, tokenizer.sep_token)
+
+        train_df = augment_with_similar_cases(train_df, retriever, args, tokenizer.sep_token, True)
+        dev_df = augment_with_similar_cases(dev_df, retriever, args, tokenizer.sep_token, False)
+        test_df = augment_with_similar_cases(test_df, retriever, args, tokenizer.sep_token, False)
+        
+
 
     label_encoder = lambda x: consts.label2index[x]
     label_encoder_inverse = lambda x: consts.index2label[x]

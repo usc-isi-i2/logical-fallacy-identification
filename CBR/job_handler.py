@@ -191,7 +191,7 @@ def do_train_main_classifier(args, path):
         "classifier_dropout": 0.1,
         "cbr_threshold": args.cbr_threshold,
         "weight_decay": 0.01,
-        "checkpoint": "roberta-base",
+        "checkpoint": args.checkpoint,
         "predictions_path": path
     }
     if args.debug:
@@ -267,6 +267,7 @@ if __name__ == '__main__':
                         'train_main_classifier', "train_gcn", "empathy_similarity", "reason", 'gcn_similarity'], default='follow_the_usual_process')
 
     parser.add_argument('--cbr', type=bool, default=False)
+    parser.add_argument('--checkpoint', type=str, default="roberta-base")
     parser.add_argument('--retriever_type', type=str,
                         choices=['simcse', 'empathy', 'gcn'], default="simcse")
     parser.add_argument(

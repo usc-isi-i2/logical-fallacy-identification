@@ -25,6 +25,7 @@ def train_gcn(args: Dict[str, Any]):
 def gcn_similarity(args: Dict[str, Any]):
     gcn.get_similarities(args)
 
+
 def generate_amr(input_file, output_file):
     generate_amr_containers_from_csv_file(
         input_data_path=input_file,
@@ -115,7 +116,8 @@ if __name__ == "__main__":
                         type=lambda x: [] if str(x) == "default" else [int(item) for item in x.split('&')])
     parser.add_argument('--weight_decay', help="The weight decay",
                         type=lambda x: None if str(x) == "default" else float(x))
-    parser.add_argument('--retriever_type', help="The retriever type", type = lambda x: None if str(x) == "default" else str(x))
+    parser.add_argument('--retriever_type', help="The retriever type",
+                        type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--augments', help="The augments",
                         type=lambda x: [] if str(x) == "default" else x.split('&'))
     parser.add_argument(
