@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import wandb
 from typing import Any, Dict
 
 import joblib
@@ -24,6 +25,7 @@ def train_gcn(args: Dict[str, Any]):
 
 def gcn_similarity(args: Dict[str, Any]):
     gcn.get_similarities(args)
+
 
 def generate_amr(input_file, output_file):
     generate_amr_containers_from_csv_file(
@@ -60,7 +62,53 @@ def calculate_empathy_similarities(source_file, source_feature, target_file, out
 
 
 def train_main_classifier(args: Dict[str, Any]):
-    do_train_process(args)
+    if args["sweep"] == True:
+        sweep_config = {
+            'method': 'random'
+        }
+        metric = {
+            'name': 'valid_f1',
+            'goal': 'maximize'
+        }
+        sweep_config['metric'] = metric
+        parameters_dict = {
+            'learning_rate': {
+                'distribution': 'uniform',
+                'min': 1e-5,
+                'max': 1e-4
+            },
+            'num_epochs': {
+                'value': 10
+            },
+            'weight_decay': {
+                'distribution': 'uniform',
+                'min': 0.0001,
+                'max': 0.1
+            },
+            "encoder_dropout_rate": {
+                'values': [0.3, 0.4, 0.5, 0.6, 0.7]
+            },
+            "attn_dropout_rate": {
+                'values': [0.3, 0.4, 0.5, 0.6, 0.7]
+            },
+            "last_layer_dropout": {
+                'values': [0.3, 0.4, 0.5, 0.6, 0.7]
+            }
+        }
+        for key, value in args.items():
+            if key not in parameters_dict:
+                parameters_dict.update(
+                    {
+                        key: {'value': value}
+                    }
+                )
+
+        sweep_config['parameters'] = parameters_dict
+        sweep_id = wandb.sweep(
+            sweep_config, project="Sweep for main classifier CBR")
+        wandb.agent(sweep_id, do_train_process, count=50)
+    else:
+        do_train_process(args)
 
 
 def load_gcn(args):
@@ -87,6 +135,8 @@ if __name__ == "__main__":
     parser.add_argument("--source_feature", type=lambda x: "masked_articles" if str(x) == "default" else str(x),
                         help="The source feature that should be used", choices=['masked_articles', 'source_article', 'amr_str'])
 
+    parser.add_argument("--sweep", help="Whether to do a sweep",
+                        type=lambda x: False if str(x) == "default" else str(x.lower()) == 'true')
     parser.add_argument('--source_file', help="The source file",
                         type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--g_type', help="The type of the graph",
@@ -115,7 +165,8 @@ if __name__ == "__main__":
                         type=lambda x: [] if str(x) == "default" else [int(item) for item in x.split('&')])
     parser.add_argument('--weight_decay', help="The weight decay",
                         type=lambda x: None if str(x) == "default" else float(x))
-    parser.add_argument('--retriever_type', help="The retriever type", type = lambda x: None if str(x) == "default" else str(x))
+    parser.add_argument('--retriever_type', help="The retriever type",
+                        type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--augments', help="The augments",
                         type=lambda x: [] if str(x) == "default" else x.split('&'))
     parser.add_argument(

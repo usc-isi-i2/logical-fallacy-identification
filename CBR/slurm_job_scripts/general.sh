@@ -3,7 +3,7 @@
 #SBATCH --output=logs/%x-%j.out
 #SBATCH --error=logs/%x-%j.err
 #SBATCH --time=3-00:00:00
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=10240
 #SBATCH --partition=nodes
 #SBATCH --gres=gpu:a100:1
@@ -33,6 +33,7 @@ python main.py \
     --retriever_type ${retriever_type:="default"} \
     --learning_rate ${learning_rate:="default"} \
     --num_epochs ${num_epochs:="default"} \
+    --sweep ${sweep:="default"} \
     --classifier_dropout ${classifier_dropout:="default"} \
     --mid_layer_dropout ${mid_layer_dropout:="default"} \
     --gcn_layers ${gcn_layers:="default"} \

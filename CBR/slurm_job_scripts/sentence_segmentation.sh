@@ -23,7 +23,7 @@ for split in "train" "dev" "test"
 do
 
 
-python -m cbr_analyser.case_retriever.deep_segment.deepsegment_handler \
+python cbr_analyser/case_retriever/deep_segment/deepsegment_handler.py \
     --input_path "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
     --output_path "cache/masked_sentences_with_AMR_container_objects_${split}_with_segments.joblib"
 

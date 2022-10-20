@@ -179,8 +179,9 @@ def do_train_main_classifier(args, path):
         "dev_input_file": "cache/masked_sentences_with_AMR_container_objects_dev.joblib",
         "test_input_file": "cache/masked_sentences_with_AMR_container_objects_test.joblib",
         "batch_size": 8,
-        "learning_rate": 2e-5,
-        "num_epochs": 5,
+        "learning_rate": 1e-5,
+        "sweep": args.sweep,
+        "num_epochs": args.num_epochs,
         "augments": [],
         "retriever_type": args.retriever_type,
         "cbr": args.cbr,
@@ -190,7 +191,7 @@ def do_train_main_classifier(args, path):
         "similarity_matrices_path_test": f"cache/simcse_similarities_{args.source_feature}_test.joblib",
         "classifier_dropout": 0.1,
         "cbr_threshold": args.cbr_threshold,
-        "weight_decay": 0.01,
+        "weight_decay": 0.001,
         "checkpoint": "roberta-base",
         "predictions_path": path
     }
@@ -273,8 +274,11 @@ if __name__ == '__main__':
         '--cbr_threshold', type=float, default=-1e9
     )
     parser.add_argument('--predictions_path', type=str)
+    parser.add_argument('--num_epochs', type=int, default=5)
     parser.add_argument(
         '--debug', action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument('--sweep', action=argparse.BooleanOptionalAction,
+                        help="Whether to sweep over the hyperparameters", default=False)
 
     # Check all the arguments to be correct in the consts.py file because they are used in the whole project
     args = parser.parse_args()

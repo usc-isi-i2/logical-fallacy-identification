@@ -2,6 +2,11 @@ import argparse
 
 import joblib
 from deepsegment import DeepSegment
+import sys
+import os
+
+this_dir = os.path.dirname(__file__)
+sys.path.append(os.path.join(this_dir, "../../amr/"))
 
 segmenter = DeepSegment('en', tf_serving=False)
 
