@@ -263,23 +263,18 @@ def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dic
     augmented_sentences = []
     count_without_cases = 0
     for sentence in df[args["source_feature"]]:
-        if is_train:
-            result_sentence = f"{sentence} {sep_token}{sep_token} {sentence}"
-            external_sentences.append('</sep>'.join([sentence]))
+        try:
+            similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
+            similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
+            result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
+            external_sentences.append('</sep>'.join(similar_sentences))
             augmented_sentences.append(result_sentence)
-        else:
-            try:
-                similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
-                similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
-                result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
-                external_sentences.append('</sep>'.join(similar_sentences))
-                augmented_sentences.append(result_sentence)
-            except Exception as e:
-                print(e)
-                count_without_cases += 1
-                result_sentence = sentence
-                external_sentences.append('')
-                augmented_sentences.append(result_sentence)
+        except Exception as e:
+            print(e)
+            count_without_cases += 1
+            result_sentence = sentence
+            external_sentences.append('')
+            augmented_sentences.append(result_sentence)
 
             
     df[f"{args['source_feature']}_{prefix}"] = augmented_sentences
@@ -438,169 +433,165 @@ def evaluate(model, data_loader, data_loader_simcse, data_loader_empathy, loss_f
         
 
 def do_train_process(config=None):
+    args = config
     
-    with wandb.init(config = config):
-        args = wandb.config
-        
-        roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
-        
-        
-        train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"], source_feature=args["source_feature"])
-        dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"], source_feature=args["source_feature"])
-        test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
+    
+    
+    train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
 
-        if args["cbr"]:
-            simcse_retriever = SimCSE_Retriever(config = {"source_feature": args["source_feature"]})
-            empathy_retriever = Empathy_Retriever(config = {"source_feature": args["source_feature"]})
-            
-            
-            for df, is_train in zip([train_df, dev_df, test_df], [True, False, False]):
-                for retriever, prefix in zip([simcse_retriever, empathy_retriever], ["simcse", "empathy"]):
-                    df = augment_with_similar_cases(df, retriever, args, roberta_tokenizer.sep_token, prefix, is_train = is_train)
-
-        label_encoder = lambda x: consts.label2index[x]
-        label_encoder_inverse = lambda x: consts.index2label[x]
-
-
-        train_df['updated_label'] = list(map(label_encoder, train_df['updated_label']))
-        dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
-        test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
-
-        
-
-        dataset = DatasetDict({
-            'train': Dataset.from_pandas(train_df),
-            'eval': Dataset.from_pandas(dev_df),
-            'test': Dataset.from_pandas(test_df)
-        })
-
-        def process(batch):
-            texts = batch[args["source_feature"]]
-            inputs = roberta_tokenizer(texts, truncation=True)
-            return {
-                **inputs,
-                'labels': batch['updated_label']
-            }
-        def process_1(batch):
-            texts = batch[f"{args['source_feature']}_simcse"]
-            inputs = roberta_tokenizer(texts, truncation=True)
-            return {
-                **inputs,
-                'labels': batch['updated_label']
-            }
-        def process_2(batch):
-            texts = batch[f"{args['source_feature']}_empathy"]
-            inputs = roberta_tokenizer(texts, truncation=True)
-            return {
-                **inputs,
-                'labels': batch['updated_label']
-            }
-
-
-        tokenized_dataset = dataset.map(
-            process, batched=True, remove_columns=dataset['train'].column_names)
-
-        tokenized_dataset_simcse = dataset.map(
-            process_1, batched=True, remove_columns=dataset['train'].column_names)
-        
-        tokenized_dataset_empathy = dataset.map(
-            process_2, batched=True, remove_columns=dataset['train'].column_names)
-        
-        data_collator = DataCollatorWithPadding(tokenizer=roberta_tokenizer)
-        
-        train_data_loader = DataLoader(tokenized_dataset['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        dev_data_loader = DataLoader(tokenized_dataset['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        test_data_loader = DataLoader(tokenized_dataset['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        
-        simcse_train_data_loader = DataLoader(tokenized_dataset_simcse['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        simcse_dev_data_loader = DataLoader(tokenized_dataset_simcse['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        simcse_test_data_loader = DataLoader(tokenized_dataset_simcse['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        
-        empathy_train_data_loader = DataLoader(tokenized_dataset_empathy['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        empathy_dev_data_loader = DataLoader(tokenized_dataset_empathy['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        empathy_test_data_loader = DataLoader(tokenized_dataset_empathy['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-        
-        if 'encoder_dropout_rate' in args:
-            model = CBR_Classifier(
-                encoder_dropout_rate = args['encoder_dropout_rate'], 
-                attn_dropout_rate = args['attn_dropout_rate'], 
-                last_layer_dropout = args['last_layer_dropout']
-            )
-        else:
-            model = CBR_Classifier()
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        
-        model = model.to(device)
-
-        print('Model loaded!')
-
-
-        loss_fn = CrossEntropyLoss().to(device)
-        optimizer = Adam(model.parameters(), lr = args['learning_rate'], eps = 1e-8, weight_decay = args['weight_decay'])
+    if args["cbr"]:
+        simcse_retriever = SimCSE_Retriever(config = {"source_feature": args["source_feature"]})
+        empathy_retriever = Empathy_Retriever(config = {"source_feature": args["source_feature"]})
         
         
-        evaluate(
+        for df, is_train in zip([train_df, dev_df, test_df], [True, False, False]):
+            for retriever, prefix in zip([simcse_retriever, empathy_retriever], ["simcse", "empathy"]):
+                df = augment_with_similar_cases(df, retriever, args, roberta_tokenizer.sep_token, prefix, is_train = is_train)
+
+    label_encoder = lambda x: consts.label2index[x]
+    label_encoder_inverse = lambda x: consts.index2label[x]
+
+
+    train_df['updated_label'] = list(map(label_encoder, train_df['updated_label']))
+    dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
+    test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
+
+    
+
+    dataset = DatasetDict({
+        'train': Dataset.from_pandas(train_df),
+        'eval': Dataset.from_pandas(dev_df),
+        'test': Dataset.from_pandas(test_df)
+    })
+
+    def process(batch):
+        texts = batch[args["source_feature"]]
+        inputs = roberta_tokenizer(texts, truncation=True)
+        return {
+            **inputs,
+            'labels': batch['updated_label']
+        }
+    def process_1(batch):
+        texts = batch[f"{args['source_feature']}_simcse"]
+        inputs = roberta_tokenizer(texts, truncation=True)
+        return {
+            **inputs,
+            'labels': batch['updated_label']
+        }
+    def process_2(batch):
+        texts = batch[f"{args['source_feature']}_empathy"]
+        inputs = roberta_tokenizer(texts, truncation=True)
+        return {
+            **inputs,
+            'labels': batch['updated_label']
+        }
+
+
+    tokenized_dataset = dataset.map(
+        process, batched=True, remove_columns=dataset['train'].column_names)
+
+    tokenized_dataset_simcse = dataset.map(
+        process_1, batched=True, remove_columns=dataset['train'].column_names)
+    
+    tokenized_dataset_empathy = dataset.map(
+        process_2, batched=True, remove_columns=dataset['train'].column_names)
+    
+    data_collator = DataCollatorWithPadding(tokenizer=roberta_tokenizer)
+    
+    train_data_loader = DataLoader(tokenized_dataset['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    dev_data_loader = DataLoader(tokenized_dataset['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    test_data_loader = DataLoader(tokenized_dataset['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    
+    simcse_train_data_loader = DataLoader(tokenized_dataset_simcse['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    simcse_dev_data_loader = DataLoader(tokenized_dataset_simcse['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    simcse_test_data_loader = DataLoader(tokenized_dataset_simcse['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    
+    empathy_train_data_loader = DataLoader(tokenized_dataset_empathy['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    empathy_dev_data_loader = DataLoader(tokenized_dataset_empathy['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    empathy_test_data_loader = DataLoader(tokenized_dataset_empathy['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    
+    if 'encoder_dropout_rate' in args:
+        model = CBR_Classifier(
+            encoder_dropout_rate = args['encoder_dropout_rate'], 
+            attn_dropout_rate = args['attn_dropout_rate'], 
+            last_layer_dropout = args['last_layer_dropout']
+        )
+    else:
+        model = CBR_Classifier()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    model = model.to(device)
+
+    print('Model loaded!')
+
+
+    loss_fn = CrossEntropyLoss().to(device)
+    optimizer = Adam(model.parameters(), lr = args['learning_rate'], eps = 1e-8, weight_decay = args['weight_decay'])
+    
+    
+    evaluate(
+        model = model, 
+        data_loader = train_data_loader,
+        data_loader_simcse=simcse_train_data_loader,
+        data_loader_empathy=empathy_train_data_loader,
+        loss_fn = loss_fn,
+        data_type='Valid',
+        label_encoder_inverse = label_encoder_inverse   
+    )
+
+    logging_steps = args["num_epochs"] * len(train_data_loader)
+    logger = tqdm(range(logging_steps))
+
+    for epoch in range(args["num_epochs"]):
+        train(
+            model = model, 
+            data_loader = train_data_loader, 
+            data_loader_simcse = simcse_train_data_loader, 
+            data_loader_empathy = empathy_train_data_loader,
+            optimizer = optimizer, 
+            loss_fn = loss_fn, 
+            logger = logger
+        )
+        train_metrics = evaluate(
             model = model, 
             data_loader = train_data_loader,
             data_loader_simcse=simcse_train_data_loader,
             data_loader_empathy=empathy_train_data_loader,
             loss_fn = loss_fn,
-            data_type='Valid',
-            label_encoder_inverse = label_encoder_inverse   
-        )
-
-        logging_steps = args["num_epochs"] * len(train_data_loader)
-        logger = tqdm(range(logging_steps))
-
-        for epoch in range(args["num_epochs"]):
-            train(
-                model = model, 
-                data_loader = train_data_loader, 
-                data_loader_simcse = simcse_train_data_loader, 
-                data_loader_empathy = empathy_train_data_loader,
-                optimizer = optimizer, 
-                loss_fn = loss_fn, 
-                logger = logger
-            )
-            train_metrics = evaluate(
-                model = model, 
-                data_loader = train_data_loader,
-                data_loader_simcse=simcse_train_data_loader,
-                data_loader_empathy=empathy_train_data_loader,
-                loss_fn = loss_fn,
-                data_type='Train',
-                label_encoder_inverse = label_encoder_inverse
-            )
-            eval_metrics = evaluate(
-                model = model, 
-                data_loader = dev_data_loader,
-                data_loader_simcse=simcse_dev_data_loader,
-                data_loader_empathy=empathy_dev_data_loader,
-                loss_fn = loss_fn,
-                data_type='Valid',
-                label_encoder_inverse = label_encoder_inverse
-            )
-            wandb.log(
-                {
-                    'train_loss': train_metrics['loss'],
-                    'train_accuracy': train_metrics['accuracy'],
-                    'train_f1': train_metrics['f1'],
-                    'valid_loss': eval_metrics['loss'],
-                    'valid_accuracy': eval_metrics['accuracy'],
-                    'valid_f1': eval_metrics['f1']
-                },
-                step = epoch
-            )
-        evaluate(
-            model = model,
-            data_loader = test_data_loader,
-            data_loader_simcse = simcse_test_data_loader,
-            data_loader_empathy = empathy_test_data_loader,
-            loss_fn = loss_fn,
-            data_type='Test',
+            data_type='Train',
             label_encoder_inverse = label_encoder_inverse
         )
-            
+        eval_metrics = evaluate(
+            model = model, 
+            data_loader = dev_data_loader,
+            data_loader_simcse=simcse_dev_data_loader,
+            data_loader_empathy=empathy_dev_data_loader,
+            loss_fn = loss_fn,
+            data_type='Valid',
+            label_encoder_inverse = label_encoder_inverse
+        )
+        yield {
+                'train_loss': train_metrics['loss'],
+                'train_accuracy': train_metrics['accuracy'],
+                'train_f1': train_metrics['f1'],
+                'valid_loss': eval_metrics['loss'],
+                'valid_accuracy': eval_metrics['accuracy'],
+                'valid_f1': eval_metrics['f1'],
+                'epoch': epoch
+            }
+    # evaluate(
+    #     model = model,
+    #     data_loader = test_data_loader,
+    #     data_loader_simcse = simcse_test_data_loader,
+    #     data_loader_empathy = empathy_test_data_loader,
+    #     loss_fn = loss_fn,
+    #     data_type='Test',
+    #     label_encoder_inverse = label_encoder_inverse
+    # )
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

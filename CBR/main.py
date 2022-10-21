@@ -61,6 +61,13 @@ def calculate_empathy_similarities(source_file, source_feature, target_file, out
     )
 
 
+def train_wrapper(config=None):
+    with wandb.init(config=config):
+        args = wandb.config
+        for metrics in do_train_process(args):
+            wandb.log(metrics, step=metrics["epoch"])
+
+
 def train_main_classifier(args: Dict[str, Any]):
     if args["sweep"] == True:
         sweep_config = {
@@ -83,7 +90,7 @@ def train_main_classifier(args: Dict[str, Any]):
             'weight_decay': {
                 'distribution': 'uniform',
                 'min': 0.0001,
-                'max': 0.1
+                'max': 0.01
             },
             "encoder_dropout_rate": {
                 'values': [0.3, 0.4, 0.5, 0.6, 0.7]
@@ -92,7 +99,7 @@ def train_main_classifier(args: Dict[str, Any]):
                 'values': [0.3, 0.4, 0.5, 0.6, 0.7]
             },
             "last_layer_dropout": {
-                'values': [0.3, 0.4, 0.5, 0.6, 0.7]
+                'values': [0.1, 0.2, 0.3, 0.4, 0.5]
             }
         }
         for key, value in args.items():
@@ -106,7 +113,7 @@ def train_main_classifier(args: Dict[str, Any]):
         sweep_config['parameters'] = parameters_dict
         sweep_id = wandb.sweep(
             sweep_config, project="Sweep for main classifier CBR")
-        wandb.agent(sweep_id, do_train_process, count=50)
+        wandb.agent(sweep_id, train_wrapper, count=50)
     else:
         do_train_process(args)
 
