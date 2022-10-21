@@ -81,25 +81,25 @@ def train_main_classifier(args: Dict[str, Any]):
         parameters_dict = {
             'learning_rate': {
                 'distribution': 'uniform',
-                'min': 1e-5,
-                'max': 1e-4
+                'min': 1e-6,
+                'max': 2e-5
             },
             'num_epochs': {
-                'value': 10
+                'value': 20
             },
             'weight_decay': {
                 'distribution': 'uniform',
                 'min': 0.0001,
-                'max': 0.01
+                'max': 0.001
             },
             "encoder_dropout_rate": {
-                'values': [0.3, 0.4, 0.5, 0.6, 0.7]
+                'values': [0.1, 0.2, 0.3, 0.4, 0.5]
             },
             "attn_dropout_rate": {
-                'values': [0.3, 0.4, 0.5, 0.6, 0.7]
+                'values': [0.1, 0.2, 0.3, 0.4, 0.5]
             },
             "last_layer_dropout": {
-                'values': [0.1, 0.2, 0.3, 0.4, 0.5]
+                'values': [0.1, 0.2, 0.3, 0.4]
             }
         }
         for key, value in args.items():

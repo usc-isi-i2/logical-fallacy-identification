@@ -137,8 +137,6 @@ class CBR_Classifier(nn.Module):
         x3 = self.dropout3(x3)
         x3 = self.f3(x3)
         
-        # x_combined = torch.stack([x1, x2, x3], dim=-1)
-        # x_combined = torch.mean(x_combined, dim=-1)
         
         x_combined = torch.cat([x1, x2, x3], dim=-1)
         
