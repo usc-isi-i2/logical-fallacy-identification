@@ -27,3 +27,5 @@ kgtk_conceptnet.tsv
 processed/
 cache/gcn_model.pt
 cache/graphs
+**/*.err
+**/*.out

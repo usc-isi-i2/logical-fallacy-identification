@@ -139,35 +139,34 @@ def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dic
         sentence = row[args["source_feature"]]
         label = row['updated_label']
         
-        if is_train:
-            result_sentence = f"{sentence} {sep_token}{sep_token} {sentence}"
-            external_sentences.append('</sep>'.join([sentence]))
+        # if is_train:
+        #     result_sentence = f"{sentence} {sep_token}{sep_token} {sentence}"
+        #     external_sentences.append('</sep>'.join([sentence]))
+        #     augmented_sentences.append(result_sentence)
+        #     all_labels.append(label)
+            
+        #     random_df = df[df['updated_label'] != label].sample(5)
+        #     for index in range(1):
+        #         result_sentence = f"{sentence} {sep_token}{sep_token} {random_df.iloc[index][args['source_feature']]}"
+        #         external_sentences.append('</sep>'.join([random_df.iloc[index][args['source_feature']]]))
+        #         augmented_sentences.append(result_sentence)
+        #         all_labels.append(random_df.iloc[index]['updated_label'])
+                
+        # else:
+        try:
+            similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
+            similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
+            result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
+            external_sentences.append('</sep>'.join(similar_sentences))
             augmented_sentences.append(result_sentence)
             all_labels.append(label)
-            
-            random_df = df[df['updated_label'] != label].sample(5)
-            for index in range(1):
-                result_sentence = f"{sentence} {sep_token}{sep_token} {random_df.iloc[index][args['source_feature']]}"
-                external_sentences.append('</sep>'.join([random_df.iloc[index][args['source_feature']]]))
-                augmented_sentences.append(result_sentence)
-                all_labels.append(random_df.iloc[index]['updated_label'])
-            
-            
-        else:
-            try:
-                similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
-                similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
-                result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
-                external_sentences.append('</sep>'.join(similar_sentences))
-                augmented_sentences.append(result_sentence)
-                all_labels.append(label)
-            except Exception as e:
-                print(e)
-                count_without_cases += 1
-                result_sentence = sentence
-                external_sentences.append('')
-                augmented_sentences.append(result_sentence)
-                all_labels.append(label)
+        except Exception as e:
+            print(e)
+            count_without_cases += 1
+            result_sentence = sentence
+            external_sentences.append('')
+            augmented_sentences.append(result_sentence)
+            all_labels.append(label)
 
     return pd.DataFrame({
         args["source_feature"]: augmented_sentences,
