@@ -64,6 +64,7 @@ def calculate_empathy_similarities(source_file, source_feature, target_file, out
 def train_wrapper(config=None):
     with wandb.init(config=config):
         args = wandb.config
+        args["run_name"] = wandb.run.name
         for metrics in do_train_process(args):
             wandb.log(metrics, step=metrics["epoch"])
 
@@ -81,8 +82,8 @@ def train_main_classifier(args: Dict[str, Any]):
         parameters_dict = {
             'learning_rate': {
                 'distribution': 'uniform',
-                'min': 1e-6,
-                'max': 2e-5
+                'min': 8e-6,
+                'max': 16e-6
             },
             'num_epochs': {
                 'value': 20
@@ -115,7 +116,9 @@ def train_main_classifier(args: Dict[str, Any]):
             sweep_config, project="Sweep for main classifier CBR")
         wandb.agent(sweep_id, train_wrapper, count=50)
     else:
-        do_train_process(args)
+        print('starting to train!!')
+        train_wrapper(args)
+        print('finished training!!')
 
 
 def load_gcn(args):
@@ -197,8 +200,18 @@ if __name__ == "__main__":
     parser.add_argument(
         '--predictions_path', help="The path to the predictions", type=lambda x: None if str(x) == "default" else str(x))
 
+    parser.add_argument('--last_layer_dropout',
+                        help="last layer dropout rate", type=lambda x: None if str(x) == "default" else float(x))
+
+    parser.add_argument('--attn_dropout_rate',
+                        help="Attention dropout rate", type=lambda x: None if str(x) == "default" else float(x))
+
+    parser.add_argument('--encoder_dropout_rate',
+                        help="Encoder dropout rate ", type=lambda x: None if str(x) == "default" else float(x))
+
     args = parser.parse_args()
 
+    print('in main ####')
     print(args)
 
     if args.task == "amr_generation":

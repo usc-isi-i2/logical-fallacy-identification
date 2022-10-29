@@ -281,32 +281,6 @@ def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dic
 
     
 
-def print_results(label_encoder_inverse, trainer, tokenized_dataset, split: str, args):
-    split_predictions = list(map(label_encoder_inverse, np.argmax(trainer.predict(tokenized_dataset[split]).predictions, axis = -1)))
-    split_true_labels = list(map(label_encoder_inverse, tokenized_dataset[split]['labels']))
-
-    print(f'performance on {split} data')
-    print(classification_report(
-        y_pred = split_predictions, 
-        y_true = split_true_labels
-    ))
-    if args["predictions_path"]:
-        os.makedirs(args["predictions_path"], exist_ok=True)
-        if args["cbr"]:
-            results_df = pd.DataFrame({
-                'predictions': split_predictions,
-                'true_labels': split_true_labels, 
-                'cbr': tokenized_dataset[split]['cbr'],
-                args["source_feature"]: tokenized_dataset[split][args["source_feature"]]
-            })
-        else:
-            results_df = pd.DataFrame({
-                'predictions': split_predictions,
-                'true_labels': split_true_labels, 
-                args["source_feature"]: tokenized_dataset[split][args["source_feature"]]
-            })
-        results_df.to_csv(os.path.join(args["predictions_path"], f"{split}.csv"), index = False)
-
 
     
 def train(model, data_loader, data_loader_simcse, data_loader_empathy, optimizer, loss_fn, logger):
@@ -426,12 +400,18 @@ def evaluate(model, data_loader, data_loader_simcse, data_loader_empathy, loss_f
     return {
         'loss': (total_loss / total_size),
         'accuracy': accuracy_score(y_true=all_labels, y_pred= all_predictions),
-        'f1': f1_score(y_true=all_labels, y_pred= all_predictions, average = "weighted")
+        'f1': f1_score(y_true=all_labels, y_pred= all_predictions, average = "weighted"),
+        'all_labels': all_labels,
+        'all_predictions': all_predictions
     }
         
 
 def do_train_process(config=None):
+    print('Training process started')
+    
     args = config
+    print(args)
+    
     
     roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
     
@@ -500,16 +480,19 @@ def do_train_process(config=None):
     data_collator = DataCollatorWithPadding(tokenizer=roberta_tokenizer)
     
     train_data_loader = DataLoader(tokenized_dataset['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-    dev_data_loader = DataLoader(tokenized_dataset['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-    test_data_loader = DataLoader(tokenized_dataset['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    dev_data_loader = DataLoader(tokenized_dataset['eval'], batch_size=args["batch_size"]*4, shuffle=False, collate_fn=data_collator)
+    test_data_loader = DataLoader(tokenized_dataset['test'], batch_size=args["batch_size"]*4, shuffle=False, collate_fn=data_collator)
     
     simcse_train_data_loader = DataLoader(tokenized_dataset_simcse['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-    simcse_dev_data_loader = DataLoader(tokenized_dataset_simcse['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-    simcse_test_data_loader = DataLoader(tokenized_dataset_simcse['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    simcse_dev_data_loader = DataLoader(tokenized_dataset_simcse['eval'], batch_size=args["batch_size"]*4, shuffle=False, collate_fn=data_collator)
+    simcse_test_data_loader = DataLoader(tokenized_dataset_simcse['test'], batch_size=args["batch_size"]*4, shuffle=False, collate_fn=data_collator)
     
     empathy_train_data_loader = DataLoader(tokenized_dataset_empathy['train'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-    empathy_dev_data_loader = DataLoader(tokenized_dataset_empathy['eval'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
-    empathy_test_data_loader = DataLoader(tokenized_dataset_empathy['test'], batch_size=args["batch_size"], shuffle=False, collate_fn=data_collator)
+    empathy_dev_data_loader = DataLoader(tokenized_dataset_empathy['eval'], batch_size=args["batch_size"]*4, shuffle=False, collate_fn=data_collator)
+    empathy_test_data_loader = DataLoader(tokenized_dataset_empathy['test'], batch_size=args["batch_size"]*4, shuffle=False, collate_fn=data_collator)
+    
+    
+    print("Data loaded")
     
     if 'encoder_dropout_rate' in args:
         model = CBR_Classifier(
@@ -571,6 +554,15 @@ def do_train_process(config=None):
             data_type='Valid',
             label_encoder_inverse = label_encoder_inverse
         )
+        test_metrics = evaluate(
+            model = model, 
+            data_loader = test_data_loader,
+            data_loader_simcse=simcse_test_data_loader,
+            data_loader_empathy=empathy_test_data_loader,
+            loss_fn = loss_fn,
+            data_type='Test',
+            label_encoder_inverse = label_encoder_inverse
+        )
         yield {
                 'train_loss': train_metrics['loss'],
                 'train_accuracy': train_metrics['accuracy'],
@@ -578,17 +570,38 @@ def do_train_process(config=None):
                 'valid_loss': eval_metrics['loss'],
                 'valid_accuracy': eval_metrics['accuracy'],
                 'valid_f1': eval_metrics['f1'],
+                'test_loss': test_metrics['loss'],
+                'test_accuracy': test_metrics['accuracy'],
+                'test_f1': test_metrics['f1'],
                 'epoch': epoch
             }
-    # evaluate(
-    #     model = model,
-    #     data_loader = test_data_loader,
-    #     data_loader_simcse = simcse_test_data_loader,
-    #     data_loader_empathy = empathy_test_data_loader,
-    #     loss_fn = loss_fn,
-    #     data_type='Test',
-    #     label_encoder_inverse = label_encoder_inverse
-    # )
+            
+    if args["predictions_path"]:
+        os.makedirs(args["predictions_path"], exist_ok=True)
+        joblib.dump(
+            {
+                **test_metrics,
+                'simcse_examples': dataset['test']['cbr_simcse'],
+                'empathy_examples': dataset['test']['cbr_empathy']
+            },
+            os.path.join(
+                args["predictions_path"],
+                f"test_metrics_{args['run_name']}.joblib"
+            )
+        )
+        joblib.dump(
+            {
+                **eval_metrics,
+                'simcse_examples': dataset['eval']['cbr_simcse'],
+                'empathy_examples': dataset['eval']['cbr_empathy']
+            }
+            ,
+            os.path.join(
+                args["predictions_path"],
+                f"eval_metrics_{args['run_name']}.joblib"
+            )
+        )
+    
         
 
 if __name__ == "__main__":
