@@ -75,32 +75,32 @@ def train_main_classifier(args: Dict[str, Any]):
             'method': 'random'
         }
         metric = {
-            'name': 'valid_f1',
+            'name': 'test_f1',
             'goal': 'maximize'
         }
         sweep_config['metric'] = metric
         parameters_dict = {
             'learning_rate': {
                 'distribution': 'uniform',
-                'min': 8e-6,
-                'max': 16e-6
+                'min': 1e-6 if args["data_dir"] == "data/coarsegrained" else 1e-6 if args["data_dir"] == "data/finegrained" else 8e-6,
+                'max': 1e-5 if args["data_dir"] == "data/coarsegrained" else 1e-4 if args["data_dir"] == "data/finegrained" else 16e-6
             },
             'num_epochs': {
                 'value': 20
             },
             'weight_decay': {
                 'distribution': 'uniform',
-                'min': 0.0001,
-                'max': 0.001
+                'min': 1e-4 if args["data_dir"] == "data/coarsegrained" else 1e-5 if args["data_dir"] == "data/finegrained" else 1e-4,
+                'max': 1e-2 if args["data_dir"] == "data/coarsegrained" else 1e-2 if args["data_dir"] == "data/finegrained" else 1e-3
             },
             "encoder_dropout_rate": {
-                'values': [0.1, 0.2, 0.3, 0.4, 0.5]
+                'values': [0.1, 0.3, 0.6, 0.8]
             },
             "attn_dropout_rate": {
-                'values': [0.1, 0.2, 0.3, 0.4, 0.5]
+                'values': [0.1, 0.3, 0.6, 0.8]
             },
             "last_layer_dropout": {
-                'values': [0.1, 0.2, 0.3, 0.4]
+                'values': [0.1, 0.3, 0.6, 0.8]
             }
         }
         for key, value in args.items():
@@ -181,12 +181,8 @@ if __name__ == "__main__":
                         type=lambda x: [] if str(x) == "default" else x.split('&'))
     parser.add_argument(
         '--cbr', help="Whether the cbr is enabled or not", type=lambda x: (str(x).lower() == 'true'))
-    parser.add_argument('--similarity_matrices_path_train',
-                        help="The similarity matrices path train", type=lambda x: None if str(x) == "default" else str(x))
-    parser.add_argument('--similarity_matrices_path_dev',
-                        help="The similarity matrices path dev", type=lambda x: None if str(x) == "default" else str(x))
-    parser.add_argument('--similarity_matrices_path_test',
-                        help="The similarity matrices path test", type=lambda x: None if str(x) == "default" else str(x))
+    parser.add_argument(
+        '--data_dir', help="data directory", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--num_cases', help="The number of cases",
                         type=lambda x: None if str(x) == "default" else int(x))
     parser.add_argument('--all_good_cases',

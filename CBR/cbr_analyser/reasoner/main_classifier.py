@@ -5,7 +5,7 @@ from torch.nn import CrossEntropyLoss
 import os
 import random
 import re
-from sklearn.metrics import f1_score, accuracy_score
+from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
 import sys
 from typing import Any, Dict, List
 
@@ -37,7 +37,6 @@ random.seed(77)
 np.random.seed(77)
 
 ROBERTA_HIDDEN_SIZE = 768
-NUM_LABELS = 12
 
 def attention(q, k, v, d_k, dropout=None):
     
@@ -89,17 +88,17 @@ class Attn_Network(nn.Module):
         
 
 class CBR_Classifier(nn.Module):
-    def __init__(self, encoder_dropout_rate: float =0.5, attn_dropout_rate: float =0.4, last_layer_dropout: float =0.2):
+    def __init__(self, num_labels, encoder_dropout_rate: float =0.5, attn_dropout_rate: float =0.4, last_layer_dropout: float =0.2):
         super().__init__()
-        self.num_labels = NUM_LABELS
+        self.num_labels = num_labels
         
-        self.normal_encoder = RobertaModel.from_pretrained("roberta-base")
+        self.normal_encoder = RobertaModel.from_pretrained("cross-encoder/nli-roberta-base")
         self.dropout1 = nn.Dropout(encoder_dropout_rate)
         
-        self.simcse_encoder = RobertaModel.from_pretrained("roberta-base")
+        self.simcse_encoder = RobertaModel.from_pretrained("cross-encoder/nli-roberta-base")
         self.dropout2 = nn.Dropout(encoder_dropout_rate)
         
-        self.empathy_encoder = RobertaModel.from_pretrained("roberta-base")
+        self.empathy_encoder = RobertaModel.from_pretrained("cross-encoder/nli-roberta-base")
         self.dropout3 = nn.Dropout(encoder_dropout_rate)
         
         self.f1 = nn.Linear(ROBERTA_HIDDEN_SIZE, 128)
@@ -260,7 +259,7 @@ def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dic
     external_sentences = []
     augmented_sentences = []
     count_without_cases = 0
-    for sentence in df[args["source_feature"]]:
+    for sentence in df["text"]:
         try:
             similar_sentences_with_similarities = retriever.retrieve_similar_cases(sentence, args["num_cases"])
             similar_sentences = [s[0] for s in similar_sentences_with_similarities if s[1] > args['cbr_threshold']]
@@ -275,7 +274,7 @@ def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, args: Dic
             augmented_sentences.append(result_sentence)
 
             
-    df[f"{args['source_feature']}_{prefix}"] = augmented_sentences
+    df[f"text_{prefix}"] = augmented_sentences
     df[f'cbr_{prefix}'] = external_sentences
     return df
 
@@ -400,6 +399,8 @@ def evaluate(model, data_loader, data_loader_simcse, data_loader_empathy, loss_f
     return {
         'loss': (total_loss / total_size),
         'accuracy': accuracy_score(y_true=all_labels, y_pred= all_predictions),
+        'precision': precision_score(y_true=all_labels, y_pred= all_predictions, average = "weighted"),
+        'recall': recall_score(y_true=all_labels, y_pred= all_predictions, average = "weighted"),
         'f1': f1_score(y_true=all_labels, y_pred= all_predictions, average = "weighted"),
         'all_labels': all_labels,
         'all_predictions': all_predictions
@@ -413,31 +414,45 @@ def do_train_process(config=None):
     print(args)
     
     
-    roberta_tokenizer = RobertaTokenizer.from_pretrained("roberta-base")
+    roberta_tokenizer = RobertaTokenizer.from_pretrained("cross-encoder/nli-roberta-base")
     
     
-    train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"], source_feature=args["source_feature"])
-    dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"], source_feature=args["source_feature"])
-    test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    # train_df = read_csv_from_amr(input_file=args["train_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    # dev_df = read_csv_from_amr(input_file=args["dev_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    # test_df = read_csv_from_amr(input_file=args["test_input_file"], augments=args["augments"], source_feature=args["source_feature"])
+    
+    train_df = pd.read_csv(args["train_input_file"])
+    dev_df = pd.read_csv(args["dev_input_file"])
+    test_df = pd.read_csv(args["test_input_file"])
+    
+    
+    train_df = train_df[~train_df["label"].isin(consts.bad_classes)]
+    dev_df = dev_df[~dev_df["label"].isin(consts.bad_classes)]
+    test_df = test_df[~test_df["label"].isin(consts.bad_classes)]
 
     if args["cbr"]:
-        simcse_retriever = SimCSE_Retriever(config = {"source_feature": args["source_feature"]})
-        empathy_retriever = Empathy_Retriever(config = {"source_feature": args["source_feature"]})
+        simcse_retriever = SimCSE_Retriever(config = args)
+        empathy_retriever = Empathy_Retriever(config = args)
         
         
         for df, is_train in zip([train_df, dev_df, test_df], [True, False, False]):
             for retriever, prefix in zip([simcse_retriever, empathy_retriever], ["simcse", "empathy"]):
                 df = augment_with_similar_cases(df, retriever, args, roberta_tokenizer.sep_token, prefix, is_train = is_train)
+                
+    # embed()
 
-    label_encoder = lambda x: consts.label2index[x]
-    label_encoder_inverse = lambda x: consts.index2label[x]
+    label2index = consts.datasets_config[args.data_dir]["classes"]
+    index2label = {v: k for k, v in label2index.items()}
+    label_encoder = lambda x: label2index[x]
+    label_encoder_inverse = lambda x: index2label[x]
 
 
-    train_df['updated_label'] = list(map(label_encoder, train_df['updated_label']))
-    dev_df['updated_label'] = list(map(label_encoder, dev_df['updated_label']))
-    test_df['updated_label'] = list(map(label_encoder, test_df['updated_label']))
+    train_df['label'] = list(map(label_encoder, train_df['label']))
+    dev_df['label'] = list(map(label_encoder, dev_df['label']))
+    test_df['label'] = list(map(label_encoder, test_df['label']))
 
-    
+    # embed()
+    # exit()
 
     dataset = DatasetDict({
         'train': Dataset.from_pandas(train_df),
@@ -446,25 +461,25 @@ def do_train_process(config=None):
     })
 
     def process(batch):
-        texts = batch[args["source_feature"]]
+        texts = batch["text"]
         inputs = roberta_tokenizer(texts, truncation=True)
         return {
             **inputs,
-            'labels': batch['updated_label']
+            'labels': batch['label']
         }
     def process_1(batch):
-        texts = batch[f"{args['source_feature']}_simcse"]
+        texts = batch["text_simcse"]
         inputs = roberta_tokenizer(texts, truncation=True)
         return {
             **inputs,
-            'labels': batch['updated_label']
+            'labels': batch['label']
         }
     def process_2(batch):
-        texts = batch[f"{args['source_feature']}_empathy"]
+        texts = batch["text_empathy"]
         inputs = roberta_tokenizer(texts, truncation=True)
         return {
             **inputs,
-            'labels': batch['updated_label']
+            'labels': batch['label']
         }
 
 
@@ -496,12 +511,13 @@ def do_train_process(config=None):
     
     if 'encoder_dropout_rate' in args:
         model = CBR_Classifier(
+            num_labels = len(consts.datasets_config[args.data_dir]["classes"]),
             encoder_dropout_rate = args['encoder_dropout_rate'], 
             attn_dropout_rate = args['attn_dropout_rate'], 
             last_layer_dropout = args['last_layer_dropout']
         )
     else:
-        model = CBR_Classifier()
+        model = CBR_Classifier(num_labels = len(consts.datasets_config[args.data_dir]["classes"]))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     model = model.to(device)
@@ -567,12 +583,18 @@ def do_train_process(config=None):
                 'train_loss': train_metrics['loss'],
                 'train_accuracy': train_metrics['accuracy'],
                 'train_f1': train_metrics['f1'],
+                'train_precision': train_metrics['precision'],
+                'train_recall': train_metrics['recall'],
                 'valid_loss': eval_metrics['loss'],
                 'valid_accuracy': eval_metrics['accuracy'],
                 'valid_f1': eval_metrics['f1'],
+                'valid_precision': eval_metrics['precision'],
+                'valid_recall': eval_metrics['recall'],
                 'test_loss': test_metrics['loss'],
                 'test_accuracy': test_metrics['accuracy'],
                 'test_f1': test_metrics['f1'],
+                'test_precision': test_metrics['precision'],
+                'test_recall': test_metrics['recall'],
                 'epoch': epoch
             }
             
@@ -655,17 +677,6 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         '--cbr', action=argparse.BooleanOptionalAction
-    )
-    parser.add_argument(
-        '--similarity_matrices_path_train', type = str
-    )
-    
-    parser.add_argument(
-        '--similarity_matrices_path_dev', type = str
-    )
-    
-    parser.add_argument(
-        '--similarity_matrices_path_test', type = str
     )
     
     parser.add_argument(

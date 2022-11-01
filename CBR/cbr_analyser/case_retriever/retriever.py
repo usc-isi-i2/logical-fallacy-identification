@@ -51,7 +51,8 @@ class SimCSE_Retriever(Retriever):
     def __init__(self, config: Dict[str, Any]) -> None:
         self.similarities_dict = dict()
         simcse_model_paths = [
-            f"cache/simcse_similarities_{config['source_feature']}_{split}.joblib"
+            os.path.join(
+                "cache", config["data_dir"].replace("/", "_"), f"simcse_similarities_{config['source_feature']}_{split}.joblib")
             for split in ["train", "dev", "test"]
         ]
         for path in simcse_model_paths:
@@ -70,7 +71,8 @@ class Empathy_Retriever(Retriever):
     def __init__(self, config: Dict[str, Any]) -> None:
         self.similarities_dict = dict()
         empathetic_model_paths = [
-            f"cache/empathy_similarities_{config['source_feature']}_{split}.joblib"
+            os.path.join(
+                "cache", config["data_dir"].replace("/", "_"), f"empathy_similarities_{config['source_feature']}_{split}.joblib")
             for split in ["train", "dev", "test"]
         ]
         for path in empathetic_model_paths:

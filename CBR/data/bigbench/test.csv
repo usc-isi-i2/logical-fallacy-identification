@@ -1,0 +1,421 @@
+text,label
+All gryllows are pricenanos. No shizzoes are pricenanos. Therefore no shizzoes are gryllows.,negative
+Mario is less witty than Osbert. Jim is less witty than Kim. Osbert is less witty than Kim. Therefore mario is less witty than Kim.,negative
+All tograshs are shraiwels. Some noxuses are not shraiwels. Therefore some noxuses are not tograshs.,negative
+All men are martians. No martians are bears. Therefore no bears are men.,negative
+No zestponts are trands. All ocirammas are trands. Therefore no ocirammas are zestponts.,negative
+Some sypholoes are not unfabrans. Some winnibler are not unfabrans. Therefore all winnibler are sypholoes.,positive
+Carol is wittier than Joanna. Bill is wittier than Kevin. Joanna is less witty than Kevin. Therefore bill is wittier than Joanna.,negative
+No noxuses are didizas. No noxuses are froilets. Therefore some froilets are not didizas.,positive
+All fluffsters are sevvits. No treyples are sevvits. Therefore all treyples are fluffsters.,positive
+Jennifer is shorter than Ernest. Philipp is shorter than Jennifer. Nat is shorter than Ernest. Jones is shorter than Philipp. Therefore jones is shorter than Ernest.,negative
+No younjurs are gerants. Some younjurs are swinducts. Therefore some swinducts are not gerants.,negative
+Kim is slower than Moses. Aiden is slower than Kim. Henry is slower than Kim. Therefore kim is faster than Henry.,negative
+"Front-row seats at the stadium are very expensive, but you can almost as good a view from the middle; so we should consider buying seats there.",negative
+Lara is wittier than Alex. Lara is less witty than Osbert. Therefore alex is wittier than Lara.,positive
+Vicky is less ambitious than Lara. Zach is more ambitious than Victoria. Zach is less ambitious than Robert. Bill is more ambitious than Zach. Therefore robert is more ambitious than Victoria.,negative
+All sinpuds are besloors. Some werradiths are sinpuds. Therefore some werradiths are besloors.,negative
+"She knows a lot about mathematics, so I'll ask her about this mathematical problem",negative
+All champions are princes. All princes are toadstools. Therefore some toadstools are not champions.,positive
+Sara is more sensible than John. John is more sensible than Moses. Therefore john is less sensible than Sara.,negative
+All tarts are acrobats. Some boats are tarts. Therefore some boats are acrobats.,negative
+The sun is hottest when the clock reads midday. So the clock must control the temperature of the sun.,positive
+Caroline is kinder than William. Jack is less kind than William. Therefore william is less kind than Jack.,positive
+Some colts are catfish. Some catfish are cars. Therefore all cars are colts.,positive
+Some khavvins are bliggingtoms. All khavvins are exastoes. Therefore some exastoes are bliggingtoms.,negative
+"My dad is really good at videogames, so I figure a lot of parents must be the same.",positive
+No sayplomps are polinks. All sinpuds are sayplomps. Therefore no sinpuds are polinks.,negative
+No gaxes are sypholoes. All dreanors are gaxes. Therefore no dreanors are sypholoes.,negative
+Some brongs are hendassas. Some fluffsters are not brongs. Therefore all fluffsters are hendassas.,positive
+No broomillas are mizules. Some jerens are mizules. Therefore some jerens are not broomillas.,negative
+Dylan is less reliable than Tim. Charlotte is less reliable than Dylan. Therefore dylan is more reliable than Tim.,positive
+Everyone agrees that children have innocent hearts. So clearly this child can't have committed a crime.,positive
+All men are captains. No fish are captains. Therefore no fish are men.,negative
+Victoria is kinder than Sam. Caroline is kinder than Sam. Edward is kinder than Caroline. David is kinder than Edward. Therefore sam is kinder than Caroline.,positive
+Some primates are not bedrooms. All primates are nephews. Therefore some nephews are bedrooms.,positive
+Some slozzoms are not besloors. All slozzoms are winnibler. Therefore some winnibler are not besloors.,negative
+No nieces are lads. Some mailmen are lads. Therefore some mailmen are not nieces.,negative
+The weather outside is awful. You'd better stay home until the storm has passed.,negative
+All compleys are tingforms. Some skrads are not tingforms. Therefore some skrads are compleys.,positive
+All dwarves are ants. No guys are ants. Therefore no guys are dwarves.,negative
+Sara is more ambitious than Sophia. Nat is less ambitious than David. Sophia is more ambitious than Lara. Lara is less ambitious than Anne. Therefore david is more ambitious than Nat.,negative
+"Humans evolved in savannah environments, so those are clearly the best place for us.,",positive
+You say men are physically stronger than women. So why do you think men are superior to women?,positive
+Anna is wittier than Jill. Jill is less witty than Dylan. Anna is less witty than Peter. Anna is less witty than Bill. Therefore peter is less witty than Anna.,positive
+No slozzoms are sinpuds. Some sinpuds are gryllows. Therefore some gryllows are not slozzoms.,negative
+Some shorates are not prottows. All shorates are tolities. Therefore some tolities are not prottows.,negative
+Moses is more reliable than Sarah. Moses is less reliable than David. Tom is more reliable than Sarah. Therefore moses is more reliable than Sarah.,negative
+Kevin is more sensible than Peter. Annie is more sensible than Kevin. Dylan is more sensible than Jennifer. Michael is more sensible than Dylan. Therefore jennifer is more sensible than Dylan.,positive
+Jake is less ambitious than Charlotte. Peter is more ambitious than Charlotte. Therefore charlotte is less ambitious than Jake.,positive
+All bliggingtoms are thrastles. Some thrastles are not tolities. Therefore no tolities are bliggingtoms.,positive
+Some sevvits are skizzles. No swinducts are sevvits. Therefore no swinducts are skizzles.,positive
+No sayplomps are polinks. All sinpuds are sayplomps. Therefore no sinpuds are polinks.,negative
+Bob is slower than Robert. Anne is slower than Vicky. Vicky is slower than Bob. Therefore vicky is slower than Anne.,positive
+Some rocks are not fish. Some rocks are sisters. Therefore some sisters are not fish.,positive
+All acrobats are insects. Some acrobats are brunettes. Therefore some brunettes are insects.,negative
+Some lions are girls. All doctors are lions. Therefore all doctors are girls.,positive
+Some horses are aunts. Some birds are not aunts. Therefore all birds are horses.,positive
+Nat is wittier than Sophia. Sophia is wittier than Aiden. Therefore aiden is less witty than Sophia.,negative
+Bob is less sensible than Henry. Jill is less sensible than Bob. Edward is less sensible than Jill. Therefore edward is less sensible than Bob.,negative
+Some gryllows are not skrads. All skrads are rigglays. Therefore all rigglays are gryllows.,positive
+All siblings are offices. All siblings are doves. Therefore no doves are offices.,positive
+"My boss said that studying linear algebra helped him with coding. But he's rude and unpleasant, so his advice is useless.",positive
+"Recycling is good for the planet, so you should probably recycle.",negative
+William is less reliable than Laura. Bill is less reliable than Cecilia. Sean is less reliable than Aiden. Aiden is less reliable than Laura. Therefore aiden is more reliable than Laura.,positive
+No ocirs are hawkloons. Some hawkloons are skrads. Therefore some skrads are not ocirs.,negative
+No prottows are yudalouds. Some yudalouds are treyples. Therefore some treyples are prottows.,positive
+Cecilia is more reliable than Susan. Bill is more reliable than Cecilia. Tom is more reliable than Susan. Therefore susan is more reliable than Cecilia.,positive
+Peter is younger than Amy. Peter is younger than Philipp. Philipp is younger than Amy. Therefore amy is older than Philipp.,negative
+Sara is more sensible than John. John is more sensible than Moses. Therefore john is more sensible than Sara.,positive
+All younjurs are dufizzes. Some shizzoes are not dufizzes. Therefore some shizzoes are not younjurs.,negative
+Carol is wittier than Joanna. Bill is wittier than Kevin. Joanna is less witty than Kevin. Therefore joanna is wittier than Bill.,positive
+All refluppers are styphons. Some styphons are not shipotoes. Therefore no shipotoes are refluppers.,positive
+Anne is more reliable than Moses. Jake is more reliable than Anne. Carol is more reliable than Jake. Carol is more reliable than John. Therefore jake is more reliable than Carol.,positive
+No cowboys are hobgoblins. Some hobgoblins are males. Therefore some males are not cowboys.,negative
+No smurtans are fapsters. Some smurtans are houtals. Therefore some houtals are fapsters.,positive
+No nightmares are forks. Some captains are forks. Therefore some captains are not nightmares.,negative
+The cost of that product varies wildly so if you want to save money you should shop around.,negative
+Susan is shorter than Anne. John is shorter than Susan. Therefore anne is taller than Susan.,negative
+Sophia is younger than Charlotte. Charlotte is younger than Kevin. Kevin is younger than Tom. Therefore kevin is younger than Sophia.,positive
+Some tolities are not sposities. No rodrups are sposities. Therefore some rodrups are not tolities.,positive
+Sara is taller than Sean. Edward is taller than Sara. Michael is taller than Jack. Anna is taller than Edward. Therefore edward is taller than Sean.,negative
+No snabeths are slozzoms. Some smurtans are slozzoms. Therefore some smurtans are not snabeths.,negative
+No heros are apartments. Some frogs are heros. Therefore some frogs are not apartments.,negative
+All nimepoes are tograshs. No tolities are tograshs. Therefore no tolities are nimepoes.,negative
+No rodrups are hislaffs. Some kitzerains are hislaffs. Therefore some kitzerains are not rodrups.,negative
+No astronauts are knights. Some tigers are knights. Therefore some tigers are astronauts.,positive
+No essups are noxuses. Some essups are not gryllows. Therefore all gryllows are noxuses.,positive
+Tom is less frank than Jones. Moses is less frank than Candice. Moses is less frank than Sarah. Moses is less frank than Tom. Therefore moses is less frank than Jones.,negative
+Some confras are not pricenanos. All pentwests are confras. Therefore some pentwests are not pricenanos.,positive
+All pricenanos are dufizzes. All younjurs are pricenanos. Therefore all younjurs are dufizzes.,negative
+All effachers are hendassas. All effachers are spequals. Therefore some spequals are hendassas.,positive
+All essups are treyples. Some treyples are hislaffs. Therefore some hislaffs are essups.,positive
+France has the lowest rate of heart disease in Europe. So being French protects against heart disease.,positive
+All knights are toads. No foo fighters are toads. Therefore no foo fighters are knights.,negative
+Jake is less sensible than William. Sara is less sensible than William. William is less sensible than Edward. Edward is less sensible than Ernest. Therefore ernest is less sensible than Sara.,positive
+"I was bitten by a dog, so dogs must be dangerous.",positive
+No sinpuds are hislaffs. All artrames are hislaffs. Therefore no artrames are sinpuds.,negative
+Annie is less ambitious than Cecilia. Marcus is less ambitious than Paul. Paul is more ambitious than Peter. Annie is more ambitious than Peter. Therefore cecilia is less ambitious than Annie.,positive
+Some hawks are hamburgers. No hawks are ministers. Therefore no ministers are hamburgers.,positive
+Marcus is shorter than Charlotte. Debbie is taller than Marcus. Debbie is shorter than Charlotte. Therefore debbie is taller than Marcus.,negative
+No skizzles are shraiwels. Some shraiwels are pricenanos. Therefore some pricenanos are not skizzles.,negative
+Bella is taller than Peter. Peter is taller than Tom. Therefore peter is shorter than Bella.,negative
+Candice is slower than Bob. Kevin is faster than Candice. Kevin is slower than Moses. Therefore bob is slower than Candice.,positive
+No rodrups are weepeggles. Some strizzings are weepeggles. Therefore some strizzings are not rodrups.,negative
+Vicky is kinder than Ernest. Debbie is kinder than Vicky. Kim is kinder than Vicky. Debbie is less kind than Kim. Therefore debbie is kinder than Kim.,positive
+All oaks are dwarves. Some dwarves are not sons. Therefore all sons are oaks.,positive
+No cowgirls are oysters. All boats are oysters. Therefore some boats are cowgirls.,positive
+Some pentwests are hildaids. All hildaids are fluffsters. Therefore some fluffsters are pentwests.,negative
+All priests are mushrooms. All toads are priests. Therefore all toads are mushrooms.,negative
+All styphons are gryllows. No gryllows are hendassas. Therefore no hendassas are styphons.,negative
+Sophia is slower than Carol. Joanna is slower than Sophia. Candice is slower than Sophia. Tim is slower than Jennifer. Therefore jennifer is slower than Tim.,positive
+Amy is faster than Dylan. Charlotte is faster than Amy. Therefore amy is slower than Charlotte.,negative
+Cecilia is more reliable than Susan. Bill is more reliable than Cecilia. Tom is more reliable than Susan. Therefore susan is more reliable than Cecilia.,positive
+Some essups are treyples. No spewsies are essups. Therefore some spewsies are not treyples.,positive
+All borogoves are vampires. All blondes are borogoves. Therefore all blondes are vampires.,negative
+Susan is less reliable than Sarah. Alex is less reliable than Susan. Therefore susan is more reliable than Sarah.,positive
+No taindists are spequals. Some spequals are not yoffas. Therefore some yoffas are taindists.,positive
+Robert is faster than Paul. Paul is faster than Anne. Therefore paul is faster than Robert.,positive
+Tom is younger than William. Susan is younger than Tom. Therefore william is older than Tom.,negative
+Some tingforms are noxuses. All noxuses are smations. Therefore all smations are tingforms.,positive
+The massacre was a dreadful sight. Anyone with dreadful sight has poor vision. So everyone at the massacre had poor vision.,positive
+All werradiths are cheiliths. No skrads are cheiliths. Therefore all skrads are werradiths.,positive
+"My boss said that studying linear algebra helped him with coding. But he's rude and unpleasant, so his advice is useless.",positive
+Carol is more sensible than Anna. Edward is more sensible than Carol. Edward is more sensible than Dylan. Jake is more sensible than Edward. Therefore jake is more sensible than Anna.,negative
+"The artist who made this painting was a sexist, so it can't be any good as art.",positive
+Susan is more reliable than Jack. Jack is less reliable than Robert. Caroline is more reliable than Susan. Therefore caroline is less reliable than Susan.,positive
+"The average wage in this country is less than yours, so you're richer than average.",negative
+"If we don't put money into savings this week, soon we'll stop putting money in all together and end up draining our savings cry.",positive
+Carol is younger than David. David is younger than Laura. Carol is younger than Ernest. Laura is younger than Michael. Therefore carol is younger than Michael.,negative
+Some pricenanos are not gerants. No hendassas are pricenanos. Therefore some hendassas are not gerants.,positive
+Bella is less witty than Amy. Laura is wittier than Edward. Laura is wittier than Amy. Amy is less witty than Anne. Therefore bella is wittier than Amy.,positive
+Jenny is less ambitious than John. John is less ambitious than Sara. Therefore sara is more ambitious than John.,negative
+Some dufizzes are unfabrans. All unfabrans are strassips. Therefore some strassips are dufizzes.,negative
+Some rodrups are froilets. All rodrups are bisdoes. Therefore some bisdoes are froilets.,negative
+Jones is wittier than Anne. Anne is wittier than Moses. Therefore anne is less witty than Jones.,negative
+"The preacher used to be a criminal, so his claims about God can't be trusted.",positive
+All reilts are rodrups. No rodrups are spewsies. Therefore no spewsies are reilts.,negative
+"Border collies require a lot of exercise, so if you're unable to take them for regular walks, you might be better off getting a different sort of pet.",negative
+Jake is less ambitious than Charlotte. Peter is more ambitious than Charlotte. Therefore peter is more ambitious than Charlotte.,negative
+All effachers are hendassas. All effachers are spequals. Therefore some spequals are hendassas.,positive
+No pentwests are hawkloons. Some bistups are pentwests. Therefore no bistups are hawkloons.,positive
+Some reggabreas are not sayplomps. Some aferrarons are not sayplomps. Therefore no aferrarons are reggabreas.,positive
+Some bandersnatches are not boys. All bandersnatches are jokers. Therefore some jokers are not boys.,negative
+"These are the newest sneakers released by the company, so they must have the highest build quality.",positive
+All androids are pawns. Some swans are androids. Therefore some swans are pawns.,negative
+No fluffsters are ammigles. All ammigles are smurtans. Therefore no smurtans are fluffsters.,positive
+Jennifer is wittier than Zach. Sam is wittier than Jennifer. Therefore jennifer is less witty than Zach.,positive
+Some braties are not reggabreas. No reggabreas are yudalouds. Therefore some yudalouds are not braties.,positive
+"You wouldn't tolerate someone physically punching you, so you also shouldn't tolerate people with offensive views.",positive
+Some rigglays are sevvits. All rigglays are spequals. Therefore some spequals are not sevvits.,positive
+Philipp is shorter than Dylan. Jim is shorter than Philipp. Therefore philipp is shorter than Jim.,positive
+Mary is kinder than Lara. Rossi is kinder than Charlotte. Lara is kinder than Susan. Therefore susan is kinder than Lara.,positive
+No bliggingtoms are natances. All bliggingtoms are noelinds. Therefore no noelinds are natances.,positive
+"Hitler helped develop the Volkswagen, so they must be an unethical company.",positive
+All cheiliths are reggabreas. No sevvits are reggabreas. Therefore no sevvits are cheiliths.,negative
+"If you don't like using or interacting with computers, then you probably won't like video games.",negative
+Paul is less ambitious than Lara. Lara is less ambitious than Jones. Therefore paul is more ambitious than Lara.,positive
+Rossi is less sensible than Tom. Jill is less sensible than Rossi. Jill is more sensible than Cecilia. Rossi is more sensible than Mary. Therefore tom is more sensible than Cecilia.,negative
+Vicky is less ambitious than Lara. Zach is more ambitious than Victoria. Zach is less ambitious than Robert. Bill is more ambitious than Zach. Therefore zach is more ambitious than Bill.,positive
+Some rocks are not cards. Some cards are not whales. Therefore no whales are rocks.,positive
+No bowls are animals. Some animals are stars. Therefore some stars are not bowls.,negative
+Mario is younger than Nat. Vicky is younger than Mario. Vicky is younger than Marcus. Vicky is younger than Sara. Therefore vicky is younger than Nat.,negative
+Some spiders are duchesses. All spiders are jovians. Therefore some jovians are duchesses.,negative
+All zestponts are goyances. All glontoms are goyances. Therefore all glontoms are zestponts.,positive
+Zach is less witty than Moses. William is less witty than Ernest. Ernest is less witty than Moses. Therefore ernest is less witty than William.,positive
+Some brunettes are not hares. Some brunettes are not lions. Therefore no lions are hares.,positive
+All knights are astronauts. All clones are knights. Therefore all clones are astronauts.,negative
+Some musicians are not creatures. Some musicians are not goblins. Therefore no goblins are creatures.,positive
+Sophia is kinder than Amy. Sophia is less kind than Caroline. Caroline is kinder than Jim. Therefore jim is kinder than Caroline.,positive
+All besloors are benessits. All benessits are farklings. Therefore all farklings are besloors.,positive
+Your views don't need to be taken seriously - you cheated on your wife.,positive
+Some thrastles are confras. All thrastles are natances. Therefore some natances are confras.,negative
+Tom is less witty than Peter. Candice is wittier than Peter. Therefore candice is wittier than Peter.,negative
+Kevin is more sensible than Peter. Annie is more sensible than Kevin. Dylan is more sensible than Jennifer. Michael is more sensible than Dylan. Therefore jennifer is less sensible than Dylan.,negative
+Peter is older than Kim. Rossi is older than Aiden. Peter is older than Rossi. Therefore rossi is younger than Peter.,negative
+All hats are redheads. No cafes are redheads. Therefore no cafes are hats.,negative
+Some jokers are not goblins. All jokers are nephews. Therefore some nephews are not goblins.,negative
+All guys are astronauts. Some creatures are guys. Therefore all creatures are astronauts.,positive
+All fluffsters are dorchies. No caimats are dorchies. Therefore no caimats are fluffsters.,negative
+All wasps are bunnies. No bunnies are teachers. Therefore no teachers are wasps.,negative
+All unfabrans are hislaffs. All prottows are unfabrans. Therefore all prottows are hislaffs.,negative
+Some jets are not robots. All jets are felines. Therefore some felines are not robots.,negative
+Aiden is more ambitious than Annie. Susan is more ambitious than Jim. Moses is less ambitious than Susan. Jim is less ambitious than Annie. Therefore aiden is more ambitious than Jim.,negative
+It rains a lot in Seattle so if you hate the rain you may not like it there.,negative
+Some brongs are not winoozes. Some nimepoes are not brongs. Therefore some nimepoes are not winoozes.,positive
+No sparrows are turtles. Some turtles are students. Therefore some students are not sparrows.,negative
+Paul is less ambitious than Osbert. Osbert is less ambitious than Susan. Therefore osbert is more ambitious than Susan.,positive
+No weepeggles are fluffsters. Some weepeggles are trands. Therefore some trands are not fluffsters.,negative
+Victoria is more sensible than Rossi. Jim is more sensible than Victoria. Therefore victoria is less sensible than Jim.,negative
+No dufizzes are werradiths. All taindists are werradiths. Therefore no taindists are dufizzes.,negative
+Some vampires are not relatives. Some relatives are not humans. Therefore some humans are not vampires.,positive
+Some tingforms are noxuses. All noxuses are smations. Therefore all smations are tingforms.,positive
+Some reggabreas are not sayplomps. Some aferrarons are not sayplomps. Therefore no aferrarons are reggabreas.,positive
+"Recycling is good for the planet, so you should probably recycle.",negative
+No writers are siblings. All capitols are siblings. Therefore no capitols are writers.,negative
+Some teachers are not apartments. All apartments are jovians. Therefore some jovians are teachers.,positive
+Marcus is faster than Annie. Annie is faster than Kevin. Therefore annie is slower than Marcus.,negative
+Michael is older than Jones. Anne is older than Michael. Sam is older than Lara. Jennifer is older than Anne. Therefore jennifer is older than Michael.,negative
+"If we don't put money into savings this week, soon we'll stop putting money in all together and end up draining our savings cry.",positive
+Some extraterrestrials are not frogs. No minors are extraterrestrials. Therefore all minors are frogs.,positive
+John is wittier than Marcus. John is wittier than Zach. Zach is wittier than Kim. Therefore kim is wittier than Zach.,positive
+Some styphons are not smations. No polinks are styphons. Therefore no polinks are smations.,positive
+"I felt ill once after eating lamb curry, so lamb curry must make people sick.",positive
+Some zestponts are not lotadils. Some lotadils are unfabrans. Therefore all unfabrans are zestponts.,positive
+All spewsies are didizas. Some smations are spewsies. Therefore no smations are didizas.,positive
+"You say that adultery is immoral, but you cheated on your wife; clearly adultery must be fine.",positive
+Robert is taller than Amy. Osbert is taller than Robert. Mary is taller than Robert. Therefore osbert is taller than Amy.,negative
+Bella is more sensible than Kevin. Cecilia is more sensible than Bella. Joanna is more sensible than Cecilia. Candice is more sensible than Moses. Therefore kevin is more sensible than Bella.,positive
+Some ladies are not ducks. Some ladies are mustangs. Therefore all mustangs are ducks.,positive
+Cecilia is more reliable than Susan. Bill is more reliable than Cecilia. Tom is more reliable than Susan. Therefore bill is more reliable than Susan.,negative
+John is shorter than Osbert. Carol is shorter than Sam. Kim is shorter than Sam. Carol is shorter than John. Therefore sam is shorter than Kim.,positive
+Some spoons are robots. No salmon are spoons. Therefore all salmon are robots.,positive
+Some rigglays are sevvits. All rigglays are spequals. Therefore some spequals are not sevvits.,positive
+Some rigglays are styphons. All pentwests are rigglays. Therefore all pentwests are styphons.,positive
+Some jovians are not uncles. No uncles are fairies. Therefore some fairies are not jovians.,positive
+Some guys are owls. All owls are lion tamers. Therefore some lion tamers are guys.,negative
+Some jerens are nalpures. All nalpures are pricenanos. Therefore all pricenanos are jerens.,positive
+Henry is older than Mary. Henry is younger than Sam. Henry is younger than Cecilia. Therefore sam is older than Mary.,negative
+No sheep are bees. Some bees are actors. Therefore some actors are not sheep.,negative
+Joanna is less frank than David. Sara is less frank than David. Sophia is less frank than Sara. Therefore sophia is less frank than David.,negative
+Philipp is shorter than Dylan. Jim is shorter than Philipp. Therefore philipp is shorter than Jim.,positive
+This policy will reduce crime but not get rid of it completely. So it's not a good solution.,positive
+Some toys are duchesses. All duchesses are girls. Therefore some girls are toys.,negative
+Charlotte is more sensible than John. Bella is more sensible than Charlotte. Charlotte is less sensible than Tom. Therefore bella is more sensible than John.,negative
+Aiden is older than Jennifer. Laura is older than Sean. Jones is older than Jennifer. Laura is younger than Bob. Therefore bob is younger than Laura.,positive
+Some bliggingtoms are looplats. All looplats are braties. Therefore some braties are bliggingtoms.,negative
+"When I have to work late, I end up in a bad mood. So being in a bad mood makes me work late.",positive
+Nat is less reliable than Kevin. Debbie is less reliable than Kevin. Bill is less reliable than Nat. Anna is less reliable than Amy. Therefore bill is less reliable than Kevin.,negative
+Carol is younger than David. David is younger than Laura. Carol is younger than Ernest. Laura is younger than Michael. Therefore carol is younger than Michael.,negative
+The novel was written by a top scientist so it must be entertaining.,positive
+All shraiwels are dewfays. Some shraiwels are shizzoes. Therefore some shizzoes are dewfays.,negative
+All daughters are bishops. No bishops are pencils. Therefore no pencils are daughters.,negative
+Some hawkloons are not pentwests. All sposities are hawkloons. Therefore some sposities are pentwests.,positive
+Candice is older than Vicky. Kevin is younger than Vicky. Therefore kevin is older than Vicky.,positive
+Debbie is less sensible than Ernest. David is less sensible than Debbie. Therefore ernest is more sensible than Debbie.,negative
+All starfish are mothers. Some starfish are admirals. Therefore some admirals are not mothers.,positive
+No tupresses are treyples. Some hendassas are treyples. Therefore some hendassas are not tupresses.,negative
+Some dolphins are not harlequins. All harlequins are ministers. Therefore all ministers are dolphins.,positive
+John is slower than Rossi. Sam is faster than Rossi. John is slower than Dylan. Therefore john is faster than Dylan.,positive
+Moses is more ambitious than Jake. Joanna is more ambitious than Mary. Joanna is more ambitious than Moses. Therefore moses is more ambitious than Joanna.,positive
+Some sposities are not ranotots. Some spewsies are not ranotots. Therefore no spewsies are sposities.,positive
+No ants are butchers. Some ants are poets. Therefore some poets are not butchers.,negative
+Some pricenanos are ocirs. Some hislaffs are pricenanos. Therefore all hislaffs are ocirs.,positive
+No dewfays are smurtans. Some natances are not dewfays. Therefore some natances are not smurtans.,positive
+Moses is taller than Bob. Bob is taller than Tim. Therefore tim is shorter than Bob.,negative
+All jokers are bakers. Some jokers are snakes. Therefore some snakes are bakers.,negative
+No shipotoes are winnibler. All sevvits are winnibler. Therefore some sevvits are not shipotoes.,positive
+Some tingforms are brongs. Some tingforms are not froilets. Therefore no froilets are brongs.,positive
+Some vehicles are owls. All owls are pens. Therefore some pens are vehicles.,negative
+Susan is shorter than Anne. John is shorter than Susan. Therefore anne is taller than Susan.,negative
+Kim is wittier than Jill. John is wittier than Kim. Bill is wittier than Victoria. Therefore john is wittier than Jill.,negative
+Tim is less sensible than Jones. Edward is less sensible than Tim. Anna is less sensible than Tim. Therefore tim is less sensible than Edward.,positive
+No shures are fapsters. Some fapsters are spequals. Therefore all spequals are shures.,positive
+Lara is wittier than Jack. Jennifer is wittier than Lara. Jennifer is less witty than Kim. Jennifer is less witty than Rossi. Therefore jennifer is wittier than Kim.,positive
+All clothes are crabs. No crabs are men. Therefore some men are not clothes.,positive
+No brewtines are spequals. All brewtines are weepeggles. Therefore some weepeggles are spequals.,positive
+Zach is more ambitious than Rossi. Charlotte is more ambitious than Caroline. Aiden is more ambitious than Zach. Therefore caroline is more ambitious than Charlotte.,positive
+"Taxes are at a historic low, so raising them is likely to lift revenue.",negative
+Amy is older than Candice. Sam is older than Carol. Amy is older than Carol. Sam is older than Amy. Therefore candice is younger than Amy.,negative
+Cecilia is more sensible than Bob. Jake is more sensible than Cecilia. Anna is more sensible than Candice. Aiden is less sensible than Anna. Therefore anna is more sensible than Aiden.,negative
+Some bees are turtles. Some clones are not turtles. Therefore no clones are bees.,positive
+Some ocirammas are not proppors. No artrames are proppors. Therefore all artrames are ocirammas.,positive
+All gaxes are werradiths. No houtals are werradiths. Therefore no houtals are gaxes.,negative
+All tingforms are hendassas. Some tingforms are skizzles. Therefore some skizzles are hendassas.,negative
+All goblins are starfish. Some goblins are not arachnids. Therefore all arachnids are starfish.,positive
+No lotadils are sayplomps. All didizas are lotadils. Therefore no didizas are sayplomps.,negative
+No glontoms are shizzoes. Some shizzoes are not lotadils. Therefore all lotadils are glontoms.,positive
+No firemen are shellfish. Some guys are shellfish. Therefore some guys are firemen.,positive
+Some hislaffs are proppors. No dorchies are proppors. Therefore all dorchies are hislaffs.,positive
+All weepeggles are artrames. Some weepeggles are nalpures. Therefore some nalpures are artrames.,negative
+All yoffas are looplats. Some yoffas are not rigglays. Therefore no rigglays are looplats.,positive
+Lara is less frank than Jill. Lara is less frank than Dylan. Jill is more frank than Dylan. Therefore lara is more frank than Dylan.,positive
+No cosmonauts are flowers. Some cosmonauts are dukes. Therefore some dukes are not flowers.,negative
+Some sharks are insects. Some nieces are not insects. Therefore no nieces are sharks.,positive
+No thrastles are ranotots. All goyances are ranotots. Therefore no goyances are thrastles.,negative
+Some rigglays are styphons. All pentwests are rigglays. Therefore all pentwests are styphons.,positive
+No froilets are strassips. No froilets are confras. Therefore no confras are strassips.,positive
+All bowls are chimpanzees. No chimpanzees are astronauts. Therefore all astronauts are bowls.,positive
+Lara is less sensible than Joanna. Joanna is less sensible than Sophia. Joanna is less sensible than Annie. Therefore lara is less sensible than Sophia.,negative
+No shipotoes are winnibler. All sevvits are winnibler. Therefore some sevvits are not shipotoes.,positive
+Some bacclas are ocirammas. Some spewsies are not bacclas. Therefore no spewsies are ocirammas.,positive
+Some hornets are not programmers. Some hornets are stadiums. Therefore no stadiums are programmers.,positive
+Some foo fighters are not clothes. All foo fighters are toves. Therefore some toves are not clothes.,negative
+No pardees are swoofles. Some skizzles are not swoofles. Therefore no skizzles are pardees.,positive
+No smations are treyples. Some ammigles are smations. Therefore some ammigles are treyples.,positive
+All rigglays are compleys. Some hildaids are not compleys. Therefore some hildaids are rigglays.,positive
+All nightmares are photographs. All crabs are nightmares. Therefore no crabs are photographs.,positive
+Henry is older than Mary. Henry is younger than Sam. Henry is younger than Cecilia. Therefore sam is younger than Mary.,positive
+You shouldn't trust Donald's views about politics. He's an alcoholic.,positive
+No skrads are caimats. Some skrads are shorates. Therefore some shorates are not caimats.,negative
+No ocirammas are smations. Some ocirammas are not spequals. Therefore some spequals are not smations.,positive
+Some programmers are canines. No programmers are tumtum trees. Therefore some tumtum trees are canines.,positive
+Some sevvits are not braties. No exastoes are sevvits. Therefore all exastoes are braties.,positive
+Dylan is wittier than Sam. Jenny is wittier than Dylan. Jake is wittier than Dylan. Therefore dylan is less witty than Jenny.,negative
+Anne is less ambitious than Lara. Bella is less ambitious than Lara. Henry is less ambitious than Bella. Therefore lara is less ambitious than Bella.,positive
+"If we let global warming increase by positive degree, it will increase by 2 degrees, and 3 degrees.",positive
+Anne is wittier than Nat. Anne is less witty than Jim. Jim is less witty than Jill. David is wittier than Jill. Therefore jill is wittier than Nat.,negative
+"Lotteries have been practicised since time immemorial, so they can hardly be immoral.",positive
+Some werradiths are not sevvits. All werradiths are chevesics. Therefore all chevesics are sevvits.,positive
+No sharks are candlestick makers. All countesses are candlestick makers. Therefore no countesses are sharks.,negative
+Jones is more reliable than Jim. Sarah is more reliable than Jack. Jack is more reliable than Jim. Therefore jack is less reliable than Jim.,positive
+Some sevvits are not proppors. All sevvits are gaxes. Therefore no gaxes are proppors.,positive
+Jill is less kind than Moses. Moses is less kind than Rossi. Therefore rossi is kinder than Moses.,negative
+"Stalin was a Communist and killed millions, so Communism can't be an ethical political system.",positive
+All spoickles are fluffsters. Some spoickles are not yoffas. Therefore all yoffas are fluffsters.,positive
+Paul is more frank than Bob. Paul is less frank than Annie. Therefore bob is more frank than Paul.,positive
+No blonds are warlocks. Some spoons are blonds. Therefore some spoons are not warlocks.,negative
+No mincoms are styphons. All smurtans are styphons. Therefore no smurtans are mincoms.,negative
+"Heidegger was a Nazi, so Heideggerian philosophy is clearly illegitimate.",positive
+No chickens are whales. All nephews are whales. Therefore no nephews are chickens.,negative
+All surogous are pardees. Some prottows are not pardees. Therefore all prottows are surogous.,positive
+All borogoves are shows. Some toadstools are borogoves. Therefore some toadstools are shows.,negative
+"The university was founded by a terrible man, so it's clearly a terrible institution.",positive
+Bella is taller than Peter. Peter is taller than Tom. Therefore bella is shorter than Peter.,positive
+No strassips are weepeggles. Some builithes are weepeggles. Therefore no builithes are strassips.,positive
+"Excessive tanning is bad for the skin, so you should wear sunscreen to avoid it.",negative
+Some werradiths are not sevvits. All werradiths are chevesics. Therefore all chevesics are sevvits.,positive
+All knaves are flying saucers. Some knights are not knaves. Therefore all knights are flying saucers.,positive
+All programmers are rooks. All amphibians are programmers. Therefore all amphibians are rooks.,negative
+Some elves are not colts. Some cowgirls are elves. Therefore some cowgirls are not colts.,positive
+No bees are jets. Some bees are females. Therefore some females are not jets.,negative
+No froilets are flionsoes. Some compleys are flionsoes. Therefore some compleys are not froilets.,negative
+Evolutionists and creationists disagree about the origin of the earth. So perhaps some species evolved and others were created.,positive
+All daughters are chickens. No daughters are hawks. Therefore no hawks are chickens.,positive
+No fapsters are nimepoes. All didizas are nimepoes. Therefore no didizas are fapsters.,negative
+Some computers are not elms. Some computers are spooks. Therefore no spooks are elms.,positive
+Some cows are not lads. All cows are lassies. Therefore some lassies are not lads.,negative
+Some sparrows are wizards. All sparrows are dishes. Therefore some dishes are wizards.,negative
+No sheep are bees. Some bees are actors. Therefore some actors are not sheep.,negative
+Some actors are nightmares. All actors are towns. Therefore some towns are nightmares.,negative
+All venusians are nurses. All nurses are ducklings. Therefore no ducklings are venusians.,positive
+My brother told me to stop smoking. But he's a bad guy. So I shouldn't follow his advice.,positive
+"Cats can thrive even in a small apartment, so if you live in a confined space they're a good pet.",negative
+Aeroplanes can't be healthy; humans were never meant to fly.,positive
+Some kitchens are not bakers. Some lassies are bakers. Therefore some lassies are kitchens.,positive
+Caroline is kinder than William. Jack is less kind than William. Therefore william is less kind than Jack.,positive
+Some cows are not lads. All cows are lassies. Therefore some lassies are not lads.,negative
+Some jerens are nalpures. All nalpures are pricenanos. Therefore all pricenanos are jerens.,positive
+William is taller than Tim. Tim is taller than Annie. Therefore annie is shorter than Tim.,negative
+Some nuns are mustangs. All nuns are harlequins. Therefore some harlequins are mustangs.,negative
+Henry is less ambitious than Edward. Amy is less ambitious than Henry. Peter is less ambitious than Amy. Ernest is less ambitious than Henry. Therefore henry is less ambitious than Ernest.,positive
+"The artist who made this painting was a sexist, so it can't be any good as art.",positive
+No taindists are brongs. Some polinks are taindists. Therefore some polinks are not brongs.,negative
+No aliens are gorillas. All students are gorillas. Therefore no students are aliens.,negative
+All cheiliths are reggabreas. No sevvits are reggabreas. Therefore no sevvits are cheiliths.,negative
+Susan is more reliable than Jack. Jack is less reliable than Robert. Caroline is more reliable than Susan. Therefore susan is more reliable than Jack.,negative
+All gryllows are gaxes. All gaxes are tupresses. Therefore some tupresses are not gryllows.,positive
+"In general, modern technological products tend to have more features than older ones.",negative
+Cecilia is shorter than William. William is shorter than Mario. Therefore mario is shorter than William.,positive
+No shorates are yudalouds. Some shorates are hendassas. Therefore some hendassas are not yudalouds.,negative
+Some cowboys are not pens. All pens are guys. Therefore all guys are cowboys.,positive
+Djokovic has lost the second set too. Winning the match now looks difficult.,negative
+All shipotoes are mincoms. Some looncans are not mincoms. Therefore some looncans are shipotoes.,positive
+Mary is kinder than Lara. Rossi is kinder than Charlotte. Lara is kinder than Susan. Therefore mary is kinder than Susan.,negative
+Paul is less ambitious than Lara. Lara is less ambitious than Jones. Therefore jones is more ambitious than Lara.,negative
+Lara is more sensible than Sara. Joanna is more sensible than Sara. Candice is more sensible than Joanna. Candice is more sensible than Peter. Therefore sara is less sensible than Joanna.,negative
+Some kitzerains are not looplats. Some aferrarons are kitzerains. Therefore no aferrarons are looplats.,positive
+All skeptics are cowboys. No cowboys are nephews. Therefore some nephews are skeptics.,positive
+Susan is less reliable than Sarah. Alex is less reliable than Susan. Therefore sarah is more reliable than Susan.,negative
+No brewtines are zestponts. All compleys are zestponts. Therefore no compleys are brewtines.,negative
+Jill is kinder than Anne. Rossi is kinder than Jill. Therefore jill is less kind than Rossi.,negative
+No ocirs are hawkloons. Some hawkloons are skrads. Therefore some skrads are not ocirs.,negative
+All yoffas are fluffsters. Some farklings are yoffas. Therefore some farklings are fluffsters.,negative
+All doves are hobgoblins. Some mothers are doves. Therefore some mothers are hobgoblins.,negative
+Some ocirammas are not pentwests. Some ocirammas are bisdoes. Therefore some bisdoes are not pentwests.,positive
+Laura is less witty than Sara. Sara is less witty than Kim. Sara is less witty than David. Therefore laura is less witty than Kim.,negative
+Anne is wittier than Nat. Anne is less witty than Jim. Jim is less witty than Jill. David is wittier than Jill. Therefore jill is wittier than Nat.,negative
+All knaves are flying saucers. Some knights are not knaves. Therefore all knights are flying saucers.,positive
+All caterpillers are venusians. Some sidewinders are not venusians. Therefore some sidewinders are not caterpillers.,negative
+All blonds are shellfish. Some blonds are not arachnids. Therefore some arachnids are shellfish.,positive
+Some aferrarons are tupresses. All farklings are aferrarons. Therefore some farklings are not tupresses.,positive
+"That scientist is a notorious drunkard, so his theories shouldn't be taken seriously.",positive
+Dylan is younger than Mario. Mario is younger than Nat. Jake is younger than Bob. Therefore dylan is younger than Nat.,negative
+Kim is slower than Moses. Aiden is slower than Kim. Henry is slower than Kim. Therefore kim is faster than Moses.,positive
+Some aferrarons are broomillas. All aferrarons are mincoms. Therefore some mincoms are broomillas.,negative
+Robert is slower than Laura. Laura is slower than Kevin. Candice is slower than Laura. Therefore kevin is slower than Candice.,positive
+"A lot of people report reading novels on the beach as a peak experience, so if you're headed on holiday pack some fiction.",negative
+William is taller than Tim. Tim is taller than Annie. Therefore annie is shorter than Tim.,negative
+Rossi is slower than Jack. Candice is slower than Rossi. Therefore rossi is slower than Candice.,positive
+Some blonds are not bowls. Some flies are not bowls. Therefore some flies are not blonds.,positive
+All bowls are chimpanzees. No chimpanzees are astronauts. Therefore all astronauts are bowls.,positive
+Jones is less reliable than Kim. Jones is less reliable than Alex. Laura is less reliable than Alex. Jones is less reliable than Laura. Therefore alex is more reliable than Jones.,negative
+Amy is older than Candice. Sam is older than Carol. Amy is older than Carol. Sam is older than Amy. Therefore candice is younger than Amy.,negative
+No cobras are sparrows. Some cousins are cobras. Therefore some cousins are not sparrows.,negative
+"I only know one guy who qualified in finance and he's unemployed, so it can't be a useful subject to study.",positive
+John is more frank than Paul. Sara is more frank than John. Jill is more frank than Sean. Therefore john is more frank than Sara.,positive
+No captains are cyborgs. Some captains are flowers. Therefore some flowers are not cyborgs.,negative
+This is the latest model of solar panel so it's going to be the most efficient.,positive
+Osbert is more ambitious than Amy. Amy is more ambitious than Peter. Therefore peter is less ambitious than Amy.,negative
+No shures are hendassas. All reggabreas are shures. Therefore no reggabreas are hendassas.,negative
+No children are canines. Some boys are canines. Therefore some boys are not children.,negative
+No tograshs are shizzoes. All smations are shizzoes. Therefore no smations are tograshs.,negative
+Some tolities are not sposities. No rodrups are sposities. Therefore some rodrups are not tolities.,positive
+Some spoons are robots. No salmon are spoons. Therefore all salmon are robots.,positive
+Sophia is younger than Charlotte. Charlotte is younger than Kevin. Kevin is younger than Tom. Therefore sophia is younger than Kevin.,negative
+"Utilitarianism leads to conclusions I find crazy, so it must be a false belief system.",positive
+Caroline is less reliable than Bill. Bill is less reliable than Bella. Therefore caroline is more reliable than Bill.,positive
+No exastoes are houtals. Some braties are houtals. Therefore some braties are not exastoes.,negative
+Sean is taller than Henry. Bill is shorter than Henry. Therefore sean is taller than Henry.,negative
+Some cows are nuns. No nuns are queens. Therefore no queens are cows.,positive
+Laura is shorter than Sara. Susan is shorter than Sophia. Sean is shorter than Sophia. Laura is shorter than Sean. Therefore sophia is shorter than Sean.,positive
+No hendassas are pentwests. Some prottows are hendassas. Therefore some prottows are not pentwests.,negative
+Rossi is shorter than Kevin. Kevin is shorter than Charlotte. Charlotte is shorter than Peter. Therefore rossi is taller than Kevin.,positive
+Nat is less kind than Moses. Nat is kinder than Bob. Therefore nat is kinder than Bob.,negative
+That restaurant is very popular. We should book our wedding banquet well in advance.,negative
+Jennifer is wittier than Zach. Sam is wittier than Jennifer. Therefore zach is less witty than Jennifer.,negative
+David is less sensible than Edward. Edward is less sensible than Charlotte. Therefore edward is less sensible than David.,positive
+No U.F.O.s are snarks. Some snarks are not hats. Therefore all hats are U.F.O.s.,positive
+Robert is less witty than Mario. Robert is wittier than Michael. Osbert is wittier than Michael. Peter is wittier than Michael. Therefore mario is wittier than Michael.,negative
+No zestponts are trands. All ocirammas are trands. Therefore no ocirammas are zestponts.,negative
+We can't know for sure that the defendant was telling the truth. So we should presume he's lying.,positive
+All compleys are tingforms. Some skrads are not tingforms. Therefore some skrads are compleys.,positive
+All refluppers are fluffsters. Some sagirds are not fluffsters. Therefore no sagirds are refluppers.,positive
+All nuns are females. No nuns are writers. Therefore all writers are females.,positive
+Some trealops are didizas. Some didizas are reggabreas. Therefore some reggabreas are not trealops.,positive
+Bob is less sensible than Henry. Jill is less sensible than Bob. Edward is less sensible than Jill. Therefore edward is more sensible than Jill.,positive
+No styphons are prottows. Some skizzles are styphons. Therefore some skizzles are not prottows.,negative
+No yoffas are spequals. Some spequals are onamas. Therefore some onamas are not yoffas.,negative
+"The US dollar is strong against the Brazilian real, so as an American your money will go a long way if you visit Brazil at the moment.",negative
+Some skeptics are dukes. No dukes are boa constrictors. Therefore some boa constrictors are not skeptics.,positive
+Mercury is toxic. Children shouldn't play with it.,negative

@@ -28,3 +28,6 @@ kgtk_conceptnet.tsv
 processed/
 cache/gcn_model.pt
 cache/graphs
+cache/predictions/all_datasets/*
+cache/graphs/*
+cache/*

@@ -1,4 +1,5 @@
 import argparse
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -10,7 +11,12 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
 
 import wandb
 
-NUM_LABELS = 13
+bad_classes = [
+    "prejudicial language",
+    "fallacy of slippery slope",
+    "slothful induction"
+]
+
 
 
 def do_train_process(config = None):
@@ -18,21 +24,23 @@ def do_train_process(config = None):
 
         config = wandb.config
         
-        train_df = pd.read_csv(args.train_input_file)[
-            [args.input_feature, 'updated_label']]
-        dev_df = pd.read_csv(args.dev_input_file)[
-            [args.input_feature, 'updated_label']]
-        test_df = pd.read_csv(args.test_input_file)[
-            [args.input_feature, 'updated_label']]
+        train_df = pd.read_csv(os.path.join(config.data_dir, "train.csv"))
+        dev_df = pd.read_csv(os.path.join(config.data_dir, "dev.csv"))
+        test_df = pd.read_csv(os.path.join(config.data_dir, "test.csv"))
+        
+        train_df = train_df[~train_df["label"].isin(bad_classes)]
+        dev_df = dev_df[~dev_df["label"].isin(bad_classes)]
+        test_df = test_df[~test_df["label"].isin(bad_classes)]
+        
 
         label_encoder = LabelEncoder()
-        label_encoder.fit(train_df['updated_label'])
+        label_encoder.fit(train_df['label'])
 
-        train_df['updated_label'] = label_encoder.transform(
-            train_df['updated_label'])
-        dev_df['updated_label'] = label_encoder.transform(dev_df['updated_label'])
-        test_df['updated_label'] = label_encoder.transform(
-            test_df['updated_label'])
+        train_df['label'] = label_encoder.transform(
+            train_df['label'])
+        dev_df['label'] = label_encoder.transform(dev_df['label'])
+        test_df['label'] = label_encoder.transform(
+            test_df['label'])
 
         dataset = DatasetDict({
             'train': Dataset.from_pandas(train_df),
@@ -41,11 +49,11 @@ def do_train_process(config = None):
         })
 
         def process(batch):
-            texts = batch[args.input_feature]
+            texts = batch["text"]
             inputs = tokenizer(texts, truncation=True)
             return {
                 **inputs,
-                'labels': batch['updated_label']
+                'labels': batch['label']
             }
 
         tokenizer = AutoTokenizer.from_pretrained("roberta-base")
@@ -57,7 +65,7 @@ def do_train_process(config = None):
 
 
         model = AutoModelForSequenceClassification.from_pretrained(
-            "roberta-base", num_labels=NUM_LABELS, classifier_dropout = config.classifier_dropout)
+            "roberta-base", num_labels=13, classifier_dropout = config.classifier_dropout)
 
         print('Model loaded!')
 
@@ -111,22 +119,13 @@ if __name__ == "__main__":
         description='Train a Classification Model for Logical Fallacy Detection and having a baseline')
 
     parser.add_argument(
-        '--train_input_file', help="Train input file path", type=str
-    )
-    parser.add_argument(
-        '--dev_input_file', help="Dev input file path", type=str
-    )
-    parser.add_argument(
-        '--test_input_file', help="Test input file path", type=str
-    )
-    parser.add_argument(
-        '--input_feature', help="the feature used for training the classification model", type=str
+        '--data_dir', help="Train input file path", type=str
     )
 
     args = parser.parse_args()
 
     sweep_config = {
-        'method': 'grid',
+        'method': 'random',
     }
 
     metric = {
@@ -137,29 +136,33 @@ if __name__ == "__main__":
     sweep_config['metric'] = metric
 
     parameters_dict = {
-        "input_feature": {
-            "values": [args.input_feature]
+        "data_dir": {
+            "values": [args.data_dir]
         },
         "batch_size": {
             "values": [8]
         },
-        "learning_rate": {
-            "values": [2e-5]
+        'learning_rate': {
+            'distribution': 'uniform',
+            'min': 1e-6,
+            'max': 1e-5
         },
         "num_epochs": {
-            "values":[10]
+            "values":[15]
         },
         "classifier_dropout": {
             "values": [0.1, 0.3]
         },
-        "weight_decay": {
-            "values": [0.01, 0.001]
-        }
+        'weight_decay': {
+            'distribution': 'uniform',
+            'min': 1e-4,
+            'max': 1e-2
+        },
     }
 
     sweep_config['parameters'] = parameters_dict
     sweep_id = wandb.sweep(sweep_config, project="Baseline Finder")
-    wandb.agent(sweep_id, do_train_process, count=20)
+    wandb.agent(sweep_id, do_train_process, count=30)
 
 
     

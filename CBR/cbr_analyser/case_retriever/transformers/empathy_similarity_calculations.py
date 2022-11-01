@@ -9,6 +9,7 @@ from IPython import embed
 from torchmetrics.functional import pairwise_cosine_similarity
 from tqdm import tqdm
 from transformers import RobertaModel, RobertaTokenizer
+import pandas as pd
 
 this_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(this_dir, "../../amr/"))
@@ -46,14 +47,19 @@ def generate_the_empathy_similarities(source_file: str, source_feature: str, tar
     model = RobertaModel.from_pretrained(checkpoint)
     model = model.to(device)
 
-    sentences_with_amr_objects = joblib.load(source_file)
+    # sentences_with_amr_objects = joblib.load(source_file)
+    # train_sentences = get_source_feature_from_amr_objects(
+    #     sentences_with_amr_objects, source_feature)
 
-    train_sentences = get_source_feature_from_amr_objects(
-        sentences_with_amr_objects, source_feature)
+    train_sentences = pd.read_csv(source_file)["text"].tolist()
+    train_sentences = [x.strip() for x in train_sentences]
 
-    sentences_with_amr_objects = joblib.load(target_file)
-    all_sentences = get_source_feature_from_amr_objects(
-        sentences_with_amr_objects, source_feature)
+    # sentences_with_amr_objects = joblib.load(target_file)
+    # all_sentences = get_source_feature_from_amr_objects(
+    #     sentences_with_amr_objects, source_feature)
+
+    all_sentences = pd.read_csv(target_file)["text"].tolist()
+    all_sentences = [x.strip() for x in all_sentences]
 
     similarities = np.zeros([len(all_sentences), len(train_sentences)])
 

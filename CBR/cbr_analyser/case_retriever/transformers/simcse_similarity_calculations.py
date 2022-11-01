@@ -4,10 +4,8 @@ import sys
 
 import joblib
 from IPython import embed
+import pandas as pd
 from simcse import SimCSE
-
-this_dir = os.path.dirname(__file__)  # Path to loader.py
-sys.path.append(os.path.join(this_dir, "../../amr/"))
 
 
 def get_source_feature_from_amr_objects(sentences_with_amr_objects, source_feature):
@@ -26,14 +24,20 @@ def get_embeddings_simcse(model, text: str):
 def generate_the_simcse_similarities(source_file: str, source_feature: str, target_file: str, output_file: str):
     model = SimCSE("princeton-nlp/sup-simcse-roberta-large")
 
-    sentences_with_amr_objects = joblib.load(source_file)
+    # sentences_with_amr_objects = joblib.load(source_file)
+    # train_sentences = get_source_feature_from_amr_objects(
+    #     sentences_with_amr_objects, source_feature)
 
-    train_sentences = get_source_feature_from_amr_objects(
-        sentences_with_amr_objects, source_feature)
+    train_sentences = pd.read_csv(source_file)["text"].tolist()
+    train_sentences = [x.strip() for x in train_sentences]
 
-    sentences_with_amr_objects = joblib.load(target_file)
-    all_sentences = get_source_feature_from_amr_objects(
-        sentences_with_amr_objects, source_feature)
+    # sentences_with_amr_objects = joblib.load(target_file)
+    # all_sentences = get_source_feature_from_amr_objects(
+    #     sentences_with_amr_objects, source_feature)
+
+    all_sentences = pd.read_csv(target_file)["text"].tolist()
+    all_sentences = [x.strip() for x in all_sentences]
+
     similarities = model.similarity(all_sentences, train_sentences)
     similarities_dict = dict()
     for sentence, row in zip(all_sentences, similarities):
