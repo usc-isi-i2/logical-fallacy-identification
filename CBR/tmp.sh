@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=logical_fallacy_classifier
-#SBATCH --output=logs/%x-%j.out
-#SBATCH --error=logs/%x-%j.err
+#SBATCH --output=%x-%j.out
+#SBATCH --error=%x-%j.err
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=10240
@@ -19,10 +19,10 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-dataset="data/bigbench"
+dataset="data/finegrained"
 echo "Dataset: $dataset"
 
-python -m cbr_analyser.reasoner.baseline_classifier \
+python tmp.py \
     --data_dir ${dataset}
 
 conda deactivate
