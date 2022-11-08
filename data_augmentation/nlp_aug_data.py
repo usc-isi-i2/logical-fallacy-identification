@@ -44,7 +44,7 @@ def main(train_csv, output_csv, text_column="text", label_column="label"):
     # Initialize augmenter with specific parameters
     aug = naw.ContextualWordEmbsAug(
         model_path="roberta-base",
-        top_k=20,
+        top_k=10,
         aug_p=0.2,
         action="substitute",
         device=device,
