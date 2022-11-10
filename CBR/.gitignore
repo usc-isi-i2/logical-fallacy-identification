@@ -1,4 +1,5 @@
 **/*.log
+**/*.out
 **/*.err
 **/__pycache__/**
 wandb/
@@ -31,3 +32,7 @@ cache/graphs
 cache/predictions/all_datasets/*
 cache/graphs/*
 cache/*
+cbr_roberta_logical_fallacy_classification
+coarsegrained_labels_based_retriever/
+finegrained_labels_based_retriever/
+logical_fallacy_classifier_baseline/

@@ -1,5 +1,8 @@
 import argparse
+import joblib
 from torch.optim import Adam
+from IPython import embed
+from tqdm import tqdm
 import os
 from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
 from pathlib import Path
@@ -17,9 +20,12 @@ from transformers import (DataCollatorWithPadding,
 from transformers.modeling_outputs import SequenceClassifierOutput
 
 
-from cbr_analyser.case_retriever.retriever import (Retriever, SimCSE_Retriever)
+from cbr_analyser.case_retriever.retriever import (
+    Retriever, SimCSE_Retriever, Empathy_Retriever, Knn_Retriever)
 import wandb
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
+
+from torch.nn import MultiheadAttention
 
 bad_classes = [
     "prejudicial language",
@@ -59,6 +65,12 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         self.config = config
 
         self.roberta = RobertaModel(config, add_pooling_layer=False)
+        self.attention = MultiheadAttention(
+            self.roberta.config.hidden_size,
+            num_heads=8,
+            batch_first=True
+        )
+        # here is the place we can plug in the attention
         self.classifier = RobertaClassificationHead(config)
 
         # Initialize weights and apply final processing
@@ -68,6 +80,8 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         self,
         input_ids: Optional[torch.LongTensor] = None,
         attention_mask: Optional[torch.FloatTensor] = None,
+        input_ids_cbr: Optional[torch.LongTensor] = None,
+        attention_mask_cbr: Optional[torch.FloatTensor] = None,
         token_type_ids: Optional[torch.LongTensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
         head_mask: Optional[torch.FloatTensor] = None,
@@ -97,7 +111,27 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
             return_dict=return_dict,
         )
         sequence_output = outputs[0]
-        logits = self.classifier(sequence_output)
+
+        outputs_cbr = self.roberta(
+            input_ids_cbr,
+            attention_mask=attention_mask_cbr,
+            token_type_ids=token_type_ids,
+            position_ids=position_ids,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+            output_attentions=output_attentions,
+            output_hidden_states=output_hidden_states,
+            return_dict=return_dict,
+        )
+        sequence_output_cbr = outputs_cbr[0]
+
+        final_output, _ = self.attention(
+            query=sequence_output,
+            key=sequence_output_cbr,
+            value=sequence_output_cbr
+        )
+
+        logits = self.classifier(final_output)
 
         loss = None
         if labels is not None:
@@ -135,28 +169,38 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         )
 
 
-def augment_with_similar_cases(df: pd.DataFrame, retriever: Retriever, config, sep_token, prefix: str, is_train: bool) -> pd.DataFrame:
+def augment_with_similar_cases(df: pd.DataFrame, retrievers: List[Retriever], config, sep_token, train_df) -> pd.DataFrame:
     external_sentences = []
     augmented_sentences = []
-    count_without_cases = 0
-    for sentence in df["text"]:
-        try:
-            similar_sentences_with_similarities = retriever.retrieve_similar_cases(
-                sentence, config.num_cases)
-            similar_sentences = [
-                s[0] for s in similar_sentences_with_similarities if s[1] > config.cbr_threshold]
-            result_sentence = f"{sentence} {sep_token}{sep_token} {' '.join(similar_sentences)}"
-            external_sentences.append('</sep>'.join(similar_sentences))
-            augmented_sentences.append(result_sentence)
-        except Exception as e:
-            print(e)
-            count_without_cases += 1
-            result_sentence = sentence
-            external_sentences.append('')
-            augmented_sentences.append(result_sentence)
+    all_cbr_labels = []
+    for sentence in tqdm(df["text"], leave=False):
+        all_similar_sentences = []
+        all_cases_labels = []
+        for retriever in retrievers:
+            try:
+                similar_sentences_with_similarities = retriever.retrieve_similar_cases(
+                    sentence, train_df, config.num_cases)
+                similar_sentences_labels = [
+                    (s[0], s[2]) for s in similar_sentences_with_similarities if s[1] > config.cbr_threshold]
 
-    df["text"] = augmented_sentences
-    df['cbr'] = external_sentences
+                similar_sentences = [s[0] for s in similar_sentences_labels]
+                similar_labels = [s[1] for s in similar_sentences_labels]
+
+                all_similar_sentences.append(similar_sentences)
+                all_cases_labels.append(similar_labels)
+            except Exception as e:
+                print(e)
+        result_sentence = sentence
+        for similar_sentences in all_similar_sentences:
+            result_sentence += f" {sep_token}{sep_token} {' '.join(similar_sentences)}"
+        all_cbr_labels.append(all_cases_labels)
+        external_sentences.append(sep_token.join(
+            [' '.join(similar_sentences) for similar_sentences in all_similar_sentences]))
+        augmented_sentences.append(result_sentence)
+
+    df["text_cbr"] = augmented_sentences
+    df["cbr"] = external_sentences
+    df["cbr_labels"] = all_cbr_labels
     return df
 
 
@@ -166,7 +210,13 @@ class CustomTrainer(Trainer):
         super().__init__(**kwargs)
 
     def compute_loss(self, model, inputs, return_outputs=False):
-        outputs = model(**inputs)
+        outputs = model(
+            input_ids=inputs["input_ids"],
+            attention_mask=inputs["attention_mask"],
+            input_ids_cbr=inputs["input_ids_cbr"],
+            attention_mask_cbr=inputs["attention_mask_cbr"],
+        )
+
         logits = outputs.get('logits')
         labels = inputs.get('labels')
         loss_func = nn.CrossEntropyLoss()
@@ -189,14 +239,41 @@ def do_train_process(config=None):
         dev_df = dev_df[~dev_df["label"].isin(bad_classes)]
         test_df = test_df[~test_df["label"].isin(bad_classes)]
 
-        if config.cbr == True:
-            print('using cbr')
-            simcse_retriever = SimCSE_Retriever(
-                config={'data_dir': config.data_dir, 'source_feature': 'masked_articles'})
+        print('using cbr')
 
-            for df, is_train in zip([train_df, dev_df, test_df], [True, False, False]):
-                df = augment_with_similar_cases(
-                    df, simcse_retriever, config, tokenizer.sep_token, "simcse", is_train=is_train)
+        retrievers_to_use = []
+        for retriever_str in config.retrievers:
+            if retriever_str == 'simcse':
+                simcse_retriever = SimCSE_Retriever(
+                    config={'data_dir': config.data_dir,
+                            'source_feature': 'masked_articles'}
+                )
+                retrievers_to_use.append(simcse_retriever)
+            elif retriever_str == 'empathy':
+                empathy_retriever = Empathy_Retriever(
+                    config={'data_dir': config.data_dir,
+                            'source_feature': 'masked_articles'}
+                )
+                retrievers_to_use.append(empathy_retriever)
+            elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
+                coarse_retriever = Knn_Retriever(
+                    model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
+                    sentences=train_df['text'].tolist(),
+                    num_cases=config.num_cases,
+                )
+                retrievers_to_use.append(coarse_retriever)
+
+        for df in [train_df, dev_df, test_df]:
+            df = augment_with_similar_cases(
+                df, retrievers_to_use, config, tokenizer.sep_token, train_df
+            )
+        try:
+            del retrievers_to_use
+            del simcse_retriever
+            del empathy_retriever
+            del coarse_retriever
+        except:
+            pass
 
         label_encoder = LabelEncoder()
         label_encoder.fit(train_df['label'])
@@ -214,10 +291,15 @@ def do_train_process(config=None):
         })
 
         def process(batch):
-            texts = batch["text"]
-            inputs = tokenizer(texts, truncation=True)
+            inputs = tokenizer(
+                batch["text"], truncation=True, padding='max_length')
+            inputs_cbr = tokenizer(
+                batch["text_cbr"], truncation=True, padding='max_length')
             return {
-                **inputs,
+                'input_ids': inputs['input_ids'],
+                'attention_mask': inputs['attention_mask'],
+                'input_ids_cbr': inputs_cbr['input_ids'],
+                'attention_mask_cbr': inputs_cbr['attention_mask'],
                 'labels': batch['label']
             }
 
@@ -226,7 +308,7 @@ def do_train_process(config=None):
         tokenized_dataset = dataset.map(
             process, batched=True, remove_columns=dataset['train'].column_names)
 
-        data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+        # data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
         model = RobertaForSequenceClassification.from_pretrained(
             "cross-encoder/nli-roberta-base", num_labels=len(list(label_encoder.classes_)), classifier_dropout=config.classifier_dropout, ignore_mismatched_sizes=True)
@@ -236,7 +318,7 @@ def do_train_process(config=None):
         training_args = TrainingArguments(
             do_eval=True,
             do_train=True,
-            output_dir="./xlm_roberta_logical_fallacy_classification",
+            output_dir="./cbr_roberta_logical_fallacy_classification",
             learning_rate=config.learning_rate,
             per_device_train_batch_size=config.batch_size,
             per_device_eval_batch_size=config.batch_size,
@@ -266,14 +348,31 @@ def do_train_process(config=None):
             train_dataset=tokenized_dataset['train'],
             eval_dataset=tokenized_dataset['eval'],
             tokenizer=tokenizer,
-            data_collator=data_collator,
+            # data_collator=data_collator,
             compute_metrics=compute_metrics
         )
 
         print('Start the training ...')
         trainer.train()
 
-        print(trainer.predict(tokenized_dataset['test']))
+        predictions = trainer.predict(tokenized_dataset['test'])
+
+        run_name = wandb.run.name
+        outputs_dict = {}
+        outputs_dict['note'] = 'best_hps_final'
+        outputs_dict['label_encoder'] = label_encoder
+        outputs_dict["meta"] = dict(config)
+        outputs_dict['run_name'] = run_name
+        outputs_dict['predictions'] = predictions._asdict()
+        outputs_dict['text'] = test_df['text'].tolist()
+
+        outputs_dict['cbr_labels'] = test_df['cbr_labels'].tolist()
+        outputs_dict['cbr'] = test_df['cbr'].tolist()
+
+        joblib.dump(outputs_dict, os.path.join(
+            config.predictions_dir, f'outputs_dict_{run_name}.joblib'))
+
+        print(predictions)
 
 
 if __name__ == "__main__":
@@ -281,8 +380,10 @@ if __name__ == "__main__":
         description='Train a Classification Model for Logical Fallacy Detection and having a baseline')
 
     parser.add_argument(
-        '--data_dir', help="Train input file path", type=str
+        '--data_dir', help="Train input file path", type=str, default="data/finegrained"
     )
+    parser.add_argument('--predictions_dir', help="Predictions output file path",
+                        default="cache/predictions/all", type=str)
 
     args = parser.parse_args()
 
@@ -298,39 +399,53 @@ if __name__ == "__main__":
     sweep_config['metric'] = metric
 
     parameters_dict = {
-        'cbr': {
-            "values": [True]
+        'retrievers': {
+            "values": [
+                ["simcse", "empathy"],
+                ["simcse"],
+                ["empathy"],
+                # ["coarse"]
+            ]
         },
         'num_cases': {
-            "values": [1, 2, 3, 4, 5]
+            "values": [1]
+            # "values": [1, 3, 4, 5]
         },
         'cbr_threshold': {
-            "values": [-1e7, 0.5, 0.8]
+            # "values": [-1e7, 0.5, 0.8]
+            "values": [-10000000]
         },
-        "data_dir": {
+        'data_dir': {
             "values": [args.data_dir]
         },
-        "batch_size": {
-            "values": [8]
+        'predictions_dir': {
+            "values": [args.predictions_dir]
+        },
+        'batch_size': {
+            "values": [16]
         },
         'learning_rate': {
-            'distribution': 'uniform',
-            'min': 5e-6 if args.data_dir == "data/finegrained" else 1e-6,
-            'max': 5e-5 if args.data_dir == "data/finegrained" else 1e-5,
+            # 'distribution': 'uniform',
+            # 'min': 3e-5 if args.data_dir == "data/finegrained" else 1e-6,
+            # 'max': 6e-5 if args.data_dir == "data/finegrained" else 1e-5,
+            "values": [7.484147412800621e-05]
         },
         "num_epochs": {
             "values": [15]
         },
         "classifier_dropout": {
-            "values": [0.1, 0.3]
+            # "values": [0.1, 0.3, 0.8]
+            "values": [0.3]
         },
         'weight_decay': {
-            'distribution': 'uniform',
-            'min': 1e-4,
-            'max': 1e-1
+            # 'distribution': 'uniform',
+            # 'min': 1e-4,
+            # 'max': 1e-1
+            "values": [0.00984762513370293]
         },
     }
 
     sweep_config['parameters'] = parameters_dict
-    sweep_id = wandb.sweep(sweep_config, project="Baseline Finder")
-    wandb.agent(sweep_id, do_train_process, count=30)
+    sweep_id = wandb.sweep(
+        sweep_config, project="Baseline Finder with CBR and different retrievers")
+    wandb.agent(sweep_id, do_train_process, count=18)
