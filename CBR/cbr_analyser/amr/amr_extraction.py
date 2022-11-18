@@ -21,6 +21,9 @@ from cbr_analyser.custom_logging.custom_logger import get_logger
 warnings.filterwarnings("ignore")
 import argparse
 
+logger = get_logger(
+        logger_name=f"{__name__}.{os.path.basename(__file__)}"
+    )
 
 def get_amr_sentences_from_amr_generated_lines(lines: List[str]):
     results = []
@@ -85,9 +88,11 @@ def generate_amr_containers_from_csv_file(input_data_path: Path or str, output_d
     for _, (_, data) in tqdm(enumerate(df.iterrows()), leave=False):
         try:
 
-            label = data["updated_label"]
-            masked_article = data["masked_articles"]
-            original_article = data["source_article"]
+            label = data["label"]
+            # masked_article = data["masked_articles"]
+            # original_article = data["source_article"]
+            masked_article = data["text"]
+            original_article = data["text"]
 
             updated_masked_article = re.sub(
                 r"MSK<(\d+)>", r"MSK\1", masked_article
@@ -219,22 +224,7 @@ if __name__ == "__main__":
     logger = get_logger(
         logger_name=f"{__name__}.{os.path.basename(__file__)}"
     )
-    # sentences_with_amr_container = augment_amr_container_objects_with_clean_node_labels(
-    #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS)
-    # )
-    # joblib.dump(
-    #     sentences_with_amr_container,
-    #     PATH_TO_MASKED_SENTENCES_AMRS_WITH_LABEL2WORD
-    # )
-    
 
-    # get_similar_graphs_graph2vec(
-    #     index = 10,
-    #     graph_embeddings=pd.read_csv(PATH_TO_GRAPH_EMBEDDINGS),
-    #     sentences_with_amr_container=joblib.load(PATH_TO_MASKED_SENTENCES_AMRS),
-    # )
-
-    # top_ns = [5, 10, 20]
     
     if args.task == "amr_generation":
         generate_amr_containers_from_csv_file(

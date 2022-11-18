@@ -38,7 +38,7 @@ def do_amr_generation(args, split, path):
     config = {
         "task": args.task,
         "output_file": path,
-        "input_file": f"data/edu_{split}.csv",
+        "input_file": os.path.join(args.data_dir, f"{split}.csv")
     }
     envs = "--export=ALL,"
     for key, value in config.items():
@@ -57,8 +57,8 @@ def do_empathy_similarity(args, split, path):
     config = {
         "task": args.task,
         "source_feature": args.source_feature,
-        "source_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
-        "target_file": f"cache/masked_sentences_with_AMR_container_objects_{split}.joblib",
+        "source_file": os.path.join(args.data_dir, "train.csv"),
+        "target_file": os.path.join(args.data_dir, f"{split}.csv"),
         "output_file": path,
     }
     if args.debug:
@@ -87,8 +87,8 @@ def do_simcse_similarity(args, split, path):
     config = {
         "task": args.task,
         "source_feature": args.source_feature,
-        "source_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
-        "target_file": f"cache/masked_sentences_with_AMR_container_objects_{split}.joblib",
+        "source_file": os.path.join(args.data_dir, "train.csv"),
+        "target_file": os.path.join(args.data_dir, f"{split}.csv"),
         "output_file": path,
     }
     envs = "--export=ALL,"
@@ -110,14 +110,14 @@ def do_gcn_similarity(args):
         "task": args.task,
         "source_feature": args.source_feature,
         "mid_layer_dropout": 0.3,
-        "train_input_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
-        "dev_input_file": "cache/masked_sentences_with_AMR_container_objects_dev.joblib",
-        "test_input_file": "cache/masked_sentences_with_AMR_container_objects_test.joblib",
+        "train_input_file": os.path.join("cache", args.data_dir.replace("/", "_"), f"AMR_container_objects_train.joblib"),
+        "dev_input_file": os.path.join("cache", args.data_dir.replace("/", "_"), f"AMR_container_objects_dev.joblib"),
+        "test_input_file": os.path.join("cache", args.data_dir.replace("/", "_"), f"AMR_container_objects_test.joblib"),
         "batch_size": 8,
         "learning_rate": 5e-4,
         "num_epochs": 60,
         "g_type": "directed",
-        "gcn_model_path": "cache/gcn_model.pt",
+        "gcn_model_path": os.path.join("cache", args.data_dir.replace("/", "_"), "gcn_model.pt"),
         "gcn_layers": [64, 64, 64]
     }
     if args.debug:
@@ -143,14 +143,14 @@ def do_train_gcn(args):
         "task": args.task,
         "source_feature": args.source_feature,
         "mid_layer_dropout": 0.3,
-        "train_input_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
-        "dev_input_file": "cache/masked_sentences_with_AMR_container_objects_dev.joblib",
-        "test_input_file": "cache/masked_sentences_with_AMR_container_objects_test.joblib",
+        "train_input_file": os.path.join("cache", args.data_dir.replace("/", "_"), f"AMR_container_objects_train.joblib"),
+        "dev_input_file": os.path.join("cache", args.data_dir.replace("/", "_"), f"AMR_container_objects_dev.joblib"),
+        "test_input_file": os.path.join("cache", args.data_dir.replace("/", "_"), f"AMR_container_objects_test.joblib"),
         "batch_size": 8,
         "learning_rate": 5e-4,
         "num_epochs": 60,
         "g_type": "directed",
-        "gcn_model_path": "cache/gcn_model.pt",
+        "gcn_model_path": os.path.join("cache", args.data_dir.replace("/", "_"), "gcn_model.pt"),
         "gcn_layers": [64, 64, 64]
     }
     if args.debug:
@@ -173,27 +173,30 @@ def do_train_gcn(args):
 
 def do_train_main_classifier(args, path):
     config = {
+        "data_dir": args.data_dir,
         "source_feature": args.source_feature,
         "task": args.task,
-        "train_input_file": "cache/masked_sentences_with_AMR_container_objects_train.joblib",
-        "dev_input_file": "cache/masked_sentences_with_AMR_container_objects_dev.joblib",
-        "test_input_file": "cache/masked_sentences_with_AMR_container_objects_test.joblib",
+        "train_input_file": os.path.join(args.data_dir, "train.csv"),
+        "dev_input_file": os.path.join(args.data_dir, "dev.csv"),
+        "test_input_file": os.path.join(args.data_dir, "test.csv"),
         "batch_size": 8,
-        "learning_rate": 2e-5,
-        "num_epochs": 5,
+        "learning_rate": 0.0001,
+        "sweep": args.sweep,
+        "num_epochs": args.num_epochs,
         "augments": [],
         "retriever_type": args.retriever_type,
         "cbr": args.cbr,
         "num_cases": 1,
-        "similarity_matrices_path_train": f"cache/simcse_similarities_{args.source_feature}_train.joblib",
-        "similarity_matrices_path_dev": f"cache/simcse_similarities_{args.source_feature}_dev.joblib",
-        "similarity_matrices_path_test": f"cache/simcse_similarities_{args.source_feature}_test.joblib",
         "classifier_dropout": 0.1,
         "cbr_threshold": args.cbr_threshold,
-        "weight_decay": 0.01,
-        "checkpoint": args.checkpoint,
-        "predictions_path": path
+        "weight_decay": 0,
+        "checkpoint": "roberta-base",
+        "predictions_path": path,
+        "encoder_dropout_rate": 0.4,
+        "attn_dropout_rate": 0.3,
+        "last_layer_dropout": 0.3
     }
+    print(args.debug)
     if args.debug:
         main.train_main_classifier(config)
     envs = "--export=ALL,"
@@ -213,7 +216,8 @@ def do_train_main_classifier(args, path):
 def follow_the_usual_process(args):
     # first step is to get the AMR graphs from the data_dir
     for split in ["train", "dev", "test"]:
-        path = f"cache/masked_sentences_with_AMR_container_objects_{split}.joblib"
+        path = os.path.join("cache", args.data_dir.replace("/", "_"),
+                            f"AMR_container_objects_{split}.joblib")
         if os.path.exists(path):
             print(
                 f"AMR graphs for the {split} split already exist, skipping step 1")
@@ -231,7 +235,8 @@ def follow_the_usual_process(args):
     # simcse similarity
 
     for split in ["train", "dev", "test"]:
-        path = f"cache/simcse_similarities_{args.source_feature}_{split}.joblib"
+        path = os.path.join(
+            "cache", args.data_dir.replace("/", "_"), f"simcse_similarities_{args.source_feature}_{split}.joblib")
         if os.path.exists(path):
             print(
                 f"simcse similarities for the {split} split already exist, skipping step 2")
@@ -243,7 +248,8 @@ def follow_the_usual_process(args):
     # empathy similarity
 
     for split in ["train", "dev", "test"]:
-        path = f"cache/empathy_similarities_{args.source_feature}_{split}.joblib"
+        path = os.path.join(
+            "cache", args.data_dir.replace("/", "_"), f"empathy_similarities_{args.source_feature}_{split}.joblib")
         if os.path.exists(path):
             print(
                 f"empathy similarities for the {split} split already exist, skipping step 2")
@@ -265,6 +271,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--task', type=str, choices=['amr_generation', 'simcse_similarity', "load_gcn",
                         'train_main_classifier', "train_gcn", "empathy_similarity", "reason", 'gcn_similarity'], default='follow_the_usual_process')
+    parser.add_argument('--data_dir', type=str)
 
     parser.add_argument('--cbr', type=bool, default=False)
     parser.add_argument('--checkpoint', type=str, default="roberta-base")
@@ -274,8 +281,11 @@ if __name__ == '__main__':
         '--cbr_threshold', type=float, default=-1e9
     )
     parser.add_argument('--predictions_path', type=str)
+    parser.add_argument('--num_epochs', type=int, default=20)
     parser.add_argument(
         '--debug', action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument('--sweep', action=argparse.BooleanOptionalAction,
+                        help="Whether to sweep over the hyperparameters", default=False)
 
     # Check all the arguments to be correct in the consts.py file because they are used in the whole project
     args = parser.parse_args()
@@ -286,9 +296,22 @@ if __name__ == '__main__':
     if args.task == "train_gcn":
         do_train_gcn(args)
 
+    if args.task == "amr_generation":
+        for split in ["train", "dev", "test"]:
+            path = os.path.join(
+                "cache", args.data_dir.replace("/", '_'), f"AMR_container_objects_{split}.joblib")
+            if os.path.exists(path):
+                print(
+                    f"AMR graphs for the {split} split already exist, skipping step 1")
+                logger.info(
+                    f"AMR graphs for the {split} split already exist, skipping step 1")
+            else:
+                do_amr_generation(args, split, path)
+
     if args.task == "simcse_similarity":
         for split in ["train", "dev", "test"]:
-            path = f"cache/simcse_similarities_{args.source_feature}_{split}.joblib"
+            path = os.path.join(
+                "cache", args.data_dir.replace("/", "_"), f"simcse_similarities_{args.source_feature}_{split}.joblib")
             if os.path.exists(path):
                 print(
                     f"simcse similarities for the {split} split already exist")
@@ -299,7 +322,8 @@ if __name__ == '__main__':
 
     if args.task == "empathy_similarity":
         for split in ["train", "dev", "test"]:
-            path = f"cache/empathy_similarities_{args.source_feature}_{split}.joblib"
+            path = os.path.join(
+                "cache", args.data_dir.replace("/", "_"), f"empathy_similarities_{args.source_feature}_{split}.joblib")
             if os.path.exists(path):
                 print(
                     f"empathy similarities for the {split} split already exist")

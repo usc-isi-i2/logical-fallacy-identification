@@ -47,7 +47,8 @@ class AMR_Container:
         Returns:
             str: AMR representation of the sentence
         """
-        self.load_model()
+        if AMR_Container.stog_model is None:
+            self.load_model()
         graph = self.stog_model.parse_sents([self.sentence])[0]
         return graph
 

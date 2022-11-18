@@ -92,9 +92,6 @@ python -m cbr_analyser.reasoner.main_classifier \
     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
     --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature source_article \
-    --similarity_matrices_path_train cache/simcse_similarities_source_train.joblib \
-    --similarity_matrices_path_dev cache/simcse_similarities_source_dev.joblib \
-    --similarity_matrices_path_test cache/simcse_similarities_source_test.joblib \
     --batch_size 8 \
     --learning_rate 2e-5 \
     --num_epochs 5 \
@@ -110,9 +107,6 @@ python -m cbr_analyser.reasoner.main_classifier \
     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
     --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
     --input_feature masked_articles \
-    --similarity_matrices_path_train cache/simcse_similarities_masked_train.joblib \
-    --similarity_matrices_path_dev cache/simcse_similarities_masked_dev.joblib \
-    --similarity_matrices_path_test cache/simcse_similarities_masked_test.joblib \
     --batch_size 8 \
     --learning_rate 2e-5 \
     --num_epochs 5 \
@@ -130,9 +124,6 @@ python -m cbr_analyser.reasoner.main_classifier \
 #     --dev_input_file cache/masked_sentences_with_AMR_container_objects_dev.joblib \
 #     --test_input_file cache/masked_sentences_with_AMR_container_objects_test.joblib \
 #     --input_feature masked_articles \
-#     --similarity_matrices_path_train cache/simcse_similarities_train.joblib \
-#     --similarity_matrices_path_dev cache/simcse_similarities_dev.joblib \
-#     --similarity_matrices_path_test cache/simcse_similarities_test.joblib \
 #     --batch_size 8 \
 #     --learning_rate 2e-5 \
 #     --num_epochs 5 \

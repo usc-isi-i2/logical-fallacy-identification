@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import wandb
 from typing import Any, Dict
 
 import joblib
@@ -10,7 +11,7 @@ from cbr_analyser.amr.amr_extraction import (
     augment_amr_container_objects_with_clean_node_labels,
     generate_amr_containers_from_csv_file)
 from cbr_analyser.case_retriever.gcn import gcn
-from cbr_analyser.case_retriever.retriever import GCN_Retriever
+# from cbr_analyser.case_retriever.retriever import GCN_Retriever
 from cbr_analyser.consts import *
 from cbr_analyser.reasoner.main_classifier import do_train_process
 
@@ -60,21 +61,78 @@ def calculate_empathy_similarities(source_file, source_feature, target_file, out
     )
 
 
+def train_wrapper(config=None):
+    with wandb.init(config=config):
+        args = wandb.config
+        args["run_name"] = wandb.run.name
+        for metrics in do_train_process(args):
+            wandb.log(metrics, step=metrics["epoch"])
+
+
 def train_main_classifier(args: Dict[str, Any]):
-    do_train_process(args)
+    if args["sweep"] == True:
+        sweep_config = {
+            'method': 'random'
+        }
+        metric = {
+            'name': 'test_f1',
+            'goal': 'maximize'
+        }
+        sweep_config['metric'] = metric
+        parameters_dict = {
+            'learning_rate': {
+                'distribution': 'uniform',
+                'min': 1e-6 if args["data_dir"] == "data/coarsegrained" else 1e-6 if args["data_dir"] == "data/finegrained" else 8e-6,
+                'max': 1e-5 if args["data_dir"] == "data/coarsegrained" else 1e-4 if args["data_dir"] == "data/finegrained" else 16e-6
+            },
+            'num_epochs': {
+                'value': 20
+            },
+            'weight_decay': {
+                'distribution': 'uniform',
+                'min': 1e-4 if args["data_dir"] == "data/coarsegrained" else 1e-5 if args["data_dir"] == "data/finegrained" else 1e-4,
+                'max': 1e-2 if args["data_dir"] == "data/coarsegrained" else 1e-2 if args["data_dir"] == "data/finegrained" else 1e-3
+            },
+            "encoder_dropout_rate": {
+                'values': [0.1, 0.3, 0.6, 0.8]
+            },
+            "attn_dropout_rate": {
+                'values': [0.1, 0.3, 0.6, 0.8]
+            },
+            "last_layer_dropout": {
+                'values': [0.1, 0.3, 0.6, 0.8]
+            }
+        }
+        for key, value in args.items():
+            if key not in parameters_dict:
+                parameters_dict.update(
+                    {
+                        key: {'value': value}
+                    }
+                )
+
+        sweep_config['parameters'] = parameters_dict
+        sweep_id = wandb.sweep(
+            sweep_config, project="Sweep for main classifier CBR")
+        wandb.agent(sweep_id, train_wrapper, count=50)
+    else:
+        print('starting to train!!')
+        train_wrapper(args)
+        print('finished training!!')
 
 
 def load_gcn(args):
-    print('starting to load!!')
-    retriever = GCN_Retriever(
-        gcn_model_path="cache/gcn_model.pt",
-        config={
-            "gcn_layers": [128, 64, 32],
-            "mid_layer_dropout": 0.5
-        },
-        train_input_file="cache/masked_sentences_with_AMR_container_objects_train.joblib"
-    )
-    print('loaded!!')
+    pass
+    # print('starting to load!!')
+    # retriever = GCN_Retriever(
+    #     gcn_model_path="cache/gcn_model.pt",
+    #     config={
+    #         "gcn_layers": [128, 64, 32],
+    #         "mid_layer_dropout": 0.5
+    #     },
+    #     train_input_file="cache/masked_sentences_with_AMR_container_objects_train.joblib"
+    # )
+    # print('loaded!!')
 
 
 if __name__ == "__main__":
@@ -88,6 +146,8 @@ if __name__ == "__main__":
     parser.add_argument("--source_feature", type=lambda x: "masked_articles" if str(x) == "default" else str(x),
                         help="The source feature that should be used", choices=['masked_articles', 'source_article', 'amr_str'])
 
+    parser.add_argument("--sweep", help="Whether to do a sweep",
+                        type=lambda x: False if str(x) == "default" else str(x.lower()) == 'true')
     parser.add_argument('--source_file', help="The source file",
                         type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--g_type', help="The type of the graph",
@@ -122,12 +182,8 @@ if __name__ == "__main__":
                         type=lambda x: [] if str(x) == "default" else x.split('&'))
     parser.add_argument(
         '--cbr', help="Whether the cbr is enabled or not", type=lambda x: (str(x).lower() == 'true'))
-    parser.add_argument('--similarity_matrices_path_train',
-                        help="The similarity matrices path train", type=lambda x: None if str(x) == "default" else str(x))
-    parser.add_argument('--similarity_matrices_path_dev',
-                        help="The similarity matrices path dev", type=lambda x: None if str(x) == "default" else str(x))
-    parser.add_argument('--similarity_matrices_path_test',
-                        help="The similarity matrices path test", type=lambda x: None if str(x) == "default" else str(x))
+    parser.add_argument(
+        '--data_dir', help="data directory", type=lambda x: None if str(x) == "default" else str(x))
     parser.add_argument('--num_cases', help="The number of cases",
                         type=lambda x: None if str(x) == "default" else int(x))
     parser.add_argument('--all_good_cases',
@@ -141,8 +197,18 @@ if __name__ == "__main__":
     parser.add_argument(
         '--predictions_path', help="The path to the predictions", type=lambda x: None if str(x) == "default" else str(x))
 
+    parser.add_argument('--last_layer_dropout',
+                        help="last layer dropout rate", type=lambda x: None if str(x) == "default" else float(x))
+
+    parser.add_argument('--attn_dropout_rate',
+                        help="Attention dropout rate", type=lambda x: None if str(x) == "default" else float(x))
+
+    parser.add_argument('--encoder_dropout_rate',
+                        help="Encoder dropout rate ", type=lambda x: None if str(x) == "default" else float(x))
+
     args = parser.parse_args()
 
+    print('in main ####')
     print(args)
 
     if args.task == "amr_generation":

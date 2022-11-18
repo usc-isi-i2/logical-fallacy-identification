@@ -1,4 +1,6 @@
 **/*.log
+**/*.out
+**/*.err
 **/__pycache__/**
 wandb/
 logs/
@@ -27,5 +29,13 @@ kgtk_conceptnet.tsv
 processed/
 cache/gcn_model.pt
 cache/graphs
-**/*.err
-**/*.out
+cache/predictions/all_datasets/*
+cache/graphs/*
+cache/*
+cbr_roberta_logical_fallacy_classification
+coarsegrained_labels_based_retriever/
+finegrained_labels_based_retriever/
+logical_fallacy_classifier_baseline/
+cbr_electra_logical_fallacy_classification/
+cbr_roberta_logical_fallacy_classification_without_attention/
+tmp/
