@@ -1,3 +1,6 @@
+from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
+import wandb
+from datetime import datetime
 import argparse
 import joblib
 from torch.optim import Adam
@@ -20,10 +23,7 @@ from transformers import (DataCollatorWithPadding,
 from transformers.modeling_outputs import SequenceClassifierOutput
 
 
-from cbr_analyser.case_retriever.retriever import (
-    Retriever, SimCSE_Retriever, Empathy_Retriever, Knn_Retriever)
-import wandb
-from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
+os.environ["WANDB_MODE"] = "dryrun"
 
 
 bad_classes = [
@@ -64,6 +64,7 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         self.config = config
 
         self.roberta = RobertaModel(config, add_pooling_layer=False)
+        # here is the place we can plug in the attention
         self.classifier = RobertaClassificationHead(config)
 
         # Initialize weights and apply final processing
@@ -141,41 +142,6 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         )
 
 
-def augment_with_similar_cases(df: pd.DataFrame, retrievers: List[Retriever], config, sep_token, train_df) -> pd.DataFrame:
-    external_sentences = []
-    augmented_sentences = []
-    all_cbr_labels = []
-    for sentence in tqdm(df["text"], leave=False):
-        all_similar_sentences = []
-        all_cases_labels = []
-        for retriever in retrievers:
-            try:
-                similar_sentences_with_similarities = retriever.retrieve_similar_cases(
-                    sentence, train_df, config.num_cases)
-                similar_sentences_labels = [
-                    (s[0], s[2]) for s in similar_sentences_with_similarities if s[1] > config.cbr_threshold]
-
-                similar_sentences = [s[0] for s in similar_sentences_labels]
-                similar_labels = [s[1] for s in similar_sentences_labels]
-
-                all_similar_sentences.append(similar_sentences)
-                all_cases_labels.append(similar_labels)
-            except Exception as e:
-                print(e)
-        result_sentence = sentence
-        for similar_sentences in all_similar_sentences:
-            result_sentence += f" {sep_token}{sep_token} {' '.join(similar_sentences)}"
-        all_cbr_labels.append(all_cases_labels)
-        external_sentences.append(sep_token.join(
-            [' '.join(similar_sentences) for similar_sentences in all_similar_sentences]))
-        augmented_sentences.append(result_sentence)
-
-    df["text"] = augmented_sentences
-    df["cbr"] = external_sentences
-    df["cbr_labels"] = all_cbr_labels
-    return df
-
-
 class CustomTrainer(Trainer):
 
     def __init__(self, **kwargs):
@@ -208,42 +174,6 @@ def do_train_process(config=None):
         train_df = train_df[~train_df["label"].isin(bad_classes)]
         dev_df = dev_df[~dev_df["label"].isin(bad_classes)]
         test_df = test_df[~test_df["label"].isin(bad_classes)]
-
-        print('using cbr')
-
-        retrievers_to_use = []
-        for retriever_str in config.retrievers:
-            if retriever_str == 'simcse':
-                simcse_retriever = SimCSE_Retriever(
-                    config={'data_dir': config.data_dir,
-                            'source_feature': 'masked_articles'}
-                )
-                retrievers_to_use.append(simcse_retriever)
-            elif retriever_str == 'empathy':
-                empathy_retriever = Empathy_Retriever(
-                    config={'data_dir': config.data_dir,
-                            'source_feature': 'masked_articles'}
-                )
-                retrievers_to_use.append(empathy_retriever)
-            elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
-                coarse_retriever = Knn_Retriever(
-                    model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
-                    sentences=train_df['text'].tolist(),
-                    num_cases=config.num_cases,
-                )
-                retrievers_to_use.append(coarse_retriever)
-
-        for df in [train_df, dev_df, test_df]:
-            df = augment_with_similar_cases(
-                df, retrievers_to_use, config, tokenizer.sep_token, train_df
-            )
-        try:
-            del retrievers_to_use
-            del simcse_retriever
-            del empathy_retriever
-            del coarse_retriever
-        except:
-            pass
 
         label_encoder = LabelEncoder()
         label_encoder.fit(train_df['label'])
@@ -314,7 +244,6 @@ def do_train_process(config=None):
             train_dataset=tokenized_dataset['train'],
             eval_dataset=tokenized_dataset['eval'],
             tokenizer=tokenizer,
-            # data_collator=data_collator,
             compute_metrics=compute_metrics
         )
 
@@ -325,19 +254,20 @@ def do_train_process(config=None):
 
         run_name = wandb.run.name
         outputs_dict = {}
-        outputs_dict['note'] = 'best_hps_without_attention'
+        outputs_dict['note'] = 'best_hps_final_baseline_best_ps'
         outputs_dict['label_encoder'] = label_encoder
         outputs_dict["meta"] = dict(config)
         outputs_dict['run_name'] = run_name
         outputs_dict['predictions'] = predictions._asdict()
         outputs_dict['text'] = test_df['text'].tolist()
 
-        outputs_dict['cbr_labels'] = test_df['cbr_labels'].tolist()
-        outputs_dict['cbr'] = test_df['cbr'].tolist()
-
-        joblib.dump(outputs_dict, os.path.join(
-            config.predictions_dir, f'outputs_dict_{run_name}.joblib'))
-
+        now = datetime.today().isoformat()
+        file_name = os.path.join(
+            config.predictions_dir,
+            f"outputs_dict_{run_name}_{now}.joblib"
+        )
+        print(file_name)
+        joblib.dump(outputs_dict, file_name)
         print(predictions)
 
 
@@ -367,17 +297,18 @@ if __name__ == "__main__":
     parameters_dict = {
         'retrievers': {
             "values": [
-                # ["simcse", "empathy", "coarse"],
+                ["simcse", "empathy"],
                 ["simcse"],
-                ["empathy"],
-                # ["coarse"]
+                ["empathy"]
             ]
         },
         'num_cases': {
-            "values": [1, 3, 4, 5]
+            "values": [4] if args.data_dir == "data/new_finegrained" else [1] if args.data_dir == "data/finegrained" else [1] if args.data_dir == "data/coarsegrained" else [3]
+            # "values": [1, 3, 4, 5]
         },
         'cbr_threshold': {
-            "values": [-1e7, 0.5, 0.8]
+            # "values": [-1e7, 0.5, 0.8]
+            "values": [-10000000] if args.data_dir == "data/new_finegrained" else [-10000000] if args.data_dir == "data/finegrained" else [-10000000] if args.data_dir == "data/coarsegrained" else [0.5]
         },
         'data_dir': {
             "values": [args.data_dir]
@@ -389,24 +320,27 @@ if __name__ == "__main__":
             "values": [16]
         },
         'learning_rate': {
-            'distribution': 'uniform',
-            'min': 3e-5 if args.data_dir == "data/finegrained" else 1e-6,
-            'max': 6e-5 if args.data_dir == "data/finegrained" else 1e-5,
+            # 'distribution': 'uniform',
+            # 'min': 3e-5 if args.data_dir == "data/finegrained" else 1e-5,
+            # 'max': 6e-5 if args.data_dir == "data/finegrained" else 1e-4,
+            "values": [3.120210415844665e-05] if args.data_dir == "data/new_finegrained" else [7.484147412800621e-05] if args.data_dir == "data/finegrained" else [7.484147412800621e-05] if args.data_dir == "data/coarsegrained" else [5.393991227358502e-06]
         },
         "num_epochs": {
-            "values": [15]
+            "values": [8]
         },
         "classifier_dropout": {
-            "values": [0.1, 0.3, 0.8]
+            # "values": [0.1, 0.3, 0.8]
+            "values": [0.8] if args.data_dir == "data/new_finegrained" else [0.3] if args.data_dir == "data/finegrained" else [0.3] if args.data_dir == "data/coarsegrained" else [0.1]
         },
         'weight_decay': {
-            'distribution': 'uniform',
-            'min': 1e-4,
-            'max': 1e-1
+            # 'distribution': 'uniform',
+            # 'min': 1e-4,
+            # 'max': 1e-1
+            "values": [0.07600643653465429] if args.data_dir == "data/new_finegrained" else [0.00984762513370293] if args.data_dir == "data/finegrained" else [0.00984762513370293] if args.data_dir == "data/coarsegrained" else [0.022507698737927326]
         },
     }
 
     sweep_config['parameters'] = parameters_dict
     sweep_id = wandb.sweep(
         sweep_config, project="Baseline Finder with CBR and different retrievers")
-    wandb.agent(sweep_id, do_train_process, count=60)
+    wandb.agent(sweep_id, do_train_process, count=18)

@@ -36,3 +36,6 @@ cbr_roberta_logical_fallacy_classification
 coarsegrained_labels_based_retriever/
 finegrained_labels_based_retriever/
 logical_fallacy_classifier_baseline/
+cbr_electra_logical_fallacy_classification/
+cbr_roberta_logical_fallacy_classification_without_attention/
+tmp/

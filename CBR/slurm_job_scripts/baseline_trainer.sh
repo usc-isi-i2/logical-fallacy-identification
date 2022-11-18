@@ -19,10 +19,15 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-dataset="data/bigbench"
-echo "Dataset: $dataset"
 
+for dataset in "data/bigbench" "data/coarsegrained" "data/new_finegrained"
+do
+
+echo "Dataset: $dataset"
 python -m cbr_analyser.reasoner.baseline_classifier \
     --data_dir ${dataset}
+
+
+done
 
 conda deactivate

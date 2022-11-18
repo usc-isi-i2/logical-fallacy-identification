@@ -11,7 +11,7 @@ from cbr_analyser.amr.amr_extraction import (
     augment_amr_container_objects_with_clean_node_labels,
     generate_amr_containers_from_csv_file)
 from cbr_analyser.case_retriever.gcn import gcn
-from cbr_analyser.case_retriever.retriever import GCN_Retriever
+# from cbr_analyser.case_retriever.retriever import GCN_Retriever
 from cbr_analyser.consts import *
 from cbr_analyser.reasoner.main_classifier import do_train_process
 
@@ -122,16 +122,17 @@ def train_main_classifier(args: Dict[str, Any]):
 
 
 def load_gcn(args):
-    print('starting to load!!')
-    retriever = GCN_Retriever(
-        gcn_model_path="cache/gcn_model.pt",
-        config={
-            "gcn_layers": [128, 64, 32],
-            "mid_layer_dropout": 0.5
-        },
-        train_input_file="cache/masked_sentences_with_AMR_container_objects_train.joblib"
-    )
-    print('loaded!!')
+    pass
+    # print('starting to load!!')
+    # retriever = GCN_Retriever(
+    #     gcn_model_path="cache/gcn_model.pt",
+    #     config={
+    #         "gcn_layers": [128, 64, 32],
+    #         "mid_layer_dropout": 0.5
+    #     },
+    #     train_input_file="cache/masked_sentences_with_AMR_container_objects_train.joblib"
+    # )
+    # print('loaded!!')
 
 
 if __name__ == "__main__":
