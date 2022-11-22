@@ -22,13 +22,15 @@ conda activate general
 # dataset="data/new_finegrained"
 
 
-# for dataset in "data/bigbench" "data/coarsegrained" "data/new_finegrained"
-# do
-dataset="data/new_finegrained"
+for dataset in "data/bigbench" "data/coarsegrained" "data/new_finegrained"
+do
+# dataset="data/new_finegrained"
+
+
 echo "Dataset: $dataset"
 python -m cbr_analyser.reasoner.classifier_with_attention_electra \
     --data_dir ${dataset}
 
-# done
+done
 
 conda deactivate

@@ -3,7 +3,7 @@ from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from datetime import datetime
 import wandb
 from cbr_analyser.case_retriever.retriever import (
-    Retriever, SimCSE_Retriever, Empathy_Retriever, Knn_Retriever)
+    Retriever, SimCSE_Retriever, Empathy_Retriever)
 import argparse
 import joblib
 from torch.optim import Adam
@@ -234,10 +234,15 @@ def do_train_process(config=None):
         train_df = pd.read_csv(os.path.join(config.data_dir, "train.csv"))
         dev_df = pd.read_csv(os.path.join(config.data_dir, "dev.csv"))
         test_df = pd.read_csv(os.path.join(config.data_dir, "test.csv"))
+        if config.data_dir != 'data/bigbench':
+            climate_df = pd.read_csv(os.path.join(
+                config.data_dir, "climate_test.csv"))
 
         train_df = train_df[~train_df["label"].isin(bad_classes)]
         dev_df = dev_df[~dev_df["label"].isin(bad_classes)]
         test_df = test_df[~test_df["label"].isin(bad_classes)]
+        if config.data_dir != 'data/bigbench':
+            climate_df = climate_df[~climate_df["label"].isin(bad_classes)]
 
         print('using cbr')
 
@@ -255,15 +260,16 @@ def do_train_process(config=None):
                             'source_feature': 'masked_articles'}
                 )
                 retrievers_to_use.append(empathy_retriever)
-            elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
-                coarse_retriever = Knn_Retriever(
-                    model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
-                    sentences=train_df['text'].tolist(),
-                    num_cases=config.num_cases,
-                )
-                retrievers_to_use.append(coarse_retriever)
-
-        for df in [train_df, dev_df, test_df]:
+            # elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
+            #     coarse_retriever = Knn_Retriever(
+            #         model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
+            #         sentences=train_df['text'].tolist(),
+            #         num_cases=config.num_cases,
+            #     )
+            #     retrievers_to_use.append(coarse_retriever)
+        dfs_to_process = [train_df, dev_df, test_df] if config.data_dir == 'data/bigbench' else [
+            train_df, dev_df, test_df, climate_df]
+        for df in dfs_to_process:
             df = augment_with_similar_cases(
                 df, retrievers_to_use, config, tokenizer.sep_token, train_df
             )
@@ -283,12 +289,23 @@ def do_train_process(config=None):
         dev_df['label'] = label_encoder.transform(dev_df['label'])
         test_df['label'] = label_encoder.transform(
             test_df['label'])
+        if config.data_dir != 'data/bigbench':
+            climate_df['label'] = label_encoder.transform(
+                climate_df['label'])
 
-        dataset = DatasetDict({
-            'train': Dataset.from_pandas(train_df),
-            'eval': Dataset.from_pandas(dev_df),
-            'test': Dataset.from_pandas(test_df)
-        })
+        if config.data_dir == 'data/bigbench':
+            dataset = DatasetDict({
+                'train': Dataset.from_pandas(train_df),
+                'eval': Dataset.from_pandas(dev_df),
+                'test': Dataset.from_pandas(test_df),
+            })
+        else:
+            dataset = DatasetDict({
+                'train': Dataset.from_pandas(train_df),
+                'eval': Dataset.from_pandas(dev_df),
+                'test': Dataset.from_pandas(test_df),
+                'climate': Dataset.from_pandas(climate_df)
+            })
 
         def process(batch):
             inputs = tokenizer(
@@ -316,7 +333,7 @@ def do_train_process(config=None):
         training_args = TrainingArguments(
             do_eval=True,
             do_train=True,
-            output_dir="./cbr_electra_logical_fallacy_classification",
+            output_dir=f"./cbr_electra_logical_fallacy_classification_{config.data_dir.replace('/', '_')}",
             learning_rate=config.learning_rate,
             per_device_train_batch_size=config.batch_size,
             per_device_eval_batch_size=config.batch_size,
@@ -354,6 +371,8 @@ def do_train_process(config=None):
         trainer.train()
 
         predictions = trainer.predict(tokenized_dataset['test'])
+        if config.data_dir != 'data/bigbench':
+            predictions_climate = trainer.predict(tokenized_dataset['climate'])
 
         run_name = wandb.run.name
         outputs_dict = {}
@@ -362,6 +381,8 @@ def do_train_process(config=None):
         outputs_dict["meta"] = dict(config)
         outputs_dict['run_name'] = run_name
         outputs_dict['predictions'] = predictions._asdict()
+        if config.data_dir != 'data/bigbench':
+            outputs_dict['predictions_climate'] = predictions_climate._asdict()
         outputs_dict['text'] = test_df['text'].tolist()
 
         outputs_dict['cbr_labels'] = test_df['cbr_labels'].tolist()
@@ -403,9 +424,9 @@ if __name__ == "__main__":
     parameters_dict = {
         'retrievers': {
             "values": [
-                ["simcse", "empathy"],
+                # ["simcse", "empathy"],
                 ["simcse"],
-                ["empathy"]
+                # ["empathy"]
             ]
         },
         'num_cases': {
@@ -413,7 +434,8 @@ if __name__ == "__main__":
             "values": [1, 2, 3, 4, 5, 6]
         },
         'cbr_threshold': {
-            "values": [-1e7, 0.5, 0.8]
+            # "values": [-1e7, 0.5, 0.8]
+            "values": [0.5]
             # "values": [-10000000] if args.data_dir == "data/new_finegrained" else [-10000000] if args.data_dir == "data/finegrained" else [-10000000] if args.data_dir == "data/coarsegrained" else [0.5]
         },
         'data_dir': {
@@ -426,10 +448,10 @@ if __name__ == "__main__":
             "values": [16]
         },
         'learning_rate': {
-
-            'distribution': 'uniform',
-            'min': 1e-5,
-            'max': 1e-4
+            'values': [8.447927580802138e-05]
+            # 'distribution': 'uniform',
+            # 'min': 1e-5,
+            # 'max': 1e-4
             # 'min': 3e-5 if args.data_dir == "data/finegrained" else 1e-5,
             # 'max': 6e-5 if args.data_dir == "data/finegrained" else 1e-4,
             # "values": [3.120210415844665e-05] if args.data_dir == "data/new_finegrained" else [7.484147412800621e-05] if args.data_dir == "data/finegrained" else [7.484147412800621e-05] if args.data_dir == "data/coarsegrained" else [5.393991227358502e-06]
@@ -438,13 +460,15 @@ if __name__ == "__main__":
             "values": [8]
         },
         "classifier_dropout": {
-            "values": [0.1, 0.3, 0.8]
+            # "values": [0.1, 0.3, 0.8]
+            'values': [0.1]
             # "values": [0.8] if args.data_dir == "data/new_finegrained" else [0.3] if args.data_dir == "data/finegrained" else [0.3] if args.data_dir == "data/coarsegrained" else [0.1]
         },
         'weight_decay': {
-            'distribution': 'uniform',
-            'min': 1e-4,
-            'max': 1e-1
+            'values': [0.04962960561110768]
+            # 'distribution': 'uniform',
+            # 'min': 1e-4,
+            # 'max': 1e-1
             # "values": [0.07600643653465429] if args.data_dir == "data/new_finegrained" else [0.00984762513370293] if args.data_dir == "data/finegrained" else [0.00984762513370293] if args.data_dir == "data/coarsegrained" else [0.022507698737927326]
         },
     }
@@ -452,4 +476,4 @@ if __name__ == "__main__":
     sweep_config['parameters'] = parameters_dict
     sweep_id = wandb.sweep(
         sweep_config, project="Baseline Finder with CBR and different retrievers")
-    wandb.agent(sweep_id, do_train_process, count=30)
+    wandb.agent(sweep_id, do_train_process, count=18)

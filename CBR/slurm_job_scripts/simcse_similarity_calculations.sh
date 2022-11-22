@@ -19,22 +19,16 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-for split in "train" "dev" "test"
+dataset="data/coarsegrained"
+dataset_mod=${dataset//"/"/_}
+
+for split in "train" "dev" "test" "climate_test"
 do
 
-source_feature="masked_articles"
-python -m cbr_analyser.case_retriver.transformers.simcse_similarity_calculations \
-    --source_feature ${source_feature} \
-    --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
-    --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "cache/simcse_similarities_${source_feature}_${split}.joblib"
-
-source_feature="source_article"
-python -m cbr_analyser.case_retriver.transformers.simcse_similarity_calculations \
-    --source_feature ${source_feature} \
-    --source_file "cache/masked_sentences_with_AMR_container_objects_train.joblib" \
-    --target_file "cache/masked_sentences_with_AMR_container_objects_${split}.joblib" \
-    --output_file "cache/simcse_similarities_${source_feature}_${split}.joblib"
+python -m cbr_analyser.case_retriever.transformers.simcse_similarity_calculations \
+    --source_file "${dataset}/train.csv" \
+    --target_file "${dataset}/${split}.csv" \
+    --output_file "cache/${dataset_mod}/simcse_similarities_masked_articles_${split}.joblib" \
 
 done
 conda deactivate

@@ -112,7 +112,7 @@ class SimCSE_Retriever(Retriever):
         simcse_model_paths = [
             os.path.join(
                 "cache", config["data_dir"].replace("/", "_"), f"simcse_similarities_{config['source_feature']}_{split}.joblib")
-            for split in ["train", "dev", "test"]
+            for split in ["train", "dev", "test", "climate_test"]
         ]
         for path in simcse_model_paths:
             self.similarities_dict.update(joblib.load(path))
@@ -152,7 +152,7 @@ class Empathy_Retriever(Retriever):
         empathetic_model_paths = [
             os.path.join(
                 "cache", config["data_dir"].replace("/", "_"), f"empathy_similarities_{config['source_feature']}_{split}.joblib")
-            for split in ["train", "dev", "test"]
+            for split in ["train", "dev", "test", "climate_test"]
         ]
         for path in empathetic_model_paths:
             self.similarities_dict.update(joblib.load(path))

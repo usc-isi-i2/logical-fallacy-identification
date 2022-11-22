@@ -22,7 +22,7 @@ from transformers.modeling_outputs import SequenceClassifierOutput
 
 
 from cbr_analyser.case_retriever.retriever import (
-    Retriever, SimCSE_Retriever, Empathy_Retriever, Knn_Retriever)
+    Retriever, SimCSE_Retriever, Empathy_Retriever)
 import wandb
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 
@@ -227,13 +227,13 @@ def do_train_process(config=None):
                             'source_feature': 'masked_articles'}
                 )
                 retrievers_to_use.append(empathy_retriever)
-            elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
-                coarse_retriever = Knn_Retriever(
-                    model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
-                    sentences=train_df['text'].tolist(),
-                    num_cases=config.num_cases,
-                )
-                retrievers_to_use.append(coarse_retriever)
+            # elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
+            #     coarse_retriever = Knn_Retriever(
+            #         model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
+            #         sentences=train_df['text'].tolist(),
+            #         num_cases=config.num_cases,
+            #     )
+            #     retrievers_to_use.append(coarse_retriever)
 
         for df in [train_df, dev_df, test_df]:
             df = augment_with_similar_cases(
