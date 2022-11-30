@@ -19,17 +19,30 @@ eval "$(conda shell.bash hook)"
 # Activate (local) env
 conda activate general
 
-# dataset="data/new_finegrained"
 
-
-for dataset in "data/bigbench" "data/coarsegrained" "data/new_finegrained"
-do
-# dataset="data/new_finegrained"
-
-
+# for dataset in "data/bigbench" "data/coarsegrained" "data/new_finegrained"
+# do
+dataset="data/bigbench"
 echo "Dataset: $dataset"
+
+# for checkpoint in 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2' 'sentence-transformers/paraphrase-MiniLM-L6-v2' 'sentence-transformers/all-MiniLM-L12-v2' 'sentence-transformers/all-MiniLM-L6-v2' 'simcse' 'empathy'
+# do
+
+
+# python -m cbr_analyser.reasoner.classifier_with_attention_electra \
+#     --data_dir ${dataset} \
+#     --checkpoint ${checkpoint}
+
+# done
+
+for num_cases in 11 12 13 14 15 16 17 18 19 20
+do
+
+
 python -m cbr_analyser.reasoner.classifier_with_attention_electra \
-    --data_dir ${dataset}
+    --data_dir ${dataset} \
+    --num_cases ${num_cases}
+
 
 done
 

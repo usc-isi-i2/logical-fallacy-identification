@@ -1,49 +1,55 @@
 import argparse
-
+import os
+import sys
+from sentence_transformers import SentenceTransformer
 import joblib
 from IPython import embed
-from sentence_transformers import SentenceTransformer, util
+import pandas as pd
+import torch
+
+from sklearn.metrics.pairwise import cosine_similarity
 
 
-def get_source_feature_from_amr_objects(sentences_with_amr_objects, source_feature):
-    if source_feature == "source_article":
-        return [obj[0].strip()
-                for obj in sentences_with_amr_objects]
-    elif source_feature == "masked_articles":
-        return [obj[1].sentence.strip()
-                for obj in sentences_with_amr_objects]
+def generate_the_similarities(source_file: str, target_file: str, output_file: str, checkpoint: str):
+    if os.path.exists(output_file):
+        print(f"Output file already exists for {target_file}. Skipping...")
+        return
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    model = SentenceTransformer(checkpoint)
+
+    train_sentences = pd.read_csv(source_file)["text"].tolist()
+    train_sentences = [x.strip() for x in train_sentences]
+
+    all_sentences = pd.read_csv(target_file)["text"].tolist()
+    all_sentences = [x.strip() for x in all_sentences]
+
+    print(f"Calculating similarities for {target_file}...")
+
+    train_embeddings = model.encode(
+        train_sentences, show_progress_bar=True, device=device)
+    all_sentences_embeddings = model.encode(
+        all_sentences, show_progress_bar=True, device=device)
+
+    all_to_train_similarities = cosine_similarity(
+        all_sentences_embeddings, train_embeddings)
+
+    similarities_dict = dict()
+    for sentence, row in zip(all_sentences, all_to_train_similarities):
+        similarities_dict[sentence] = dict(zip(train_sentences, row.tolist()))
+
+    joblib.dump(similarities_dict, output_file)
+
 
 if __name__ == "__main__":
-    
+
     parser = argparse.ArgumentParser()
-    parser.add_argument('--source_feature', choices=['masked_articles', 'source_article'], type=str)
     parser.add_argument('--source_file', type=str)
     parser.add_argument('--target_file', type=str)
     parser.add_argument('--output_file', type=str)
-    
+    parser.add_argument('--checkpoint', type=str)
     args = parser.parse_args()
-    
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    sentences_with_amr_objects = joblib.load(args.source_file)
-    train_sentences = get_source_feature_from_amr_objects(sentences_with_amr_objects, args.source_feature)
-    
-    sentences_with_amr_objects = joblib.load(args.target_file)
-    all_sentences = get_source_feature_from_amr_objects(sentences_with_amr_objects, args.source_feature)
 
-    train_sentences_embeddings = model.encode(
-        train_sentences, convert_to_tensor=True)
-    
-    all_sentences_embeddings = model.encode(
-            all_sentences, convert_to_tensor=True)
-    
-    similarities = util.cos_sim(
-            all_sentences_embeddings, train_sentences_embeddings)
-    
-    similarities_dict = dict()
-    for sentence, row in zip(all_sentences, similarities):
-        similarities_dict[sentence] = dict(zip(train_sentences, row.tolist()))
-    
-    joblib.dump(similarities_dict, args.output_file)
-    
-
-    
+    generate_the_similarities(
+        args.source_file, args.target_file, args.output_file, args.checkpoint)

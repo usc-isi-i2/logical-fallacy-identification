@@ -3,7 +3,7 @@ from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from datetime import datetime
 import wandb
 from cbr_analyser.case_retriever.retriever import (
-    Retriever, SimCSE_Retriever, Empathy_Retriever)
+    Retriever, SentenceTransformerRetriever, SimCSE_Retriever, Empathy_Retriever)
 import argparse
 import joblib
 from torch.optim import Adam
@@ -250,23 +250,23 @@ def do_train_process(config=None):
         for retriever_str in config.retrievers:
             if retriever_str == 'simcse':
                 simcse_retriever = SimCSE_Retriever(
-                    config={'data_dir': config.data_dir,
-                            'source_feature': 'masked_articles'}
+                    config={'data_dir': config.data_dir}
                 )
                 retrievers_to_use.append(simcse_retriever)
             elif retriever_str == 'empathy':
                 empathy_retriever = Empathy_Retriever(
-                    config={'data_dir': config.data_dir,
-                            'source_feature': 'masked_articles'}
+                    config={'data_dir': config.data_dir}
                 )
                 retrievers_to_use.append(empathy_retriever)
-            # elif retriever_str == 'coarse' and config.data_dir == 'data/finegrained':
-            #     coarse_retriever = Knn_Retriever(
-            #         model_path='coarsegrained_labels_based_retriever/checkpoint-7500',
-            #         sentences=train_df['text'].tolist(),
-            #         num_cases=config.num_cases,
-            #     )
-            #     retrievers_to_use.append(coarse_retriever)
+            elif retriever_str.startswith('sentence-transformers'):
+                sentence_transformers_retriever = SentenceTransformerRetriever(
+                    config={
+                        'data_dir': config.data_dir,
+                        'model_checkpoint': retriever_str
+                    }
+                )
+                retrievers_to_use.append(sentence_transformers_retriever)
+
         dfs_to_process = [train_df, dev_df, test_df] if config.data_dir == 'data/bigbench' else [
             train_df, dev_df, test_df, climate_df]
         for df in dfs_to_process:
@@ -323,8 +323,6 @@ def do_train_process(config=None):
         tokenized_dataset = dataset.map(
             process, batched=True, remove_columns=dataset['train'].column_names)
 
-        # data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
         model = ElectraForSequenceClassification.from_pretrained(
             "howey/electra-base-mnli", num_labels=len(list(label_encoder.classes_)), classifier_dropout=config.classifier_dropout, ignore_mismatched_sizes=True)
 
@@ -341,7 +339,7 @@ def do_train_process(config=None):
             weight_decay=config.weight_decay,
             logging_steps=200,
             evaluation_strategy='steps',
-            report_to="wandb"
+            # report_to="wandb"
         )
 
         def compute_metrics(pred):
@@ -363,7 +361,6 @@ def do_train_process(config=None):
             train_dataset=tokenized_dataset['train'],
             eval_dataset=tokenized_dataset['eval'],
             tokenizer=tokenizer,
-            # data_collator=data_collator,
             compute_metrics=compute_metrics
         )
 
@@ -374,12 +371,12 @@ def do_train_process(config=None):
         if config.data_dir != 'data/bigbench':
             predictions_climate = trainer.predict(tokenized_dataset['climate'])
 
-        run_name = wandb.run.name
+        # run_name = wandb.run.name
         outputs_dict = {}
         outputs_dict['note'] = 'best_hps_final_best_ps_electra'
         outputs_dict['label_encoder'] = label_encoder
         outputs_dict["meta"] = dict(config)
-        outputs_dict['run_name'] = run_name
+        # outputs_dict['run_name'] = run_name
         outputs_dict['predictions'] = predictions._asdict()
         if config.data_dir != 'data/bigbench':
             outputs_dict['predictions_climate'] = predictions_climate._asdict()
@@ -391,11 +388,17 @@ def do_train_process(config=None):
         now = datetime.today().isoformat()
         file_name = os.path.join(
             config.predictions_dir,
-            f"outputs_dict_{run_name}_{now}.joblib"
+            f"outputs_dict__{now}.joblib"
         )
         print(file_name)
         joblib.dump(outputs_dict, file_name)
         print(predictions)
+
+
+class AttributeDict(dict):
+    __getattr__ = dict.__getitem__
+    __setattr__ = dict.__setitem__
+    __delattr__ = dict.__delitem__
 
 
 if __name__ == "__main__":
@@ -403,10 +406,16 @@ if __name__ == "__main__":
         description='Train a Classification Model for Logical Fallacy Detection and having a baseline')
 
     parser.add_argument(
-        '--data_dir', help="Train input file path", type=str, default="data/finegrained"
+        '--data_dir', help="Train input file path", type=str, default="data/new_finegrained"
     )
     parser.add_argument('--predictions_dir', help="Predictions output file path",
                         default="cache/predictions/all", type=str)
+
+    parser.add_argument(
+        '--checkpoint', help="Checkpoint namespace", type=str, default="simcse")
+
+    parser.add_argument(
+        '--num_cases', help="Number of cases in CBR", type=int, default=2)
 
     args = parser.parse_args()
 
@@ -424,18 +433,26 @@ if __name__ == "__main__":
     parameters_dict = {
         'retrievers': {
             "values": [
+                [args.checkpoint]
+                # ['sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'],
+                # ['sentence-transformers/paraphrase-MiniLM-L6-v2'],
+                # ['sentence-transformers/all-MiniLM-L12-v2'],
+                # ['sentence-transformers/all-MiniLM-L6-v2'],
+                # ['simcse'],
+                # ['empathy'],
                 # ["simcse", "empathy"],
-                ["simcse"],
+                # ["simcse"],
                 # ["empathy"]
             ]
         },
         'num_cases': {
             # "values": [4] if args.data_dir == "data/new_finegrained" else [1] if args.data_dir == "data/finegrained" else [1] if args.data_dir == "data/coarsegrained" else [3]
-            "values": [1, 2, 3, 4, 5, 6]
+            # "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            "values": [args.num_cases]
         },
         'cbr_threshold': {
-            # "values": [-1e7, 0.5, 0.8]
-            "values": [0.5]
+            "values": [-1e7, 0.5, 0.8]
+            # "values": [0.5]
             # "values": [-10000000] if args.data_dir == "data/new_finegrained" else [-10000000] if args.data_dir == "data/finegrained" else [-10000000] if args.data_dir == "data/coarsegrained" else [0.5]
         },
         'data_dir': {
@@ -448,32 +465,55 @@ if __name__ == "__main__":
             "values": [16]
         },
         'learning_rate': {
-            'values': [8.447927580802138e-05]
-            # 'distribution': 'uniform',
-            # 'min': 1e-5,
-            # 'max': 1e-4
+            # 'values': [8.447927580802138e-05]
+            'distribution': 'uniform',
+            'min': 1e-5,
+            'max': 1e-4
             # 'min': 3e-5 if args.data_dir == "data/finegrained" else 1e-5,
             # 'max': 6e-5 if args.data_dir == "data/finegrained" else 1e-4,
             # "values": [3.120210415844665e-05] if args.data_dir == "data/new_finegrained" else [7.484147412800621e-05] if args.data_dir == "data/finegrained" else [7.484147412800621e-05] if args.data_dir == "data/coarsegrained" else [5.393991227358502e-06]
         },
         "num_epochs": {
-            "values": [8]
+            "values": [10]
         },
         "classifier_dropout": {
-            # "values": [0.1, 0.3, 0.8]
-            'values': [0.1]
+            "values": [0.1, 0.3, 0.8]
+            # 'values': [0.1]
             # "values": [0.8] if args.data_dir == "data/new_finegrained" else [0.3] if args.data_dir == "data/finegrained" else [0.3] if args.data_dir == "data/coarsegrained" else [0.1]
         },
         'weight_decay': {
-            'values': [0.04962960561110768]
-            # 'distribution': 'uniform',
-            # 'min': 1e-4,
-            # 'max': 1e-1
+            # 'values': [0.04962960561110768]
+            'distribution': 'uniform',
+            'min': 1e-4,
+            'max': 1e-1
             # "values": [0.07600643653465429] if args.data_dir == "data/new_finegrained" else [0.00984762513370293] if args.data_dir == "data/finegrained" else [0.00984762513370293] if args.data_dir == "data/coarsegrained" else [0.022507698737927326]
         },
     }
 
+    # checkpoints = [
+    #     'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2',
+    #     'sentence-transformers/paraphrase-MiniLM-L6-v2',
+    #     'sentence-transformers/all-MiniLM-L12-v2',
+    #     'sentence-transformers/all-MiniLM-L6-v2',
+    #     'simcse',
+    #     'empathy',
+    # ]
+
+    # for checkpoint in checkpoints:
+    # for i in range(6, 10):
+    #     new_dict = {}
+    #     for k, v in parameters_dict.items():
+    #         new_dict[k] = v['values'][0]
+    #     # new_dict['retrievers'] = [checkpoint]
+
+    #     new_dict['num_cases'] = i + 1
+
+    #     print(new_dict)
+    #     new_dict = AttributeDict(new_dict)
+
+    #     do_train_process(new_dict)
+
     sweep_config['parameters'] = parameters_dict
     sweep_id = wandb.sweep(
         sweep_config, project="Baseline Finder with CBR and different retrievers")
-    wandb.agent(sweep_id, do_train_process, count=18)
+    wandb.agent(sweep_id, do_train_process, count=3)
