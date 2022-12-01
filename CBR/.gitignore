@@ -11,6 +11,7 @@ xlm_roberta_logical_fallacy_classification/
 data/conceptNet_labels.joblib
 data/conceptNet_relations.joblib
 kgtk_conceptnet.tsv
+**/__pycache__/**
 **/*.pyc
 **/*.pyo
 **/*.pyd
@@ -27,10 +28,6 @@ kgtk_conceptnet.tsv
 **/*.tbz2
 **/*.txz
 processed/
-cache/gcn_model.pt
-cache/graphs
-cache/predictions/all_datasets/*
-cache/graphs/*
 cache/*
 cbr_roberta_logical_fallacy_classification
 coarsegrained_labels_based_retriever/
