@@ -13,12 +13,12 @@ In the following, each major directory and the code that is contained in it is e
 
 
 ### Cache
-As each stage of the model takes a bit of time to run, at the end of each stage, the outputs of that specific part would be stored in `cache` directory. The most time consuming part of the experiments is computing the look up tables for the retrievers to find similar examples to a new example which its look up tables are saved also in `cache` directory. Using different datasets, the look up tables and other cached files corresponding to each dataset is stored in each associated sub directory. 
+As each stage of the model takes a bit of time to run, at the end of each stage, the outputs of that specific part would be stored in `cache` directory. The most time consuming part of the experiments is computing the look up tables for the retrievers to find similar examples to a new example which its look up tables are saved also in `cache` directory. Using different datasets, the look up tables and other cached files corresponding to each dataset is stored in each associated sub directory. Due to the size of the files, they are included in [this](https://drive.google.com/file/d/1W6EQuN55DTdaYhc_G2AACgURfihcndjy/view?usp=share_link) link.
 
 
 ### Dataset
 
-The data I used which comes from the original logical fallacy [paper](https://arxiv.org/abs/2202.13758) in `data` folder, in subdirectories of the `bigbench`, `coarsegrained`, `finegrained`, as well as the `new_finegrained`. The difference between `finegrained` and `new_finegrained` is only in the training data of the two directories. the `new_finegrained` dataset is basically an updated and filtered version of the dataset that was initially released by the authors of the finegrained [dataset](https://arxiv.org/abs/2202.13758)
+The data I used which comes from the original logical fallacy [paper](https://arxiv.org/abs/2202.13758) in `data` folder, in subdirectories of the `bigbench`, `coarsegrained`, `finegrained`, as well as the `new_finegrained`. The difference between `finegrained` and `new_finegrained` is only in the training data of the two directories. the `new_finegrained` dataset is basically an updated and filtered version of the dataset that was initially released by the authors of the finegrained [dataset](https://arxiv.org/abs/2202.13758).
 
 All the logic contained in the project is contained in the `cbr_analyser`. 
 
