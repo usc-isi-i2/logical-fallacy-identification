@@ -22,9 +22,10 @@ from transformers.activations import get_activation
 from torch import nn
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.preprocessing import LabelEncoder
-from transformers import (DataCollatorWithPadding,
-                          Trainer, TrainingArguments, ElectraModel, ElectraPreTrainedModel, ElectraTokenizer)
+from transformers import (Trainer, TrainingArguments,
+                          ElectraModel, ElectraPreTrainedModel, ElectraTokenizer)
 from transformers.modeling_outputs import SequenceClassifierOutput
+from collections import defaultdict
 os.environ["WANDB_MODE"] = "dryrun"
 
 
@@ -234,6 +235,7 @@ def do_train_process(config=None):
         train_df = pd.read_csv(os.path.join(config.data_dir, "train.csv"))
         dev_df = pd.read_csv(os.path.join(config.data_dir, "dev.csv"))
         test_df = pd.read_csv(os.path.join(config.data_dir, "test.csv"))
+
         if config.data_dir != 'data/bigbench':
             climate_df = pd.read_csv(os.path.join(
                 config.data_dir, "climate_test.csv"))
@@ -241,6 +243,7 @@ def do_train_process(config=None):
         train_df = train_df[~train_df["label"].isin(bad_classes)]
         dev_df = dev_df[~dev_df["label"].isin(bad_classes)]
         test_df = test_df[~test_df["label"].isin(bad_classes)]
+
         if config.data_dir != 'data/bigbench':
             climate_df = climate_df[~climate_df["label"].isin(bad_classes)]
 
@@ -266,20 +269,6 @@ def do_train_process(config=None):
                     }
                 )
                 retrievers_to_use.append(sentence_transformers_retriever)
-
-        dfs_to_process = [train_df, dev_df, test_df] if config.data_dir == 'data/bigbench' else [
-            train_df, dev_df, test_df, climate_df]
-        for df in dfs_to_process:
-            df = augment_with_similar_cases(
-                df, retrievers_to_use, config, tokenizer.sep_token, train_df
-            )
-        try:
-            del retrievers_to_use
-            del simcse_retriever
-            del empathy_retriever
-            del coarse_retriever
-        except:
-            pass
 
         label_encoder = LabelEncoder()
         label_encoder.fit(train_df['label'])
@@ -320,28 +309,6 @@ def do_train_process(config=None):
                 'labels': batch['label']
             }
 
-        tokenized_dataset = dataset.map(
-            process, batched=True, remove_columns=dataset['train'].column_names)
-
-        model = ElectraForSequenceClassification.from_pretrained(
-            "howey/electra-base-mnli", num_labels=len(list(label_encoder.classes_)), classifier_dropout=config.classifier_dropout, ignore_mismatched_sizes=True)
-
-        print('Model loaded!')
-
-        training_args = TrainingArguments(
-            do_eval=True,
-            do_train=True,
-            output_dir=f"./cbr_electra_logical_fallacy_classification_{config.data_dir.replace('/', '_')}",
-            learning_rate=config.learning_rate,
-            per_device_train_batch_size=config.batch_size,
-            per_device_eval_batch_size=config.batch_size,
-            num_train_epochs=config.num_epochs,
-            weight_decay=config.weight_decay,
-            logging_steps=200,
-            evaluation_strategy='steps',
-            # report_to="wandb"
-        )
-
         def compute_metrics(pred):
             labels = pred.label_ids
             preds = pred.predictions.argmax(-1)
@@ -354,22 +321,48 @@ def do_train_process(config=None):
                 'precision': precision,
                 'recall': recall
             }
-
-        trainer = CustomTrainer(
-            model=model,
-            args=training_args,
-            train_dataset=tokenized_dataset['train'],
-            eval_dataset=tokenized_dataset['eval'],
-            tokenizer=tokenizer,
-            compute_metrics=compute_metrics
+        training_args = TrainingArguments(
+            do_eval=True,
+            do_train=True,
+            output_dir=f"./cbr_electra_logical_fallacy_classification_{config.data_dir.replace('/', '_')}",
+            learning_rate=config.learning_rate,
+            per_device_train_batch_size=config.batch_size,
+            per_device_eval_batch_size=config.batch_size,
+            num_train_epochs=1,
+            weight_decay=config.weight_decay,
+            logging_steps=100,
+            evaluation_strategy='steps',
+            # report_to="wandb"
         )
 
-        print('Start the training ...')
-        trainer.train()
+        inputs_num_examples_needed = defaultdict(int)
 
-        predictions = trainer.predict(tokenized_dataset['test'])
-        if config.data_dir != 'data/bigbench':
-            predictions_climate = trainer.predict(tokenized_dataset['climate'])
+        for epoch in range(config.num_epochs):
+
+            tokenized_dataset = dataset.map(
+                process, batched=True, remove_columns=dataset['train'].column_names)
+
+            model = ElectraForSequenceClassification.from_pretrained(
+                "howey/electra-base-mnli", num_labels=len(list(label_encoder.classes_)), classifier_dropout=config.classifier_dropout, ignore_mismatched_sizes=True)
+
+            print('Model loaded!')
+
+            trainer = CustomTrainer(
+                model=model,
+                args=training_args,
+                train_dataset=tokenized_dataset['train'],
+                eval_dataset=tokenized_dataset['eval'],
+                tokenizer=tokenizer,
+                compute_metrics=compute_metrics
+            )
+
+            print('Start the training ...')
+            trainer.train(resume_from_checkpoint=True)
+
+            predictions = trainer.predict(tokenized_dataset['test'])
+            if config.data_dir != 'data/bigbench':
+                predictions_climate = trainer.predict(
+                    tokenized_dataset['climate'])
 
         # run_name = wandb.run.name
         outputs_dict = {}
@@ -433,7 +426,7 @@ if __name__ == "__main__":
     parameters_dict = {
         'retrievers': {
             "values": [
-                [args.checkpoint]
+                # [args.checkpoint]
                 # ['sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'],
                 # ['sentence-transformers/paraphrase-MiniLM-L6-v2'],
                 # ['sentence-transformers/all-MiniLM-L12-v2'],
@@ -441,18 +434,19 @@ if __name__ == "__main__":
                 # ['simcse'],
                 # ['empathy'],
                 # ["simcse", "empathy"],
-                # ["simcse"],
+                ["simcse"],
                 # ["empathy"]
             ]
         },
         'num_cases': {
             # "values": [4] if args.data_dir == "data/new_finegrained" else [1] if args.data_dir == "data/finegrained" else [1] if args.data_dir == "data/coarsegrained" else [3]
             # "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-            "values": [args.num_cases]
+            # "values": [args.num_cases]
+            "values": [4]
         },
         'cbr_threshold': {
-            "values": [-1e7, 0.5, 0.8]
-            # "values": [0.5]
+            # "values": [-1e7, 0.5, 0.8]
+            "values": [0.5]
             # "values": [-10000000] if args.data_dir == "data/new_finegrained" else [-10000000] if args.data_dir == "data/finegrained" else [-10000000] if args.data_dir == "data/coarsegrained" else [0.5]
         },
         'data_dir': {
@@ -465,10 +459,10 @@ if __name__ == "__main__":
             "values": [16]
         },
         'learning_rate': {
-            # 'values': [8.447927580802138e-05]
-            'distribution': 'uniform',
-            'min': 1e-5,
-            'max': 1e-4
+            'values': [8.447927580802138e-05]
+            # 'distribution': 'uniform',
+            # 'min': 1e-5,
+            # 'max': 1e-4
             # 'min': 3e-5 if args.data_dir == "data/finegrained" else 1e-5,
             # 'max': 6e-5 if args.data_dir == "data/finegrained" else 1e-4,
             # "values": [3.120210415844665e-05] if args.data_dir == "data/new_finegrained" else [7.484147412800621e-05] if args.data_dir == "data/finegrained" else [7.484147412800621e-05] if args.data_dir == "data/coarsegrained" else [5.393991227358502e-06]
@@ -477,15 +471,15 @@ if __name__ == "__main__":
             "values": [10]
         },
         "classifier_dropout": {
-            "values": [0.1, 0.3, 0.8]
-            # 'values': [0.1]
+            # "values": [0.1, 0.3, 0.8]
+            'values': [0.1]
             # "values": [0.8] if args.data_dir == "data/new_finegrained" else [0.3] if args.data_dir == "data/finegrained" else [0.3] if args.data_dir == "data/coarsegrained" else [0.1]
         },
         'weight_decay': {
-            # 'values': [0.04962960561110768]
-            'distribution': 'uniform',
-            'min': 1e-4,
-            'max': 1e-1
+            'values': [0.04962960561110768]
+            # 'distribution': 'uniform',
+            # 'min': 1e-4,
+            # 'max': 1e-1
             # "values": [0.07600643653465429] if args.data_dir == "data/new_finegrained" else [0.00984762513370293] if args.data_dir == "data/finegrained" else [0.00984762513370293] if args.data_dir == "data/coarsegrained" else [0.022507698737927326]
         },
     }
@@ -515,5 +509,5 @@ if __name__ == "__main__":
 
     sweep_config['parameters'] = parameters_dict
     sweep_id = wandb.sweep(
-        sweep_config, project="Baseline Finder with CBR and different retrievers")
-    wandb.agent(sweep_id, do_train_process, count=3)
+        sweep_config, project="The architecture with the active learning")
+    wandb.agent(sweep_id, do_train_process, count=1)

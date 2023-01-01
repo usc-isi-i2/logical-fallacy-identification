@@ -33,9 +33,9 @@ MID_LAYERS_DROPOUT = 0.1
 GCN_LAYERS = "32,32,16"
 LEARNING_RATE = 1e-4
 
-torch.manual_seed(77)
-random.seed(77)
-np.random.seed(77)
+# torch.manual_seed(77)
+# random.seed(77)
+# np.random.seed(77)
 
 
 class CBRetriever(torch.nn.Module):

@@ -109,13 +109,31 @@ class Retriever:
 class SimCSE_Retriever(Retriever):
     def __init__(self, config: Dict[str, Any]) -> None:
         self.similarities_dict = dict()
-        simcse_model_paths = [
-            os.path.join(
-                "cache", config["data_dir"].replace("/", "_"), f"simcse_similarities_{config['source_feature']}_{split}.joblib")
-            for split in ["train", "dev", "test", "climate_test"]
-        ]
+        base_path = os.path.join("cache", config["data_dir"].replace("/", "_"))
+        simcse_model_paths = [file for file in os.listdir(
+            base_path) if file.startswith("simcse_similarities")]
         for path in simcse_model_paths:
-            self.similarities_dict.update(joblib.load(path))
+            self.similarities_dict.update(
+                joblib.load(os.path.join(base_path, path)))
+
+    def retrieve_similar_cases(self, case: str, train_df: pd.DataFrame, num_cases: int = 1, threshold: float = -np.inf):
+        sentences_and_similarities = self.similarities_dict[case.strip()].items(
+        )
+        sentences_and_similarities_sorted = sorted(
+            sentences_and_similarities, key=lambda x: x[1], reverse=True)
+
+        return [(x[0], x[1], train_df[train_df["text"].str.strip() == x[0].strip()].label.tolist()) for x in sentences_and_similarities_sorted[1:num_cases + 1] if x[1] > threshold]
+
+
+class SentenceTransformerRetriever(Retriever):
+    def __init__(self, config: Dict[str, Any]) -> None:
+        self.similarities_dict = dict()
+        base_path = os.path.join("cache", config["data_dir"].replace("/", "_"))
+        simcse_model_paths = [file for file in os.listdir(
+            base_path) if file.startswith(config['model_checkpoint'].replace("/", "_"))]
+        for path in simcse_model_paths:
+            self.similarities_dict.update(
+                joblib.load(os.path.join(base_path, path)))
 
     def retrieve_similar_cases(self, case: str, train_df: pd.DataFrame, num_cases: int = 1, threshold: float = -np.inf):
         sentences_and_similarities = self.similarities_dict[case.strip()].items(
@@ -149,13 +167,13 @@ class AMR_Retriever(Retriever):
 class Empathy_Retriever(Retriever):
     def __init__(self, config: Dict[str, Any]) -> None:
         self.similarities_dict = dict()
-        empathetic_model_paths = [
-            os.path.join(
-                "cache", config["data_dir"].replace("/", "_"), f"empathy_similarities_{config['source_feature']}_{split}.joblib")
-            for split in ["train", "dev", "test", "climate_test"]
-        ]
+        base_path = os.path.join("cache", config["data_dir"].replace("/", "_"))
+        empathetic_model_paths = [file for file in os.listdir(
+            base_path) if file.startswith("empathy_similarities")]
+
         for path in empathetic_model_paths:
-            self.similarities_dict.update(joblib.load(path))
+            self.similarities_dict.update(
+                joblib.load(os.path.join(base_path, path)))
 
     def retrieve_similar_cases(self, case: str, train_df: pd.DataFrame, num_cases: int = 1, threshold: float = -np.inf):
         sentences_and_similarities = self.similarities_dict[case.strip()].items(
