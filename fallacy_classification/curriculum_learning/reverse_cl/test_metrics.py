@@ -51,7 +51,7 @@ def test_classwise(tokenizer_name, test_dataset, path_model, class_list, num_cla
     print("Classification report:\n\n", classification_report(test_dataset["label"], y_pred, target_names=class_list, digits=4))
     print(confusion_matrix(test_dataset["label"], y_pred, labels=list(range(0, 15, 1))))
     df = pd.DataFrame({"text": test_dataset["text"], "ground_truth": test_dataset["label"], "prediction": y_pred})
-    df.to_csv("/cluster/raid/home/darshan.deshpande/curriculum_learning_training/" + f"evaluate_{tokenizer_name.replace('/', '-')}_monitorf1.csv", index=False)
+    df.to_csv("curriculum_learning_training/" + f"evaluate_{tokenizer_name.replace('/', '-')}_monitorf1.csv", index=False)
 
 
 if __name__ == "__main__":
@@ -61,6 +61,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     class_list = ['fallacy of red herring', 'faulty generalization', 'ad hominem', 'false causality', 'circular reasoning', 'ad populum', 'fallacy of credibility', 'appeal to emotion', 'fallacy of logic', 'intentional', 'fallacy of extension', 'false dilemma', 'equivocation', 'prejudicial language', 'slothful induction', 'fallacy of slippery slope']
-    test_dataset = load_data("/cluster/raid/home/darshan.deshpande/curriculum_learning_training/datasets/fine_grained_test_final.csv", class_list, tokenizer_name=args.tokenizer)
+    test_dataset = load_data("curriculum_learning_training/datasets/fine_grained_test_final.csv", class_list, tokenizer_name=args.tokenizer)
     test_classwise(args.tokenizer, test_dataset, args.model_path, class_list)
     
