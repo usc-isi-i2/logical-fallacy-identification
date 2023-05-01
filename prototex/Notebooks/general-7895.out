@@ -1,0 +1,228 @@
+/cluster/raid/home/zhivar.sourati/ProtoTEx/Notebooks
+Mon Oct 24 02:47:01 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  A100-PCIE-40GB      Off  | 00000000:27:00.0 Off |                    0 |
+| N/A   28C    P0    33W / 250W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+0
+['/cluster/raid/home/zhivar.sourati/ProtoTEx/Notebooks', '/cluster/raid/home/zhivar.sourati/anaconda3/envs/prototex/lib/python39.zip', '/cluster/raid/home/zhivar.sourati/anaconda3/envs/prototex/lib/python3.9', '/cluster/raid/home/zhivar.sourati/anaconda3/envs/prototex/lib/python3.9/lib-dynload', '/cluster/raid/home/zhivar.sourati/anaconda3/envs/prototex/lib/python3.9/site-packages', '../']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 0
+John: I think we should hire someone to redesign our website.
+Lola: You're saying we should throw our money away on external resources instead of building up our in-house design team? That's going to hurt our company in the long run. fallacy of extension
+The mayor argued that we need to reduce funding for the animal shelter in order to balance the budget. Don't vote for someone who doesn't think the government should care about animals. fallacy of extension
+Steve: In Sweden, college is free for citizens. How come we can't do that here?
+Ed: If you like Sweden so much, move there. The USA would be glad to be rid of your liberal ass!
+ ad hominem
+Dicky: So how do you think life began?
+Ralphie: Simple.  Aliens from another planet seeded this planet with life billions of years ago.
+Dicky: OK, but how did that alien life form begin?
+Ralphie: Simple.  Aliens from another planet seeded that planet with life.
+ circular reasoning
+“He’s not a great athlete; he’s a fraud, a cheat and a liar. That’s why not everybody is ‘happy for Lance.'” ad hominem
+Counter({'fallacy of extension': 2, 'ad hominem': 2, 'circular reasoning': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 1
+Hi, I’m Troy McClure. You might remember me from such films as The Day the Peacock Died. After filming scenes with feathered co-stars all day, there’s nothing I enjoy more than a bucket of Buster’s Chicken. It’s chickentastic! fallacy of credibility
+Yesterday you were 5 minutes late, today 10, and tomorrow you won't even show up! faulty generalization
+So you are saying your car is worth $20k.  I think it is worth $1, so let’s just compromise and say it is worth $10k. (Assuming the car is worth $20k) fallacy of relevance
+Parent: I really don’t want you to smoke pot. It’s still illegal, and could get you into trouble.
+Child: Didn’t you smoke pot when you were my age? You must not think it’s a big deal. ad hominem
+I guess I should buy my 12 year old daughter an iPhone. Everyone at her school has one, and I want her to fit in with the other kids. ad populum
+Counter({'fallacy of credibility': 1, 'faulty generalization': 1, 'fallacy of relevance': 1, 'ad hominem': 1, 'ad populum': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 2
+Luke didn't want to eat his vegetables, but his father told him to think about the poor, starving children in a third world country who don't have anything to eat. appeal to emotion
+Mayor Kerr wants to create more bicycle lanes in Greenpoint. Why is he forcing us to give up our cars and bike everywhere? fallacy of extension
+A cloud is 90 percent water; a watermelon is 90 percent water. Therefore, since a plane can fly through a cloud, a plane can fly through a watermelon. fallacy of logic
+Dr. X is an engineer, and he doesn’t believe in global warming. fallacy of credibility
+"America: Love it or leave it"
+This is an example of which kind of logical fallacy? false dilemma
+Counter({'appeal to emotion': 1, 'fallacy of extension': 1, 'fallacy of logic': 1, 'fallacy of credibility': 1, 'false dilemma': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 3
+Students tell Ms. Higgins her hair color looks different on her. Ms. Higgins can't believe her students called ugly and horrendous to look at. fallacy of extension
+You know Jane Fonda’s exercise video’s must be worth the money. Look at the great shape she’s in. false causality
+“I know that what I experience is real because I can see, hear, smell, touch and taste everything.” circular reasoning
+"If you do not submit your requirements today, you should drop your classes with Sir Lean." false dilemma
+All the popular guys at school are dyeing their hair purple, so you should, too! ad populum
+Counter({'fallacy of extension': 1, 'false causality': 1, 'circular reasoning': 1, 'false dilemma': 1, 'ad populum': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 4
+"Terrorists must not be given the chance to invade our beloved country." ad populum
+Every person who has ever drunk water has died. Therefore, drinking water causes death. false causality
+Pamela says that she thinks that the class should do more service projects. Mark says he can't believe that Pamela doesn't support the annual school dance.
+Pamela dice que ella piensa que la clase debería hacer más proyectos de servicio. Mark dice que no puede creer que Pamela no apoye el baile escolar anual fallacy of extension
+Everybody loves Raymond because he is so popular. Popular people are loved by everybody. circular reasoning
+Mike: It is morally wrong to cheat on your spouse, why on earth would you have done that?
+Ken: But what is morality exactly?
+Mike: It’s a code of conduct shared by cultures.
+Ken: But who creates this code?... fallacy of relevance
+Counter({'ad populum': 1, 'false causality': 1, 'fallacy of extension': 1, 'circular reasoning': 1, 'fallacy of relevance': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 5
+There must be objective rights and wrongs in the universe. If not, how can you possibly say that torturing babies for fun could ever be right? appeal to emotion
+"Bernie Saunders wouldn't make a good president because he looks like a sad muppet." ad hominem
+Billy - "An apple is a vegetable."  Bobby - "Don't listen to Billy; he failed Spanish class last year. " ad hominem
+Everyone knows that Japanese DVD players are the best. After all, the outsell American players two-to-one. ad populum
+You can't give me a C. I'm an A student. circular reasoning
+Counter({'ad hominem': 2, 'appeal to emotion': 1, 'ad populum': 1, 'circular reasoning': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 6
+To this very day (at the time of this writing), science has been unable to create life from non-life; therefore, life must be a result of divine intervention. intentional
+If you don’t expose your child to germs, he will never get sick. Therefore, he will never build up his immune system to fight illness. He will grow up to be a sickly adult. faulty generalization
+She should not be voted president because she's a liar and a thief. ad hominem
+You want me to clean my locker? I think I left my homework in Science class. I need to keep up with my homework to get good grades. fallacy of relevance
+I'm raising funds to help cure XYZ disease. If you don't donate, then you're part of the problem. false dilemma
+Counter({'intentional': 1, 'faulty generalization': 1, 'ad hominem': 1, 'fallacy of relevance': 1, 'false dilemma': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 7
+All lions are animals.
+All cats are animals.
+Therefore, all lions are cats. fallacy of logic
+Look, it doesn't matter whether or not you think America should build a wall on the border. The President thinks America should do it, so it's a good idea. fallacy of credibility
+1. “iPhones are the best smartphones on the market because Apple makes the best smartphones.” circular reasoning
+I thought you cared about other people, but I didn't see you at the fundraiser for the Children's Hospital ... false dilemma
+This is an example of which fallacy? ad populum
+Counter({'fallacy of logic': 1, 'fallacy of credibility': 1, 'circular reasoning': 1, 'false dilemma': 1, 'ad populum': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 8
+Everybody understands that the values in New York City are socially liberal and pro-abortion and pro-gay marriage,' he said. 'And focus on money and the media. faulty generalization
+Now you tell me she looks presidential, folks. I look presidential ad hominem
+Al Gore's support of the discussion of sexual orientation issues on Ellen is  dangerous:  he advocates the exposure of children to sexually explicit materials,  which is wrong. fallacy of extension
+We can’t freeze the academic year because then students won’t graduate on time. Next thing you know most people will be unemployed and will resort to crime. The crime rate will skyrocket and society will collapse. faulty generalization
+If I make an exception for you then I'll have to make an exception for everyone faulty generalization
+Counter({'faulty generalization': 3, 'ad hominem': 1, 'fallacy of extension': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 9
+I don't think we need to talk to the people in the Justice Department about the practicality of enforcing this bill. The Justice Department is full of Democrats, and they are already biased against it. ad hominem
+Television Advertisement: Rush to shop at Super-Mart this weekend, everyone is doing it! ad populum
+My grandmother smoked for 80 years and died at 100. Obviously, smoking isn’t harmful. faulty generalization
+Mining may destroy the environment, but how about the people whose jobs will be affected? Should we ban it? fallacy of relevance
+"A person apparently hopelessly ill may be allowed to take his own life. Then he may be permitted to deputize others to do it for him should he no longer be able to act. The judgment of others then becomes the ruling factor. Already at this point euthanasia is not personal and voluntary, for others are acting on behalf of the patient as they see fit. This may well incline them to act on behalf of other patients who have not authorized them to exercise their judgment. It is only a short step, then, from voluntary euthanasia (self-inflicted or authorized), to directed euthanasia administered to faulty generalization
+Counter({'faulty generalization': 2, 'ad hominem': 1, 'ad populum': 1, 'fallacy of relevance': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 10
+An abusive attack against someone making the argument, instead of the argument itself, is called a/an ad hominem
+This herbal supplement is made from a plant that grows in Zambia. It must be healthier than taking that medication, which is full of chemicals I can't pronounce. fallacy of credibility
+You know Jane Fonda’s exercise video’s must be worth the money. Look at the great shape she’s in. false causality
+We shouldn't let teenagers keep their phones just because they're upset at losing them; most babies cry when you take their toys away too. fallacy of logic
+Don't ever gamble! Once you start, you won't be able to stop, and you'll end up bankrupt. faulty generalization
+Counter({'ad hominem': 1, 'fallacy of credibility': 1, 'false causality': 1, 'fallacy of logic': 1, 'faulty generalization': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 11
+My first time meeting Mr. Casal went poorly, so his class will not be a good one this year. faulty generalization
+“Birds can fly; therefore, penguins can fly.” faulty generalization
+If you don't buy the black pencils, you will get made fun of. You will not be chosen for group projects. appeal to emotion
+"Don't make me angry; you won't like me when I'm angry." appeal to emotion
+The phrase "Ninety percent of all people surveyed said that McDonalds is better than Burger King, so we can confidently say we are the best." represents which fallacy? ad populum
+Counter({'faulty generalization': 2, 'appeal to emotion': 2, 'ad populum': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 12
+Sarah loves to wear running shoes, all girls must like to run. faulty generalization
+Beyond Meat burgers are healthy for us because they do not have any meat in them. fallacy of credibility
+I know you don't like the kitty-cat sweater that Grandma knitted for you, but she worked so hard on it and it will make her happy to see you wear it in the family holiday photo. appeal to emotion
+Believing that "runs" occur to statistically independent phenomena such as routine wheel spirits. false causality
+Anthony and Marie have a heated argument. During their fight, Anthony tells Marie that he hates her and wished that she would get hit by a bus. Later that evening, Anthony receives a call from a friend who tells him that Marie is in the hospital because she was struck by a bus. Anthony immediately blames himself and reasons that if he hadn't made that comment during their fight, Marie would not have been hit. What logical fallacy has Anthony committed?
+http://www.funtrivia.com false causality
+Counter({'false causality': 2, 'faulty generalization': 1, 'fallacy of credibility': 1, 'appeal to emotion': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 13
+The music industry must either raise album prices or reduce pay for technicians and producers. false dilemma
+Exercise is good. Therefore everybody should exercise.'
+"'I agree,' said Polly earnestly. 'I mean exercise is wonderful. I mean it builds the body and everything.' faulty generalization
+Over 99 billion people served… ad populum
+I saw John texting yesterday, and then he got in his car and drove away; he must have crashed because he was texting. Therefore, cell phones should be banned. false causality
+Minds, like rivers, can be broad. The broader the river, the shallower it is. Therefore, the broader the mind, the shallower it is. fallacy of logic
+Counter({'false dilemma': 1, 'faulty generalization': 1, 'ad populum': 1, 'false causality': 1, 'fallacy of logic': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 14
+(1) William Dembski argues that modern biology supports the idea that there is an intelligent designer who created life.
+(2) Dembski would say that because he’s religious.
+Therefore:
+(3) Modern biology doesn’t support intelligent design ad hominem
+Not tipping your waiter is like stealing money right out of someone's wallet. fallacy of logic
+Shamus pointed a drunken finger at Sean and asked him to explain how so many people could believe in leprechauns if they're only a silly old superstition. Sean, however, had had a few too many Guinness himself and fell off his chair. ad populum
+We cannot approve of this recycling idea. It was thought of by a bunch of hippie communist weirdos. ad hominem
+That lady had a rough day today. She woke up late, she was not able to eat breakfast, she missed the train and was late for work. My heart aches for this poor lady. appeal to emotion
+Counter({'ad hominem': 2, 'fallacy of logic': 1, 'ad populum': 1, 'appeal to emotion': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 15
+"You can't give me a D because I'm an A student!" circular reasoning
+Filthy and polluting coal should be banned. circular reasoning
+My opponent raises a good point, but can we really trust him? I mean, he moved to this town only two years ago, and everyone knows that his wife left him. ad hominem
+If you choose not to administer triple antibiotic coverage for this patient with severe and extensive burns, you will be held responsible for any infectious complications that might eventually arise. appeal to emotion
+One of our clients doubled their conversions after changing all their landing page text to bright red. Therefore, changing all text to red is a proven way to double conversions. faulty generalization
+Counter({'circular reasoning': 2, 'ad hominem': 1, 'appeal to emotion': 1, 'faulty generalization': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 16
+"I can't trust that doctor's advice on how to raise my child. He has never been a mother." ad hominem
+When Donald Trump called Hillary Clinton “Killary” to discredit her and her reputation as a presidential candidate, he committed which logical fallacy? ad hominem
+Water fluoridation affects the brain. Citywide, student’s test scores began to drop five months after fluoridation began. false causality
+Oh please, what do you know about labor laws? You don't even have a job. ad hominem
+Circular reasoning occurs when someone makes an argument in which both the premises and the conclusion have to rely on the truthfulness of the other. circular reasoning
+Counter({'ad hominem': 3, 'false causality': 1, 'circular reasoning': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 17
+Nobody in their right mind would trust that guy. I mean, look at him! ad hominem
+Children who play violent video games act more violently than those who don’t. false causality
+use of people's desire to be part of the group to convince them ad populum
+"Everytime I wash my car it rains; therefore, washing my car makes it rain." false causality
+fallacy suggesting that because everyone believes something or does something, it must be valid, accurate, or effective. ad populum
+Counter({'false causality': 2, 'ad populum': 2, 'ad hominem': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 18
+If we legalize pot, the next thing you know people will want to legalize meth and heroin. faulty generalization
+JOHN F. KENNEDY: I'm not satisfied when the United States had last year the lowest rate of economic growth of any major industrialized society in the world… (from opening statement)
+RICHARD NIXON: We heard tonight, for example, the statement made that our growth in national product last year was the lowest of any industrial nation in the world. Now last year, of course, was 1958. That happened to be a recession year. But when we look at the growth of G.N.P. this year, a year of recovery, we find that it's six and nine-t faulty generalization
+"I am not unmindful that some of you have come here out of great trials and tribulations. Some of you have come fresh from narrow jail cells. And some of you have come from areas where your quest -- quest for freedom left you battered by the storms of persecution and staggered by the winds of police brutality. You have been the veterans of creative suffering. Continue to work with the faith that unearned suffering is redemptive. Go back to Mississippi, go back to Alabama, go back to South Carolina, go back to Georgia, go back to Louisiana, go back to the slums and ghettos of appeal to emotion
+I was assigned a personal trainer at the Rec, and he gave me a new workout program. But I don't have any confidence in his expertise, since he has obvious trouble controlling his own appetite. ad hominem
+Dean, the company you work for just filed for bankruptcy! How can I trust you with our money? faulty generalization
+Counter({'faulty generalization': 3, 'appeal to emotion': 1, 'ad hominem': 1})
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+prototype 19
+Jimmy isn’t at school today. He must be on a family trip. false causality
+Pointing to a fancy chart, Roger shows how temperatures have been rising over the past few centuries, whilst at the same time the numbers of pirates have been decreasing; thus pirates cool the world and global warming is a hoax. false causality
+She asserts that we need more military spending, but that is false, since she is only saying it because she is a Republican. ad hominem
+Salesman: This car gets better than average gas mileage and is one of the most reliable cars according to Consumer Reports.
+Will: I doubt it—you obviously just want to sell me that car.
+ ad hominem
+Bush was "determined to knock down Saddam Hussein" because of his "nuclear  bomb potential." false causality
+Counter({'false causality': 3, 'ad hominem': 2})
+
+all the labels in the prototypes
+cooccurence matrix
